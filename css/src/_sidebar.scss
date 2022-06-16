@@ -1,0 +1,43 @@
+
+
+.quarter.sidebar {
+	@include respond-to( $bp-m ) {
+		padding-top: 20px;
+		margin-right: 3%;
+		width: 21%;
+	}
+	
+	.widget-title {
+		font-size: 1em;
+		line-height: 1em;
+		padding: 3px;
+		border-bottom: 3px solid #ddd;
+	}
+
+	.widget_nav_menu {
+		padding-bottom: 25px;
+
+		ul {
+			list-style: none;
+			padding: 0;
+
+			li {
+				padding: 0;
+
+				a {
+					display: block;
+					padding: 4px;
+					border-bottom: 3px solid #eee;
+					color: #666;
+					transition: color 400ms ease-in-out;
+
+					&:hover {
+						text-decoration: none;
+						color: $green;
+					}
+				}
+			}
+		}
+	}
+}
+

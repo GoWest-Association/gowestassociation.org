@@ -1,0 +1,11 @@
+{
+    "devDependencies": {
+        "grunt": "latest",
+        "grunt-autoprefixer": "*",
+        "grunt-contrib-sass": "*",
+        "grunt-contrib-uglify": "*",
+        "grunt-contrib-watch": "*",
+        "magnific-popup": "*",
+        "matchdep": "*"
+    }
+}

@@ -1,0 +1,36 @@
+
+
+.buttons {
+	padding: 15px 0;
+}
+
+
+// general button styles
+.btn {
+	@include font;
+	opacity: 1;
+	border: 0;
+	padding: 10px 15px;
+	font-size: 17px;
+	line-height: 20px;
+	text-transform: uppercase;
+	transition: opacity 400ms ease-in-out;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-block;
+	text-align: center;
+	background-color: $grey;
+	color: white;
+	-webkit-appearance: none;
+	border-radius: 0;
+
+	&:hover {
+		text-decoration: none;
+		opacity: .8;
+	}
+
+	&.green {
+		background-color: $green;
+	}
+}
+

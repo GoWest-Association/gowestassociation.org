@@ -1,0 +1,119 @@
+
+
+.content-style {
+	ol, ul {
+		padding: 5px 0 5px 35px;
+
+		li {
+			padding: 3px 0;
+			line-height: 1.5em;
+		}
+	}
+
+	ul {
+		list-style-type: disc;
+	}
+
+	ol {
+		list-style-type: decimal;
+	}
+
+	blockquote {
+		padding: 0 25px;
+		@include font-italic;
+		font-size: 1.2em;
+		line-height: 1.5em;
+		color: $grey;
+		border-left: 3px solid lighten( $grey-light, 30% );
+		margin: 10px 0 10px 20px;
+	}
+
+	hr {
+		border: 0;
+		border-bottom: 3px solid lighten( $grey-light, 30% );
+		padding: 0;
+		margin: 10px 0;
+		
+		@include respond-to( $bp-s ) {
+			margin: 20px 0;
+		}
+		
+		@include respond-to( $bp-l ) {
+			margin: 30px 0;
+		}
+	}
+
+	.postmeta {
+		margin-top: 15px;
+		padding: 15px 0;
+		border-top: 1px solid #ccc;
+	}
+
+	.quiet {
+		color: #999;
+		font-style: italic;
+
+		a {
+			color: #777;
+		}
+	}
+
+	table {
+		width: 100%;
+
+		tr {
+			td {
+				vertical-align: top;
+				padding: 6px 10px;
+			}
+		}
+	}
+}
+
+
+.container {
+	min-width: 320px;
+	max-width: 1450px;
+	margin: 0 auto;
+	background: white;
+	box-shadow: 0 0 50px rgba( $grey-light, .4 );
+	border: 1px solid rgba( $grey-light, .6 );
+	border-top: 0;
+	border-bottom: 0;
+	z-index: 100;
+}
+
+
+.wrap {
+	max-width: 1450px;
+	margin: 0 auto;
+}
+
+
+.content-wide {
+	@include clearfix;
+	@extend .content-style;
+	@include padding;
+
+	@include respond-to( $bp-xl ) {
+		padding-top: 40px;
+		padding-bottom: 60px;
+	}
+
+	.quarter, .three-quarter {
+		padding: 0;
+	}
+
+	@include respond-to( $bp-m ) {
+		.quarter {
+			width: 23%;
+			margin: 0 2% 0 0;
+		}
+
+		.three-quarter {
+			width: 75%;
+			margin: 0;
+		}
+	}
+}
+

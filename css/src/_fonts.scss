@@ -1,0 +1,35 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;1,600&family=Montserrat:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+
+
+@mixin font {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 300;
+}
+
+@mixin font-italic {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 300;
+	font-style: italic;
+}
+
+@mixin font-bold {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+}
+
+@mixin font-bold-italic {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 700;
+	font-style: italic;
+}
+
+@mixin font-title {
+	font-family: "Josefin Sans", sans-serif;
+	font-weight: 600;
+
+	em {
+		font-style: italic;
+	}
+}
