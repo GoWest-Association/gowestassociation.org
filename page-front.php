@@ -52,7 +52,7 @@ get_header();
 		</div>
 	</div>
 
-	<div class="content-wide front-columns grey">
+	<div class="content-wide front-columns">
 		<?php the_stats(); ?>
 	</div>
 

@@ -1,6 +1,39 @@
 
 
 .stats {
+	.stat {
+		border: 2px solid $blue;
+		padding: 20px;
+		text-align: center;
+
+		h3 {
+			text-transform: uppercase;
+			font-size: 1.4em;
+		}
+	}
 	
+	@include respond-to( $bp-s ) {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -2% -2% 0;
+
+		.stat {
+			flex: 1;
+			flex-basis: 48%;
+			margin: 0 2% 2% 0;
+		}
+	}
+	
+	@include respond-to( $bp-l ) {
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -2% 0 0;
+
+		.stat {
+			flex: 1;
+			flex-basis: 1;
+			margin: 0 2% 0 0;
+		}
+	}
 }
 
