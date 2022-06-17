@@ -1,0 +1,282 @@
+
+
+.event {
+	.event-header {
+		@include respond-to( 600px ) {
+			display: flex;
+  		}
+
+		.event-thumbnail {
+			background: url(../img/bg-page-header.webp) center center no-repeat;
+			background-size: cover;
+			min-height: 150px;
+
+			@include respond-to( 600px ) {
+				flex: 1;
+				flex-basis: 40%;
+			}
+
+			@include respond-to( 768px ) {
+				flex: 1;
+				flex-basis: 20%;
+				min-height: 250px;
+			}
+		}
+	}
+
+	.event-info {
+		h4 {
+			padding: 10px 0 5px 0;
+			font-size: 1.4em;
+		}
+
+		p {
+			padding: 5px 0;
+		}
+
+		.event-date, .event-price, .event-location, .event-people, .event-ad, .event-registration {
+			padding: 10px 0 25px 0;
+		}
+
+		.event-ad {
+			img {
+				max-width: 400px;
+
+				@include respond-to( 768px ) {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+}
+
+
+.month-nav {
+	padding: 10px;
+	background: $grey-dark;
+	color: white;
+	text-decoration: none;
+	margin-bottom: 10px;
+	float: left;
+	cursor: pointer;
+
+	&.next {
+		float: right;
+	}
+
+	&:hover {
+		background: lighten( $grey, 10% );
+		color: white;
+	}
+}
+
+
+.calendar-month-title {
+	text-align: center;
+	font-size: 1.1em;
+
+	@include respond-to( 600px ) {
+		font-size: 1.6em;
+	}
+
+	@include respond-to( 900px ) {
+		font-size: 2.2em;
+	}
+}
+
+
+.calendar {
+	border-top: 1px solid lighten( $grey, 15% );
+	border-left: 1px solid lighten( $grey, 15% );
+	width: 100%;
+
+	td {
+		width: 14.58%;
+		padding: 4px;
+		text-align: center;
+		border-right: 1px solid lighten( $grey, 15% ) !important;
+		border-bottom: 1px solid lighten( $grey, 15% ) !important;
+
+		&.calendar-day-head {
+			background: #ddd;
+
+			span {
+				display: none;
+				
+				@include respond-to( 768px ) {
+					display: inline;
+				}
+			}
+		}
+
+		&.calendar-day:hover {
+			background: #eee;
+		}
+
+		&.calendar-day.current-day {
+			background: #f5f5f5;
+
+			&:hover {
+				background: #eee;
+			}
+		}
+
+		.day-number {
+			text-align: right;
+		}
+
+		.day-events {
+			display: none;
+			@include font-bold;
+			font-size: 13px;
+
+			@include respond-to( 768px ) {
+				display: block;
+				min-height: 100px;
+
+				.event-time, .event-description {
+					display: none;
+				}
+			}
+
+			a {
+				@include font-bold;
+				font-size: 13px;
+			}
+			
+			.event {
+				padding: 7px 0;
+				border-top: 1px solid lighten( $grey, 40% );
+			}
+
+			.event-title {
+				line-height: 20px;
+			}
+
+		}
+	}
+}
+
+
+.day-event-list {
+	display: block;
+	padding: 20px 0;
+
+	@include respond-to( 768px ) {
+		display: none;
+	}
+
+	.event-title {
+		@include font-bold;
+		font-size: 1.2em;
+		margin-top: 8px;
+	}
+
+	.event-time {
+		color: $grey;
+		font-style: italic;
+	}
+
+	.event-description {
+		font-size: .85em;
+		line-height: 1.4em;
+	}
+}
+
+
+.event-list {
+	.event {
+		position: relative;
+		padding-left: 70px;
+		padding-bottom: 20px;
+		min-height: 75px;
+
+		@include respond-to( 1024px ) {
+			padding-left: 100px;
+			padding-bottom: 30px;
+			min-height: 100px;
+		}
+
+		.event-date {
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: 3px solid rgba( $grey, .3 );
+			color: $navy;
+			width: 64px;
+			height: 64px;
+			padding: 10px 0 0 0;
+			border-radius: 50%;
+
+			@include respond-to( 1024px ) {
+				width: 92px;
+				height: 92px;
+				padding: 10px 0 0 0;
+			}
+
+			.event-date-month {
+				@include font-title;
+				text-align: center;
+				display: block;
+				text-transform: uppercase;
+				font-size: 14px;
+				line-height: 14px;
+
+				@include respond-to ( 1024px ) {
+					font-size: 20px;
+					line-height: 20px;
+				}
+			}
+
+			.event-date-day {
+				@include font-title;
+				text-align: center;
+				display: block;
+				font-size: 30px;
+				line-height: 30px;
+
+				@include respond-to( 1024px ) {
+					font-size: 50px;
+					line-height: 50px;
+				}
+			}
+		}
+
+		h3 {
+			@include font-title;
+			text-transform: uppercase;
+			padding: 0;
+			font-size: 1.1em;
+			line-height: 1.3em;
+
+			a {
+				color: $navy;
+			}
+		}
+
+		.event-location {
+			opacity: .7;
+			padding: 4px 0;
+		}
+
+		.event-excerpt {
+			font-size: .75em;
+		}
+	}
+
+	.home & {
+		padding: 20px 0 0 10px;
+
+		@include respond-to( $bp-m ) {
+			display: flex;
+		}
+
+		.event {
+			@include respond-to( $bp-m ) {
+				flex: 1;
+				padding-right: 20px;
+			}
+		}
+	}
+}
+

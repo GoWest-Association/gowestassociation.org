@@ -24,5 +24,9 @@ $colors = array(
 
 
 // include utility functions
-require_multi( 'core', 'admin', 'metabox', 'images', 'paginate', 'metabox', 'showcase', 'button', 'icons', 'stats' );
+require_multi( 
+    'core', 'admin', 'metabox', 
+    'post-type/people', 'post-type/event', 'post-type/job', 'post-type/partner',
+    'images', 'paginate', 'metabox', 'showcase', 'button', 'icons', 'stats' 
+);
 
