@@ -7,6 +7,8 @@
 	transition: height 300ms ease-in-out;
 	background: #eee;
 	z-index: 0;
+	border-top: 10px solid $grey-light;
+	border-bottom: 5px solid $grey-light;
 
 	.slide {
 		position: absolute;

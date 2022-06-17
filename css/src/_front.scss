@@ -1,0 +1,95 @@
+
+
+.front-columns {
+	&.grey {
+		background-color: $grey-light;
+	}
+
+	@include respond-to( $bp-m ) {
+		display: flex;
+
+		.front-column-content {
+			flex: 1;
+			flex-basis: 65%;
+			padding-right: 3%;
+		}
+
+		.front-column-buttons {
+			flex: 1;
+			flex-basis: 35%;
+		}
+	}
+
+	@include respond-to( $bp-l ) {
+		display: flex;
+
+		.front-column-content {
+			flex: 1;
+			flex-basis: 75%;
+			padding-right: 3%;
+		}
+
+		.front-column-buttons {
+			flex: 1;
+			flex-basis: 25%;
+
+			.btn {
+				display: block;
+			}
+		}
+	}
+
+	.front-column-buttons {
+		.btn {
+			display: block;
+			margin: 20px 0;
+			padding: 15px;
+		}
+	}
+}
+
+
+.front-events {
+	background: $grey-light;
+}
+
+
+.front-events-link {
+	float: right;
+	margin: 0 0 15px 15px;
+}
+
+
+
+.front-states {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 20px;
+	background: $grey-light;
+
+	@include respond-to( $bp-l ) {
+		flex-wrap: nowrap;
+		padding: 40px;
+	}
+
+	.front-state {
+		flex: 1;
+		flex-basis: 50%;
+		text-align: center;
+
+		@include respond-to( $bp-s ) {
+			flex-basis: 66.6666%;
+		}
+
+		@include respond-to( $bp-l ) {
+			flex-basis: 1;
+		}
+
+		h5 {
+			@include font;
+			text-transform: uppercase;
+			padding: 10px 0;
+		}
+	}
+}
+

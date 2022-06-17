@@ -10,14 +10,59 @@ get_header();
 
 	<?php the_showcase(); ?>
 	
-	<div class="content-wide home-bottom">
-		<?php
-		if ( have_posts() ) :
-			while ( have_posts() ) : the_post(); 
-				the_content();
-			endwhile;
-		endif;
-		?>
+	<div class="content-wide">
+		<div class="front-columns">
+			<div class="front-column-content">
+			<?php
+			if ( have_posts() ) :
+				while ( have_posts() ) : the_post(); 
+					the_content();
+				endwhile;
+			endif;
+			?>
+			</div>
+			<div class="front-column-buttons">
+				<?php print get_snippet( 'home-buttons-associations' ); ?>
+			</div>
+		</div>
+		<?php the_icons(); ?>
+	</div>
+
+	<div class="content-wide front-events grey">
+		<a href="#"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-calendar.png" class="front-events-link" /></a>
+		<?php print get_snippet( 'home-events' ); ?>
+
+	</div>
+
+	<div class="content-wide front-columns">
+		<div class="front-column-content">
+			<?php print get_snippet( 'home-columns-foundations' ); ?>
+		</div>
+		<div class="front-column-buttons">
+			<?php print get_snippet( 'home-buttons-foundations' ); ?>
+		</div>
+	</div>
+
+	<div class="content-wide front-columns grey">
+		<div class="front-column-content">
+			<?php print get_snippet( 'home-columns-service-corps' ); ?>
+		</div>
+		<div class="front-column-buttons">
+			<?php print get_snippet( 'home-buttons-service-corps' ); ?>
+		</div>
+	</div>
+
+	<div class="content-wide front-columns grey">
+		<?php the_stats(); ?>
+	</div>
+
+	<div class="front-states">
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-az.png"><h5>Arizona</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-co.png"><h5>Colorado</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-id.png"><h5>Idaho</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-or.png"><h5>Oregon</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-wa.png"><h5>Washington</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-wy.png"><h5>Wyoming</h5></div>
 	</div>
 
 <?php

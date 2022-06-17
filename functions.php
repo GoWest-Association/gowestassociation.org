@@ -13,6 +13,16 @@ function require_multi( $files ) {
 }
 
 
+// the colors used in the theme
+$colors = array(
+    'green' => "Green",
+    'blue' => "Blue",
+    'sky' => "Sky",
+    'navy' => "Navy",
+    'orange' => "Orange",
+);
+
+
 // include utility functions
-require_multi( 'core', 'admin', 'metabox', 'images', 'paginate', 'metabox', 'showcase', 'button', 'calculator' );
+require_multi( 'core', 'admin', 'metabox', 'images', 'paginate', 'metabox', 'showcase', 'button', 'icons', 'stats' );
 
