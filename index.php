@@ -3,7 +3,12 @@
 Home/catch-all template
 */
 
+// set the newsletter global
+$is_newsletter = true;
+
 get_header(); 
+
+the_showcase();
 
 ?>
 
@@ -12,8 +17,6 @@ get_header();
 		<?php
 		if ( is_search() ) {
 			?><h1 class="post-title">Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
-		} else {
-			?><h1 class="post-title">Our Blog</h1><?php
 		}
 
 		if ( have_posts() ) : 
