@@ -61,6 +61,24 @@ the_showcase();
 				}
 				?>
 			</div>
+			<div class="title-bar navy"><h3>More News</h3></div>
+			<div class="right-column-inner">
+
+				<ul class="article-list">
+				<?php
+				foreach ( $posts as $key => $a_post ) {
+					if ( $key >= 2 ) {  ?>
+					<?php
+					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
+					?>
+					<?php
+					}
+				}
+				?>
+				</ul>
+				<p><?php print do_shortcode( '[button url="/news" class="green small"]View all[/button]' ); ?></p>
+
+			</div>
 		</div>
 	</div><!-- #primary -->
 
