@@ -41,5 +41,20 @@ jQuery(document).ready(function($){
 	$( '.lightbox' ).magnificPopup({ 'type': 'image' });
 
 
+	// handle icon clicks
+	$( '.icons .icon' ).on( 'click', function(){
+		var icon = $(this);
+		console.log( icon.attr( 'data-href' ) );
+		if ( icon.hasClass( 'lightbox-icon' ) ) {
+			$.magnificPopup.open({
+				items: {
+					src: icon.attr( 'data-href' )
+				},
+				type: 'iframe'
+			});
+		}
+	});
+
+
 });
 

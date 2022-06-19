@@ -16,7 +16,10 @@ the_showcase();
 		<div class="sidebar">
 			<div class="widget">
 				<h4>Browse by Category</h4>
-				<?php wp_dropdown_categories(); ?>
+				<?php wp_dropdown_categories( array(
+					'show_option_all' => 'Select Category',
+					'orderby' => 'name'
+				) ); ?>
 			</div>
 			<div class="widget">
 				<h4>Browse by Date</h4>
@@ -36,34 +39,27 @@ the_showcase();
 			</div>
 		</div>
 		<div class="right-column">
-			<div class="right-column-inner">
-
 			<?php
-			if ( is_search() ) {
-				?><h1 class="post-title">Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
-			}
-
-			if ( have_posts() ) : 
-
-				// Start the Loop.
-				while ( have_posts() ) : the_post(); 
-					?>
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<?php the_excerpt(); ?>
-				<p class="quiet">Posted by <?php print get_the_author_link() ?> in <?php print get_the_category_list( ', ' ) ?>.</p>
-				<hr />
-					<?php
-				endwhile;
-
-			else :
-
-				print "<p>There are currently no posts to list here.</p>";
-
-			endif;
+			$args = array( 'numberposts' => 6 );
+			$posts = get_posts( $args );
 			?>
-			
-			<?php paginate(); ?>
+			<div class="title-bar navy"><h3>Top Headlines</h3></div>
+			<div class="right-column-inner article-cards">
 
+				<?php
+				foreach ( $posts as $key => $a_post ) {
+					if ( $key < 2 ) {  ?>
+				<div class="article-card">
+					<?php
+					print get_the_post_thumbnail( $a_post->ID, array( 720, 480 ) );
+					print '<h4><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></h4>';
+					print '<p>' . get_the_excerpt( $a_post ) . '</p>';
+					?>
+				</div>
+					<?php
+					}
+				}
+				?>
 			</div>
 		</div>
 	</div><!-- #primary -->

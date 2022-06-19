@@ -19,6 +19,56 @@
 				}
 			}
 		}
-	}	
+	}
+}
+
+
+.page-template-page-newsletter {
+	.article-cards {
+		img {
+			margin-bottom: 20px; 
+		}
+
+		h4 {
+			@include font-bold;
+			font-size: 1em;
+			line-height: 1.3em;
+			text-transform: uppercase;
+		}
+
+		p {
+			font-size: .8em;
+		}
+
+		@include respond-to( $bp-l ) {
+			display: flex;
+			margin-right: -4%;
+
+			.article-card {
+				flex: 1;
+				margin-right: 4%;
+			}
+		}
+	}
+}
+
+
+.title-bar {
+	background: $navy;
+	padding: 10px 20px;
+
+	@include respond-to( $bp-m ) {
+		padding: 15px 30px 11px;
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding: 15px 40px 11px;
+	}
+
+	h3 {
+		color: white;
+		font-size: 1.1em;
+		text-transform: uppercase;
+	}
 }
 

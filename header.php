@@ -21,6 +21,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div class="container">
+<?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 <header>
 
 	<div class="wrap">
@@ -52,6 +53,6 @@
 	</nav>
 	
 </header>
-
+<?php } ?>
 <section class="content">
 	<a name="content"></a>
