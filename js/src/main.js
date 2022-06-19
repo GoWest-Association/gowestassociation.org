@@ -4,11 +4,6 @@
 jQuery(document).ready(function($){
 
 
-	// remove height and width from images inside
-	var fluid_images = $( '.content img' );
-	fluid_images.removeAttr( 'width' ).removeAttr( 'height' );
-
-
 	// show/hide menus when they click the toggler
 	var menu = $( 'header nav' );
 	var menu_toggle = menu.find( 'button.menu-toggle' );

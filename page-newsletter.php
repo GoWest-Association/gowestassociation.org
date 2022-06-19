@@ -18,7 +18,9 @@ the_showcase();
 				<h4>Browse by Category</h4>
 				<?php wp_dropdown_categories( array(
 					'show_option_all' => 'Select Category',
-					'orderby' => 'name'
+					'orderby' => 'name',
+					'value_field' => 'slug',
+					'class' => 'category-dropdown'
 				) ); ?>
 			</div>
 			<div class="widget">
@@ -67,16 +69,43 @@ the_showcase();
 				<ul class="article-list">
 				<?php
 				foreach ( $posts as $key => $a_post ) {
-					if ( $key >= 2 ) {  ?>
-					<?php
-					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
-					?>
-					<?php
+					if ( $key >= 2 ) { 
+						print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
 					}
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/news" class="green small"]View all[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/news/" class="green small"]View all[/button]' ); ?></p>
+
+			</div>
+			<div class="title-bar navy"><h3>Regional News</h3></div>
+			<div class="right-column-inner">
+
+				<ul class="article-list">
+				<?php
+				$args = array( 'numberposts' => 3, 'category_name' => 'around-the-nw' );
+				$posts = get_posts( $args );
+				foreach ( $posts as $key => $a_post ) {
+					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
+				}
+				?>
+				</ul>
+				<p><?php print do_shortcode( '[button url="/category/around-the-nw/" class="green small"]View all[/button]' ); ?></p>
+
+			</div>
+			<div class="title-bar navy"><h3>Compliance News</h3></div>
+			<div class="right-column-inner">
+
+				<ul class="article-list">
+				<?php
+				$args = array( 'numberposts' => 3, 'category_name' => 'compliance' );
+				$posts = get_posts( $args );
+				foreach ( $posts as $key => $a_post ) {
+					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
+				}
+				?>
+				</ul>
+				<p><?php print do_shortcode( '[button url="/category/compliance/" class="green small"]View all[/button]' ); ?></p>
 
 			</div>
 		</div>
