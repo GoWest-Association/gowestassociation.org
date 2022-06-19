@@ -44,7 +44,6 @@ jQuery(document).ready(function($){
 	// handle icon clicks
 	$( '.icons .icon' ).on( 'click', function(){
 		var icon = $(this);
-		console.log( icon.attr( 'data-href' ) );
 		if ( icon.hasClass( 'lightbox-icon' ) ) {
 			$.magnificPopup.open({
 				items: {
@@ -52,6 +51,8 @@ jQuery(document).ready(function($){
 				},
 				type: 'iframe'
 			});
+		} else {
+			location.href = icon.attr( 'data-href' );
 		}
 	});
 
