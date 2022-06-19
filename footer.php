@@ -15,7 +15,7 @@ $admin_email = get_option( 'admin_email' );
 	
 	<?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 	<footer class="footer">
-		<img src="<?php bloginfo( "template_url" ); ?>/img/logo-white.png" alt="GoWest Association" />
+		<a href="/"><img src="<?php bloginfo( "template_url" ); ?>/img/logo-white.png" alt="GoWest Association" /></a>
 		<?php print apply_filters( 'the_content', get_option( 'pure_address' ) ); ?>
 		<p class="copyright">Copyright &copy; <?php print date( 'Y' ) ?> GoWest Credit Union Association. All Rights Reserved.</p>
 	</footer>
