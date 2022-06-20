@@ -119,6 +119,8 @@
 
 
 .two-column {
+	border-top: 15px solid lighten( $grey, 40% );
+
 	@include respond-to( $bp-m ) {
 		display: flex;
 	}
@@ -175,11 +177,22 @@
 				padding: 40px;
 			}
 
+			h1 {
+				@include font-bold;
+				font-size: 1.7em;
+				line-height: 1.3em;
+				color: $navy;
+			}
+
 			h2 {
 				@include font-bold-italic;
 				font-size: 1.7em;
 				line-height: 1.3em;
 				color: $navy;
+			}
+
+			.featured-image {
+				padding: 15px 0;
 			}
 		}
 	}

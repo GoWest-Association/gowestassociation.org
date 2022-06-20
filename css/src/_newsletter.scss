@@ -81,3 +81,39 @@
 	}
 }
 
+
+.widget_categories {
+	position: relative;
+	margin-top: 30px;
+
+	&:before {
+		@include font-bold;
+		position: absolute;
+		top: -30px;
+		content: "Browse By Category";
+		color: $navy;
+		text-transform: uppercase;
+	}
+}
+
+
+.widget_archive {
+	position: relative;
+	margin-top: 30px;
+
+	label {
+		display: none;
+	}
+
+	&:before {
+		@include font-bold;
+		position: absolute;
+		top: -30px;
+		content: "Browse By Date";
+		color: $navy;
+		text-transform: uppercase;
+	}
+}
+
+
+

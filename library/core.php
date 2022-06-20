@@ -20,7 +20,7 @@ register_nav_menus( array(
 
 // register a generic sidebar.
 register_sidebar( array(
-	'id' => 'sidebar-generic',
+	'id' => 'generic',
 	'name'=> 'General Sidebar',
     'before_widget' => '<div class="widget %2$s">',
     'after_widget' => '</div>',
@@ -28,7 +28,7 @@ register_sidebar( array(
     'after_title' => '</h4></div>',
 ) );
 register_sidebar( array(
-	'id' => 'newsletter-sidebar',
+	'id' => 'newsletter',
 	'name'=> 'Newsletter Sidebar',
     'before_widget' => '<div class="widget %2$s">',
     'after_widget' => '</div>',
