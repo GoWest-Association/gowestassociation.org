@@ -51,7 +51,7 @@
 
 	.quiet, .post-date {
 		color: #999;
-		font-style: italic;
+		@include font-italic;
 		font-size: .85em;
 
 		a {
