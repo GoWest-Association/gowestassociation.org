@@ -20,7 +20,7 @@
 
 </head>
 <body <?php body_class(); ?>>
-<div class="container">
+<div class="container <?php print ( isset( $_REQUEST['notemplate'] ) ? 'notemplate' : '' ); ?>">
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 <header>
 
