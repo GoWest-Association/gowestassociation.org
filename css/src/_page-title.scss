@@ -1,0 +1,29 @@
+
+
+.page-title {
+	background: $navy;
+	padding: 20px 30px;
+
+	@include respond-to( $bp-m ) {
+		padding: 20px 40px;
+	}
+
+	@include respond-to( $bp-l ) {
+		padding: 20px 50px;
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding: 20px 60px;
+	}
+
+	h1 {
+		color: white;
+		text-transform: uppercase;
+		font-size: 1.4em;
+	}
+
+	&.green { background: $green; }
+	&.blue { background: $blue; }
+	&.sky { background: $sky; }
+}
+

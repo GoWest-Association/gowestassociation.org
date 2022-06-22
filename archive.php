@@ -6,28 +6,32 @@
 get_header(); 
 
 ?>
+	
+	<div class="page-title">
+		<h1>Archive</h1>
+	</div>
+	<div class="content-wide article-cards" role="main">
 
-	<div class="content-wide" role="main">
+	<?php 
+	if ( have_posts() ) : 
 
-		<?php 
-		if ( have_posts() ) : 
+		// Start the Loop.
+		while ( have_posts() ) : the_post(); 
+			?>
+		<div class="article-card">
+			<?php the_post_thumbnail( array( 720, 480 ) ); ?>
+			<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+			<?php the_excerpt(); ?>
+		</div>
+			<?php
+		endwhile;
 
-			// Start the Loop.
-			while ( have_posts() ) : the_post(); 
-				?>
-				<hr />
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<?php the_excerpt(); ?>
-				<p class="quiet">Posted by <?php print get_the_author_link() ?> in <?php print get_the_category_list( ', ' ) ?>.</p>
-				<?php
-			endwhile;
+	else :
 
-		else :
+		print "<p>There are currently no posts to list here.</p>";
 
-			print "<p>There are currently no posts to list here.</p>";
-
-		endif;
-		?>
+	endif;
+	?>
 
 	</div><!-- #primary -->
 
