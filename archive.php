@@ -3,6 +3,8 @@
  * The template for displaying Archive pages
  */
 
+$is_newsletter = true;
+
 get_header(); 
 
 
