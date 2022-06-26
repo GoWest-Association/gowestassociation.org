@@ -46,7 +46,7 @@ get_header();
 		</div>
 	</div>
 
-	<div class="content-wide front-columns grey">
+	<div class="content-wide front-columns bg-kraken-hatch grey">
 		<div class="front-column-content">
 			<?php print get_snippet( 'home-columns-service-corps' ); ?>
 		</div>
