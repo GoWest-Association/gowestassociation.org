@@ -2,14 +2,22 @@
 
 footer {
 	@include clearfix;
-	@include padding;
-	background: $navy;
+	background: $navy url(../img/bg-waves-green.png) center center no-repeat;
 	color: white;
 	line-height: 1.5em;
-	text-align: center;
+	text-align: center;	
+
+	padding: 30px;
+	@include respond-to( $bp-m ) { padding: 50px 40px 60px; }
+	@include respond-to( $bp-l ) { padding: 55px 50px 70px; }
+	@include respond-to( $bp-xl ) { padding: 70px 60px 100px; }
 
 	a {
 		color: white;
+	}
+
+	.address {
+		padding-top: 20px;
 	}
 
 	.copyright {

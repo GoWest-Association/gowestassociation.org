@@ -25,16 +25,19 @@ get_header();
 				<?php print get_snippet( 'home-buttons-associations' ); ?>
 			</div>
 		</div>
+	</div>
+
+	<div class="content-wide icons-container grey">
 		<?php the_icons(); ?>
 	</div>
 
-	<div class="content-wide front-events grey">
+
+	<div class="content-wide front-events">
 		<a href="#"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-calendar.png" class="front-events-link" /></a>
 		<?php print get_snippet( 'home-events' ); ?>
-
 	</div>
 
-	<div class="content-wide front-columns">
+	<div class="content-wide front-columns bg-orange-circle">
 		<div class="front-column-content">
 			<?php print get_snippet( 'home-columns-foundations' ); ?>
 		</div>

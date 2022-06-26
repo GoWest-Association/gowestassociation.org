@@ -1,10 +1,6 @@
 
 
 .front-columns {
-	&.grey {
-		background-color: $grey-light;
-	}
-
 	@include respond-to( $bp-m ) {
 		display: flex;
 
@@ -50,7 +46,24 @@
 
 
 .front-events {
-	background: $grey-light;
+	background: $navy url(../img/bg-waves-green.png) top center no-repeat;
+	background-size: cover;
+	color: white;
+
+	.event-list {	
+		.event {
+			.event-date {
+				border-color: $green;
+				color: white;
+			}
+
+			h3 {
+				a { 
+					color: white;
+				}
+			}
+		}
+	}
 }
 
 
@@ -93,3 +106,7 @@
 	}
 }
 
+
+.bg-orange-circle {
+	background: url(../img/bg-orange-circle.png) right center no-repeat;
+}
