@@ -24,35 +24,33 @@
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 <header>
 
-	<div class="wrap">
-	
-		<div class="logo">
-			<?php if ( is_newsletter() ) { ?>
-			<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-			<?php } else { ?>
-			<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-			<?php } ?>
-		</div>
-
-		<?php if ( is_page_template( 'page-front.php' ) ) { ?>
-		<div class="lockup">
-			<div class="logo">
-				<img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions.png" alt="GoWest Solutions" />
-			</div>
-			<div class="logo">
-				<img src="<?php bloginfo( "template_url" ) ?>/img/logo-foundation.png" alt="GoWest Foundation" />
-			</div>
-		</div>
+	<div class="logo">
+		<?php if ( is_newsletter() ) { ?>
+		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+		<?php } else { ?>
+		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 		<?php } ?>
-
 	</div>
 
-	<nav>
-		<button class="menu-toggle">Show/hide Menu</button>
-		<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav-menu' ) ); ?>
-	</nav>
+	<?php if ( is_page_template( 'page-front.php' ) ) { ?>
+	<div class="lockup">
+		<div class="logo">
+			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions.png" alt="GoWest Solutions" />
+		</div>
+		<div class="logo">
+			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-foundation.png" alt="GoWest Foundation" />
+		</div>
+	</div>
+	<?php } ?>
+
 	
 </header>
+
+<nav class="main-menu-container">
+	<button class="menu-toggle">Show/hide Menu</button>
+	<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav-menu' ) ); ?>
+</nav>
+
 <?php } ?>
 <section class="content">
 	<a name="content"></a>
