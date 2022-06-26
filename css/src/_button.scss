@@ -37,12 +37,16 @@
 		background-color: $navy;
 	}
 
-	&.blue {
+	&.blue, &.kraken {
 		background-color: $blue;
 	}
 
 	&.orange {
 		background-color: $orange;
+	}
+
+	&.fulvous {
+		background-color: $fulvous;
 	}
 }
 

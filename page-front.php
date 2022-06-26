@@ -60,12 +60,12 @@ get_header();
 	</div>
 
 	<div class="front-states">
-		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-az.png"><h5>Arizona</h5></div>
-		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-co.png"><h5>Colorado</h5></div>
-		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-id.png"><h5>Idaho</h5></div>
-		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-or.png"><h5>Oregon</h5></div>
-		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-wa.png"><h5>Washington</h5></div>
-		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-wy.png"><h5>Wyoming</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-az.png?v=1"><h5>Arizona</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-co.png?v=1"><h5>Colorado</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-id.png?v=1"><h5>Idaho</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-or.png?v=1"><h5>Oregon</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-wa.png?v=1"><h5>Washington</h5></div>
+		<div class="front-state"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-state-wy.png?v=1"><h5>Wyoming</h5></div>
 	</div>
 
 <?php
