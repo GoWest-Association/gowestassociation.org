@@ -33,7 +33,7 @@ get_header();
 
 
 	<div class="content-wide front-events">
-		<a href="#"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-calendar.png" class="front-events-link" /></a>
+		<a href="/events/?notemplate" class="lightbox-iframe"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-calendar.png" class="front-events-link" /></a>
 		<?php print get_snippet( 'home-events' ); ?>
 	</div>
 

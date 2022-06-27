@@ -18,10 +18,7 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category'] != 0 ) 
 	</div>
 	
 	<div id="content" class="wrap content-wide" role="main">
-		<div class="events-content">
-			<!--<?php print do_shortcode( '[snippet slug="events-calendar-download"]' ); ?>-->
-		</div>
-
+		<!--
 		<h3>Search All Events</h3>
 		<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
 			<input type="text" value="<?php print ( isset( $_REQUEST['s'] ) ? strip_tags( $_REQUEST['s'] ) : '' ) ?>" name="s" id="s" placeholder="Search">
@@ -29,6 +26,7 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category'] != 0 ) 
 			<input type="submit" id="searchsubmit" value="Search Events" class="btn-arrow">
 		</form>
 		<hr>
+		-->
 		<?php
 		if ( is_search() ) {
 
@@ -51,6 +49,7 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category'] != 0 ) 
 
 		} else {
 			?>
+			<!--
 			<h3>Browse Events</h3>
 			<p><strong>Filter by Event Type:</strong> <?php filter_by_event_type(); ?></p>
 			<br>
@@ -64,7 +63,9 @@ if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category'] != 0 ) 
 			// get URL parameters and default to current month.
 			$month = ( isset( $_REQUEST['mo'] ) ? $_REQUEST['mo'] : date( "n" ) );
 			$year = ( isset( $_REQUEST['yr'] ) ? $_REQUEST['yr'] : date( "Y" ) );
-
+			?>
+			-->
+			<?php
 			// output month
 			show_month_events( $month, $year );
 		}

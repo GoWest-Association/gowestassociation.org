@@ -13,17 +13,9 @@ get_header();
 			$header_color = ( has_cmb_value( 'event_color' ) ? get_cmb_value( 'event_color' ) : 'green' );
 			?>
 
-	<?php
-	if ( has_showcase() ) {
-		the_showcase(); 
-	} else {
-		?>
-		<div class="page-title bg-<?php print $header_color ?>">
-			<h1><?php print $header_title ?></h1>
-		</div>
-		<?php
-	}
-	?>
+	<div class="page-title bg-<?php print $header_color ?>">
+		<h1><?php print $header_title ?></h1>
+	</div>
 
 	<div class="two-column event" role="main">
 		<div class="sidebar event-info">
@@ -167,9 +159,11 @@ get_header();
 		</div>
 	</div><!-- #content -->
 	
+	<!--
 	<div class="single-column">
-		<?php the_accordions(); ?>
+		<?php //the_accordions(); ?>
 	</div>
+	-->
 
 			<?php
 		endwhile;
