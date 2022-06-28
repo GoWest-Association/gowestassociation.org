@@ -45,13 +45,6 @@
 }
 
 
-.bg-gwlogo {
-	background: url(../img/bg-gwlogo.png) right center no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-}
-
-
 .front-events {
 	background: $navy url(../img/bg-waves-green.png) top center no-repeat;
 	background-size: cover;
@@ -122,3 +115,11 @@
 .bg-kraken-hatch {
 	background: url(../img/bg-kraken-hatch.png) left center no-repeat;
 }
+
+
+.bg-gwlogo {
+	background: url(../img/bg-gwlogo.png) right center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
