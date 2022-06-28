@@ -29,7 +29,17 @@
 	}
 	
 	@include respond-to( $bp-l ) {
-		display: flex;
+		flex-wrap: nowrap;
+		margin: 2% -2% 0 0;
+
+		.icon {
+			flex: 1;
+			flex-basis: 31.3333%;
+			margin: 0 2% 0 0;
+		}
+	}
+	
+	@include respond-to( $bp-xl ) {
 		flex-wrap: nowrap;
 		margin: 2% -2% 0 0;
 

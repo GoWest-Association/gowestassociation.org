@@ -10,7 +10,7 @@ get_header();
 
 	<?php the_showcase(); ?>
 	
-	<div class="content-wide">
+	<div class="content-wide bg-gwlogo">
 		<div class="front-columns">
 			<div class="front-column-content">
 			<?php
