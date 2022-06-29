@@ -50,7 +50,7 @@
 	}
 
 	.quiet, .post-date {
-		color: #999;
+		color: $grey;
 		@include font-italic;
 		font-size: .85em;
 
@@ -128,7 +128,7 @@
 
 
 .two-column {
-	border-top: 15px solid lighten( $grey, 40% );
+	border-top: 15px solid $grey;
 
 	@include respond-to( $bp-m ) {
 		display: flex;

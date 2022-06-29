@@ -3,7 +3,7 @@
 body {
 	@include font;
 	margin: 0;
-	color: $grey-dark;
+	color: darken( $grey-dark, 40% );
 	background: lighten( $grey-light, 30% );
 
 	font-size: 16px;
