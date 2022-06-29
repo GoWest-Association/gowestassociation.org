@@ -8,6 +8,22 @@ header {
 		text-align: center;
 	}
 
+	&.newsletter {
+		display: flex;
+
+		.logo {
+			flex: 1;
+
+			&.left {
+				text-align: left;
+			}
+
+			&.right {
+				text-align: right;
+			}
+		}
+	}
+
 	body.home & {
 		@include respond-to( 600px ) {
 			display: flex;

@@ -22,16 +22,19 @@
 <body <?php body_class(); ?>>
 <div class="container <?php print ( isset( $_REQUEST['notemplate'] ) ? 'notemplate' : '' ); ?>">
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
-<header>
+<header<?php print ( is_newsletter() ? ' class="newsletter"' : '' ); ?>>
 
-	<div class="logo">
-		<?php if ( is_newsletter() ) { ?>
-		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-		<?php } else { ?>
-		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-		<?php } ?>
+	<?php if ( is_newsletter() ) { ?>
+	<div class="logo left">
+		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
-
+	<div class="logo right">
+		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png?v=1" alt="<?php bloginfo( 'name' ); ?>"></a>
+	</div>
+	<?php } else { ?>
+	<div class="logo">
+		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+	</div>
 	<?php if ( is_page_template( 'page-front.php' ) ) { ?>
 	<div class="lockup">
 		<div class="logo">
@@ -42,6 +45,8 @@
 		</div>
 	</div>
 	<?php } ?>
+	<?php } ?>
+
 
 	
 </header>
