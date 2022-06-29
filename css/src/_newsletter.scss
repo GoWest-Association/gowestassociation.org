@@ -125,6 +125,14 @@
 		font-size: 1.1em;
 		text-transform: uppercase;
 	}
+
+	&.orange { background: $orange; }
+	&.green { background: $green; }
+	&.blue { background: $blue; }
+	&.sky { background: $sky; }
+	&.fulvous { background: $fulvous; }
+	&.grey { background: $grey; }
+	&.grey-dark { background: $grey-dark; }
 }
 
 

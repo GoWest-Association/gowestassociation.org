@@ -14,38 +14,14 @@ the_showcase();
 
 	<div class="two-column" role="main">
 		<div class="sidebar">
-			<div class="widget">
-				<h4>Browse by Category</h4>
-				<?php wp_dropdown_categories( array(
-					'show_option_all' => 'Select Category',
-					'orderby' => 'name',
-					'value_field' => 'slug',
-					'class' => 'category-dropdown'
-				) ); ?>
-			</div>
-			<div class="widget">
-				<h4>Browse by Date</h4>
-				<select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;">
-					<option value=""><?php esc_attr( _e( 'Select Month', 'textdomain' ) ); ?></option> 
-					<?php wp_get_archives( array( 'type' => 'monthly', 'format' => 'option', 'show_post_count' => 1 ) ); ?>
-				</select>
-			</div>
-			<div class="widget">
-				<?php wp_nav_menu( 'newsletter' ); ?>
-			</div>
-			<div class="widget">
-				<?php print do_shortcode( "[events limit=2 /]" ); ?>
-			</div>
-			<div class="widget">
-				<?php do_ad_group( 'anthem-news' ); ?>
-			</div>
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
 		<div class="right-column">
 			<?php
 			$args = array( 'numberposts' => 6 );
 			$posts = get_posts( $args );
 			?>
-			<div class="title-bar navy"><h3>Top Headlines</h3></div>
+			<div class="title-bar orange"><h3>Top Headlines</h3></div>
 			<div class="right-column-inner article-cards">
 
 				<?php
@@ -75,10 +51,10 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/news/" class="green small"]View all[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/news/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
-			<div class="title-bar navy"><h3>Regional News</h3></div>
+			<div class="title-bar green"><h3>Regional News</h3></div>
 			<div class="right-column-inner">
 
 				<ul class="article-list">
@@ -90,10 +66,10 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/category/around-the-nw/" class="green small"]View all[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/category/around-the-nw/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
-			<div class="title-bar navy"><h3>Compliance News</h3></div>
+			<div class="title-bar grey-dark"><h3>Compliance News</h3></div>
 			<div class="right-column-inner">
 
 				<ul class="article-list">
@@ -105,7 +81,7 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/category/compliance/" class="green small"]View all[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/category/compliance/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
 		</div>
