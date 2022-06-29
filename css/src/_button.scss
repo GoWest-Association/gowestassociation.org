@@ -7,7 +7,7 @@
 
 // general button styles
 .btn {
-	@include font;
+	@include font-bold;
 	opacity: 1;
 	border: 0;
 	padding: 10px 15px;
@@ -23,6 +23,11 @@
 	color: white;
 	-webkit-appearance: none;
 	border-radius: 5px;
+
+	&.small {
+		padding: 7px 12px;
+		font-size: 15px;
+	}
 
 	&:hover {
 		text-decoration: none;
