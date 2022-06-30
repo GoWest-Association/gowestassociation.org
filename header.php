@@ -26,16 +26,15 @@
 
 	<?php if ( is_newsletter() ) { ?>
 	<div class="logo left">
-		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
 	<div class="logo right">
 		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png?v=1" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
-	<?php } else { ?>
+	<?php } else if ( is_page_template( 'page-front.php' ) ) { ?>
 	<div class="logo">
 		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
-	<?php if ( is_page_template( 'page-front.php' ) ) { ?>
 	<div class="lockup">
 		<div class="logo">
 			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions.png" alt="GoWest Solutions" />
@@ -44,7 +43,10 @@
 			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-foundation.png" alt="GoWest Foundation" />
 		</div>
 	</div>
-	<?php } ?>
+	<?php } else { ?>
+	<div class="logo left">
+		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+	</div>
 	<?php } ?>
 
 

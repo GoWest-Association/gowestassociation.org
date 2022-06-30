@@ -54,12 +54,12 @@ the_showcase();
 				<p><?php print do_shortcode( '[button url="/news/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
-			<div class="title-bar green"><h3>Regional News</h3></div>
+			<div class="title-bar green"><h3>Regional Member News</h3></div>
 			<div class="right-column-inner">
 
 				<ul class="article-list">
 				<?php
-				$args = array( 'numberposts' => 3, 'category_name' => 'around-the-nw' );
+				$args = array( 'numberposts' => 3, 'category_name' => 'member-news' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
@@ -69,12 +69,12 @@ the_showcase();
 				<p><?php print do_shortcode( '[button url="/category/around-the-nw/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
-			<div class="title-bar grey-dark"><h3>Compliance News</h3></div>
+			<div class="title-bar grey-dark"><h3>Compliance Resources</h3></div>
 			<div class="right-column-inner">
 
 				<ul class="article-list">
 				<?php
-				$args = array( 'numberposts' => 3, 'category_name' => 'compliance' );
+				$args = array( 'numberposts' => 3, 'category_name' => 'compliance-news' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
