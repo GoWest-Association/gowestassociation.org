@@ -53,15 +53,17 @@
 
 
 .people.list, .person-single, .people.list-simple {
-	@include respond-to( $bp-m ) {
-		display: flex;
-		flex-wrap: wrap;
+	.people-listing {
+		@include respond-to( $bp-m ) {
+			display: flex;
+			flex-wrap: wrap;
 
-		.person-entry {
-			flex: 1;
-			flex-basis: 50%;
-			align-items: initial;
-			justify-content: initial;
+			.person-entry {
+				flex: 1;
+				flex-basis: 50%;
+				align-items: initial;
+				justify-content: initial;
+			}
 		}
 	}
 
