@@ -53,18 +53,16 @@
 
 
 .people.list, .person-single, .people.list-simple {
-	.right-column & .people-listing {
-		@include respond-to( 900px ) {
-			display: flex;
-			flex-wrap: wrap;
-			width: 100%;
+	@include respond-to( $bp-l ) {
+		display: flex;
+		flex-wrap: wrap;
+		width: 100%;
 
-			.person-entry {
-				flex: 1;
-				flex-basis: 50%;
-				align-items: initial;
-				justify-content: initial;
-			}
+		.person-entry {
+			flex: 1;
+			flex-basis: 50%;
+			align-items: initial;
+			justify-content: initial;
 		}
 	}
 
