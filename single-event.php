@@ -156,14 +156,12 @@ get_header();
 
 				<?php the_icons(); ?>
 			</div>
+			<?php the_accordions(); ?>
 		</div>
 	</div><!-- #content -->
 	
-	<!--
 	<div class="single-column">
-		<?php //the_accordions(); ?>
 	</div>
-	-->
 
 			<?php
 		endwhile;

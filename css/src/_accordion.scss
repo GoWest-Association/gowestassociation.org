@@ -1,0 +1,134 @@
+
+
+$accordion-arrow-size: 30px;
+
+.accordions {
+	margin-top: 20px;
+	
+	.accordion {
+		margin-bottom: 10px;
+
+		.accordion-handle {
+			position: relative;
+			padding: 0;
+			cursor: pointer;
+			background: rgba( $grey, .2 );
+			overflow: hidden;
+
+			h3 {
+				@include font-bold;
+				color: white;
+				padding: 20px;
+				font-size: 1.3em;
+				text-transform: uppercase;
+				display: inline-block;
+				position: relative;
+				z-index: 0;
+
+				&::after {
+					content: '';
+					position: absolute;
+					z-index: -1;
+					left: -30px;
+					top: 0;
+					width: 120%;
+					height: 100%;
+					background: $grey;
+					transform: skew( -35deg );
+				}
+
+				@include respond-to( $bp-xl ) {
+					padding: 20px 60px 20px 40px;
+					position: relative;
+
+					&::after {
+						width: 110%;
+					}
+				}
+			}
+
+		}
+
+		&.navy .accordion-handle {
+			background: rgba( $navy, .2 );
+			h3::after { background: $navy; }
+		}
+
+		&.green .accordion-handle {
+			background: rgba( $green, .2 );
+			h3::after { background: $green; }
+		}
+
+		&.blue .accordion-handle {
+			background: rgba( $blue, .2 );
+			h3::after { background: $blue; }
+		}
+
+		&.orange .accordion-handle {
+			background: rgba( $orange, .2 );
+			h3::after { background: $orange; }
+		}
+
+		&.grey-dark .accordion-handle {
+			background: rgba( $grey-dark, .2 );
+			h3::after { background: $grey-dark; }
+		}
+
+		&.sky .accordion-handle {
+			background: rgba( $sky, .2 );
+			h3::after { background: $sky; }
+		}
+
+		.accordion-content {
+			display: none;
+			background: white;
+			@extend .content-style;
+		}
+
+		&.open {
+			.accordion-content {
+				display: block;
+				padding: 20px;
+
+				@include respond-to( $bp-xl ) {
+					padding: 20px 20px 30px 40px;
+				}
+			}
+		}
+	}
+}
+
+
+.single-column {
+	.accordions {
+		margin-top: 0;
+	}
+
+	.accordion-handle h3 {
+		@include respond-to( $bp-m ) {
+			padding: 20px 60px 20px 30px !important;
+		}
+
+		@include respond-to( $bp-l ) {
+			padding: 20px 60px 20px 40px !important;
+		}
+
+		@include respond-to( $bp-xl ) {
+			padding: 20px 60px 20px 50px !important;
+		}
+	}
+
+	.accordion-content {
+		@include respond-to( $bp-m ) {
+			padding: 20px 20px 30px 30px !important;
+		}
+
+		@include respond-to( $bp-l ) {
+			padding: 20px 20px 30px 40px !important;
+		}
+
+		@include respond-to( $bp-xl ) {
+			padding: 20px 20px 30px 50px !important;
+		}
+	}
+}
