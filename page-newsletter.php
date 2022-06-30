@@ -59,7 +59,7 @@ the_showcase();
 
 				<ul class="article-list">
 				<?php
-				$args = array( 'numberposts' => 3, 'category_name' => 'member-news' );
+				$args = array( 'numberposts' => 3, 'category_name' => 'regional-member-news	' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
@@ -74,7 +74,7 @@ the_showcase();
 
 				<ul class="article-list">
 				<?php
-				$args = array( 'numberposts' => 3, 'category_name' => 'compliance-news' );
+				$args = array( 'numberposts' => 3, 'category_name' => 'compliance-resources' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
