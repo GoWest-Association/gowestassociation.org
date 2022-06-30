@@ -283,7 +283,7 @@ function people_shortcode( $atts ) {
 					( has_cmb_value( 'person_email' ) ? '<p class="person-email"><a href="mailto:' . get_cmb_value( "person_email" ) . '">' . get_cmb_value( "person_email" ) . '</a></p>' : '' ) .
 					'<p class="person-excerpt">' . get_the_excerpt() . '</p>' .
 					'<p class="person-bio-link"><a href="' . get_the_permalink() . '" class="btn navy">Learn More</a></p>' : '' ) .
-				.</div>
+				'</div>
 			</div>';
 
 		endwhile;
