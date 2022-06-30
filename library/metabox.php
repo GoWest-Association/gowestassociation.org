@@ -8,7 +8,11 @@ define( 'CMB_PREFIX', '_p_' );
 
 // get CMB value
 function get_cmb_value( $field ) {
-    return get_post_meta( get_the_ID(), $field, 1 );
+    $val = get_post_meta( get_the_ID(), $field, 1 );
+    if ( empty( $val ) ) {
+        $val = get_post_meta( get_the_ID(), CMB_PREFIX . $field, 1 );
+    }
+    return $val;
 }
 
 
