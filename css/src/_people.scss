@@ -53,10 +53,9 @@
 
 
 .people.list, .person-single, .people.list-simple {
-	@include respond-to( $bp-l ) {
+	@include respond-to( $bp-m ) {
 		display: flex;
 		flex-wrap: wrap;
-		width: 100%;
 
 		.person-entry {
 			flex: 1;
