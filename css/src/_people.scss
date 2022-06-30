@@ -1,0 +1,359 @@
+
+
+.people {
+	padding: 20px 0;
+}
+
+
+.people-search {
+	padding: 10px;
+	border: 3px solid $grey;
+	margin-bottom: 20px;
+
+	input[type=text] {
+		@include font-title;
+		display: block;
+		width: 100%;
+		padding: 0 0 0 40px;
+		border: 0;
+		background: url(../img/icon-search.webp) left center no-repeat;
+		background-size: contain;
+		font-size: 1.1em;
+
+		&:focus {
+			outline: 0;
+		}
+	}
+}
+
+
+.two-column .right-column .people.list, .two-column .right-column .person-single {
+	.person-entry {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: 50%;
+
+		.person-thumbnail {
+			flex: 1;
+			flex-basis: 100px;
+
+			.wp-post-image {
+				float: none;
+				margin: 0;
+				max-width: 100%;
+			}
+		}
+
+		.person-info {
+			flex: 1;
+			flex-basis: 70%;
+		}
+	}
+}
+
+
+.people.list, .person-single {
+	.right-column & .people-listing {
+		@include respond-to( 900px ) {
+			display: flex;
+			flex-wrap: wrap;
+			width: 100%;
+
+			.person-entry {
+				flex: 1;
+				flex-basis: 50%;
+				align-items: initial;
+				justify-content: initial;
+			}
+		}
+	}
+
+	.person-entry {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0;
+
+		.person-thumbnail {
+			flex: 1;
+			flex-basis: 30%;
+			max-width: 120px;
+		}
+
+		.person-info {
+			flex: 1;
+			flex-basis: 70%;
+			padding-left: 15px;
+
+			h4 {
+				padding: 0;
+				text-transform: uppercase;
+			}
+
+			p {
+				padding: 0;
+				font-size: .9em;
+			}
+
+			.person-excerpt, .person-bio-link {
+				display: none;
+			}
+
+			.person-title {
+				@include font-bold-italic;
+			}
+		}
+	}
+}
+
+
+.content-column .person-single {
+	max-width: 100%;
+	display: flex;
+
+	.person-thumbnail {
+		flex: 1;
+		flex-basis: 30%;
+		max-width: 120px;
+	}
+
+	h4 {
+		padding: 0;
+		text-transform: uppercase;
+	}
+
+	.person-info {
+		flex: 1;
+		flex-basis: 70%;
+		padding-left: 15px;
+
+		p {
+			padding: 0;
+			font-size: .9em;
+		}
+	}
+}
+
+
+.people.cards .people-listing {
+
+	@include respond-to( 500px ) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -2%;
+	}
+
+	@include respond-to( 900px ) {
+		margin-right: -1.333%;
+	}
+
+	@include respond-to( 1220px ) {
+		margin-right: -2%;
+	}
+
+	.person-entry {
+		display: none;
+		@extend .person-entry;
+
+		.person-title, .person-phone, .person-tollfree, .person-email {
+			display: none;
+		}
+
+		&.visible {
+			display: block;
+		}
+
+		img {
+			width: 100%;
+			border: 1px solid $grey;
+			margin-bottom: 20px;
+		}
+
+		h4 {
+			text-transform: uppercase;
+		}
+
+		.person-bio-link .btn {
+			display: block;
+		}
+
+		@include respond-to( 500px ) {
+			flex: 1;
+			flex-basis: 47%;
+			flex-grow: 0;
+			margin: 0 3% 20px 0;
+		}
+
+		@include respond-to( 900px ) {
+			flex-basis: 31%;
+			margin-right: 2.3333%;
+		}
+
+		@include respond-to( 1220px ) {
+			flex-basis: 22%;
+			margin-right: 3%;
+		}
+	}
+
+	.right-column & {
+		.person-entry {
+			@include respond-to( 768px ) {
+				flex: 1;
+				flex-basis: 47%;
+				flex-grow: 0;
+				margin: 0 3% 20px 0;
+			}
+
+			@include respond-to( 1220px ) {
+				flex-basis: 31%;
+				margin-right: 2.3333%;
+			}
+		}
+	}
+}
+
+
+.people.speakers .people-listing {
+
+	@include respond-to( 500px ) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -2%;
+	}
+
+	@include respond-to( 900px ) {
+		margin-right: -1.333%;
+	}
+
+	@include respond-to( 1220px ) {
+		margin-right: -2%;
+	}
+
+	.person-entry {
+		display: none;
+		@extend .person-entry;
+
+		.person-title, .person-phone, .person-tollfree, .person-email, .person-excerpt {
+			display: none;
+		}
+
+		&.visible {
+			display: block;
+		}
+
+		img {
+			width: 100%;
+			border: 1px solid $grey;
+			margin-bottom: 20px;
+		}
+
+		h4 {
+			text-transform: uppercase;
+		}
+
+		.person-bio-link .btn {
+			display: block;
+		}
+
+		@include respond-to( 500px ) {
+			flex: 1;
+			flex-basis: 47%;
+			flex-grow: 0;
+			margin: 0 3% 20px 0;
+		}
+
+		@include respond-to( 900px ) {
+			flex-basis: 31%;
+			margin-right: 2.3333%;
+		}
+
+		@include respond-to( 1220px ) {
+			flex-basis: 22%;
+			margin-right: 3%;
+		}
+	}
+
+	.right-column & {
+		.person-entry {
+			@include respond-to( 768px ) {
+				flex: 1;
+				flex-basis: 47%;
+				flex-grow: 0;
+				margin: 0 3% 20px 0;
+			}
+
+			@include respond-to( 1220px ) {
+				flex-basis: 31%;
+				margin-right: 2.3333%;
+			}
+		}
+	}
+}
+
+
+.accordion-content .people.speakers .people-listing .person-entry {
+	@include respond-to( 500px ) {
+		flex: 1;
+		flex-basis: 47%;
+		flex-grow: 0;
+		margin: 0 3% 20px 0;
+	}
+
+	@include respond-to( 768px ) {
+		flex-basis: 31%;
+		margin-right: 2.3333%;
+	}
+
+	@include respond-to( 900px ) {
+		flex-basis: 22%;
+		margin-right: 3%;
+	}
+
+	@include respond-to( 1220px ) {
+		flex-basis: 18%;
+		margin-right: 2%;
+	}
+}
+
+
+.bio {
+	.sidebar {
+		& > img {
+			width: 100%;
+			display: block;
+			border: 2px solid rgba( $grey, .7 );
+			box-shadow: 0 0 20px rgba( $grey, .4 );
+
+			@include respond-to( 768px ) {
+				margin-top: 20px
+			}
+		}
+
+		.person-info {
+			padding: 20px 0;
+
+			h5 {
+				padding-bottom: 3px;
+			}
+
+			p {
+				padding: 3px 0;
+				color: $grey;
+
+				&.person-social {
+					padding: 15px 0;
+				}
+			}
+
+			.btn {
+				margin-top: 20px;
+				padding: 10px 20px;
+			}
+		}
+	}
+
+	.bio-content {
+		@extend .content-style;
+	}
+}
+
