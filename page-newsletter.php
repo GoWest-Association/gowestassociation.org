@@ -12,10 +12,7 @@ the_showcase();
 
 ?>
 
-	<div class="two-column newsletter" role="main">
-		<div class="sidebar">
-			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
-		</div>
+	<div class="two-column newsletter reverse" role="main">
 		<div class="right-column">
 			<?php
 			$args = array( 'numberposts' => 6 );
@@ -26,7 +23,7 @@ the_showcase();
 
 				<?php
 				foreach ( $posts as $key => $a_post ) {
-					if ( $key < 2 ) {  ?>
+					if ( $key < 2 ) { ?>
 				<div class="article-card">
 					<?php
 					print get_the_post_thumbnail( $a_post->ID, array( 720, 480 ) );
@@ -80,6 +77,10 @@ the_showcase();
 
 			</div>
 		</div>
+		<div class="sidebar">
+			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
+		</div>
+
 	</div><!-- #primary -->
 
 
