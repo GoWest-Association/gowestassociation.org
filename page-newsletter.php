@@ -76,10 +76,7 @@ the_showcase();
 				}
 				?>
 				</ul>
-
-			</div>
-			<div class="right-column-inner">
-				<p><?php print do_shortcode( '[button url="/category/compliance/" class="navy small"]View all[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/2022" class="navy small"]View all News[/button]' ); ?></p>
 
 			</div>
 		</div>
