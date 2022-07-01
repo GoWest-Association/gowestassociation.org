@@ -272,7 +272,7 @@ function people_shortcode( $atts ) {
 			$post = get_the_ID();
 
 			$people_content .='<div class="person-entry visible">' . 
-				'<div class="person-thumbnail">' . /* ( $link ? '<a href="' . get_the_permalink() . '">' : '' ) . get_the_post_thumbnail() . ( $link ? '</a>' : '' ) . */ "</div>" .
+				'<div class="person-thumbnail">' . /* ( $link ? '<a href="' . get_the_permalink() . '">' : '' ) . */ get_the_post_thumbnail() . /* ( $link ? '</a>' : '' ) . */ "</div>" .
 				'<div class="person-info">
 					<h4>' . /*( $link ? '<a href="' . get_the_permalink() . '">' : '' ) .*/ get_cmb_value( "person_fname" ) . ' ' . get_cmb_value( "person_lname" ) . /* ( $link ? '</a>' : '' ) . */ '</h4>' .
 					( has_cmb_value( 'person_title' ) ? '<p class="person-title">' . get_cmb_value( "person_title" ) . '</p>' : '' ) .
