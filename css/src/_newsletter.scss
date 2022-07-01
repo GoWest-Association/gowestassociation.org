@@ -171,3 +171,24 @@
 
 
 
+.single-post .two-column .right-column .featured-image {
+	@include respond-to( $bp-l ) {
+		float: right;
+		margin: 0 0 15px 15px;
+		max-width: 50%;
+	}
+
+	.caption {
+		padding: 5px 0 0 0;
+		font-size: .9em;
+		line-height: 1.6em;
+	}
+
+	.wp-post-image {
+		border: 1px solid $grey;
+		box-shadow: 0 0 20px rgba( $grey, .5 );
+		margin: 10px 0;
+	}
+}
+
+

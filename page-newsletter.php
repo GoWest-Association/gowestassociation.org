@@ -12,7 +12,7 @@ the_showcase();
 
 ?>
 
-	<div class="two-column" role="main">
+	<div class="two-column newsletter" role="main">
 		<div class="sidebar">
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
@@ -38,9 +38,6 @@ the_showcase();
 					}
 				}
 				?>
-			</div>
-			<div class="title-bar navy"><h3>More News</h3></div>
-			<div class="right-column-inner">
 
 				<ul class="article-list">
 				<?php
@@ -51,7 +48,6 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/news/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
 			<div class="title-bar green"><h3>Regional Member News</h3></div>
@@ -66,7 +62,6 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/category/around-the-nw/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>
 			<div class="title-bar grey-dark"><h3>Compliance Resources</h3></div>
@@ -81,6 +76,9 @@ the_showcase();
 				}
 				?>
 				</ul>
+
+			</div>
+			<div class="right-column-inner">
 				<p><?php print do_shortcode( '[button url="/category/compliance/" class="navy small"]View all[/button]' ); ?></p>
 
 			</div>

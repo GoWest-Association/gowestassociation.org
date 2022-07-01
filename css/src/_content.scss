@@ -186,6 +186,18 @@
 				padding: 40px;
 			}
 
+			&.nopad {
+				padding: 20px;
+
+				@include respond-to( $bp-m ) {
+					padding: 30px;
+				}
+
+				@include respond-to( $bp-xl ) {
+					padding: 40px;
+				}
+			}
+
 			h1 {
 				@include font-bold;
 				font-size: 1.7em;

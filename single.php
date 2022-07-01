@@ -10,7 +10,7 @@ get_header();
 the_showcase();
 
 ?>
-	<div class="two-column" role="main">
+	<div class="two-column article" role="main">
 		<div class="sidebar">
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
