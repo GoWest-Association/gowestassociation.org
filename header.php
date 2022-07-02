@@ -22,6 +22,7 @@
 <body <?php body_class(); ?>>
 <div class="container <?php print ( isset( $_REQUEST['notemplate'] ) ? 'notemplate' : '' ); ?>">
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
+<?php if ( !is_front_page() ) { gowest_association_bar(); } ?>
 <header<?php print ( is_newsletter() ? ' class="newsletter"' : '' ); ?>>
 
 	<?php if ( is_newsletter() ) { ?>
