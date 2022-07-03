@@ -41,7 +41,7 @@ get_header();
 	<div class="content-pad sli-pad">
 
 		<div class="articles">
-			<?php print do_shortcode( '[articles cats="strategic-link" /]' ); ?>
+			<?php print do_shortcode( '[articles cats="gowest-solutions" /]' ); ?>
 		</div>
 
 		<div class="events">
