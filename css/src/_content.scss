@@ -28,6 +28,16 @@
 		margin: 10px 0 10px 20px;
 	}
 
+	em, i {
+		font-style: italic;
+	}
+
+	em strong, strong em, em b, b em {
+		@include font-bold;
+		font-style: italic;
+	}
+
+
 	hr {
 		border: 0;
 		border-bottom: 3px solid lighten( $grey-light, 30% );
