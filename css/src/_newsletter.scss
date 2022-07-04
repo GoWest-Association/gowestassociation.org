@@ -23,6 +23,10 @@
 
 
 .page-template-page-newsletter {
+	.sidebar .headlines {
+		display: none;
+	}
+
 	.article-cards {
 		img {
 			margin-bottom: 20px; 
@@ -201,6 +205,27 @@
 }
 
 
+.widget_recent_entries {
+	ul li {
+		font-size: .9em;
+		padding: 5px 0;
+	}
+
+	.headlines {
+		position: relative;
+
+		&:before {
+			@include font-bold;
+			position: absolute;
+			top: -30px;
+			content: "Top Headlines";
+			color: $navy;
+			text-transform: uppercase;
+		}
+	}
+}
+
+
 .single-post .two-column .right-column .featured-image {
 	@include respond-to( $bp-l ) {
 		float: right;
@@ -220,5 +245,6 @@
 		margin: 10px 0;
 	}
 }
+
 
 
