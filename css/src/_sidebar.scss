@@ -17,6 +17,15 @@
 	.widget_nav_menu {
 		padding-bottom: 25px;
 
+		&:before {
+			@include font-bold;
+			position: absolute;
+			top: -30px;
+			content: "Menu";
+			color: $navy;
+			text-transform: uppercase;
+		}
+
 		ul {
 			list-style: none;
 			padding: 0;
