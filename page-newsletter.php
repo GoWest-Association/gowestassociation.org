@@ -26,7 +26,7 @@ the_showcase();
 					if ( $key < 2 ) { ?>
 				<div class="article-card">
 					<?php
-					print get_the_post_thumbnail( $a_post->ID, array( 720, 480 ) );
+					print '<a href="' . get_the_permalink( $a_post ) . '">' . get_the_post_thumbnail( $a_post->ID, array( 720, 480 ) ) . '</a>';
 					print '<h4><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></h4>';
 					print '<p>' . get_the_excerpt( $a_post ) . '</p>';
 					?>
