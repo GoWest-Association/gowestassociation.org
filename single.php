@@ -3,7 +3,7 @@
  * The Template for displaying all single posts
  */
 
-$is_newsletter = true;
+set_brand( 'newsletter' );
 
 get_header();
 

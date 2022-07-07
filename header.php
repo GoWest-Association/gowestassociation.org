@@ -44,6 +44,14 @@
 			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-foundation.png" alt="GoWest Foundation" />
 		</div>
 	</div>
+	<?php } else if ( is_solutions() ) { ?>
+	<div class="logo left">
+		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions-large.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+	</div>
+	<?php } else if ( is_foundation() ) { ?>
+	<div class="logo left">
+		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-foundation-large.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+	</div>
 	<?php } else { ?>
 	<div class="logo left">
 		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>

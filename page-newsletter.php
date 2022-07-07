@@ -3,8 +3,7 @@
 Template Name: Newsletter
 */
 
-// set the newsletter global
-$is_newsletter = true;
+set_brand( 'newsletter' );
 
 get_header(); 
 

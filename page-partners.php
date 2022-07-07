@@ -1,10 +1,10 @@
 <?php
 
 /*
-Template Name: Strategic Link Partners
+Template Name: Partner List
 */
 
-$sli = true;
+set_brand( 'solutions' );
 
 // get the filter parameter and split them up
 $filter = $_REQUEST['filter'];

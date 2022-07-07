@@ -1,6 +1,6 @@
 <?php
 
-$sli = true;
+set_brand( 'solutions' );
 
 get_header();
 

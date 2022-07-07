@@ -4,8 +4,7 @@
 Template Name: Homepage (SLI)
 */
 
-global $sli;
-$sli = true;
+set_brand( 'solutions' );
 
 get_header();
 

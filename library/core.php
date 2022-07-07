@@ -37,20 +37,11 @@ register_sidebar( array(
 ) );
 
 
-
-
-global $is_newsletter, $is_corp, $is_foundation;
-$is_newsletter = false;
-$is_corp = false;
-$is_foundation = false;
-
-
 // is newsletter boolean function
 function is_newsletter() {
-	global $is_newsletter;
 
 	// if the newsletter global is set
-	if ( $is_newsletter ) {
+	if ( BRAND == 'newsletter' ) {
 		return true;
 	}
 
@@ -58,3 +49,32 @@ function is_newsletter() {
 	return false;
 }
 
+
+function is_foundation() {
+
+	// if the foundation global is set
+	if ( BRAND == 'foundation' ) {
+		return true;
+	}
+
+	// otherwise, return false
+	return false;
+}
+
+
+function is_solutions() {
+	global $is_solutions;
+
+	// if the solutions global is set
+	if ( BRAND == 'solutions' ) {
+		return true;
+	}
+
+	// otherwise, return false
+	return false;
+}
+
+
+function set_brand( $brand = '' ) {
+	define( 'BRAND', $brand );
+}
