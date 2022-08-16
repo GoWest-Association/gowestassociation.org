@@ -4,6 +4,8 @@
 Template Name: Homepage
 */
 
+set_brand( 'association' );
+
 get_header();
 
 ?>

@@ -1,6 +1,6 @@
 
 
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;1,600&family=Montserrat:ital,wght@0,300;0,700;1,300;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,600;1,600&family=Montserrat:ital,wght@0,300;0,600;0,700;1,300;1,600;1,700&display=swap');
 
 
 @mixin font {
@@ -11,6 +11,17 @@
 @mixin font-italic {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 300;
+	font-style: italic;
+}
+
+@mixin font-med {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
+}
+
+@mixin font-med-italic {
+	font-family: "Montserrat", sans-serif;
+	font-weight: 600;
 	font-style: italic;
 }
 
