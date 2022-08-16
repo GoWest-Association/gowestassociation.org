@@ -1,5 +1,7 @@
 <?php
 
+set_brand( 'association' );
+
 get_header();
 
 the_showcase();

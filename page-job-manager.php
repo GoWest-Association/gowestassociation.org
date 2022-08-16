@@ -4,6 +4,8 @@
 Template Name: Job Manager
 */
 
+set_brand( 'association' );
+
 global $post;
 $job_mgr_url = '/' . $post->post_name . '/';
 

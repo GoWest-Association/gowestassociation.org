@@ -4,6 +4,8 @@
 Template Name: Page w/ Sidebar
 */
 
+set_brand( 'association' );
+
 get_header();
 
 the_showcase();

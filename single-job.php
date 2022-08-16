@@ -3,6 +3,8 @@
  * The Template for displaying all single posts
  */
 
+set_brand( 'association' );
+
 get_header();
 
 ?>
