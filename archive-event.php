@@ -3,6 +3,8 @@
  * The template for displaying Archive pages
  */
 
+set_brand( 'association' );
+
 get_header(); 
 
 if ( isset( $_REQUEST['event_category'] ) && $_REQUEST['event_category'] != 0 ) {
