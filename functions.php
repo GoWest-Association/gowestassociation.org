@@ -27,6 +27,6 @@ $colors = array(
 require_multi( 
     'core', 'admin', 'metabox', 
     'post-type/people', 'post-type/event', 'post-type/job', 'post-type/partner',
-    'images', 'paginate', 'metabox', 'showcase', 'button', 'icons', 'accordion', 'stats' 
+    'images', 'paginate', 'metabox', 'showcase', 'button', 'icons', 'accordion', 'stats', 'newsletter'
 );
 
