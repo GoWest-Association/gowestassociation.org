@@ -14,7 +14,7 @@ the_showcase();
 	<div class="two-column newsletter reverse" role="main">
 		<div class="right-column">
 			<?php
-			$args = array( 'numberposts' => 6 );
+			$args = array( 'numberposts' => get_option( 'gw_posts_top' ) );
 			$posts = get_posts( $args );
 			?>
 			<div class="title-bar orange"><h3>Top Headlines</h3></div>
@@ -51,7 +51,7 @@ the_showcase();
 
 				<ul class="article-list">
 				<?php
-				$args = array( 'numberposts' => 3, 'category_name' => 'regional-member-news	' );
+				$args = array( 'numberposts' => get_option( 'gw_posts_member' ), 'category_name' => 'regional-member-news' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
@@ -65,7 +65,7 @@ the_showcase();
 
 				<ul class="article-list">
 				<?php
-				$args = array( 'numberposts' => 3, 'category_name' => 'compliance-resources' );
+				$args = array( 'numberposts' => get_option( 'gw_posts_compliance' ), 'category_name' => 'compliance-resources' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';

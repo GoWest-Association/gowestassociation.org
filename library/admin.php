@@ -32,7 +32,7 @@ add_action( 'admin_init', 'theme_options_register_settings' );
 function theme_options_page() {
 	?>
 	<div class="wrap">
-		<h1 class="wp-heading-inline">Theme Options</h1>
+		<h1 class="wp-heading-inline">Site Options</h1>
 		<p>Manage the basic settings for the theme used on <?php bloginfo('name'); ?>.</p>
 		<hr>
         <style>.pure-field { padding: 10px; min-width: 280px; width: 100%; }</style>
