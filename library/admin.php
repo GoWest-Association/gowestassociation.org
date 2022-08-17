@@ -3,7 +3,7 @@
 
 // add a 'theme options' top-level menu item
 function theme_options_menu() {
-    add_menu_page( 'Theme Options', 'Theme Options', 'manage_options', 'pure', 'theme_options_page', 'dashicons-admin-tools', 3 );
+    add_menu_page( 'Site Options', 'Site Options', 'manage_options', 'pure', 'theme_options_page', 'dashicons-admin-tools', 3 );
 }
 add_action( 'admin_menu', 'theme_options_menu', 1 );
 
@@ -15,6 +15,13 @@ function theme_options_register_settings() {
 	// address option
     add_option( 'pure_address', '<strong>Pure Framework</strong><br>Email: <a href="mailto:james@jpederson.com">james@jpederson.com</a>' );
     register_setting( 'pure_options_group', 'pure_address' );
+
+    add_option( 'gw_posts_top', '6' );
+    add_option( 'gw_posts_member', '3' );
+    add_option( 'gw_posts_compliance', '3' );
+    register_setting( 'gwcua_options_group', 'gw_posts_top' );
+    register_setting( 'gwcua_options_group', 'gw_posts_member' );
+    register_setting( 'gwcua_options_group', 'gw_posts_compliance' );
 
 }
 add_action( 'admin_init', 'theme_options_register_settings' );
@@ -36,8 +43,24 @@ function theme_options_page() {
         settings_fields( 'pure_options_group' );
 
         ?>
-        <p><label for="pure_address">Address</label><br>
-            <textarea class="pure-field" id="pure_address" name="pure_address" style="height: 100px;"><?php echo get_option( 'pure_address' ); ?></textarea></p>
+        <h3>Address</h3>
+        <p><label for="pure_address">Enter the address to show in the footer of the site.</label></p>
+        <p><textarea class="pure-field" id="pure_address" name="pure_address" style="height: 100px;"><?php echo get_option( 'pure_address' ); ?></textarea></p>
+        <hr>
+        <h3>On The Go Newsletter</h3>
+        <p>Select the number of posts to display in each of the sections of the On The Go newsletter home page.</p>
+        <?php
+
+        // gwcua group
+        settings_fields( 'gwcua_options_group' );
+
+        ?>
+        <p><label for="gw_posts_top">Top Headlines</label><br>
+            <input type="text" class="gw-field" id="gw_posts_top" name="gw_posts_top" value="<?php echo get_option( 'gw_posts_top' ); ?>" /></p>
+        <p><label for="gw_posts_member">Member Posts</label><br>
+            <input type="text" class="gw-field" id="gw_posts_member" name="gw_posts_member" value="<?php echo get_option( 'gw_posts_member' ); ?>" /></p>
+        <p><label for="gw_posts_compliance">Compliance Posts</label><br>
+            <input type="text" class="gw-field" id="gw_posts_compliance" name="gw_posts_compliance" value="<?php echo get_option( 'gw_posts_compliance' ); ?>" /></p>
         <?php
 
         // add the submit button.
