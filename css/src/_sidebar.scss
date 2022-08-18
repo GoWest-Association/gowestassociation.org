@@ -30,6 +30,12 @@
 		.people {
 			padding-top: 0;
 			font-size: .8em;
+
+			@include respond-to( $bp-m ) {
+				.people-listing {
+					display: block;
+				}
+			}
 		}
 	}
 }
