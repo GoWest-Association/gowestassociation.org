@@ -1,6 +1,6 @@
 
 
-.quarter.sidebar {
+.sidebar {
 	@include respond-to( $bp-m ) {
 		padding-top: 20px;
 		margin-right: 3%;
@@ -49,19 +49,23 @@
 		}
 	}
 
-	.widget_block {
-		.connect {
-			margin-top: 30px;
-			font-size: .8em;
 
-			&:before {
-				@include font-bold;
-				position: absolute;
-				top: -30px;
-				content: "Connect With Us";
-				color: $navy;
-				text-transform: uppercase;
-			}
+	.connect {
+		margin-top: 30px;
+		position: relative;
+
+		&:before {
+			@include font-bold;
+			position: absolute;
+			top: -30px;
+			content: "Connect With Us";
+			color: $navy;
+			text-transform: uppercase;
+		}
+
+		.people {
+			padding-top: 0;
+			font-size: .8em;
 		}
 	}
 }
