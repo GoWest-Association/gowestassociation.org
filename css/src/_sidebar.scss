@@ -48,5 +48,21 @@
 			}
 		}
 	}
+
+	.widget_block {
+		.connect {
+			margin-top: 30px;
+			font-size: .8em;
+
+			&:before {
+				@include font-bold;
+				position: absolute;
+				top: -30px;
+				content: "Menu";
+				color: $navy;
+				text-transform: uppercase;
+			}
+		}
+	}
 }
 
