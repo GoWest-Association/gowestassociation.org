@@ -11,10 +11,6 @@
 	border-bottom: 5px solid $grey-light;
 	height: 500px;
 
-	@include respond-to( 768px ) {
-		height: 550px;
-	}
-
 	.slide {
 		position: absolute;
 		top: 0;
@@ -60,14 +56,14 @@
 		
 		.slide-content {
 			position: absolute;
-			top: 10%;
+			top: 60px;
 			right: 60px;
 			left: 60px;
 			color: white;
 			text-align: center;
 
 			@include respond-to( 768px ) {
-				top: 15%;
+				top: 70px;
 				left: 80px;
 				right: 50%;
 				text-align: left;
