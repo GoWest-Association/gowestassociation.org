@@ -18,19 +18,16 @@ function the_showcase() {
 				// store the title and subtitle
 				$link = ( isset( $slide["link"] ) ? $slide["link"] : '' );
 				$alt = ( isset( $slide['alt-text'] ) ? $slide["alt-text"] : "Link to " . $link );
+				$content = ( isset( $slide['content'] ) ? $slide["content"] : "" );
 
 				// it's an image, so resize it and generate an img tag.
-				$image = '<img src="' . $slide["image"] . '" alt="' . $alt . '">';
+				$image = $slide["image"];
 
 				?>
-			<div class="slide<?php print ( $key == 0 ? ' visible' : '' ); ?>">
-				<?php if ( !empty( $link ) ) { ?><a href="<?php print $link ?>" class="<?php print ( stristr( $link, 'vimeo' ) || stristr( $link, 'youtube' ) || stristr( $link, 'google.com/maps' ) ? 'lightbox-iframe' : '' ) ?>"><?php } ?>
-				<?php print $image; ?>
-				<?php if ( !empty( $link ) ) { ?></a><?php } ?>
-				
-				<?php if ( !empty( $title ) || !empty( $subtitle ) ) { ?>
+			<div class="slide <?php print ( $key == 0 ? 'visible' : '' ); ?> <?php print ( !empty( $link ) ? 'has-link' : '' ) ?>" <?php if ( !empty( $link ) ) { print 'data-href="' . $link . '"'; } ?> style="background-image: url(<?php print $image ?>);">
+				<?php if ( !empty( $content ) ) { ?>
 				<div class="slide-content">
-					<?php if ( !empty( $title ) ) { ?><h1><?php print $title; ?></h1><?php } ?>
+					<?php if ( !empty( $content ) ) { print apply_filters( 'the_content', $content ); } ?>
 				</div>
 				<?php } ?>
 			</div>
@@ -78,17 +75,20 @@ function showcase_metabox( $meta_boxes ) {
     ) );
 
     $showcase_metabox->add_group_field( $showcase_metabox_group, array(
-        'name' => 'Image/Video',
+        'name' => 'Background Image',
         'id'   => 'image',
         'type' => 'file',
         'preview_size' => array( 200, 100 )
     ) );
 
     $showcase_metabox->add_group_field( $showcase_metabox_group, array(
-        'name' => 'Alt text',
-        'desc' => 'Specify alt text for this slide.',
-        'id'   => 'alt-text',
-        'type' => 'text',
+        'name' => 'Content',
+        'desc' => 'Fill in the content for this slide.',
+        'id'   => 'content',
+        'type' => 'wysiwyg',
+        'options' => array(
+        	'textarea_rows' => 6
+        )
     ) );
 
     $showcase_metabox->add_group_field( $showcase_metabox_group, array(
