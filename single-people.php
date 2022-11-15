@@ -4,16 +4,12 @@ set_brand( 'association' );
 
 get_header();
 
-the_showcase();
-
-the_page_title();
-
 ?>
 
 <div class="page-title">
 	<h1><?php the_title() ?></h1>
 </div>
-<div class="two-column<?php print ( has_showcase() ? '' : ' no-showcase' ) ?> bio" role="main">
+<div class="two-column bio" role="main">
 	<div class="sidebar">
 
 		<?php the_post_thumbnail( 'headshot' ); ?>
