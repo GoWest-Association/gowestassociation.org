@@ -6,6 +6,14 @@
 @mixin font {
 	font-family: "Montserrat", sans-serif;
 	font-weight: 300;
+
+	em, i {
+		font-style: italic;
+	}
+
+	b, strong {
+		font-weight: 700;
+	}
 }
 
 @mixin font-italic {

@@ -222,7 +222,7 @@ function people_shortcode( $atts ) {
 	// set default params and override with those in shortcode
 	extract( shortcode_atts( array(
 		'category' => '',
-		'link' => 1,
+		'link' => 0,
 		'show_search' => 0,
 		'show_org' => 1,
 		'style' => 'list', // cards, list
@@ -272,9 +272,9 @@ function people_shortcode( $atts ) {
 			$post = get_the_ID();
 
 			$people_content .='<div class="person-entry visible">' . 
-				'<div class="person-thumbnail">' . /* ( $link ? '<a href="' . get_the_permalink() . '">' : '' ) . */ get_the_post_thumbnail() . /* ( $link ? '</a>' : '' ) . */ "</div>" .
+				'<div class="person-thumbnail">' . ( $link ? '<a href="' . get_the_permalink() . '">' : '' ) . get_the_post_thumbnail() . ( $link ? '</a>' : '' ) . "</div>" .
 				'<div class="person-info">
-					<h4>' . /*( $link ? '<a href="' . get_the_permalink() . '">' : '' ) .*/ get_cmb_value( "person_fname" ) . ' ' . get_cmb_value( "person_lname" ) . /* ( $link ? '</a>' : '' ) . */ '</h4>' .
+					<h4>' . ( $link ? '<a href="' . get_the_permalink() . '">' : '' ) . get_cmb_value( "person_fname" ) . ' ' . get_cmb_value( "person_lname" ) . ( $link ? '</a>' : '' ) . '</h4>' .
 					( has_cmb_value( 'person_title' ) ? '<p class="person-title">' . get_cmb_value( "person_title" ) . '</p>' : '' ) .
 					( has_cmb_value( 'person_organization' ) && $show_org ? '<p class="person-organization">' . get_cmb_value( "person_organization" ) . '</p>' : '' ) .
 					( has_cmb_value( 'person_phone' ) ? '<p class="person-phone">Phone: ' . get_cmb_value( "person_phone" ) . '</p>' : '' ) .
