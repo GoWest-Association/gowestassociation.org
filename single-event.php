@@ -88,13 +88,17 @@ get_header();
 			print "<h4>Pricing</h4>";
 
 			// if the small cu price is set, display with different styles
-			if ( $current_price == 0 ) {
-				print "<p>Free</p>";
-			} else if ( !empty( $small_current_price ) ) {
-				print "<p><strong>Regular Price:</strong><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";	
-				print "<p><strong>Small CU Price:</strong><br>$" . $small_current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";	
+			if ( get_cmb_value( 'event_pricing_upcoming' ) == 'on' ) {
+				print "<p>Pricing coming soon!</p>";
 			} else {
-				print "<p>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";	
+				if ( $current_price == 0 ) {
+					print "<p>Free</p>";
+				} else if ( !empty( $small_current_price ) ) {
+					print "<p><strong>Regular Price:</strong><br>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";	
+					print "<p><strong>Small CU Price:</strong><br>$" . $small_current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";	
+				} else {
+					print "<p>$" . $current_price . ( $is_early ? ' (early bird price)' : ( $is_late ? ' (late registration price)' : '' ) ) . "</p>";	
+				}
 			}
 			print '</div>';
 		
