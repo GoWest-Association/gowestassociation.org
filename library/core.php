@@ -13,6 +13,7 @@ add_action( 'wp_enqueue_scripts', 'p_scripts' );
 register_nav_menus( array(
 	'main-menu' => 'Main',
 	'main-menu-sli' => 'Main (SLI)',
+	'footer' => 'Footer',
 	'newletter-sidebar' => 'Newsletter'
 ) );
 
