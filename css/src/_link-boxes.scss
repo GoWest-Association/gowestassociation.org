@@ -9,6 +9,7 @@
 		border: 1px solid $navy;
 
 		a {
+			@include font-bold;
 			display: block;
 			padding: 30px;
 			text-align: center;
