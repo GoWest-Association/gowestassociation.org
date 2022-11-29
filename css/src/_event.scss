@@ -290,3 +290,186 @@
 	}
 }
 
+
+
+.event-list-cta {
+	padding: 20px 0 0;
+
+	.event {
+		border: 3px solid $navy;
+		margin-bottom: 20px;
+
+		.event-branding {
+			background: $grey-light;
+			padding: 10px;
+			position: relative;
+
+			img {
+				max-width: 40px;
+				max-height: 40px;
+			}
+
+			&:after {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 60px;
+				background: $navy;
+				color: white;
+				content: '';
+				padding: 10px 20px;
+				font-size: 25px;
+				line-height: 40px;
+				@include font-title;
+				text-transform: uppercase;
+			}
+
+			&.az {
+				background: $color-az;
+				&:after { content: 'Arizona'; }
+			}
+
+			&.co {
+				background: $color-co;
+				&:after { content: 'Colorado'; }
+			}
+
+			&.id {
+				background: $color-id;
+				&:after { content: 'Idaho'; }
+			}
+
+			&.or {
+				background: $color-or;
+				&:after { content: 'Oregon'; }
+			}
+
+			&.wa {
+				background: $color-wa;
+				&:after { content: 'Washington'; }
+			}
+
+			&.wy {
+				background: $color-wy;
+				&:after { content: 'Wyoming'; }
+			}
+
+			&.cuna {
+				background: $grey-light;
+				&:after { content: 'CUNA GAC'; }
+			}
+
+			&.general {
+				background: $grey-light;
+				&:after { content: 'Event'; }
+			}
+		}
+
+		.event-cta-columns {
+			.event-info {
+				padding: 20px 20px 10px;
+
+				.event-date {
+					color: $green;
+					@include font-title;
+					font-size: 1.2em;
+					padding-bottom: 5px;
+				}
+
+				h3 {
+					font-size: 1.4em;
+				}
+
+				.event-excerpt {
+					font-size: .8em;
+				}
+			}
+
+			.event-ctas {
+				@include clearfix;
+				padding: 0 2% 20px 20px;
+
+				a {
+					float: left;
+					@include font-bold;
+					width: 47%;
+					margin-top: 10px;
+					margin-right: 3%;
+					text-align: center;
+					background: $navy;
+					text-transform: uppercase;
+					color: white;
+					padding: 10px 0;
+					font-size: .9em;
+					transition: opacity 400ms ease-in-out;
+
+					&:hover {
+						opacity: .8;
+						text-decoration: none;
+					}
+
+					&.more-info {
+						background: $green;
+					}
+
+					&.register {
+						background: $orange;
+					}
+				}
+			}
+
+			@include respond-to( 768px ) {
+				display: flex;
+
+				.event-info {
+					flex: 1;
+					flex-basis: 57%;
+					margin-right: 3%;
+					padding: 20px;
+				}
+
+				.event-ctas {
+					flex: 1;
+					flex-basis: 40%;
+					padding: 20px 15px 20px 0;
+				}
+			}
+		}
+
+		@include respond-to( 1150px ) {
+			display: flex;
+
+			.event-branding {
+				flex: 1;
+				flex-basis: 20%;
+				padding: 20px 20px 80px 20px;
+				text-align: center;
+
+				img {
+					max-width: 120px;
+					max-height: 120px;
+				}
+
+				&:after {
+					top: auto;
+					left: 0;
+				}
+			}
+
+			.event-cta-columns {
+				flex: 1;
+				flex-basis: 80%;
+
+				.event-info {
+					.event-excerpt {
+						font-size: .95em;
+					}
+				}
+			}
+		}
+
+	}
+
+}
+

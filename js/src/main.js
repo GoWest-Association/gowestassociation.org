@@ -61,5 +61,8 @@ jQuery(document).ready(function($){
 	});
 
 
+	$('.content-wide').fitVids();
+
+
 });
 

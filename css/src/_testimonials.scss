@@ -1,0 +1,97 @@
+
+
+.testimonials {
+	@include clearfix;
+	@extend .content-style;
+	@include padding;
+	position: relative;
+	background: $navy;
+	color: white;
+
+	&:before {
+		content: "";
+		position: absolute;
+		top: -15px;
+		left: 0;
+		right: 0;
+		height: 15px;
+		width: 100%;
+		background: url(../img/bg-rainbow-border.png) center center no-repeat;
+		background-size: cover;
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding-top: 40px;
+		padding-bottom: 40px;
+	}
+
+	.testimonial {
+		display: none;
+		position: relative;
+		padding-left: 60px;
+		font-size: 1.1em;
+		line-height: 1.4em;
+		@include font-bold;
+
+		&:before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 40px;
+			height: 40px;
+			content: "";
+			background: url(../img/icon-quote.svg) center center / contain no-repeat;
+		}
+
+		@include respond-to( 768px ) {
+			padding-left: 100px;
+
+			&:before {
+				width: 80px;
+				height: 80px;
+			}
+		}
+
+		.quote {
+			color: white;
+		}
+
+		.by {
+			margin-top: 8px;
+			color: $green;
+		}
+
+		&:first-child {
+			display: block;
+		}
+	}
+
+	.control {
+		position: absolute;
+		top: 50%;
+		margin-top: -25px;
+		font-size: 40px;
+		line-height: 40px;
+		cursor: pointer;
+		color: rgba( white, .3 );
+		background: rgba( white, .15 );
+		@include font-bold;
+		padding: 5px 10px;
+
+		&:hover {
+			color: rgba( white, .5 );
+			background: rgba( white, .3 );
+			text-decoration: none;
+		}
+
+		&.prev {
+			left: 0;
+		}
+
+		&.next {
+			right: 0;
+		}
+	}
+}
+
+

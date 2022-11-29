@@ -25,8 +25,15 @@ $colors = array(
 
 // include utility functions
 require_multi( 
-    'core', 'admin', 'metabox', 
+    'core', 'admin', 'metabox', 'images', 'paginate',
+
+    // include the post types
     'post-type/people', 'post-type/event', 'post-type/job', 'post-type/partner',
-    'images', 'paginate', 'metabox', 'showcase', 'button', 'icons', 'accordion', 'stats', 'newsletter'
+
+    // include the metaboxes in the order we want them to show up in the editor pages
+    'settings', 'newsletter', 'showcase', 'stats', 'icons', 'partner-logos', 'testimonials', 'pages', 'accordion', 'link-boxes',
+
+    // add shortcodes
+    'button'
 );
 

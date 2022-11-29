@@ -13,6 +13,13 @@ $grey: #c5c5cf;
 $grey-light: rgba( $grey, .2 );
 $grey-dark: #9d9dac;
 
+$color-az: #FBB316;
+$color-co: #7A3693;
+$color-id: #EE3E37;
+$color-or: #41C2D4;
+$color-wa: #3A76BA;
+$color-wy: #8C4C3D;
+
 
 // breakpoints
 $bp-s: 600px;
@@ -27,7 +34,7 @@ $bp-xxl: 1300px;
 
 
 // import layout components
-@import "header", "showcase", "content", "sidebar", "footer", "page-title", "front", "icons", "stats", "event", "newsletter", "accordion", "people";
+@import "header", "showcase", "content", "sidebar", "footer", "page-title", "front", "icons", "stats", "event", "newsletter", "accordion", "people", "partner-logos", "testimonials", "link-boxes";
 
 
 // import lightbox styles

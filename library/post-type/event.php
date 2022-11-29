@@ -5,6 +5,19 @@
 add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 
 
+// set up the event brand options
+global $event_brands;
+$event_brands = array(
+	'general' => 'General',
+	'az' => 'Arizona',
+	'co' => 'Colorado',
+	'id' => 'Idaho',
+	'or' => 'Oregon',
+	'wa' => 'Washington',
+	'wy' => 'Wyoming',
+	'cuna' => 'CUNA GAC',
+);
+
 
 // let's create the function for the custom type
 function event_post_type() { 
@@ -88,6 +101,8 @@ register_taxonomy( 'event_cat',
 // event metabox(es)
 function event_metaboxes( $meta_boxes ) {
 
+	global $event_brands;
+
     // event metabox
     $event_metabox = new_cmb2_box( array(
         'id' => 'event_metabox',
@@ -95,6 +110,14 @@ function event_metaboxes( $meta_boxes ) {
         'object_types' => array( 'event' ), // post type
         'context' => 'normal',
         'priority' => 'high',
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Branding',
+        'id'   => CMB_PREFIX . 'event_branding',
+        'type' => 'select',
+        'default' => 'general',
+        'options' => $event_brands
     ) );
 
     $event_metabox->add_field( array(
@@ -202,6 +225,30 @@ function event_metaboxes( $meta_boxes ) {
         'name' => 'Registration Link',
         'id'   => CMB_PREFIX . 'event_registration',
         'desc' => 'Registration Link',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Call to Action #1 Text',
+        'id'   => CMB_PREFIX . 'event_cta1_text',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Call to Action #1 Link',
+        'id'   => CMB_PREFIX . 'event_cta1_link',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Call to Action #2 Text',
+        'id'   => CMB_PREFIX . 'event_cta2_text',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Call to Action #2 Link',
+        'id'   => CMB_PREFIX . 'event_cta2_link',
         'type' => 'text'
     ) );
 
@@ -849,6 +896,78 @@ function events_shortcode( $event_atts ) {
 
 }
 add_shortcode( 'events', 'events_shortcode' );
+
+
+
+// event-cta shortcode
+function events_cta_shortcode( $event_atts ) {
+
+	// set shortcode defaults
+	$a = shortcode_atts( array(
+		'limit' => 5,
+		'category' => 0,
+		'show_excerpt' => 0,
+		'display' => 'list'
+	), $event_atts );
+
+
+	// get the events
+	$events = get_upcoming_events( $a['limit'], $a['category'] );
+
+	// start an empty event.
+	$list = '';
+
+	// list the events
+	if ( !empty( $events ) ) {
+		$list .= '<div class="event-list-cta">';
+		$num = 0;
+		foreach ( $events as $event ) {
+
+			// piece together an excerpt.
+			$excerpt = ( !empty( $event->post_excerpt ) ? $event->post_excerpt : wp_trim_words( $event->post_content, 20 ) );
+
+			$link_url = get_permalink( $event->ID );
+
+			// open the event item
+			$list .= '<div class="event' . ( $num == 0 ? ' first' : '' ) . '">';
+
+			// start event branding
+			$list .= '<div class="event-branding ' . $event->_p_event_branding . '">';
+			$list .= '<img src="' . get_bloginfo( 'template_url' ) . '/img/event-brand/' . $event->_p_event_branding . '.svg" />';
+			$list .= '</div>';
+
+			// start event columns
+			$list .= '<div class="event-cta-columns">';
+
+			// start event info
+			$list .= '<div class="event-info">';
+			$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
+			$list .= '<div class="event-date">' . date( 'M j, Y \a\t g:i a', $event->_p_event_start ) . '</div>';
+			$list .= '<p class="event-excerpt">' . $excerpt . '</p>';
+			$list .= '</div>';
+
+			// start event ctas
+			$list .= '<div class="event-ctas">';
+			$list .= '<a href="' . $link_url . '" class="more-info">More Info</a>';
+			if ( !empty( $event->_p_event_registration ) ) $list .= '<a href="' . $event->_p_event_registration . '" class="register">Register</a>';
+			if ( !empty( $event->_p_event_cta1_link ) ) $list .= '<a href="' . $event->_p_event_cta1_link . '" class="cta1">' . $event->_p_event_cta1_text . '</a>';
+			if ( !empty( $event->_p_event_cta2_link ) ) $list .= '<a href="' . $event->_p_event_cta2_link . '" class="cta2">' . $event->_p_event_cta2_text . '</a>';
+			$list .= '</div>';
+
+			// end event columns
+			$list .= '</div>';
+
+			// close the event item
+			$list .= '</div>';
+			$num++;
+		}
+		$list .= '</div>';
+	}
+
+	return $list;
+
+}
+add_shortcode( 'events-cta', 'events_cta_shortcode' );
 
 
 

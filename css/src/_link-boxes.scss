@@ -1,0 +1,53 @@
+
+
+.link-boxes {
+	@include padding;
+	background: $grey-light url(../img/bg-waves-green.png) center center / cover no-repeat;
+
+	.link-box {
+		position: relative;
+		border: 1px solid $navy;
+
+		a {
+			display: block;
+			padding: 30px;
+			text-align: center;
+			color: white;
+			font-size: 1.4em;
+			background: rgba( black, .3 );
+			transition: background 400ms ease-in-out;
+
+			&:hover {
+				text-decoration: none;
+				background: rgba( black, .5 );
+			}
+
+			@include respond-to( $bp-m ) {
+				padding: 40px;
+			}
+
+			@include respond-to( $bp-l ) {
+				padding: 60px;
+			}
+		}
+	}
+	
+	@include respond-to( $bp-m ) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -3%;
+
+		.link-box {
+			flex: 1;
+			flex-basis: 47%;
+			margin-right: 3%;
+		}
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding-top: 40px;
+		padding-bottom: 60px;
+	}
+
+}
+
