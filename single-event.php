@@ -186,7 +186,7 @@ the_icons();
 
 the_testimonials();
 
-if ( has_content() ) {
+// if ( has_content() ) {
 	?>
 <div class="content-wide" role="main">
 	<?php
@@ -209,7 +209,7 @@ if ( has_content() ) {
 	?>
 </div>
 	<?php
-}
+// }
 
 the_agenda();
 
