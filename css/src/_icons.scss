@@ -1,6 +1,12 @@
 
 
 .icons {
+	@include padding;
+	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 -2% 0 0;
+
 	.icon {
 		padding: 0 0 30px 0;
 		display: block;
@@ -8,6 +14,9 @@
 		margin-bottom: 20px;
 		text-align: center;
 		cursor: pointer;
+		flex: 1;
+		flex-basis: 47%;
+		margin: 0 2% 2% 0;
 
 		h3 {
 			margin-top: 10px;
@@ -15,22 +24,10 @@
 			color: $navy;
 		}
 	}
+
 	
 	@include respond-to( $bp-m ) {
-		display: flex;
-		flex-wrap: wrap;
-		margin: 2% -2% 0 0;
-
-		.icon {
-			flex: 1;
-			flex-basis: 47%;
-			margin: 0 2% 2% 0;
-		}
-	}
-	
-	@include respond-to( $bp-l ) {
-		flex-wrap: nowrap;
-		margin: 2% -2% 0 0;
+		margin: 0 -2% 0 0;
 
 		.icon {
 			flex: 1;
@@ -41,7 +38,7 @@
 	
 	@include respond-to( $bp-xl ) {
 		flex-wrap: nowrap;
-		margin: 2% -2% 0 0;
+		margin: 0 -2% 0 0;
 
 		.icon {
 			flex: 1;

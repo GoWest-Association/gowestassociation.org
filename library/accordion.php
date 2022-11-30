@@ -8,7 +8,7 @@ function the_accordions() {
 	// get the slides
 	$accordions = get_post_meta( get_the_ID(), "accordions", 1 );
 
-	if ( !empty( $accordions ) ) {
+	if ( isset( $accordions[0]['title'] ) ) {
 		?>
 		<div class="accordions">
 			<?php

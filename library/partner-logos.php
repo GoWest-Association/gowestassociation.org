@@ -44,7 +44,7 @@ function partner_logos_metabox( $meta_boxes ) {
     $partner_logos_metabox = new_cmb2_box( array(
         'id' => 'partner_logos_metabox',
         'title' => 'Partner Logos',
-        'object_types' => array( 'page' ),
+        'object_types' => array( 'page', 'event' ),
         'context' => 'normal',
         'priority' => 'high',
     ) );

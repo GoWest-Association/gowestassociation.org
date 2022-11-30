@@ -29,10 +29,7 @@ get_header();
 		</div>
 	</div>
 
-	<div class="content-wide icons-container grey">
-		<?php the_icons(); ?>
-	</div>
-
+	<?php the_icons(); ?>
 
 	<div class="content-wide front-events">
 		<a href="/events/?notemplate" class="lightbox-iframe"><img src="<?php bloginfo( "template_url" ) ?>/img/icon-calendar.png" class="front-events-link" /></a>

@@ -1,7 +1,4 @@
 <?php
-/**
- * The Template for displaying all single posts
- */
 
 set_brand( 'newsletter' );
 
@@ -39,4 +36,3 @@ the_showcase();
 
 get_footer();
 
-?>

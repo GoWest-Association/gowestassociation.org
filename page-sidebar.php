@@ -4,7 +4,7 @@
 Template Name: Page w/ Sidebar
 */
 
-set_brand( 'association' );
+set_brand( 'core' );
 
 get_header();
 

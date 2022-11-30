@@ -22,7 +22,9 @@ if ( has_introduction() ) {
 	?>
 <div class="content-wide" role="main">
 	<?php 
-	
+
+	if ( show_breadcrumbs() ) breadcrumbs();
+
 	the_introduction();
 
 	the_partner_logos();
@@ -32,25 +34,31 @@ if ( has_introduction() ) {
 	<?php
 }
 
+the_icons();
+
 the_testimonials();
 
 ?>
 <div class="content-wide" role="main">
 	<?php
+	if ( !has_introduction() && show_breadcrumbs() ) {
+		breadcrumbs();
+	}
+
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post(); 
-			?>
-	<?php the_content(); ?>
-			<?php
+			the_content();
 		endwhile;
 	endif;
+	
 	?>
 </div>
 <?php
+
+the_agenda();
 
 the_accordions();
 
 the_link_boxes();
 
 get_footer();
-

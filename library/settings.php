@@ -10,6 +10,15 @@ function show_title() {
 }
 
 
+// boolean for whether to show the breadcrumbs
+function show_breadcrumbs() {
+    if ( has_cmb_value( 'hide_breadcrumbs' ) ) {
+        if ( get_cmb_value( 'hide_breadcrumbs') == 'on' ) return false;
+    }
+    return true;
+}
+
+
 // settings metabox
 add_action( 'cmb2_admin_init', 'settings_metaboxes' );
 function settings_metaboxes() {
@@ -18,7 +27,7 @@ function settings_metaboxes() {
     $settings_metabox = new_cmb2_box( array(
         'id' => 'settings_metabox',
         'title' => 'Settings',
-        'object_types' => array( 'page' ), // Post type
+        'object_types' => array( 'page', 'event' ), // Post type
         'context' => 'side',
         'priority' => 'high',
         'show_names' => false, // Show field names on the left
@@ -27,7 +36,14 @@ function settings_metaboxes() {
     $settings_metabox->add_field( array(
         'name' => 'Show Title',
         'id'   => CMB_PREFIX . 'show_title',
-        'desc' => 'Show the page title.',
+        'desc' => 'Show Page Title.',
+        'type' => 'checkbox',
+    ) );
+
+    $settings_metabox->add_field( array(
+        'name' => 'Hide Breadcrumbs',
+        'id'   => CMB_PREFIX . 'hide_breadcrumbs',
+        'desc' => 'Hide Breadcrumbs',
         'type' => 'checkbox',
     ) );
 
@@ -47,3 +63,45 @@ function settings_metaboxes() {
 
 }
 
+
+// is newsletter boolean function
+function is_newsletter() {
+
+    // if the newsletter global is set
+    if ( BRAND == 'newsletter' ) {
+        return true;
+    }
+
+    // otherwise, return false
+    return false;
+}
+
+
+function is_foundation() {
+
+    // if the foundation global is set
+    if ( BRAND == 'foundation' ) {
+        return true;
+    }
+
+    // otherwise, return false
+    return false;
+}
+
+
+function is_solutions() {
+    global $is_solutions;
+
+    // if the solutions global is set
+    if ( BRAND == 'solutions' ) {
+        return true;
+    }
+
+    // otherwise, return false
+    return false;
+}
+
+
+function set_brand( $brand = '' ) {
+    define( 'BRAND', $brand );
+}

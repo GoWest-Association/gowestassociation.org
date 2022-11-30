@@ -1,0 +1,79 @@
+
+
+.agenda {
+	background: $grey-light;
+	padding: 10px 30px;
+	@include respond-to( $bp-m ) { margin: 0; padding: 20px 40px; }
+	@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
+	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
+
+	.content-wide & {
+		margin: 20px -30px;
+		@include respond-to( $bp-m ) { margin: 20px -40px; }
+		@include respond-to( $bp-l ) { margin: 45px -50px; }
+		@include respond-to( $bp-xl ) { margin: 30px -60px; }
+	}
+
+	.agenda-item {
+		display: flex;
+		flex-wrap: wrap;
+		border-top: 1px solid $grey;
+		padding-top: 15px;
+		margin-bottom: 10px;
+
+		&:first-child {
+			border-top: none;
+		}
+
+		div {
+			flex: 1;
+		}
+
+		.time, .location {
+			flex-basis: 50%;
+			line-height: 1.5em;
+			padding-bottom: 10px;
+		}
+
+		.content {
+			flex-basis: 100%;
+
+			p {
+				padding: 0 0 15px;
+			}
+		}
+
+		@include respond-to( $bp-l ) {
+
+			.time {
+				flex-basis: 30%;
+			}
+
+			.location {
+				flex-basis: 20%;
+			}
+
+			.content {
+				flex-basis: 50%;
+			}
+
+		}
+
+		@include respond-to( $bp-xl ) {
+
+			.time {
+				flex-basis: 20%;
+			}
+
+			.location {
+				flex-basis: 15%;
+			}
+
+			.content {
+				flex-basis: 65%;
+			}
+
+		}
+	}
+}
+

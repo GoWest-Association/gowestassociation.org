@@ -51,7 +51,7 @@ function testimonial_metaboxes() {
     $testimonial_metabox = new_cmb2_box( array(
         'id' => 'testimonials',
         'title' => 'Testimonials',
-        'object_types' => array( 'page' ), // Post type
+        'object_types' => array( 'page', 'event' ), // Post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left

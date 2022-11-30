@@ -12,8 +12,8 @@ function the_icons() {
 
 		if ( !empty( $icons[0]['link'] ) && !empty( $icons[0]['image'] ) && !empty( $icons[0]['title'] ) ) {
 
-		// if it's an array, we'll assume it's got content
-		?>
+    		// if it's an array, we'll assume it's got content
+    		?>
 		<div class="icons">
 			<?php
 			foreach ( $icons as $icon ) {
@@ -32,7 +32,7 @@ function the_icons() {
 			}
 			?>
 		</div>
-		<?php
+    		<?php
 		}
 	}
 }
@@ -48,8 +48,7 @@ function icon_metaboxes( $meta_boxes ) {
     $icon_showcase_metabox = new_cmb2_box( array(
         'id' => 'icon_showcase_metabox',
         'title' => 'Icons',
-        'show_on' => array( 'key' => 'page-template', 'value' => 'page-front.php' ),
-        'object_types' => array( 'page' ),
+        'object_types' => array( 'page', 'event' ),
         'context' => 'normal',
         'priority' => 'high',
     ) );

@@ -44,7 +44,7 @@ function link_boxes_metaboxes( $meta_boxes ) {
     $link_box_metabox = new_cmb2_box( array(
         'id' => 'link_boxes_metabox',
         'title' => 'Link Boxes',
-        'object_types' => array( 'page' ),
+        'object_types' => array( 'page', 'event' ),
         'context' => 'normal',
         'priority' => 'high',
     ) );

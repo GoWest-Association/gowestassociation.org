@@ -45,7 +45,7 @@ function page_metaboxes() {
     $page_metabox = new_cmb2_box( array(
         'id' => 'page_metabox',
         'title' => 'Introduction',
-        'object_types' => array( 'page' ), // Post type
+        'object_types' => array( 'page', 'event' ), // Post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left
@@ -66,5 +66,20 @@ function page_metaboxes() {
         ),
     ) );
 
+}
+
+
+function the_bottom_content(){
+    if ( have_posts() ) :
+        while ( have_posts() ) : the_post(); 
+            the_content();
+        endwhile;
+    endif;
+}
+
+
+// function that checks if the content is empty
+function has_content() {
+    return trim( str_replace( '&nbsp;', '', strip_tags( get_the_content() ) ) ) == '';
 }
 
