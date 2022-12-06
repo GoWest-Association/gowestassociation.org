@@ -52,10 +52,24 @@
 
 
 .event-registration {
-	background: $grey;
-	text-align: center;
-	padding: 20px;
+	position: relative;
+	background: $grey url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+	text-align: right;
 	border-top: 2px solid $grey-dark;
+
+	&.fixed {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: 0 auto;
+		max-width: 1450px;
+	}
+
+	padding: 20px 30px;
+	@include respond-to( $bp-m ) { padding: 20px 40px; }
+	@include respond-to( $bp-l ) { padding: 20px 50px; }
+	@include respond-to( $bp-xl ) { padding: 20px 60px; }
 }
 
 

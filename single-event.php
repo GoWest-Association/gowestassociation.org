@@ -161,7 +161,7 @@ the_showcase();
 
 if ( has_introduction() ) {
 	?>
-<div class="content-wide" role="main">
+<div class="content-wide after-showcase" role="main">
 	<?php 
 
 	if ( show_breadcrumbs() ) {
@@ -221,7 +221,8 @@ the_link_boxes();
 // output the registration button if there's a registration link.
 if ( has_cmb_value( 'event_registration' ) ) {
 	print '<div class="event-registration">';
-	print '<p><a href="' . get_cmb_value( 'event_registration' ) . '" class="btn green large">Register Now</a></p>';
+	print '<a href="' . get_cmb_value( 'event_registration' ) . '" class="btn green">Register Now</a> ';
+	print '<a href="' . get_cmb_value( 'event_cta1_link' ) . '" class="btn navy">' . get_cmb_value( 'event_cta1_text' ) . '</a>';
 	print '</div>';
 }
 

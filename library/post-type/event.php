@@ -904,7 +904,7 @@ function events_cta_shortcode( $event_atts ) {
 
 	// set shortcode defaults
 	$a = shortcode_atts( array(
-		'limit' => 10,
+		'limit' => -1,
 		'category' => 0,
 		'show_excerpt' => 0,
 		'display' => 'list'

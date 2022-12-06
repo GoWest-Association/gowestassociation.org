@@ -2,27 +2,46 @@
 
 footer {
 	@include clearfix;
-	background: $navy url(../img/bg-waves-green.png) center center no-repeat;
+	@include padding;
+	background: $navy url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 	color: white;
 	line-height: 1.5em;
-	text-align: center;	
+	
+	.phone {
+		@include font-bold;
+		padding-bottom: 20px;
 
-	padding: 30px;
-	@include respond-to( $bp-m ) { padding: 50px 40px 60px; }
-	@include respond-to( $bp-l ) { padding: 55px 50px 70px; }
-	@include respond-to( $bp-xl ) { padding: 70px 60px 100px; }
-
-	a {
-		color: white;
+		a {
+			color: white;
+		}
 	}
 
-	.address {
+	.columns {
+		@include respond-to( $bp-m ) {
+			display: flex;
+		}
+
+		.column {
+			@include respond-to( $bp-m ) {
+				flex: 1;
+			}
+
+			.social {
+				padding: 10px 0;
+				max-width: 350px;
+				margin-right: -2%;
+
+				img {
+					max-width: 23%;
+					margin-right: 2%;
+				}
+			}
+		}
+	}
+
+	.small {
 		padding-top: 20px;
-	}
-
-	.copyright {
-		color: white;
-		font-size: .75em;
+		font-size: .8em;
 	}
 }
 

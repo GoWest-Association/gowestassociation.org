@@ -15,9 +15,27 @@ $admin_email = get_option( 'admin_email' );
 	
 	<?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 	<footer class="footer">
-		<a href="/"><img src="<?php bloginfo( "template_url" ); ?>/img/logo-white.png" alt="GoWest Association" /></a>
-		<div class="address"><?php print apply_filters( 'the_content', get_option( 'pure_address' ) ); ?></div>
-		<p class="copyright">Copyright &copy; <?php print date( 'Y' ) ?> GoWest Credit Union Association. All Rights Reserved.</p>
+		<div class="footer-inner">
+		
+			<p class="phone">
+				<a href="tel:8009959064">800.995.9064</a>
+			</p>
+
+			<div class="columns">
+				<div class="column">
+					<?php print get_snippet( 'footer-address-one' ); ?>
+				</div>
+				<div class="column">
+					<?php print get_snippet( 'footer-address-two' ); ?>
+					<div class="social">
+						<a href="https://twitter.com/GoWestCUA" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-twitter.png" /></a><a href="https://www.facebook.com/GoWestCUA/" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-facebook.png" /></a><a href="https://www.youtube.com/channel/UCx4WZCnp-2losXaGN4rCHUg" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-youtube.png" /></a><a href="https://www.linkedin.com/company/gowestcua/about/" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-linkedin.png" /></a>
+					</div>
+				</div>
+			</div>
+
+			<p class="small">Copyright &copy; 2022 GoWest Credit Union Association. All Rights Reserved.</p>
+
+		</div>
 	</footer>
 	<?php } ?>
 

@@ -24,7 +24,6 @@
 			color: $navy;
 		}
 	}
-
 	
 	@include respond-to( $bp-m ) {
 		margin: 0 -2% 0 0;
