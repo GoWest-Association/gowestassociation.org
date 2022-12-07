@@ -27,7 +27,7 @@ function settings_metaboxes() {
     $settings_metabox = new_cmb2_box( array(
         'id' => 'settings_metabox',
         'title' => 'Settings',
-        'object_types' => array( 'page', 'event' ), // Post type
+        'object_types' => array( 'page', 'event', 'agenda' ), // Post type
         'context' => 'side',
         'priority' => 'high',
         'show_names' => false, // Show field names on the left

@@ -45,7 +45,7 @@ function page_metaboxes() {
     $page_metabox = new_cmb2_box( array(
         'id' => 'page_metabox',
         'title' => 'Introduction',
-        'object_types' => array( 'page', 'event' ), // Post type
+        'object_types' => array( 'page', 'event', 'agenda' ), // Post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left
