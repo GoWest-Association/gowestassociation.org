@@ -9,6 +9,7 @@ jQuery(document).ready(function($){
 		arrows: false,
 		dots: false,
 		pauseOnHover: true,
+		centerMode: true,
 		responsive: [{
 			breakpoint: 1220,
 			settings: {
