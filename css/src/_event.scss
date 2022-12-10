@@ -54,7 +54,6 @@
 .event-registration {
 	position: relative;
 	background: $grey url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
-	text-align: right;
 	border-top: 2px solid $grey-dark;
 
 	&.fixed {
@@ -70,6 +69,33 @@
 	@include respond-to( $bp-m ) { padding: 20px 40px; }
 	@include respond-to( $bp-l ) { padding: 20px 50px; }
 	@include respond-to( $bp-xl ) { padding: 20px 60px; }
+
+	@include respond-to( $bp-m ) {
+		display: flex;	
+	}
+
+	.content {
+		display: none;
+		@extend .content-style;
+		
+		@include respond-to( $bp-m ) {
+			display: block;
+			flex: 1;
+		}
+
+		h1, h2, h3, h4, h5, h6, p {
+			padding: 0;
+		}
+	}
+
+	.buttons {
+		text-align: right;
+		padding: 0;
+
+		@include respond-to( $bp-m ) {
+			flex: 1;
+		}
+	}
 }
 
 

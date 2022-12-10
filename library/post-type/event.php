@@ -229,6 +229,15 @@ function event_metaboxes( $meta_boxes ) {
     ) );
 
     $event_metabox->add_field( array(
+        'name' => 'Call to Action Note',
+        'id'   => CMB_PREFIX . 'event_cta_intro',
+        'type' => 'wysiwyg',
+        'options' => array(
+			'textarea_rows' => 4,
+		),
+    ) );
+
+    $event_metabox->add_field( array(
         'name' => 'Call to Action #1 Text',
         'id'   => CMB_PREFIX . 'event_cta1_text',
         'type' => 'text'
@@ -257,7 +266,7 @@ function event_metaboxes( $meta_boxes ) {
         'id'   => CMB_PREFIX . 'event_location_text',
         'type' => 'wysiwyg',
         'options' => array(
-			'textarea_rows' => 5, // rows="..."
+			'textarea_rows' => 5,
 		),
     ) );
 

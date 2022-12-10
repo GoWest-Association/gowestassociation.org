@@ -220,12 +220,27 @@ the_link_boxes();
 
 // output the registration button if there's a registration link.
 if ( has_cmb_value( 'event_registration' ) ) {
+
+	// the event registration bar	
 	print '<div class="event-registration">';
+
+	// the call to action intro
+	if ( has_cmb_value( 'event_cta_intro' ) ) {		
+		print '<div class="content">';
+		print apply_filters( 'the_content', get_cmb_value( 'event_cta_intro') );
+		print '</div>';
+	}
+
+	// the call to action buttons
+	print '<div class="buttons">';
 	print '<a href="' . get_cmb_value( 'event_registration' ) . '" class="btn green">Register Now</a> ';
 	if ( has_cmb_value( 'event_cta1_link' ) && has_cmb_value( 'event_cta1_text' ) ) {
 		print '<a href="' . get_cmb_value( 'event_cta1_link' ) . '" class="btn navy">' . get_cmb_value( 'event_cta1_text' ) . '</a>';
 	}
 	print '</div>';
+
+	print '</div>';
+
 }
 
 
