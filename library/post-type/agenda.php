@@ -146,11 +146,14 @@ function agenda_shortcode( $atts ) {
 	    // get the agenda items
 	    $agenda_items = get_post_meta( $agenda->ID, 'agenda', 1 );
 
+	    // empty content in case we don't have agenda items
+	    $agenda_content = '';
+
 	    // make sure we have agenda items
 	    if ( !empty( $agenda_items ) ) {
 
 		    // start generating the agenda code
-		    $agenda_content = '<section class="agenda">';
+		    $agenda_content .= '<section class="agenda">';
 
 		    // loop through and include each agenda item
 		    foreach ( $agenda_items as $item ) {
