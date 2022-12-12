@@ -1,7 +1,7 @@
 
 
 .link-boxes {
-	background: $grey-light url(../img/bg-waves-green.png) center center / cover no-repeat;
+	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 
 	padding: 30px;
 	@include respond-to( $bp-m ) { padding: 40px 40px 0; }
