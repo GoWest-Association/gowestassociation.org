@@ -1,13 +1,17 @@
 
 
 .link-boxes {
-	@include padding;
 	background: $grey-light url(../img/bg-waves-green.png) center center / cover no-repeat;
+
+	padding: 30px;
+	@include respond-to( $bp-m ) { padding: 40px 40px 0; }
+	@include respond-to( $bp-l ) { padding: 40px 50px 0; }
+	@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
 
 	.link-box {
 		position: relative;
 		border: 1px solid $navy;
-		margin-bottom: 3%;
+		margin-bottom: 40px;
 
 		a {
 			@include font-bold;
@@ -49,7 +53,6 @@
 
 	@include respond-to( $bp-xl ) {
 		padding-top: 40px;
-		padding-bottom: 40px;
 	}
 
 }
