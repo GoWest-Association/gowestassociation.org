@@ -34,7 +34,11 @@ if ( has_introduction() ) {
 	<?php
 }
 
+the_button_bar();
+
 the_icons();
+
+// the_page_events();
 
 the_testimonials();
 

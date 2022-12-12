@@ -1,7 +1,7 @@
 
 jQuery(document).ready(function($){
 
-	$('.partner-logos').slick({
+	$( ".partner-logos:not(.static)" ).slick({
 		slidesToShow: 6,
 		slidesToScroll: 1,
 		autoplay: true,
@@ -9,7 +9,7 @@ jQuery(document).ready(function($){
 		arrows: false,
 		dots: false,
 		pauseOnHover: true,
-		centerMode: true,
+		// centerMode: true,
 		responsive: [{
 			breakpoint: 1220,
 			settings: {

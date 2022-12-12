@@ -11,11 +11,10 @@ function the_partner_logos() {
 	if ( is_array( $icons ) ) {
 
 		if ( !empty( $icons[0]['image'] ) ) {
-
 		// if it's an array, we'll assume it's got content
 		?>
         <div class="partner-logos-container">
-    		<div class="partner-logos">
+    		<div class="partner-logos<?php print ( count( $icons ) <= 6 ? ' static' : '' ) ?>">
     			<?php
     			foreach ( $icons as $icon ) {
     				if ( !empty( $icon['image'] ) ) { 
