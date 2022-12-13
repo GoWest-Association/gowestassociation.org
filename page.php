@@ -38,7 +38,7 @@ the_button_bar();
 
 the_icons();
 
-// the_page_events();
+the_page_events();
 
 the_testimonials();
 
@@ -66,3 +66,4 @@ the_accordions();
 the_link_boxes();
 
 get_footer();
+

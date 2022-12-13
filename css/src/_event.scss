@@ -51,6 +51,64 @@
 }
 
 
+.page-events {
+	@include padding;
+	position: relative;
+	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+	border-top: 3px solid darken( $grey-light, 10% );
+
+	* {
+		text-shadow: 0 0 30px white;
+	}
+
+	.page-events-title {
+		padding-bottom: 20px;
+
+		@include respond-to( 768px ) {
+			padding-bottom: 30px;
+		}
+	}
+
+	.all-events {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		width: 60px;
+		height: 60px;
+		content: '';
+		background: url(../img/icon-calendar-dark.png) center center no-repeat;
+		background-size: contain;
+		color: transparent;
+
+		@include respond-to( 1220px ) {
+			width: 100px;
+			height: 100px;
+		}
+	}
+
+	
+	.event-list {
+		padding-right: 40px;
+
+		@include respond-to( 768px ) {
+			display: flex;
+			padding-right: 20px;
+		}
+
+		@include respond-to( 1220px ) {
+			padding-right: 80px;
+		}
+
+		.event {
+			@include respond-to( 768px ) {
+				flex: 1;
+				flex-basis: 50%;
+			}
+		}
+	}
+}
+
+
 .event-registration {
 	position: relative;
 	background: $grey url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
