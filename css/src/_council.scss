@@ -2,6 +2,7 @@
 
 .page-template-page-council {
 	.button-bar {
+		background: white;
 		padding: 0;
 
 		@include respond-to( $bp-m ) {	
