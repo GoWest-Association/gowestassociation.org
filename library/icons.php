@@ -21,7 +21,7 @@ function the_icons() {
 				if ( !empty( $icon['link'] ) && !empty( $icon['image'] ) && !empty( $icon['title'] ) ) { 
                     $title = str_replace( '|', '<br>', $icon['title'] );
                     $title_alt = str_replace( '|', ' ', $icon['title'] );
-                    $class = $icon['class'];
+                    $class = ( isset( $icon['class'] ) ? $icon['class'] : '' );
 					?>
 			<div data-href="<?php print $icon['link']; ?>" class="icon <?php print $color . ' ' . $class; ?>">
 				<div class="icon-image"><img src="<?php print $icon['image']; ?>" alt="<?php print ( !empty( $icon['alt-text'] ) ? $icon['alt-text'] : $title_alt ); ?>"></div>

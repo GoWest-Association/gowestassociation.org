@@ -10,7 +10,7 @@ function the_button_bar() {
 	if ( !empty( $buttons ) ) {
 
 		print '<div class="button-bar">';
-		print '<h3>' . $heading . '</h3>';
+		if ( !empty( $heading ) ) print '<h3>' . $heading . '</h3>';
 		print '<div class="button-bar-inner">';
 
 		// loop through them

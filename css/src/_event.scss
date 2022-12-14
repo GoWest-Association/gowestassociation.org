@@ -57,6 +57,14 @@
 	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 	border-top: 3px solid darken( $grey-light, 10% );
 
+	&.narrow {
+		background: white;
+
+		@include respond-to( $bp-l ) {
+			padding-right: 120px;
+		}
+	}
+
 	* {
 		text-shadow: 0 0 30px white;
 	}
@@ -397,9 +405,65 @@
 }
 
 
-
 .event-list-cta {
 	padding: 20px 0 0;
+		
+	&.narrow {
+		.event {
+			border: 0;
+			position: relative;
+
+			& > .event-date {
+				position: absolute;
+				left: 0;
+				top: 20px;
+				border: 3px solid rgba( $grey, .3 );
+				color: $navy;
+				width: 64px;
+				height: 64px;
+				padding: 10px 0 0 0;
+				border-radius: 50%;
+
+				@include respond-to( 1024px ) {
+					width: 92px;
+					height: 92px;
+					padding: 10px 0 0 0;
+				}
+
+				.event-date-month {
+					@include font-title;
+					text-align: center;
+					display: block;
+					text-transform: uppercase;
+					font-size: 14px;
+					line-height: 14px;
+
+					@include respond-to ( 1024px ) {
+						font-size: 20px;
+						line-height: 20px;
+					}
+				}
+
+				.event-date-day {
+					@include font-title;
+					text-align: center;
+					display: block;
+					font-size: 30px;
+					line-height: 30px;
+
+					@include respond-to( 1024px ) {
+						font-size: 50px;
+						line-height: 50px;
+					}
+				}
+			}
+
+			.event-cta-columns {
+				margin-left: 90px;
+				
+			}
+		}
+	}
 
 	.event {
 		border: 3px solid $navy;

@@ -928,7 +928,7 @@ function events_cta_shortcode( $event_atts ) {
 
 	// list the events
 	if ( !empty( $events ) ) {
-		$list .= '<div class="event-list-cta">';
+		$list .= '<div class="event-list-cta' . ( $a['display'] == 'narrow' ? ' narrow' : '' ) . '">';
 		$num = 0;
 		foreach ( $events as $event ) {
 
@@ -940,10 +940,18 @@ function events_cta_shortcode( $event_atts ) {
 			// open the event item
 			$list .= '<div class="event' . ( $num == 0 ? ' first' : '' ) . '">';
 
-			// start event branding
-			$list .= '<div class="event-branding ' . $event->_p_event_branding . '">';
-			$list .= '<img src="' . get_bloginfo( 'template_url' ) . '/img/event-brand/' . $event->_p_event_branding . '.svg" />';
-			$list .= '</div>';
+			// narrow styles
+			if ( $a['display'] == 'narrow' ) {
+				$list .= '<div class="event-date">';
+					$list .= '<span class="event-date-month">' . date( 'M', $event->_p_event_start ) . '</span>';
+					$list .= '<span class="event-date-day">' . date( 'j', $event->_p_event_start ) . '</span>';
+				$list .= '</div>';
+			} else {
+				// state-related event list-style branding
+				$list .= '<div class="event-branding ' . $event->_p_event_branding . '">';
+				$list .= '<img src="' . get_bloginfo( 'template_url' ) . '/img/event-brand/' . $event->_p_event_branding . '.svg" />';
+				$list .= '</div>';
+			}
 
 			// start event columns
 			$list .= '<div class="event-cta-columns">';
