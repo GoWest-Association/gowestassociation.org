@@ -1,0 +1,24 @@
+
+
+.page-template-page-council {
+	.button-bar {
+		padding: 0;
+
+		@include respond-to( $bp-m ) {	
+			.button-bar-inner {		
+				display: flex;
+
+				.btn {
+					flex: 1;
+					border-radius: 0;
+				}
+			}
+		}
+
+		.btn {
+			border-radius: 0;
+			padding: 20px 0;
+		}
+	}
+}
+

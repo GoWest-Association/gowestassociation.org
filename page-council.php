@@ -39,8 +39,6 @@ if ( has_introduction() ) {
 	<?php
 }
 
-the_button_bar();
-
 the_icons();
 
 the_page_events( 'narrow' );
@@ -71,6 +69,8 @@ the_agenda();
 // the_accordions();
 
 the_link_boxes();
+
+the_button_bar();
 
 get_footer();
 
