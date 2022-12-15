@@ -8,6 +8,7 @@
 		.price-row {
 			border: 4px solid $navy;
 			padding: 20px;
+			margin-bottom: 20px;
 
 			@include respond-to( $bp-l ) {
 				display: flex;
