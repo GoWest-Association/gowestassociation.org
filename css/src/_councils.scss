@@ -1,0 +1,30 @@
+
+
+.page-template-page-councils {
+	.button-bar {
+
+		@include respond-to( $bp-xxl ) {	
+			.button-bar-inner {		
+				display: flex;
+
+				.btn {
+					flex: 1;
+					border-radius: 0;
+					margin-right: 3px;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+
+					span {
+
+					}
+				}
+			}
+		}
+	}
+
+	.icons {
+		background: white;
+	}
+}
+
