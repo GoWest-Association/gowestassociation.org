@@ -42,26 +42,30 @@ the_page_events();
 
 the_testimonials();
 
-?>
-<div class="content-wide" role="main">
-	<?php
-	if ( !has_introduction() && show_breadcrumbs() ) {
-		breadcrumbs();
-	}
-
-	if ( have_posts() ) :
-		while ( have_posts() ) : the_post(); 
-			the_content();
-		endwhile;
-	endif;
-	
+if ( have_posts() ) :
+	while ( have_posts() ) : the_post();
+		if ( !empty( get_the_content() ) ) {
 	?>
-</div>
-<?php
+	<div class="content-wide" role="main">
+		<?php
+		if ( !has_introduction() && show_breadcrumbs() ) {
+			breadcrumbs();
+		}
+
+		the_content();
+		
+		?>
+	</div>
+	<?php
+		}
+	endwhile;
+endif;
 
 the_agenda();
 
 the_accordions();
+
+the_price_table();
 
 the_link_boxes();
 
