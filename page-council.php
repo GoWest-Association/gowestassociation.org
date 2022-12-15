@@ -1,7 +1,7 @@
 <?php
 
 /*
-Template Name: Council
+Template Name: Council (Individual)
 */
 
 
@@ -41,7 +41,7 @@ if ( has_introduction() ) {
 
 the_icons();
 
-the_page_events( 'narrow' );
+the_page_events_row();
 
 the_testimonials();
 
