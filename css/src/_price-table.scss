@@ -81,6 +81,7 @@
 
 				@include respond-to( $bp-l ) {
 					margin-right: 0;
+					flex-grow: 0;
 				}
 
 				.price {
