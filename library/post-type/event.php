@@ -222,7 +222,14 @@ function event_metaboxes( $meta_boxes ) {
     ) );
 
     $event_metabox->add_field( array(
-        'name' => 'Registration Link',
+        'name' => 'Registration Button Text',
+        'id'   => CMB_PREFIX . 'event_registration_text',
+        'desc' => 'Registration Link',
+        'type' => 'text'
+    ) );
+
+    $event_metabox->add_field( array(
+        'name' => 'Registration Button Link',
         'id'   => CMB_PREFIX . 'event_registration',
         'desc' => 'Registration Link',
         'type' => 'text'
@@ -315,6 +322,27 @@ function add_event_query_vars_filter( $vars ){
 	return $vars;
 }
 add_filter( 'query_vars', 'add_event_query_vars_filter' );
+
+
+
+// a little function to get the event registration button
+function get_registration_button( $event_id = 0 ) {
+	
+	// get the current post ID if we don't have one
+	if ( $event_id == 0 ) $event_id = get_the_ID();
+
+	$event_reg_text = get_cmb_value( 'event_registration_text' );
+	$event_reg_link = get_cmb_value( 'event_registration' );
+
+	// if the event text isn't set or is empty, set a default
+	if ( empty( $event_reg_text ) ) $event_reg_text = 'Register Now';
+
+	if ( !empty( $event_reg_link ) ) {
+		return '<a href="' . $event_reg_link . '" class="btn green">' . $event_reg_text . '</a>';
+	}
+
+}
+add_shortcode( 'event-registration-button', 'get_registration_button' );
 
 
 
@@ -966,7 +994,7 @@ function events_cta_shortcode( $event_atts ) {
 			// start event ctas
 			$list .= '<div class="event-ctas">';
 			$list .= '<a href="' . $link_url . '" class="more-info">More Info</a>';
-			if ( !empty( $event->_p_event_registration ) ) $list .= '<a href="' . $event->_p_event_registration . '" class="register">Register</a>';
+			$list .= get_registration_button( $event->ID );
 			if ( !empty( $event->_p_event_cta1_link ) ) $list .= '<a href="' . $event->_p_event_cta1_link . '" class="cta1">' . $event->_p_event_cta1_text . '</a>';
 			if ( !empty( $event->_p_event_cta2_link ) ) $list .= '<a href="' . $event->_p_event_cta2_link . '" class="cta2">' . $event->_p_event_cta2_text . '</a>';
 			$list .= '</div>';
