@@ -7,8 +7,10 @@ define( 'CMB_PREFIX', '_p_' );
 
 
 // get CMB value
-function get_cmb_value( $field ) {
-    $val = get_post_meta( get_the_ID(), $field, 1 );
+function get_cmb_value( $field, $id = 0 ) {
+    if ( $id == 0 ) $id = get_the_ID();
+
+    $val = get_post_meta( $id, $field, 1 );
     if ( empty( $val ) ) {
         $val = get_post_meta( get_the_ID(), CMB_PREFIX . $field, 1 );
     }

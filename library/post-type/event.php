@@ -332,8 +332,8 @@ function get_registration_button( $event_id = 0 ) {
 	// get the current post ID if we don't have one
 	if ( $event_id == 0 ) $event_id = get_the_ID();
 
-	$event_reg_text = get_cmb_value( 'event_registration_text' );
-	$event_reg_link = get_cmb_value( 'event_registration' );
+	$event_reg_text = get_cmb_value( 'event_registration_text', $event_id );
+	$event_reg_link = get_cmb_value( 'event_registration', $event_id );
 
 	// if the event text isn't set or is empty, set a default
 	if ( empty( $event_reg_text ) ) $event_reg_text = 'Register Now';
@@ -995,7 +995,7 @@ function events_cta_shortcode( $event_atts ) {
 			// start event ctas
 			$list .= '<div class="event-ctas">';
 			$list .= '<a href="' . $link_url . '" class="more-info">More Info</a>';
-			$list .= get_registration_button( $event->ID );
+			$list .= '<a href="' . $event->_p_event_registration . '" class="register">' . $event->_p_event_registration_text . '</a>';
 			if ( !empty( $event->_p_event_cta1_link ) ) $list .= '<a href="' . $event->_p_event_cta1_link . '" class="cta1">' . $event->_p_event_cta1_text . '</a>';
 			if ( !empty( $event->_p_event_cta2_link ) ) $list .= '<a href="' . $event->_p_event_cta2_link . '" class="cta2">' . $event->_p_event_cta2_text . '</a>';
 			$list .= '</div>';
