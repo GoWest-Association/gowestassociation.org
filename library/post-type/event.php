@@ -225,7 +225,8 @@ function event_metaboxes( $meta_boxes ) {
         'name' => 'Registration Button Text',
         'id'   => CMB_PREFIX . 'event_registration_text',
         'desc' => 'Registration Link',
-        'type' => 'text'
+        'type' => 'text',
+        'default' => 'Register Now'
     ) );
 
     $event_metabox->add_field( array(
