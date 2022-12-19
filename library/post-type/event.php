@@ -992,10 +992,15 @@ function events_cta_shortcode( $event_atts ) {
 			$list .= '<p class="event-excerpt">' . $excerpt . '</p>';
 			$list .= '</div>';
 
+			$registration_text = $event->_p_event_registration_text;
+			if ( empty( $event->_p_event_registration_text ) ) {
+				$registration_text = 'Register Now';
+			}
+
 			// start event ctas
 			$list .= '<div class="event-ctas">';
 			$list .= '<a href="' . $link_url . '" class="more-info">More Info</a>';
-			$list .= '<a href="' . $event->_p_event_registration . '" class="register">' . $event->_p_event_registration_text . '</a>';
+			$list .= '<a href="' . $event->_p_event_registration . '" class="register">' . $registration_text . '</a>';
 			if ( !empty( $event->_p_event_cta1_link ) ) $list .= '<a href="' . $event->_p_event_cta1_link . '" class="cta1">' . $event->_p_event_cta1_text . '</a>';
 			if ( !empty( $event->_p_event_cta2_link ) ) $list .= '<a href="' . $event->_p_event_cta2_link . '" class="cta2">' . $event->_p_event_cta2_text . '</a>';
 			$list .= '</div>';
