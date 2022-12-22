@@ -2,6 +2,9 @@
 
 // set colors
 $green: #00AE80;
+$green-dark: #048062;
+$green-darker: #135c52;
+
 $navy: #1E3241;
 $blue: #529BA6;
 $kraken: $blue;
@@ -34,7 +37,7 @@ $bp-xxl: 1300px;
 
 
 // import layout components
-@import "header", "showcase", "content", "sidebar", "footer", "page-title", "front", "icons", "stats", "event", "newsletter", "accordion", "people", "partner-logos", "testimonials", "link-boxes", "agenda", "button-bar", "template-councils", "template-council", "price-table";
+@import "header", "showcase", "content", "sidebar", "footer", "page-title", "page-ads", "page-articles", "front", "icons", "stats", "event", "newsletter", "accordion", "people", "partner-logos", "testimonials", "link-boxes", "agenda", "button-bar", "template-councils", "template-council", "price-table";
 
 
 // import lightbox styles

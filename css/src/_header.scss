@@ -6,10 +6,6 @@ header {
 
 	& > .logo {
 		text-align: center;
-		
-		&.left {
-			text-align: left;
-		}
 	}
 
 	&.newsletter {
@@ -28,58 +24,107 @@ header {
 		}
 	}
 
-	body.home & {
-		@include respond-to( 600px ) {
-			display: flex;
-			align-items: center;
-			justify-content: center;
-		}
+	.account-tools {
+		.search {
+			margin-top: 10px;
+			border: 3px solid $grey-light;
+			@include clearfix;
 
-		& > .logo {
-			text-align: center;
-			padding: 20px 0;
+			label {
+				display: none;
+			}
 
-			@include respond-to( 600px ) {
-				flex: 1;
-				text-align: right;
-				padding: 20px 30px 20px 0;
+			input[type=text] {
+				float: left;
+				width: calc( 100% - 50px );
+				padding: 10px;
+				font-size: 18px;
+				line-height: 20px;
+				border: 0;
+			}
+
+			input[type=submit] {
+				float: right;
+				width: 40px;
+				height: 40px;
+				color: transparent;
+				border-radius: 0;
+				background: $grey url(../img/icon-search.png) center center no-repeat;
 			}
 		}
 
-		.lockup {
+		.account-buttons {
+			padding: 10px 0;
 			text-align: center;
+
+			.btn {
+				font-size: .8em;
+			}
+		}
+
+		.contact {
+			@include font-bold;
+			display: block;
+			padding: 10px 0;
+			text-align: center;
+			text-transform: uppercase;
+		}
+
+		@include respond-to( $bp-m ) {
 			display: flex;
+			max-width: 675px;
+			margin: 20px auto 0;
 
-			@include respond-to( 600px ) {
-				display: block;
+			div {
 				flex: 1;
-				text-align: left;
-				padding-left: 40px;
-				border-left: 2px solid $navy;
 			}
 
-			.logo {
-				flex: 1;
-				padding: 0 20px;
+			.contact {
+				flex-basis: 20%;
+			}
 
-				@include respond-to( 600px ) {
-					flex: none;
-					padding: 0;
-				}
+			.search {
+				flex-basis: 28%;
+				margin-right: 2%;
+				margin-top: 0;
+			}
 
-				@include respond-to( $bp-xl ) {				
-					img {
-						max-width: 350px;
-					}
+			.account-buttons {
+				flex-basis: 48%;
+				margin-right: 2%;
+				padding: 0;
+
+				.button {
+					margin-bottom: 0;
 				}
 			}
+		}
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding-bottom: 25px;
+
+		.logo {
+			text-align: left;
+			margin-left: -10px;
+		}
+
+		.account-tools {
+			position: absolute;
+			right: 20px;
+			bottom: 30px;
+		}
+	}
+
+	@include respond-to( $bp-xxl ) {
+		.account-tools {
+			right: 50px;
 		}
 	}
 }
 
 
 nav.main-menu-container {
-	display: none;
 	@include clearfix;
 	position: relative;
 
@@ -115,7 +160,7 @@ nav.main-menu-container {
 		padding: 0 20px;
 		@include respond-to( $bp-m ) { padding: 0 30px; }
 		@include respond-to( $bp-l ) { padding: 0 40px; }
-		@include respond-to( $bp-xl ) { padding: 0 50px; }
+		@include respond-to( $bp-xl ) { padding: 0 45px; }
 		
 		@include respond-to( $bp-m ) {
 			display: block;
@@ -130,12 +175,12 @@ nav.main-menu-container {
 			}
 
 			a {
-				@include font;
+				@include font-bold;
 				display: block;
 				padding: 15px 5px;
-				font-size: 20px;
-				line-height: 24px;
-				color: white;
+				font-size: 16px;
+				line-height: 15px;
+				color: $navy;
 				text-decoration: none;
 				text-transform: uppercase;
 				width: 100%;
@@ -150,7 +195,7 @@ nav.main-menu-container {
 				}
 
 				@include respond-to( $bp-l ) {
-					font-size: 22px;
+					font-size: 18px;
 					padding: 15px 15px;
 				}
 			}
@@ -170,14 +215,14 @@ nav.main-menu-container {
 			ul.sub-menu {
 				display: none;
 				margin-bottom: 3px;
-				box-shadow: 0 20px 20px rgba( $grey-light, .4 );
-				opacity: .9;
+				box-shadow: 0 20px 20px rgba( black, .1 );
+				opacity: .95;
 
 				@include respond-to( $bp-m ) {
 					position: absolute;
 					left: 0;
-					top: 54px;
-					width: 100%;
+					top: 45px;
+					width: 250px;
 					background-color: $grey;
 					@include clearfix;
 				}
@@ -191,6 +236,7 @@ nav.main-menu-container {
 						line-height: 18px;
 						display: block;
 						padding: 10px 5px;
+						border-bottom: 1px solid rgba( $grey-dark, .4 );
 
 						@include respond-to( $bp-m ) {
 							padding: 10px;

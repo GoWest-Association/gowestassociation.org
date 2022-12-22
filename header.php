@@ -41,18 +41,6 @@ gtag('config', 'G-J4GTY9QELN');
 	<div class="logo right">
 		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png?v=1" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
-	<?php } else if ( is_page_template( 'page-front.php' ) ) { ?>
-	<div class="logo">
-		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-	</div>
-	<div class="lockup">
-		<div class="logo">
-			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions.png" alt="GoWest Solutions" />
-		</div>
-		<div class="logo">
-			<img src="<?php bloginfo( "template_url" ) ?>/img/logo-foundation.png" alt="GoWest Foundation" />
-		</div>
-	</div>
 	<?php } else if ( is_solutions() ) { ?>
 	<div class="logo left">
 		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions-large.png" alt="<?php bloginfo( 'name' ); ?>"></a>
@@ -67,7 +55,26 @@ gtag('config', 'G-J4GTY9QELN');
 	</div>
 	<?php } ?>
 
+	<div class="account-tools">
 
+		<div class="search">
+			<form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
+				<label for="s">Search our site:</label>
+				<input type="text" value="" name="s" id="s" placeholder="Search" title="Search our site.">
+				<input type="submit" id="searchsubmit" value="Search">
+			</form>
+		</div>
+
+		<div class="account-buttons">
+			<a href="/account/login" class="btn green">Member Login</a>
+			<a href="/account/new" class="btn navy">First Time User</a>
+		</div>
+
+		<div class="contact">
+			<a href="/contact" class="contact-link">Contact Us</a>
+		</div>
+
+	</div>
 	
 </header>
 

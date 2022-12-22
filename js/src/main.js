@@ -5,9 +5,11 @@ jQuery(document).ready(function($){
 
 
 	// show/hide menus when they click the toggler
-	var menu = $( 'header nav' );
+	var menu = $( '.container > nav' );
 	var menu_toggle = menu.find( 'button.menu-toggle' );
 	var menu_ul = menu.find( '.nav-menu' );
+
+	// when the menu toggle is clicked
 	menu_toggle.click(function(){
 
 		// if the menu is visible, hide it, 

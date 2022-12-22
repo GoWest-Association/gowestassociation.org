@@ -45,6 +45,11 @@ function accordion_metaboxes() {
 
     global $colors;
 
+    $accordion_colors = $colors;
+    $accordion_colors['green-dark'] = 'Green (Dark)';
+    $accordion_colors['green-darker'] = 'Green (Darker)';
+    asort( $accordion_colors );
+
     // area of interest information
     $accordion_metabox = new_cmb2_box( array(
         'id' => 'accordions',
@@ -75,7 +80,7 @@ function accordion_metaboxes() {
         'name' => 'Color',
         'id'   => 'color',
         'type' => 'select',
-        'options' => $colors
+        'options' => $accordion_colors
     ) );
 
     $accordion_metabox->add_group_field( $accordion_metabox_group, array(

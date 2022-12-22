@@ -22,14 +22,21 @@ $admin_email = get_option( 'admin_email' );
 			</p>
 
 			<div class="columns">
-				<div class="column">
+				<div class="column address">
 					<?php print get_snippet( 'footer-address-one' ); ?>
 				</div>
-				<div class="column">
+				<div class="column address">
 					<?php print get_snippet( 'footer-address-two' ); ?>
 					<div class="social">
 						<a href="https://twitter.com/GoWestCUA" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-twitter.png" /></a><a href="https://www.facebook.com/GoWestCUA/" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-facebook.png" /></a><a href="https://www.youtube.com/channel/UCx4WZCnp-2losXaGN4rCHUg" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-youtube.png" /></a><a href="https://www.linkedin.com/company/gowestcua/about/" target="_blank"><img src="<?php bloginfo( 'template_url' ); ?>/img/social-linkedin.png" /></a>
 					</div>
+				</div>
+				<div class="column menu">
+					<h4>Links</h4>
+					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_class' => 'nav-menu' ) ); ?>
+				</div>
+				<div class="column subscribe">
+					<?php print get_snippet( 'footer-subscribe' ); ?>
 				</div>
 			</div>
 

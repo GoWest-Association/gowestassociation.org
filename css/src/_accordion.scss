@@ -3,11 +3,7 @@
 $accordion-arrow-size: 30px;
 
 .accordions {
-	margin-top: 20px;
-	
 	.accordion {
-		margin-bottom: 10px;
-
 		.accordion-handle {
 			position: relative;
 			padding: 0;
@@ -18,65 +14,56 @@ $accordion-arrow-size: 30px;
 			h3 {
 				@include font-bold;
 				color: white;
-				padding: 20px;
 				font-size: 1.3em;
-				text-transform: uppercase;
 				display: inline-block;
 				position: relative;
 				z-index: 0;
 
-				&::after {
-					content: '';
-					position: absolute;
-					z-index: -1;
-					left: -30px;
-					top: 0;
-					width: 120%;
-					height: 100%;
-					background: $grey;
-					transform: skew( -35deg );
-				}
-
 				@include respond-to( $bp-xl ) {
-					padding: 20px 60px 20px 40px;
 					position: relative;
 
 					&::after {
 						width: 110%;
 					}
 				}
-			}
 
+				padding: 20px 30px;
+				@include respond-to( $bp-m ) { padding: 20px 40px; }
+				@include respond-to( $bp-l ) { padding: 20px 50px; }
+				@include respond-to( $bp-xl ) { padding: 25px 60px; }
+			}
 		}
 
 		&.navy .accordion-handle {
-			background: rgba( $navy, .2 );
-			h3::after { background: $navy; }
+			background: $navy;
 		}
 
 		&.green .accordion-handle {
-			background: rgba( $green, .2 );
-			h3::after { background: $green; }
+			background: $green;
+		}
+
+		&.green-dark .accordion-handle {
+			background: $green-dark;
+		}
+
+		&.green-darker .accordion-handle {
+			background: $green-darker;
 		}
 
 		&.blue .accordion-handle {
-			background: rgba( $blue, .2 );
-			h3::after { background: $blue; }
+			background: $blue;
 		}
 
 		&.orange .accordion-handle {
-			background: rgba( $orange, .2 );
-			h3::after { background: $orange; }
+			background: $orange;
 		}
 
 		&.grey-dark .accordion-handle {
-			background: rgba( $grey-dark, .2 );
-			h3::after { background: $grey-dark; }
+			background: $grey-dark;
 		}
 
 		&.sky .accordion-handle {
-			background: rgba( $sky, .2 );
-			h3::after { background: $sky; }
+			background: $sky;
 		}
 
 		.accordion-content {
@@ -88,11 +75,11 @@ $accordion-arrow-size: 30px;
 		&.open {
 			.accordion-content {
 				display: block;
-				padding: 20px;
 
-				@include respond-to( $bp-xl ) {
-					padding: 20px 20px 30px 40px;
-				}
+				padding: 30px;
+				@include respond-to( $bp-m ) { padding: 30px 40px; }
+				@include respond-to( $bp-l ) { padding: 30px 50px; }
+				@include respond-to( $bp-xl ) { padding: 35px 60px; }
 			}
 		}
 	}

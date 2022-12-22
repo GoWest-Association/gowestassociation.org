@@ -65,6 +65,10 @@ the_agenda();
 
 the_accordions();
 
+the_page_ads();
+
+the_page_articles();
+
 the_price_table();
 
 the_link_boxes();
