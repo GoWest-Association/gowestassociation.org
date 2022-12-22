@@ -71,6 +71,8 @@
 
 			.btn {
 				display: inline-block;
+				position: relative;
+				z-index: 500;
 			}
 			
 			h1, h2 {
