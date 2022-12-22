@@ -59,7 +59,6 @@
 			top: 60px;
 			right: 60px;
 			left: 60px;
-			z-index: 100;
 			color: white;
 			text-align: center;
 
@@ -72,6 +71,8 @@
 
 			.btn {
 				display: inline-block;
+				position: relative;
+				z-index: 500;
 			}
 			
 			h1, h2 {
