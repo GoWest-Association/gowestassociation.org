@@ -12,7 +12,7 @@ add_action( 'wp_enqueue_scripts', 'p_scripts' );
 // register a couple nav menus
 register_nav_menus( array(
 	'main-menu' => 'Main',
-	'main-menu-sli' => 'Main (SLI)',
+	'main-menu-sli' => 'Main (Solutions)',
 	'footer' => 'Footer',
 	'newletter-sidebar' => 'Newsletter'
 ) );
