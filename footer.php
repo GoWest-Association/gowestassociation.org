@@ -33,7 +33,7 @@ $admin_email = get_option( 'admin_email' );
 				</div>
 				<div class="column menu">
 					<h4>Links</h4>
-					<?php wp_nav_menu( array( 'theme_location' => 'footer-menu', 'menu_class' => 'nav-menu' ) ); ?>
+					<?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav-menu' ) ); ?>
 				</div>
 				<div class="column subscribe">
 					<?php print get_snippet( 'footer-subscribe' ); ?>
