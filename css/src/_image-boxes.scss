@@ -1,43 +1,47 @@
 
 
-.link-boxes {
-	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+.image-boxes {
+	background: white center center / cover fixed no-repeat;
 
 	padding: 30px;
 	@include respond-to( $bp-m ) { padding: 40px 40px 0; }
 	@include respond-to( $bp-l ) { padding: 40px 50px 0; }
 	@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
 
-	.link-box {
+	.image-box {
 		position: relative;
 		border: 1px solid $navy;
 		margin-bottom: 40px;
 		background-size: cover;
 
 		a {
-			@include font-bold;
+			@include font-title;
+			text-transform: uppercase;
 			display: block;
-			padding: 30px;
+			padding: 20px;
 			text-align: center;
 			color: white;
 			font-size: 1.4em;
-			line-height: 1.4em;
-			background: rgba( black, .3 );
+			line-height: 1em;
+			background: $navy;
 			transition: background 400ms ease-in-out;
+			margin-top: 225px;
 
 			&:hover {
 				text-decoration: none;
-				background: rgba( black, .5 );
 			}
 
 			@include respond-to( $bp-m ) {
-				padding: 40px;
-			}
-
-			@include respond-to( $bp-l ) {
-				padding: 60px;
+				padding: 25px;
 			}
 		}
+
+		&.az a { border-bottom: 25px solid $color-az; }
+		&.co a { border-bottom: 25px solid $color-co; }
+		&.id a { border-bottom: 25px solid $color-id; }
+		&.or a { border-bottom: 25px solid $color-or; }
+		&.wa a { border-bottom: 25px solid $color-wa; }
+		&.wy a { border-bottom: 25px solid $color-wy; }
 	}
 	
 	@include respond-to( $bp-m ) {
@@ -45,7 +49,7 @@
 		flex-wrap: wrap;
 		margin-right: -3%;
 
-		.link-box {
+		.image-box {
 			flex: 1;
 			flex-basis: 47%;
 			margin-right: 3%;
@@ -54,6 +58,12 @@
 
 	@include respond-to( $bp-xl ) {
 		padding-top: 40px;
+
+		.image-box {
+			flex: 1;
+			flex-basis: 30.3333%;
+			margin-right: 3%;
+		}
 	}
 
 }

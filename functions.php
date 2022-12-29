@@ -31,7 +31,7 @@ require_multi(
     'post-type/people', 'post-type/event', 'post-type/job', 'post-type/partner', 'post-type/agenda',
 
     // include the metaboxes in the order we want them to show up in the editor pages
-    'settings', 'newsletter', 'showcase', 'stats', 'icons', 'partner-logos', 'testimonials', 'page', 'page-events', 'page-ads', 'page-articles', 'accordion', 'link-boxes', 'button-bar', 'price-table', 'footer-buttons',
+    'settings', 'newsletter', 'showcase', 'stats', 'icons', 'partner-logos', 'testimonials', 'page', 'page-events', 'page-ads', 'page-articles', 'accordion', 'link-boxes', 'button-bar', 'price-table', 'footer-buttons', 'image-boxes',
 
     // add shortcodes
     'button'
