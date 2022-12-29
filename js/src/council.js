@@ -20,10 +20,10 @@ jQuery(document).ready(function($){
 		if ( past_content() && !footer_reached() ) {
 
 			// get the event reg height
-			var button_bar_height = $( '.button-bar' ).height();
+			var button_bar_height = $( '.footer-buttons' ).height();
 
 			// fixed event reg
-			$( '.button-bar' ).addClass( 'fixed' );
+			$( '.footer-buttons' ).addClass( 'fixed' );
 
 			// margin on footer to stop flicker
 			$( 'footer' ).css( 'margin-top', button_bar_height+'px' );
@@ -31,7 +31,7 @@ jQuery(document).ready(function($){
 		} else {
 
 			// default mode
-			$( '.button-bar' ).removeClass( 'fixed' );
+			$( '.footer-buttons' ).removeClass( 'fixed' );
 			$( 'footer' ).css( 'margin-top', 0 );
 			
 		}

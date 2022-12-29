@@ -1,15 +1,10 @@
 <?php
 
 /*
-Template Name: Page - Solutions
+Template Name: Solutions
 */
 
-
-if ( has_cmb_value( 'page_brand' ) ) {
-	set_brand( get_cmb_value( 'page_brand' ) );
-} else {
-	set_brand( 'core' );
-}
+set_brand( 'solutions' );
 
 get_header();
 
@@ -32,8 +27,6 @@ if ( has_introduction() ) {
 
 	the_introduction();
 
-	the_partner_logos();
-
 	?>
 </div><!-- #content -->
 	<?php
@@ -43,7 +36,13 @@ the_button_bar();
 
 the_icons();
 
-the_page_events();
+print '<div class="content-wide" role="main">';	
+the_partner_logos();
+print '</div>';
+
+the_page_events_row();
+
+the_page_ads();
 
 the_testimonials();
 
@@ -70,14 +69,13 @@ the_agenda();
 
 the_accordions();
 
-the_page_ads();
-
 the_page_articles();
 
 the_price_table();
 
 the_link_boxes();
 
+the_footer_buttons();
+
 get_footer();
 
-?>

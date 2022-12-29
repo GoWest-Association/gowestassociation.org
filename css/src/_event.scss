@@ -98,19 +98,25 @@
 	.event-list {
 		padding-right: 40px;
 
-		@include respond-to( 768px ) {
+		@include respond-to( $bp-m ) {
 			display: flex;
+			flex-wrap: wrap;
 			padding-right: 20px;
-		}
+			margin-right: -2%;
 
-		@include respond-to( 1220px ) {
-			padding-right: 80px;
-		}
-
-		.event {
-			@include respond-to( 768px ) {
+			.event {
 				flex: 1;
-				flex-basis: 50%;
+				flex-basis: 48%;
+				margin-right: 2%;
+			}
+		}
+
+		@include respond-to( $bp-xl ) {
+			padding-right: 80px;
+			flex-wrap: nowrap;
+
+			.event {
+				flex-basis: 23%;
 			}
 		}
 	}
