@@ -4,7 +4,7 @@
 Template Name: Advocacy
 */
 
-set_brand( 'solutions' );
+set_brand( 'association' );
 
 get_header();
 
