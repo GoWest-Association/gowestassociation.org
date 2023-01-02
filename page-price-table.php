@@ -42,7 +42,7 @@ the_button_bar();
 
 the_icons();
 
-the_page_events();
+the_page_events_row();
 
 the_testimonials();
 
