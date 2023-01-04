@@ -1,9 +1,6 @@
 <?php
 
 
-<?php
-
-
 // articles shortcode
 function articles_shortcode( $atts ) {
 	$a = shortcode_atts( array(
