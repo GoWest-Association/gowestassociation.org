@@ -40,7 +40,7 @@ the_showcase();
 		</div>
 		<?php 
 
-		if ( is_member() ) {
+		// if ( is_member() ) {
 
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post(); 
@@ -96,10 +96,12 @@ the_showcase();
 					}
 				endwhile;
 			endif;
-
+		
+			/*
 		} else {
 			do_member_error(); 
 		}
+		*/
 		?>
 		</div>
 	</div>

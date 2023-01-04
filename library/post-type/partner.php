@@ -187,7 +187,7 @@ function do_partner_group( $group_name ) {
 function partner_social_link( $network, $partner_id = 0 ) {
 	if ( empty( $partner_id ) ) $partner_id = get_the_ID();
 	if ( has_cmb_value( 'partner_' . $network, $partner_id ) ) {
-		return '<a href="' . get_cmb_value( 'partner_' . $network ) . '" target="_blank"><img src="' . get_bloginfo( 'template_url' ) . '/img/icon-' . $network . '-grey.png" class="social-icon" /></a>';
+		return '<a href="' . get_cmb_value( 'partner_' . $network ) . '" target="_blank"><img src="' . get_bloginfo( 'template_url' ) . '/img/social-partner-' . $network . '.png" class="social-icon" /></a>';
 	}
 }
 

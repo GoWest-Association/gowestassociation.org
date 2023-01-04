@@ -51,6 +51,10 @@ function the_showcase() {
 }
 
 
+function has_showcase() {
+	return has_cmb_value( 'showcase' );
+}
+
 
 // add the showcase metabox
 function showcase_metabox( $meta_boxes ) {
