@@ -96,8 +96,8 @@ the_showcase();
 					}
 				endwhile;
 			endif;
-		
-			/*
+
+		/*
 		} else {
 			do_member_error(); 
 		}
