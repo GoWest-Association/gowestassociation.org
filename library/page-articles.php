@@ -170,39 +170,3 @@ function the_page_articles() {
     }
 }
 
-
-// the metabox
-add_action( 'cmb2_admin_init', 'page_articles_metaboxes' );
-function page_articles_metaboxes() {
-
-    // area of interest information
-    $page_articles_metabox = new_cmb2_box( array(
-        'id' => 'page_articles_metabox',
-        'title' => 'Page Articles',
-        'object_types' => array( 'page' ), // Post type
-        'context' => 'normal',
-        'priority' => 'high',
-        'show_names' => true, // Show field names on the left
-    ) );
-
-    $page_articles_metabox->add_field( array(
-        'name' => 'Articles Title',
-        'id'   => CMB_PREFIX . 'page-articles-title',
-        'type' => 'text',
-        'default' => 'Articles'
-    ) );
-
-    $cats = get_categories();
-    $page_cats = array( '' => '- select an article category -' );
-    foreach ( $cats as $cat ) {
-        $page_cats[$cat->slug] = $cat->name;
-    }
-    $page_articles_metabox->add_field( array(
-        'name' => 'Articles',
-        'id'   => CMB_PREFIX . 'page-articles',
-        'type' => 'select',
-        'options' => $page_cats
-    ) );
-
-}
-
