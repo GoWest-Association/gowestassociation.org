@@ -28,39 +28,37 @@ function articles_shortcode( $atts ) {
 		$args['category__not_in'] = explode( ',', $a['category__not_in'] );
 	}
 
-	$query = new WP_Query( $args );
+    $query = new WP_Query( $args );
 
-	// Check that we have query results.
-	if ( $query->have_posts() ) {
+    // Check that we have query results.
+    if ( $query->have_posts() ) {
 
-		$return = '<div class="article-cards">';
-	  
-	    // Start looping over the query results.
-	    while ( $query->have_posts() ) {
-	        $query->the_post();
-	        $categories = get_the_category();
-	        $cat = $categories[0];
-	        $color = get_category_color( $cat->term_id );
-	        $return .= '<div class="entry">';
-	        $return .= '<div class="entry-thumbnail">';
-	        $return .= '<a href="' . get_the_permalink() . '">';
-	        $return .= get_the_post_thumbnail( null, array( 768, 480 ) );
-	        $return .= '</a>';
-		    $return .= '<div class="entry-category ' . $cat->slug . ' ' . $color . '">' . $cat->name . '</div>';
-		    $return .= '</div>';
-	        $return .= '<div class="entry-inner">';
-		    $return .= '<h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
-		    $return .= wpautop( get_the_excerpt() );
-		    $return .= '</div>';
-		    $return .= '</div>';
-	    }
+        $return = '<div class="article-cards">';
 
-		$return .= '</div>';
-	  
-	} else {
-		return '';
-	}
+        // Start looping over the query results.
+        while ( $query->have_posts() ) {
+            $query->the_post();
+            $categories = get_the_category();
+            $cat = $categories[0];
+            $return .= '<div class="entry">';
+            $return .= '<div class="entry-thumbnail">';
+            $return .= '<a href="' . get_the_permalink() . '">';
+            $return .= get_the_post_thumbnail( null, array( 768, 480 ) );
+            $return .= '</a>';
+            $return .= '</div>';
+            $return .= '<div class="entry-inner">';
+            $return .= '<h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
+            $return .= wpautop( get_the_excerpt() );
+            $return .= '</div>';
+            $return .= '</div>';
+        }
 
+        $return .= '</div>';
+
+    } else {
+        return '';
+    }
+    
 	  
 	// Restore original post data.
 	wp_reset_postdata();
