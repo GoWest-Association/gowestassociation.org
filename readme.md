@@ -2,4 +2,4 @@
 
 A WordPress theme for GWCUA to power their new WordPress site.
 
-&copy; 2022 GWCUA.
+&copy; 2022 GoWest.
