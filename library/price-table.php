@@ -37,7 +37,7 @@ function the_price_table() {
                 </div>
 			</div>
 					<?php
-				} 
+				}
 			}
 			?>
 		</div>

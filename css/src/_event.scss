@@ -384,21 +384,6 @@
 		}
 	}
 
-	.home & {
-		padding: 20px 0 0 10px;
-
-		@include respond-to( $bp-m ) {
-			display: flex;
-		}
-
-		.event {
-			@include respond-to( $bp-m ) {
-				flex: 1;
-				padding-right: 20px;
-			}
-		}
-	}
-
 	.sidebar & .event {
 		h3 {
 			font-size: .85em;

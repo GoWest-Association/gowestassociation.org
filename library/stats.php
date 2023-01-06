@@ -44,7 +44,7 @@ function stat_metaboxes( $meta_boxes ) {
     $stat_showcase_metabox = new_cmb2_box( array(
         'id' => 'stat_showcase_metabox',
         'title' => 'Stats',
-        'show_on' => array( 'key' => 'page-template', 'value' => 'page-front.php' ),
+        'show_on' => array( 'key' => 'page-template', 'value' => 'page-front-foundation.php' ),
         'object_types' => array( 'page' ),
         'context' => 'normal',
         'priority' => 'high',
