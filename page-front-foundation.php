@@ -4,7 +4,7 @@
 Template Name: Home (Foundation)
 */
 
-set_brand( 'solutions' );
+set_brand( 'foundation' );
 
 get_header();
 
