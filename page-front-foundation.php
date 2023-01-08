@@ -36,6 +36,8 @@ the_button_bar();
 
 the_icons();
 
+the_stats();
+
 print '<div class="content-wide" role="main">';	
 the_partner_logos();
 print '</div>';
