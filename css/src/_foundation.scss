@@ -2,7 +2,7 @@
 
 .page-template-page-front-foundation {
     .icons {
-        background-color: white;
+        background: white;
     }
 
     .page-events {
@@ -10,3 +10,28 @@
     }
 }
 
+.page-template-page-front-foundation, .page-template-page-foundation {
+    .slide-content {
+        h1, h2, h3, h4, h5, h6 {
+            color: $fulvous !important;
+        }
+    }
+
+    .stats {
+        background: url(../img/bg-stats.jpg) center center / cover no-repeat;
+        @include padding;
+
+        .stat {
+            border: 2px solid $fulvous;
+            color: white;
+
+            h3 {
+                font-size: 2.2em;
+            }
+
+            p {
+                font-size: .8em;
+            }
+        }
+    }
+}

@@ -1,10 +1,13 @@
 <?php
 
 
-// ad showcase
+// stat showcase
 function the_stats() {
 
-	// get the icons
+	// get the title for this section
+	$stats_title = get_cmb_value( 'stat_title' );
+
+    // get the stats
 	$stats = get_cmb_value( 'stat_showcase' );
 
 	// if it's an array
@@ -15,8 +18,10 @@ function the_stats() {
 		// if it's an array, we'll assume it's got content
 		?>
 		<div class="stats">
+            <h2><?php print $stats_title; ?></h2>
+            <div class="stats-container">
 			<?php
-			foreach ( $stats as $stat ) {
+            foreach ( $stats as $stat ) {
                 $title = str_replace( '|', '<br>', $stat['title'] );
                 $subtitle = $stat['subtitle'];
 				?>
@@ -27,6 +32,7 @@ function the_stats() {
 				<?php 
 			}
 			?>
+            </div>
 		</div>
 		<?php
 		}
@@ -48,6 +54,14 @@ function stat_metaboxes( $meta_boxes ) {
         'object_types' => array( 'page' ),
         'context' => 'normal',
         'priority' => 'high',
+    ) );
+
+    $stat_showcase_metabox->add_field( array(
+        'name' => 'Section Title',
+        'desc' => 'Set a title to display above the stats.',
+        'id'   => 'stat_title',
+        'type' => 'text',
+        'sanitization_cb' => false
     ) );
 
     $stat_showcase_metabox_group = $stat_showcase_metabox->add_field( array(
