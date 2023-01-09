@@ -7,12 +7,18 @@ Template Name: Partner List
 set_brand( 'solutions' );
 
 // get the filter parameter and split them up
-$filter = $_REQUEST['filter'];
+$filter = ( isset( $_REQUEST['filter'] ) ? $_REQUEST['filter'] : '' );
 $filters = explode( ',', $filter );
 
 get_header();
 
-the_page_title();
+if ( show_title() ) {
+	?>
+<div class="page-title">
+	<h1><?php the_title(); ?></h1>
+</div>
+	<?php
+}
 
 ?>
 

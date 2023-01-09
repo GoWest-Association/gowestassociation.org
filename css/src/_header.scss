@@ -262,6 +262,9 @@ nav.main-menu-container {
 					box-shadow: 0 10px 20px rgba( black, .2 );
 				}
 
+				@include respond-to( $bp-l ) { padding: 0 50px 20px; }
+				@include respond-to( $bp-xl ) { padding: 0 60px 20px; }
+			
 				h4 {
 					@include font;
 					text-transform: uppercase;
