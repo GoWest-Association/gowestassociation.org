@@ -20,6 +20,7 @@ $colors = array(
     'sky' => "Sky",
     'navy' => "Navy",
     'orange' => "Orange",
+    'fulvous' => "Fulvous",
 );
 
 
