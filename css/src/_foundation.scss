@@ -2,11 +2,11 @@
 
 .page-template-page-front-foundation {
     .icons {
-        background: white;
+        background: white url(../img/bg-orange-circles.png) center center / cover fixed;
     }
 
     .page-events {
-        background-color: $grey-light;
+        background: $grey-light url(../img/bg-orange-circles.png) center center / cover fixed;
     }
 }
 
