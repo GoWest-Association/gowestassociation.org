@@ -16,7 +16,7 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=33" rel="stylesheet" type="text/css">
+<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=34" rel="stylesheet" type="text/css">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4GTY9QELN"></script>
@@ -84,7 +84,7 @@ gtag('config', 'G-J4GTY9QELN');
 
 <nav class="main-menu-container">
 	<button class="menu-toggle">Show/hide Menu</button>
-	<?php wp_nav_menu( array( 'theme_location' => 'main-menu', 'menu_class' => 'nav-menu' ) ); ?>
+	<?php print do_shortcode( get_snippet( "header-menu", 0 ) ); ?>
 </nav>
 
 <?php } ?>

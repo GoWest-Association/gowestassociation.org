@@ -5,13 +5,12 @@ jQuery(document).ready(function($){
 
 
 	// show/hide menus when they click the toggler
-	var menu = $( '.container > nav' );
+	var menu = $( '.container > nav.main-menu-container' );
 	var menu_toggle = menu.find( 'button.menu-toggle' );
-	var menu_ul = menu.find( '.nav-menu' );
+	var menu_ul = $( '.container > nav.main-menu-container > ul' );
 
 	// when the menu toggle is clicked
 	menu_toggle.click(function(){
-
 		// if the menu is visible, hide it, 
 		if ( menu_ul.is( ':visible' ) ) {
 			menu_ul.hide();
@@ -22,8 +21,8 @@ jQuery(document).ready(function($){
 		// when user clicks a link in the menu, open submenu if it exists.
 		menu_ul.find( 'a' ).click(function(){
 			var parent_li = $( this ).parent( 'li' );
-			var submenu = $( this ).next( 'ul' );
-			if ( !submenu.is( ':visible' ) && parent_li.hasClass( 'menu-item-has-children' ) ) {
+			var submenu = $( this ).next( '.columns' );
+			if ( !submenu.is( ':visible' ) && typeof( submenu ) !== 'undefined' ) {
 				event.preventDefault();
 				parent_li.addClass( 'open' );
 				submenu.show();

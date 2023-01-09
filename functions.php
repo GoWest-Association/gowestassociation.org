@@ -35,6 +35,6 @@ require_multi(
     'accordion', 'link-boxes', 'button-bar', 'price-table', 'footer-buttons', 'image-boxes',
 
     // add shortcodes
-    'button'
+    'shortcode/button', 'shortcode/menu' 
 );
 
