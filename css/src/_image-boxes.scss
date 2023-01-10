@@ -36,6 +36,14 @@
 			}
 		}
 
+		&.navy a { border-bottom: 25px solid $navy; }
+		&.blue a { border-bottom: 25px solid $blue; }
+		&.blue-whale a { border-bottom: 25px solid $blue-whale; }
+		&.sky a { border-bottom: 25px solid $sky; }
+		&.fulvous a { border-bottom: 25px solid $fulvous; }
+		&.orange a { border-bottom: 25px solid $orange; }
+		&.green a { border-bottom: 25px solid $green; }
+
 		&.az a { border-bottom: 25px solid $color-az; }
 		&.co a { border-bottom: 25px solid $color-co; }
 		&.id a { border-bottom: 25px solid $color-id; }

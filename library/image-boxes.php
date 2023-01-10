@@ -89,6 +89,12 @@ function image_boxes_metaboxes( $meta_boxes ) {
         'id'   => 'color',
         'type' => 'select',
         'options' => array(
+            'blue' => 'Blue',
+            'fulvous' => 'Fulvous',
+            'green' => 'Green',
+            'navy' => 'Navy',
+            'orange' => 'Orange',
+            'sky' => 'Sky',
             'az' => 'State - Arizona',
             'co' => 'State - Colorado',
             'id' => 'State - Idaho',
