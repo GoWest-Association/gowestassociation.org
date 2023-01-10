@@ -68,6 +68,16 @@ function agenda_metaboxes() {
         'priority' => 'high',
         'show_names' => true, // Show field names on the left
     ) );
+
+	$agenda_metabox->add_field( array(
+        'name' => 'Timezone',
+        'id'   => 'agenda-timezone',
+        'type' => 'select',
+		'options' => array(
+			'pt' => 'Pacific Time',
+			'mt' => 'Mountain Time',
+		)
+    ) );
     
     $agenda_metabox_group = $agenda_metabox->add_field( array(
         'id' => 'agenda',
@@ -145,6 +155,7 @@ function agenda_shortcode( $atts ) {
 		}
 
 	    // get the agenda items
+	    $agenda_timezone = get_post_meta( $agenda->ID, 'agenda-timezone', 1 );
 	    $agenda_items = get_post_meta( $agenda->ID, 'agenda', 1 );
 
 	    // empty content in case we don't have agenda items
@@ -152,6 +163,8 @@ function agenda_shortcode( $atts ) {
 
 	    // make sure we have agenda items
 	    if ( !empty( $agenda_items ) ) {
+
+			$agenda_content .= '<div class="agenda-timezone">All times listed are <strong>' . ( $agenda_timezone == 'pt' ? 'Pacific' : 'Mountain' ) . '</strong>.</div>';
 
 		    // start generating the agenda code
 		    $agenda_content .= '<section class="agenda">';
