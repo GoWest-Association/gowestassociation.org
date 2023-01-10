@@ -38,13 +38,14 @@
 				margin-right: 0;
 
 				.info {
-					flex-basis: 42%;
+					flex-basis: 39%;
 					margin-right: 3%;
 					margin-bottom: 5px;
 				}
 
 				.prices {
 					flex-basis: 35%;
+					margin-right: 3%;
 					margin-bottom: 5px;
 
 					.price {
@@ -61,7 +62,7 @@
 
 			.prices {
 				line-height: 1.4em;
-				font-size: 1.2em;
+				font-size: 1.1em;
 
 				span {
 					font-weight: bold;
