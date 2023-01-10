@@ -1,15 +1,5 @@
 
 
-.page-template-page-front-foundation {
-    .icons {
-        background: white url(../img/bg-orange-circles.png) center center / cover fixed;
-    }
-
-    .page-events {
-        background: $grey-light url(../img/bg-orange-circles.png) center center / cover fixed;
-    }
-}
-
 .page-template-page-front-foundation, .page-template-page-foundation {
     .slide-content {
         h1, h2, h3, h4, h5, h6 {
@@ -18,7 +8,7 @@
     }
 
     .stats {
-        background: url(../img/bg-stats.jpg) center center / cover no-repeat;
+        background: $navy url(../img/bg-orange-circles.png) center center / cover fixed;
         @include padding;
 
         .stat {
@@ -33,5 +23,21 @@
                 font-size: .8em;
             }
         }
+    }
+
+    .icons {
+        background: white url(../img/bg-orange-circles.png) center center / cover fixed;
+    }
+
+    .page-events {
+        background: $grey-light url(../img/bg-orange-circles.png) center center / cover fixed;
+    }
+
+    .link-boxes {
+        background: white url(../img/bg-orange-circles.png) center center / cover fixed;
+    }
+
+    footer {
+        background: $navy url(../img/bg-orange-circles.png) center center / cover fixed;
     }
 }
