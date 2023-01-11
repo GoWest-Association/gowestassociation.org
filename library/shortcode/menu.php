@@ -2,8 +2,6 @@
 
 // Function that will return our Wordpress menu
 function menu_shortcode( $atts, $content = null ) {
-	
-	print_r( $atts );
 
 	// return the menu content 
 	return wp_nav_menu( array( 
