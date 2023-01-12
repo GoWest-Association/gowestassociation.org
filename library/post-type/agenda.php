@@ -158,7 +158,7 @@ function agenda_shortcode( $atts ) {
 		    // loop through and include each agenda item
 		    foreach ( $agenda_items as $item ) {
 		    	$agenda_content .='<div class="agenda-item">' . 
-					'<div class="time"><strong>' .  date( 'M. j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) . '</strong></div>' .
+					'<div class="time"><strong>' .  date( 'M j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) . '</strong></div>' .
 					'<div class="location">' . $item['location'] . '</div>' .
 					'<div class="content">' . apply_filters( 'the_content', $item['content'] ) . '</div>' .
 				'</div>';
