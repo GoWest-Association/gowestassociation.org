@@ -80,6 +80,11 @@
 			flex-grow: 0;
 			margin-right: 4%;
 		}
+
+		.article-list {
+			flex: 1;
+			flex-basis: 100%;
+		}
 	}
 
 	@include respond-to( $bp-l ) {
