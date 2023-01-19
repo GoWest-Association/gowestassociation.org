@@ -17,10 +17,16 @@ function require_multi( $files ) {
 $colors = array(
     'green' => "Green",
     'blue' => "Blue",
-    'sky' => "Sky",
+    'solutions' => "Solutions",
     'navy' => "Navy",
     'orange' => "Orange",
     'fulvous' => "Fulvous",
+    'state-az' => "State (Arizona)",
+    'state-co' => "State (Colorado)",
+    'state-id' => "State (Idaho)",
+    'state-or' => "State (Oregon)",
+    'state-wa' => "State (Washington)",
+    'state-wy' => "State (Wyoming)",
 );
 
 

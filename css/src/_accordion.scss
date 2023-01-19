@@ -66,8 +66,32 @@ $accordion-arrow-size: 30px;
 			background: $grey-dark;
 		}
 
-		&.sky .accordion-handle {
+		&.solutions .accordion-handle {
 			background: $sky;
+		}
+
+		&.state-az .accordion-handle {
+			background: $color-az;
+		}
+
+		&.state-co .accordion-handle {
+			background: $color-co;
+		}
+
+		&.state-id .accordion-handle {
+			background: $color-id;
+		}
+
+		&.state-or .accordion-handle {
+			background: $color-or;
+		}
+
+		&.state-wa .accordion-handle {
+			background: $color-wa;
+		}
+
+		&.state-wy .accordion-handle {
+			background: $color-wy;
 		}
 
 		.accordion-content {

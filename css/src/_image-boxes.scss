@@ -44,12 +44,12 @@
 		&.orange a { border-bottom: 25px solid $orange; }
 		&.green a { border-bottom: 25px solid $green; }
 
-		&.az a { border-bottom: 25px solid $color-az; }
-		&.co a { border-bottom: 25px solid $color-co; }
-		&.id a { border-bottom: 25px solid $color-id; }
-		&.or a { border-bottom: 25px solid $color-or; }
-		&.wa a { border-bottom: 25px solid $color-wa; }
-		&.wy a { border-bottom: 25px solid $color-wy; }
+		&.state-az a { border-bottom: 25px solid $color-az; }
+		&.state-co a { border-bottom: 25px solid $color-co; }
+		&.state-id a { border-bottom: 25px solid $color-id; }
+		&.state-or a { border-bottom: 25px solid $color-or; }
+		&.state-wa a { border-bottom: 25px solid $color-wa; }
+		&.state-wy a { border-bottom: 25px solid $color-wy; }
 	}
 	
 	@include respond-to( $bp-m ) {

@@ -88,20 +88,7 @@ function image_boxes_metaboxes( $meta_boxes ) {
         'name' => 'Color',
         'id'   => 'color',
         'type' => 'select',
-        'options' => array(
-            'blue' => 'Blue',
-            'fulvous' => 'Fulvous',
-            'green' => 'Green',
-            'navy' => 'Navy',
-            'orange' => 'Orange',
-            'sky' => 'Sky',
-            'az' => 'State - Arizona',
-            'co' => 'State - Colorado',
-            'id' => 'State - Idaho',
-            'or' => 'State - Oregon',
-            'wa' => 'State - Washington',
-            'wy' => 'State - Wyoming'
-        )
+        'options' => $colors
     ) );
 
 }
