@@ -36,6 +36,8 @@ the_button_bar();
 
 the_icons();
 
+the_accordions();
+
 $partner_logos = get_cmb_value( 'partner_logos' );
 if ( !empty( $partner_logos ) ) {
 	print '<div class="content-wide" role="main">';	
@@ -71,8 +73,6 @@ if ( have_posts() ) :
 endif;
 
 the_agenda();
-
-the_accordions();
 
 the_page_articles();
 
