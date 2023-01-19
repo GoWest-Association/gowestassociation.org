@@ -80,6 +80,7 @@
 				padding: 0;
 				line-height: 1.2em;
 				padding: 10px 0;
+				color: $green;
 
 				font-size: 28px;
 				@include respond-to( 768px ) { font-size: 34px; }
