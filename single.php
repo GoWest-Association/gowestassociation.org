@@ -6,6 +6,7 @@ get_header();
 
 the_showcase();
 
+if ( !is_foundation() ) {
 ?>
 	<div class="two-column article" role="main">
 		<div class="sidebar">
@@ -14,6 +15,11 @@ the_showcase();
 		<div class="right-column">
 			<div class="right-column-inner">
 			<?php 
+} else {
+	?>
+	<div class="content-wide article" role="main">
+			<?php 
+}
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post(); 
 					?>
@@ -28,11 +34,17 @@ the_showcase();
 					<?php
 				endwhile;
 			endif;
+if ( !is_foundation() ) {
 			?>
 			</div>
 		</div>
 	</div>
 <?php
+} else {
+	?>
+	</div>
+	<?php
+}
 
 get_footer();
 

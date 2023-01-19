@@ -79,13 +79,21 @@ function is_newsletter() {
 
 function is_foundation() {
 
+    $response = false;
+
+    // if we're on the foundation site
+    $site = ( isset( $_SERVER['HTTP_HOST'] ) ? $_SERVER['HTTP_HOST'] : '' );
+    if ( stristr( $site, 'foundation' ) ) {
+        $response = true;
+    }
+
     // if the foundation global is set
     if ( BRAND == 'foundation' ) {
-        return true;
+        $response = true;
     }
 
     // otherwise, return false
-    return false;
+    return $response;
 }
 
 
