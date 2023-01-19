@@ -36,6 +36,23 @@ function the_partner_logos() {
 }
 
 
+// ad showcase
+function has_partner_logos() {
+
+	// get the icons
+	$icons = get_cmb_value( 'partner_logos' );
+
+	// if it's an array
+	if ( is_array( $icons ) ) {
+		if ( !empty( $icons[0]['image'] ) ) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+
 // add partner metaboxes
 function partner_logos_metabox( $meta_boxes ) {
 

@@ -36,9 +36,11 @@ the_button_bar();
 
 the_icons();
 
-print '<div class="content-wide" role="main">';	
-the_partner_logos();
-print '</div>';
+if ( has_partner_logos() ) {
+	print '<div class="content-wide" role="main">';	
+	the_partner_logos();
+	print '</div>';
+}
 
 the_page_events_row();
 

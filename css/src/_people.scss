@@ -135,7 +135,6 @@
 
 
 .people.cards .people-listing {
-
 	@include respond-to( 500px ) {
 		display: flex;
 		flex-wrap: wrap;
@@ -213,7 +212,6 @@
 
 
 .people.speakers .people-listing {
-
 	@include respond-to( 500px ) {
 		display: flex;
 		flex-wrap: wrap;
