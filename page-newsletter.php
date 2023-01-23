@@ -60,6 +60,7 @@ the_showcase();
 				</ul>
 
 			</div>
+			<?php the_page_ads(); ?>
 			<div class="title-bar grey-dark"><h3>Compliance Resources</h3></div>
 			<div class="right-column-inner">
 
