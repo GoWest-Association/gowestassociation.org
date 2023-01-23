@@ -38,6 +38,8 @@ the_icons();
 
 the_accordions();
 
+the_image_boxes();
+
 $partner_logos = get_cmb_value( 'partner_logos' );
 if ( !empty( $partner_logos ) ) {
 	print '<div class="content-wide" role="main">';	
@@ -46,8 +48,6 @@ if ( !empty( $partner_logos ) ) {
 }
 
 the_page_events_row();
-
-the_image_boxes();
 
 the_page_ads();
 
