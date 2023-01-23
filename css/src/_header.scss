@@ -181,12 +181,12 @@ nav.main-menu-container {
 				@include respond-to( $bp-m ) {
 					display: inline-block;
 					text-align: left;
-					padding: 15px 20px;
+					padding: 15px 15px;
 				}
 
 				@include respond-to( $bp-l ) {
 					font-size: 18px;
-					padding: 15px 25px;
+					padding: 15px 30px;
 				}
 			}
 
