@@ -70,7 +70,7 @@ the_agenda();
 
 the_link_boxes();
 
-the_button_bar();
+the_footer_buttons();
 
 get_footer();
 

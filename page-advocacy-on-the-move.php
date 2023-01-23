@@ -1,14 +1,10 @@
 <?php
 
 /*
-Template Name: Price Table
+Template Name: Advocacy on the Move
 */
 
-if ( has_cmb_value( 'page_brand' ) ) {
-	set_brand( get_cmb_value( 'page_brand' ) );
-} else {
-	set_brand( 'core' );
-}
+set_brand( 'association' );
 
 get_header();
 
@@ -20,8 +16,6 @@ if ( show_title() ) {
 	<?php
 }
 
-the_showcase();
-
 if ( has_introduction() ) {
 	?>
 <div class="content-wide" role="main">
@@ -31,20 +25,14 @@ if ( has_introduction() ) {
 
 	the_introduction();
 
-	the_partner_logos();
-
 	?>
 </div><!-- #content -->
 	<?php
 }
 
-the_button_bar();
-
 the_icons();
 
 the_page_events_row();
-
-the_testimonials();
 
 if ( have_posts() ) :
 	while ( have_posts() ) : the_post();
@@ -65,13 +53,7 @@ if ( have_posts() ) :
 	endwhile;
 endif;
 
-the_agenda();
-
-the_accordions();
-
-the_price_table();
-
-the_link_boxes();
+the_page_articles( 12 );
 
 the_footer_buttons();
 

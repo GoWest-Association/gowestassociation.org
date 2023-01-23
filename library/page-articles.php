@@ -159,11 +159,11 @@ function page_articles_metaboxes() {
 
 
 // the output function
-function the_page_articles() {
+function the_page_articles( $posts_per_page = 3 ) {
     if ( has_cmb_value( 'page-articles' ) ) {
         print '<div class="page-articles">';
         print '<h2>' . get_cmb_value( 'page-articles-title') . '</h2>';
-        print do_shortcode( '[articles cats="' . get_cmb_value('page-articles') . '" posts_per_page=3 /]' );
+        print do_shortcode( '[articles cats="' . get_cmb_value('page-articles') . '" posts_per_page=' . $posts_per_page . ' /]' );
         print '</div>';
     }
 }

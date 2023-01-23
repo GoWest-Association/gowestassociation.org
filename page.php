@@ -73,5 +73,7 @@ the_price_table();
 
 the_link_boxes();
 
+the_footer_buttons();
+
 get_footer();
 

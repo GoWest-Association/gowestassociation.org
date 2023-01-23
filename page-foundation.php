@@ -32,6 +32,8 @@ the_showcase();
 
 <?php
 
+the_footer_buttons();
+
 get_footer();
 
 ?>

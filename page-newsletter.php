@@ -84,4 +84,10 @@ the_showcase();
 	</div><!-- #primary -->
 
 
-<?php get_footer(); ?>
+<?php 
+
+the_footer_buttons();
+
+get_footer();
+
+?>

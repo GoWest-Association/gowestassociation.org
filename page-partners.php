@@ -186,6 +186,8 @@ if ( show_title() ) {
 
 <?php
 
+the_footer_buttons();
+
 get_footer();
 
 ?>
