@@ -3,6 +3,7 @@
 .page-title {
 	background: $navy;
 	padding: 20px 30px;
+	border-top: 10px solid $grey-light;
 
 	@include respond-to( $bp-m ) {
 		padding: 20px 40px;

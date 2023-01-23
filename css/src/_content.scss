@@ -18,6 +18,11 @@
 		list-style-type: decimal;
 	}
 
+	a {
+		font-weight: bold;
+		border-bottom: 2px dotted rgba( $navy, .5 );
+	}
+
 	blockquote {
 		padding: 0 25px;
 		@include font-italic;
