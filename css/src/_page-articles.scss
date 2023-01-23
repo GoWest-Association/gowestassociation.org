@@ -6,9 +6,7 @@
 	@include respond-to( $bp-l ) { padding: 45px 50px; }
 	@include respond-to( $bp-xl ) { padding: 50px 60px; }
 
-	h3 {
-
-	}
+	background: url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
 
 	.article-cards {
 		padding: 20px 0;
