@@ -20,7 +20,13 @@
 
 	a {
 		font-weight: bold;
-		border-bottom: 2px dotted rgba( $navy, .5 );
+		border-bottom: 2px dotted rgba( $navy, .2 );
+		text-decoration: none;
+		transition: border-bottom 400ms ease-in-out;
+
+		&:hover {
+			border-bottom: 2px dotted rgba( $navy, .7 );
+		}
 	}
 
 	blockquote {

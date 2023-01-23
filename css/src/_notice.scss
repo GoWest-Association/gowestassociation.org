@@ -1,0 +1,112 @@
+
+
+.notice-bar-container {
+    @include font-bold;
+	@include clearfix;
+	background: $grey url(../img/bg-waves-white.png) center center / cover no-repeat;
+	color: #444;
+	display: none;
+	position: relative;
+	z-index: 200;
+
+	padding: 15px 30px;
+	@include respond-to( $bp-m ) { padding: 15px 40px; }
+	@include respond-to( $bp-l ) { padding: 15px 50px; }
+	@include respond-to( $bp-xl ) { padding: 20px 60px; }
+
+	a {
+		color: #444;
+
+		&:hover {
+			text-decoration: none;
+		}
+	}
+
+	&.show {
+		display: block;
+	}
+
+	.fa-close {
+		float: right;
+		margin: 0 0 3px 20px;
+		cursor: pointer;
+        @include font-bold;
+        font-style: normal;
+	}
+
+	&.green {
+		background-color: $green;
+		color: white;
+
+		a {
+			color: white;
+		}
+	}
+
+	&.navy {
+		background-color: $navy;
+		color: white;
+ 		a { color: white; }
+	}
+
+	&.blue {
+		background-color: $blue;
+		color: white;
+		a { color: white; }
+	}
+
+	&.solutions {
+		background-color: $sky;
+		color: white;
+		a { color: white; }
+	}
+
+	&.orange {
+		background-color: $orange;
+		color: white;
+		a { color: white; }
+	}
+
+	&.fulvous {
+		background-color: $fulvous;
+		color: white;
+		a { color: white; }
+	}
+
+	&.state-az {
+		background-color: $color-az;
+		color: white;
+		a { color: white; }
+	}
+
+	&.state-co {
+		background-color: $color-co;
+		color: white;
+		a { color: white; }
+	}
+
+	&.state-id {
+		background-color: $color-id;
+		color: white;
+		a { color: white; }
+	}
+
+	&.state-or {
+		background-color: $color-or;
+		color: white;
+		a { color: white; }
+	}
+
+	&.state-wa {
+		background-color: $color-wa;
+		color: white;
+		a { color: white; }
+	}
+
+	&.state-wy {
+		background-color: $color-wy;
+		color: white;
+		a { color: white; }
+	}
+}
+

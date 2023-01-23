@@ -31,14 +31,12 @@ gtag('config', 'G-J4GTY9QELN');
 <body <?php body_class(); ?>>
 <div class="container <?php print ( isset( $_REQUEST['notemplate'] ) ? 'notemplate' : '' ); ?>">
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
-<header<?php print ( is_newsletter() ? ' class="newsletter"' : '' ); ?>>
+<?php the_notice_bar(); ?>
+<header>
 
 	<?php if ( is_newsletter() ) { ?>
 	<div class="logo left">
-		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo.png" alt="<?php bloginfo( 'name' ); ?>"></a>
-	</div>
-	<div class="logo right">
-		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-onthego.png?v=1" alt="<?php bloginfo( 'name' ); ?>"></a>
+		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-newsletter.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
 	<?php } else if ( is_solutions() ) { ?>
 	<div class="logo left">

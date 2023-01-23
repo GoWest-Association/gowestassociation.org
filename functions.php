@@ -39,7 +39,7 @@ require_multi(
 
     // include the metaboxes in the order we want them to show up in the editor pages
     'settings', 'newsletter', 'showcase', 'stats', 'icons', 'partner-logos', 'testimonials', 'page', 'page-events', 'page-ads', 'page-articles', 
-    'accordion', 'link-boxes', 'button-bar', 'price-table', 'footer-buttons', 'image-boxes',
+    'accordion', 'link-boxes', 'button-bar', 'price-table', 'footer-buttons', 'image-boxes', 'notice',
 
     // add shortcodes
     'shortcode/button', 'shortcode/menu' 

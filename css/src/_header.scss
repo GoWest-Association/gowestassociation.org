@@ -8,22 +8,6 @@ header {
 		text-align: center;
 	}
 
-	&.newsletter {
-		display: flex;
-
-		.logo {
-			flex: 1;
-
-			&.left {
-				text-align: left;
-			}
-
-			&.right {
-				text-align: right;
-			}
-		}
-	}
-
 	.account-tools {
 		.search {
 			margin-top: 10px;
@@ -58,7 +42,13 @@ header {
 			text-align: center;
 
 			.btn {
-				font-size: .8em;
+				padding: 6px 10px;
+				font-size: .7em;
+
+				@include respond-to( 375px ) {
+					padding: 8px 15px;
+					font-size: .8em;
+				}
 			}
 		}
 
@@ -80,7 +70,8 @@ header {
 			}
 
 			.contact {
-				flex-basis: 20%;
+				flex-basis: 18%;
+				font-size: .9em;
 			}
 
 			.search {
@@ -94,8 +85,9 @@ header {
 				margin-right: 2%;
 				padding: 0;
 
-				.button {
+				.btn {
 					margin-bottom: 0;
+					padding: 10px 15px;
 				}
 			}
 		}
@@ -159,8 +151,8 @@ nav.main-menu-container {
 		
 		padding: 0;
 		@include respond-to( $bp-m ) { padding: 0 30px; }
-		@include respond-to( $bp-l ) { padding: 0 40px; }
-		@include respond-to( $bp-xl ) { padding: 0 45px; }
+		@include respond-to( $bp-l ) { padding: 0 20px; }
+		@include respond-to( $bp-xl ) { padding: 0 30px; }
 		
 		@include respond-to( $bp-m ) {
 			display: block;
@@ -190,12 +182,12 @@ nav.main-menu-container {
 				@include respond-to( $bp-m ) {
 					display: inline-block;
 					text-align: left;
-					padding: 15px 10px;
+					padding: 15px 20px;
 				}
 
 				@include respond-to( $bp-l ) {
 					font-size: 18px;
-					padding: 15px 15px;
+					padding: 15px 30px;
 				}
 			}
 
@@ -309,6 +301,7 @@ nav.main-menu-container {
 						transition: color 400ms ease-in-out, border-bottom 400ms ease-in-out;
 						color: rgba( $navy, 1 );
 						border-bottom: 2px dotted white;
+						text-align: center;
 
 						@include respond-to( $bp-m ) {
 							display: inline-block;
