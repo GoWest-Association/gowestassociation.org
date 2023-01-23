@@ -59,10 +59,6 @@
 
 	&.narrow {
 		background: white;
-
-		@include respond-to( $bp-l ) {
-			padding-right: 120px;
-		}
 	}
 
 	* {
@@ -70,7 +66,7 @@
 	}
 
 	.page-events-title {
-		padding-bottom: 20px;
+		padding-bottom: 10px;
 
 		@include respond-to( 768px ) {
 			padding-bottom: 30px;
@@ -78,30 +74,41 @@
 	}
 
 	.all-events {
-		position: absolute;
-		right: 20px;
-		top: 20px;
-		width: 60px;
-		height: 60px;
-		content: '';
-		background: url(../img/icon-calendar-dark.png) center center no-repeat;
-		background-size: contain;
-		color: transparent;
+		background: url(../img/icon-calendar-dark.png) left center / contain no-repeat;
+		color: $navy;
+		@include font-bold;
+		padding-left: 30px;
+		font-size: .8em;
+		line-height: 1.2em;
+		text-transform: uppercase;
 
-		@include respond-to( 1220px ) {
-			width: 100px;
-			height: 100px;
+		@include respond-to( $bp-m ) {
+			position: absolute;
+			right: 40px;
+			top: 45px;
+			font-size: .9em;
+		}
+
+		@include respond-to( $bp-l ) {
+			right: 70px;
+			top: 45px;
+			line-height: 1.5em;
+			padding: 5px 5px 5px 45px;
+		}
+
+		&:hover {
+			text-decoration: none;
 		}
 	}
 
 	
 	.event-list {
-		padding-right: 40px;
+		margin-top: 20px;
 
 		@include respond-to( $bp-m ) {
+			margin-top: 0;
 			display: flex;
 			flex-wrap: wrap;
-			padding-right: 20px;
 			margin-right: -2%;
 
 			.event {
@@ -112,11 +119,11 @@
 		}
 
 		@include respond-to( $bp-xl ) {
-			padding-right: 80px;
 			flex-wrap: nowrap;
 
 			.event {
 				flex-basis: 23%;
+				padding-bottom: 15px;
 			}
 		}
 	}
@@ -307,14 +314,13 @@
 .event-list {
 	.event {
 		position: relative;
-		padding-left: 70px;
-		padding-bottom: 20px;
+		padding-left: 60px;
+		padding-bottom: 30px;
 		min-height: 75px;
 
-		@include respond-to( 1024px ) {
-			padding-left: 100px;
-			padding-bottom: 30px;
-			min-height: 100px;
+		@include respond-to( $bp-l ) {
+			padding-left: 70px;
+			padding-bottom: 40px;
 		}
 
 		.event-date {
@@ -323,15 +329,15 @@
 			top: 0;
 			border: 3px solid rgba( $grey, .3 );
 			color: $navy;
-			width: 64px;
-			height: 64px;
-			padding: 10px 0 0 0;
+			width: 50px;
+			height: 50px;
+			padding: 6px 0 0 0;
 			border-radius: 50%;
 
-			@include respond-to( 1024px ) {
-				width: 92px;
-				height: 92px;
-				padding: 10px 0 0 0;
+			@include respond-to( $bp-l ) {
+				width: 60px;
+				height: 60px;
+				padding: 5px 0 0 0;
 			}
 
 			.event-date-month {
@@ -339,12 +345,12 @@
 				text-align: center;
 				display: block;
 				text-transform: uppercase;
-				font-size: 14px;
-				line-height: 14px;
+				font-size: 12px;
+				line-height: 12px;
 
 				@include respond-to ( 1024px ) {
-					font-size: 20px;
-					line-height: 20px;
+					font-size: 16px;
+					line-height: 16px;
 				}
 			}
 
@@ -352,12 +358,12 @@
 				@include font-title;
 				text-align: center;
 				display: block;
-				font-size: 30px;
-				line-height: 30px;
+				font-size: 25px;
+				line-height: 25px;
 
 				@include respond-to( 1024px ) {
-					font-size: 50px;
-					line-height: 50px;
+					font-size: 35px;
+					line-height: 35px;
 				}
 			}
 		}
