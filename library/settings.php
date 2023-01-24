@@ -113,3 +113,4 @@ function is_solutions() {
 function set_brand( $brand = '' ) {
     define( 'BRAND', $brand );
 }
+

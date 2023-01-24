@@ -246,7 +246,7 @@ function edit_job_form() {
 		);
 
 		//actual form
-		gravity_form( 20, true, false, false, $fields );
+		gravity_form( 13, true, false, false, $fields );
 
 	}
 }
@@ -435,4 +435,10 @@ add_filter( 'gform_advancedpostcreation_excerpt', 'enable_excerpt', 10, 1 );
 function enable_excerpt( $enable_excerpt ){
     return true;
 }
+
+
+function jobs_excerpt_length( $length ) {
+    return 20;
+}
+add_filter( 'excerpt_length', 'jobs_excerpt_length', 999 );
 

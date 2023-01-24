@@ -18,6 +18,17 @@ register_nav_menus( array(
 ) );
 
 
+// parse the query string
+function parse_query_string() {
+	$url_parts = wp_parse_url( $_SERVER['REQUEST_URI'] );
+	if ( isset( $url_parts['query'] ) ) {
+		parse_str( $url_parts['query'], $query_args );
+		return $query_args;
+	} else {
+		return array();
+	}
+}
+
 
 // register a generic sidebar.
 register_sidebar( array(
