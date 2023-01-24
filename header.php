@@ -82,7 +82,13 @@ gtag('config', 'G-J4GTY9QELN');
 
 <nav class="main-menu-container">
 	<button class="menu-toggle">Show/hide Menu</button>
-	<?php print do_shortcode( get_snippet( "header-menu", 0 ) ); ?>
+	<?php 
+	if ( is_solutions() ) {
+		print do_shortcode( get_snippet( "header-menu-solutions", 0 ) ); 
+	} else {
+		print do_shortcode( get_snippet( "header-menu", 0 ) ); 
+	}
+	?>
 </nav>
 
 <?php } ?>
