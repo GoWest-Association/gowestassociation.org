@@ -3,14 +3,39 @@
 // tab controls
 jQuery(document).ready(function($){
 
-	if ( $( '.day-event-list' ).length ) {
+	var filter_events = function( number = 0 ){
 
-		// clicks of the majors tab
-		$( 'table.calendar td' ).click(function(){
-			$( '.day-event-list' ).html( $(this).find( '.day-events' ).html() );
+	};
+
+	// clicks of the majors tab
+	$( 'table.calendar td.has-events' ).click(function(){
+
+		// store the day they click
+		var day = $(this).data('day');
+		
+		// show all
+		$( '.calendar-event-list .event.hide' ).removeClass( 'hide' );
+
+		// loop through events, and hide everything that isn't the day they click
+		$( '.calendar-event-list .event' ).each(function(){
+			if ( $(this).data( 'day' ) != day ) {
+				$(this).addClass( 'hide' );
+			}
 		});
 
-	}
+		// show 'clear filter' buttons
+		$( '.calendar-event-list .clear-filter' ).css( 'display', 'block' );
+
+	});
+
+	$( '.calendar-event-list .clear-filter' ).click(function(){
+		
+		// show all
+		$( '.calendar-event-list .event.hide' ).removeClass( 'hide' );
+
+		$(this).hide();
+
+	});
 
 	$( 'select.event-category' ).change(function(){
 		location.href = $.query.set( "event_category", $(this).val() );

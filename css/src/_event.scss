@@ -178,26 +178,6 @@
 }
 
 
-.month-nav {
-	padding: 10px;
-	background: $grey-dark;
-	color: white;
-	text-decoration: none;
-	margin-bottom: 10px;
-	float: left;
-	cursor: pointer;
-
-	&.next {
-		float: right;
-	}
-
-	&:hover {
-		background: lighten( $grey, 10% );
-		color: white;
-	}
-}
-
-
 .calendar-month-title {
 	text-align: center;
 	font-size: 1.1em;
@@ -211,102 +191,136 @@
 	}
 }
 
+.calendar-container {
+	@include clearfix;
 
-.calendar {
-	border-top: 1px solid lighten( $grey, 15% );
-	border-left: 1px solid lighten( $grey, 15% );
-	width: 100%;
+	@include respond-to( $bp-m ) {
+		display: flex;
+	}
+	
+	.calendar-grid {
+		@include respond-to( $bp-m ) {
+			flex: 1;
+			flex-basis: 33.3333%;
+			padding-right: 3%;
+		}
 
-	td {
-		width: 14.58%;
-		padding: 4px;
-		text-align: center;
-		border-right: 1px solid lighten( $grey, 15% ) !important;
-		border-bottom: 1px solid lighten( $grey, 15% ) !important;
-
-		&.calendar-day-head {
-			background: #ddd;
-
-			span {
-				display: none;
-				
-				@include respond-to( 768px ) {
-					display: inline;
-				}
+		.month-nav {
+			padding: 8px 10px;
+			color: darken( $grey-dark, 10% );
+			text-decoration: none;
+			float: left;
+			cursor: pointer;
+			border-bottom: 0;
+			font-size: .8em;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			transition: color 400ms ease-in-out;
+		
+			&.next {
+				float: right;
 			}
-		}
-
-		&.calendar-day:hover {
-			background: #eee;
-		}
-
-		&.calendar-day.current-day {
-			background: #f5f5f5;
-
+		
 			&:hover {
-				background: #eee;
+				color: $navy;
 			}
 		}
+	
+		.calendar {
+			border-top: 1px solid rgba( $grey, .2 );
+			border-left: 1px solid rgba( $grey, .2 );
+			width: 100%;
 
-		.day-number {
-			text-align: right;
-		}
+			td {
+				width: 14.58%;
+				padding: 8px 4px;
+				text-align: center;
+				border-right: 1px solid rgba( $grey, .2 ) !important;
+				border-bottom: 1px solid rgba( $grey, .2 ) !important;
+				color: $navy;
+				font-size: .8em;
+				cursor: hand;
 
-		.day-events {
-			display: none;
-			@include font-bold;
-			font-size: 13px;
+				@include respond-to( $bp-m ) {
+					padding: 12px 10px;
+				}
 
-			@include respond-to( 768px ) {
-				display: block;
-				min-height: 100px;
+				&.calendar-day-head {
+					@include font-bold;
+					background: $grey-light;
+					color: $grey-dark;
+					text-transform: uppercase;
+					font-size: .7em;
+				}
 
-				.event-time, .event-description {
-					display: none;
+				&.has-events {
+					cursor: pointer;
+					font-weight: bold;
+				}
+
+				&.calendar-day:hover {
+					background: #eee;
+				}
+
+				&.calendar-day.current-day {
+					background: #f5f5f5;
+
+					&:hover {
+						background: #eee;
+					}
 				}
 			}
+		}
+	}
 
-			a {
-				@include font-bold;
-				font-size: 13px;
-			}
+	.calendar-event-list {
+		padding-top: 20px;
+
+		@include respond-to( $bp-m ) {
+			flex: 1;
+			flex-basis: 66.6666%;
+			padding-top: 0;
+		}
+
+		.clear-filter {
+			display: none;
+			color: $orange;
+			@include font-bold;
+			margin-bottom: 15px;
+			cursor: pointer;
+		}
+
+		.event {
+			padding-bottom: 20px;
+			line-height: 1.4em;
 			
-			.event {
-				padding: 7px 0;
-				border-top: 1px solid lighten( $grey, 40% );
+			&.hide {
+				display: none;
 			}
 
 			.event-title {
-				line-height: 20px;
+				@include font-bold;
+				color: $navy;
 			}
 
+			.event-time {
+				@include font-bold;
+				font-size: .8em;
+				color: $grey-dark;
+			}
+
+			.event-description {
+				font-size: .8em;
+				line-height: 1.3em;
+			}
+
+			@include respond-to( $bp-m ) {
+				.event-title {
+					font-size: 1.2em;
+					line-height: 1.5em;
+				}
+			}
 		}
-	}
-}
-
-
-.day-event-list {
-	display: block;
-	padding: 20px 0;
-
-	@include respond-to( 768px ) {
-		display: none;
-	}
-
-	.event-title {
-		@include font-bold;
-		font-size: 1.2em;
-		margin-top: 8px;
-	}
-
-	.event-time {
-		color: $grey;
-		font-style: italic;
-	}
-
-	.event-description {
-		font-size: .85em;
-		line-height: 1.4em;
 	}
 }
 
