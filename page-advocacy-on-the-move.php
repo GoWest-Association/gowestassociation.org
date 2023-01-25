@@ -88,13 +88,13 @@ if ( $query->have_posts() ) {
 	while ( $query->have_posts() ) {
 		$query->the_post();
 		$return .= '<div class="entry' . 
-			( in_category(518) ? ' arizona' : '' ) . 
-			( in_category(517) ? ' colorado' : '' ) . 
-			( in_category(507) ? ' idaho' : '' ) . 
+			( in_category(259) ? ' arizona' : '' ) . 
+			( in_category(260) ? ' colorado' : '' ) . 
+			( in_category(249) ? ' idaho' : '' ) . 
 			( in_category(36) ? ' oregon' : '' ) . 
-			( in_category(459) ? ' washington' : '' ) . 
-			( in_category(516) ? ' wyoming' : '' ) . 
-			( in_category(508) ? ' regulatory' : '' ) . 
+			( in_category(250) ? ' washington' : '' ) . 
+			( in_category(261) ? ' wyoming' : '' ) . 
+			( in_category(251) ? ' regulatory' : '' ) . 
 		'">';
 		$return .= '<div class="entry-thumbnail">';
 		$return .= '<a href="' . get_the_permalink() . '">';
