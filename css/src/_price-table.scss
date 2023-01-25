@@ -69,10 +69,6 @@
 					font-size: 1.4em;
 				}
 
-				@include respond-to( $bp-s ) {
-
-				}
-
 				@include respond-to( $bp-l ) {
 					margin-right: 2%;
 					flex-grow: 0;

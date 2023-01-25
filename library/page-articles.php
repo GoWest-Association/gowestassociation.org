@@ -38,8 +38,6 @@ function articles_shortcode( $atts ) {
         // Start looping over the query results.
         while ( $query->have_posts() ) {
             $query->the_post();
-            $categories = get_the_category();
-            $cat = $categories[0];
             $return .= '<div class="entry">';
             $return .= '<div class="entry-thumbnail">';
             $return .= '<a href="' . get_the_permalink() . '">';
@@ -164,6 +162,7 @@ function the_page_articles( $posts_per_page = 3 ) {
         print '<div class="page-articles">';
         print '<h2>' . get_cmb_value( 'page-articles-title') . '</h2>';
         print do_shortcode( '[articles cats="' . get_cmb_value('page-articles') . '" posts_per_page=' . $posts_per_page . ' /]' );
+        print '<a href="/onthego" class="btn navy">View All Articles</a>';
         print '</div>';
     }
 }

@@ -33,14 +33,17 @@ $admin_email = get_option( 'admin_email' );
 				</div>
 				<div class="column menu">
 					<h4>Links</h4>
-					<?php wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav-menu' ) ); ?>
+					<?php 
+					print do_shortcode( '[menu id=103 /]')
+					// wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav-menu' ) ); 
+					?>
 				</div>
 				<div class="column subscribe">
 					<?php print get_snippet( 'footer-subscribe' ); ?>
 				</div>
 			</div>
 
-			<p class="small">Copyright &copy; 2022 GoWest Credit Union Association. All Rights Reserved.</p>
+			<p class="small">Copyright &copy; <?php print date( 'Y' ); ?> GoWest Credit Union Association. All Rights Reserved.</p>
 
 		</div>
 	</footer>
