@@ -11,6 +11,21 @@ $accordion-arrow-size: 30px;
 			background: rgba( $grey, .2 );
 			overflow: hidden;
 
+			&:after {
+				position: absolute;
+				content: '+';
+				color: white;
+				right: 20px;
+				top: 50%;
+				font-size: 40px;
+				line-height: 40px;
+				margin-top: -20px;
+
+				@include respond-to( $bp-m ) { right: 40px; }
+				@include respond-to( $bp-l ) { right: 50px; }
+				@include respond-to( $bp-xl ) { right: 60px; }
+			}
+
 			h3 {
 				@include font-bold;
 				color: white;
@@ -101,6 +116,10 @@ $accordion-arrow-size: 30px;
 		}
 
 		&.open {
+			.accordion-handle:after {
+				content: '-';
+			}
+
 			.accordion-content {
 				display: block;
 
