@@ -70,18 +70,11 @@
 				}
 
 				@include respond-to( $bp-s ) {
-					display: flex;
-					margin-right: -3%;
 
-					.price {
-						flex: 1;
-						margin-right: 3%;
-						flex-basis:  47%;
-					}
 				}
 
 				@include respond-to( $bp-l ) {
-					margin-right: 0;
+					margin-right: 2%;
 					flex-grow: 0;
 				}
 
