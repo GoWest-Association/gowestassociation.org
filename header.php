@@ -16,7 +16,7 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=43" rel="stylesheet" type="text/css">
+<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=44" rel="stylesheet" type="text/css">
 
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4GTY9QELN"></script>
@@ -85,8 +85,15 @@ gtag('config', 'G-J4GTY9QELN');
 	<?php 
 	if ( is_solutions() ) {
 		print do_shortcode( get_snippet( "header-menu-solutions", 0 ) ); 
+		print '<div class="aux-buttons">';
+		print '<a href="https://gowestassociation.org" class="association"><span>Association</span></a>';
+		print '</div>';
 	} else {
 		print do_shortcode( get_snippet( "header-menu", 0 ) ); 
+		print '<div class="aux-buttons">';
+		print '<a href="https://gowestassociation.org/solutions" class="solutions"><span>Solutions</span></a>';
+		print '<a href="https://gowestfoundation.org" class="foundation"><span>Foundation</span></a>';
+		print '</div>';
 	}
 	?>
 </nav>

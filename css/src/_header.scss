@@ -178,13 +178,18 @@ nav.main-menu-container {
 				background-color: transparent;
 				text-align: center;
 
-				@include respond-to( $bp-m ) {
+				@include respond-to( $bp-l ) {
 					display: inline-block;
 					text-align: left;
 					padding: 15px 15px;
 				}
 
-				@include respond-to( $bp-l ) {
+				@include respond-to( $bp-xl ) {
+					font-size: 18px;
+					padding: 15px 20px;
+				}
+
+				@include respond-to( $bp-xxl ) {
 					font-size: 18px;
 					padding: 15px 30px;
 				}
@@ -313,6 +318,79 @@ nav.main-menu-container {
 						}
 					}
 				}
+			}
+		}
+	}
+
+	.aux-buttons {
+		@include respond-to( $bp-l ) {
+			position: absolute;
+			top: 0;
+			right: 0;
+			display: flex;
+			z-index: 1001;
+		}
+
+		a {
+			@include font-bold;
+			background: $navy;
+			color: white;
+			display: block;
+			padding: 10px 20px;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: .9em;
+
+			@include respond-to( $bp-l ) {
+				display: flex;
+				padding: 14px 25px;
+				transform: skew( -35deg );
+
+				&:last-child {
+					padding-right: 50px;
+					margin-right: -20px;
+				}
+
+				span {
+					transform: skew( 35deg );
+				}
+			}
+
+			@include respond-to( $bp-xxl ) {
+				display: flex;
+				padding: 14px 40px;
+			}
+
+			&.solutions {
+				border-top: 5px solid $blue;
+
+				@include respond-to( $bp-l ) {
+					border-top: 0;
+					border-left: 7px solid $blue;
+				}
+			}
+
+			&.foundation {
+				border-top: 5px solid $fulvous;
+
+				@include respond-to( $bp-l ) {
+					border-top: 0;
+					border-left: 7px solid $fulvous;
+				}
+			}
+
+			&.association {
+				border-top: 5px solid $green;
+
+				@include respond-to( $bp-l ) {
+					border-top: 0;
+					border-left: 7px solid $green;
+				}
+			}
+
+			&:hover {
+				text-decoration: none;
+				opacity: .9;
 			}
 		}
 	}
