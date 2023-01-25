@@ -37,6 +37,9 @@ if ( !is_foundation() ) {
 if ( !is_foundation() ) {
 			?>
 			</div>
+			<div class="page-ads">
+				<?php print do_shortcode( '[ad group="example-ad-group" /]' ); ?>
+			</div>
 		</div>
 	</div>
 <?php
