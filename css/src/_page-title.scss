@@ -21,6 +21,10 @@
 		color: white;
 		text-transform: uppercase;
 		font-size: 1.4em;
+
+		@include respond-to( $bp-m ) {
+			font-size: 1.6em;
+		}
 	}
 
 	&.green { background: $green; }
