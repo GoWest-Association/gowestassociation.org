@@ -53,6 +53,14 @@ $accordion-arrow-size: 30px;
 			background: $navy;
 		}
 
+		&.navy-light .accordion-handle {
+			background: $navy-light;
+		}
+
+		&.navy-lighter .accordion-handle {
+			background: $navy-lighter;
+		}
+
 		&.green .accordion-handle {
 			background: $green;
 		}
@@ -69,8 +77,16 @@ $accordion-arrow-size: 30px;
 			background: $blue;
 		}
 
-		&.orange .accordion-handle {
-			background: $orange;
+		&.vermillion .accordion-handle {
+			background: $vermillion;
+		}
+
+		&.vermillion-light .accordion-handle {
+			background: $vermillion-light;
+		}
+
+		&.vermillion-lighter .accordion-handle {
+			background: $vermillion-lighter;
 		}
 
 		&.fulvous .accordion-handle {

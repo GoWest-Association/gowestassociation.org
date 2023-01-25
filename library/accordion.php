@@ -48,6 +48,10 @@ function accordion_metaboxes() {
     $accordion_colors = $colors;
     $accordion_colors['green-dark'] = 'Green (Dark)';
     $accordion_colors['green-darker'] = 'Green (Darker)';
+    $accordion_colors['vermillion-light'] = 'Vermillion (Light)';
+    $accordion_colors['vermillion-ligher'] = 'Vermillion (Lighter)';
+    $accordion_colors['navy-light'] = 'Navy (Light)';
+    $accordion_colors['navy-lighter'] = 'Navy (Lighter)';
     asort( $accordion_colors );
 
     // area of interest information
