@@ -13,6 +13,7 @@
 		border: 1px solid $navy;
 		margin-bottom: 40px;
 		background-size: cover;
+		cursor: pointer;
 
 		a {
 			@include font-title;

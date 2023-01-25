@@ -20,7 +20,7 @@ function the_image_boxes() {
 				if ( !empty( $link['link'] ) && !empty( $link['image'] ) && !empty( $link['title'] ) ) { 
                     $title = str_replace( '|', '<br>', $link['title'] );
 					?>
-			<div class="image-box <?php print $link['color'] ?>" style="background-image: url(<?php print $link['image']; ?>);">
+			<div data-href="<?php print $link['link']; ?>" class="image-box <?php print $link['color'] ?>" style="background-image: url(<?php print $link['image']; ?>);">
                 <a href="<?php print $link['link']; ?>"><?php print $title; ?></a>
             </div>
 					<?php
