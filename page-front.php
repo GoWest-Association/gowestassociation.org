@@ -44,7 +44,8 @@ the_page_ads();
 
 the_link_boxes();
 
-print '<div class="content-wide" role="main">';	
+print '<div class="content-wide" role="main">';
+print "<h3 class='text-center'>Your Solutions Partners</h3>";
 the_partner_logos();
 print '</div>';
 
