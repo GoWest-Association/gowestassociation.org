@@ -40,7 +40,7 @@ gtag('config', 'G-J4GTY9QELN');
 	</div>
 	<?php } else if ( is_solutions() ) { ?>
 	<div class="logo left">
-		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions-large.png" alt="<?php bloginfo( 'name' ); ?>"></a>
+		<a href="/solutions" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-solutions-large.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
 	<?php } else if ( is_foundation() ) { ?>
 	<div class="logo left">
