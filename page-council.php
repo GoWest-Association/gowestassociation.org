@@ -21,56 +21,60 @@ if ( show_title() ) {
 	<?php
 }
 
-the_showcase();
+if ( is_member() ) {
 
-if ( has_introduction() ) {
-	?>
-<div class="content-wide" role="main">
-	<?php 
+	the_showcase();
 
-	if ( show_breadcrumbs() ) breadcrumbs();
+	if ( has_introduction() ) {
+		?>
+	<div class="content-wide" role="main">
+		<?php 
 
-	the_introduction();
+		if ( show_breadcrumbs() ) breadcrumbs();
 
-	the_partner_logos();
+		the_introduction();
 
-	?>
-</div><!-- #content -->
-	<?php
-}
+		the_partner_logos();
 
-the_icons();
-
-the_page_events_row();
-
-the_testimonials();
-
-/*
-?>
-<div class="content-wide" role="main">
-	<?php
-	if ( !has_introduction() && show_breadcrumbs() ) {
-		breadcrumbs();
+		?>
+	</div><!-- #content -->
+		<?php
 	}
 
-	if ( have_posts() ) :
-		while ( have_posts() ) : the_post(); 
-			the_content();
-		endwhile;
-	endif;
-	
+	the_icons();
+
+	the_page_events_row();
+
+	the_testimonials();
+
+	/*
 	?>
-</div>
-<?php
-*/
+	<div class="content-wide" role="main">
+		<?php
+		if ( !has_introduction() && show_breadcrumbs() ) {
+			breadcrumbs();
+		}
 
-the_agenda();
+		if ( have_posts() ) :
+			while ( have_posts() ) : the_post(); 
+				the_content();
+			endwhile;
+		endif;
+		
+		?>
+	</div>
+	<?php
+	*/
 
-// the_accordions();
+	the_agenda();
 
-the_link_boxes();
+	// the_accordions();
 
-the_footer_buttons();
+	the_link_boxes();
+
+	the_footer_buttons();
+
+}
 
 get_footer();
 

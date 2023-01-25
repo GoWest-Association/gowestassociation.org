@@ -16,71 +16,75 @@ if ( show_title() ) {
 	<?php
 }
 
-the_showcase();
+if ( is_member() ) {
 
-if ( has_introduction() ) {
-	?>
-<div class="content-wide" role="main">
-	<?php 
+	the_showcase();
 
-	if ( show_breadcrumbs() ) breadcrumbs();
-
-	the_introduction();
-
-	?>
-</div><!-- #content -->
-	<?php
-}
-
-the_button_bar();
-
-the_icons();
-
-the_accordions();
-
-the_image_boxes();
-
-$partner_logos = get_cmb_value( 'partner_logos' );
-if ( !empty( $partner_logos ) ) {
-	print '<div class="content-wide" role="main">';	
-	the_partner_logos();
-	print '</div>';
-}
-
-the_page_events_row();
-
-the_page_ads();
-
-the_testimonials();
-
-if ( have_posts() ) :
-	while ( have_posts() ) : the_post();
-		if ( !empty( get_the_content() ) ) {
-	?>
-	<div class="content-wide" role="main">
-		<?php
-		if ( !has_introduction() && show_breadcrumbs() ) {
-			breadcrumbs();
-		}
-
-		the_content();
-		
+	if ( has_introduction() ) {
 		?>
-	</div>
-	<?php
-		}
-	endwhile;
-endif;
+	<div class="content-wide" role="main">
+		<?php 
 
-the_agenda();
+		if ( show_breadcrumbs() ) breadcrumbs();
 
-the_page_articles();
+		the_introduction();
 
-the_price_table();
+		?>
+	</div><!-- #content -->
+		<?php
+	}
 
-the_link_boxes();
+	the_button_bar();
 
-the_footer_buttons();
+	the_icons();
+
+	the_accordions();
+
+	the_image_boxes();
+
+	$partner_logos = get_cmb_value( 'partner_logos' );
+	if ( !empty( $partner_logos ) ) {
+		print '<div class="content-wide" role="main">';	
+		the_partner_logos();
+		print '</div>';
+	}
+
+	the_page_events_row();
+
+	the_page_ads();
+
+	the_testimonials();
+
+	if ( have_posts() ) :
+		while ( have_posts() ) : the_post();
+			if ( !empty( get_the_content() ) ) {
+		?>
+		<div class="content-wide" role="main">
+			<?php
+			if ( !has_introduction() && show_breadcrumbs() ) {
+				breadcrumbs();
+			}
+
+			the_content();
+			
+			?>
+		</div>
+		<?php
+			}
+		endwhile;
+	endif;
+
+	the_agenda();
+
+	the_page_articles();
+
+	the_price_table();
+
+	the_link_boxes();
+
+	the_footer_buttons();
+
+}
 
 get_footer();
 

@@ -16,6 +16,7 @@ if ( show_title() ) {
 	<?php
 }
 
+
 if ( has_introduction() ) {
 	?>
 <div class="content-wide" role="main">

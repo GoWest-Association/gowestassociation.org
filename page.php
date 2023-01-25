@@ -16,64 +16,68 @@ if ( show_title() ) {
 	<?php
 }
 
-the_showcase();
+if ( is_member() ) {
+	
+	the_showcase();
 
-if ( has_introduction() ) {
-	?>
-<div class="content-wide" role="main">
-	<?php 
-
-	if ( show_breadcrumbs() ) breadcrumbs();
-
-	the_introduction();
-
-	the_partner_logos();
-
-	?>
-</div><!-- #content -->
-	<?php
-}
-
-the_button_bar();
-
-the_icons();
-
-the_testimonials();
-
-if ( have_posts() ) :
-	while ( have_posts() ) : the_post();
-		if ( !empty( get_the_content() ) ) {
-	?>
-	<div class="content-wide" role="main">
-		<?php
-		if ( !has_introduction() && show_breadcrumbs() ) {
-			breadcrumbs();
-		}
-
-		the_content();
-		
+	if ( has_introduction() ) {
 		?>
-	</div>
-	<?php
-		}
-	endwhile;
-endif;
+	<div class="content-wide" role="main">
+		<?php 
 
-the_agenda();
+		if ( show_breadcrumbs() ) breadcrumbs();
 
-the_accordions();
+		the_introduction();
 
-the_page_events_row();
+		the_partner_logos();
 
-the_page_ads();
+		?>
+	</div><!-- #content -->
+		<?php
+	}
 
-the_page_articles();
+	the_button_bar();
 
-the_price_table();
+	the_icons();
 
-the_link_boxes();
+	the_testimonials();
 
-the_footer_buttons();
+	if ( have_posts() ) :
+		while ( have_posts() ) : the_post();
+			if ( !empty( get_the_content() ) ) {
+		?>
+		<div class="content-wide" role="main">
+			<?php
+			if ( !has_introduction() && show_breadcrumbs() ) {
+				breadcrumbs();
+			}
+
+			the_content();
+			
+			?>
+		</div>
+		<?php
+			}
+		endwhile;
+	endif;
+
+	the_agenda();
+
+	the_accordions();
+
+	the_page_events_row();
+
+	the_page_ads();
+
+	the_page_articles();
+
+	the_price_table();
+
+	the_link_boxes();
+
+	the_footer_buttons();
+
+}
 
 get_footer();
 

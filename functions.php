@@ -32,7 +32,7 @@ $colors = array(
 
 // include utility functions
 require_multi( 
-    'core', 'admin', 'metabox', 'images',
+    'core', 'admin', 'metabox', 'images', 'login',
 
     // include the post types
     'post-type/people', 'post-type/event', 'post-type/job', 'post-type/partner', 'post-type/agenda',

@@ -67,7 +67,7 @@ gtag('config', 'G-J4GTY9QELN');
 			<a href="/donate" class="btn fulvous">Donate</a>
 			<a href="/friends/join" class="btn navy">Become a Friend</a>
 			<?php } else { ?>
-			<a href="/account/login" class="btn green">Member Login</a>
+			<?php account_button(); ?>
 			<a href="/account/new" class="btn navy">First Time User</a>
 			<?php } ?>
 		</div>
