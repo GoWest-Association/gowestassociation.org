@@ -19,12 +19,18 @@ function the_showcase() {
 				$link = ( isset( $slide["link"] ) ? $slide["link"] : '' );
 				$alt = ( isset( $slide['alt-text'] ) ? $slide["alt-text"] : "Link to " . $link );
 				$content = ( isset( $slide['content'] ) ? $slide["content"] : "" );
-
-				// it's an image, so resize it and generate an img tag.
 				$image = $slide["image"];
+				$video = $slide['video'];
 
 				?>
 			<div class="slide <?php print ( $key == 0 ? 'visible' : '' ); ?> <?php print ( !empty( $link ) ? 'has-link' : '' ) ?>" <?php if ( !empty( $link ) ) { print 'data-href="' . $link . '"'; } ?> style="background-image: url(<?php print $image ?>);">
+				
+				<?php if ( stristr( $video, '.webm' ) ) { ?>
+				<video class="slide-video" autoplay muted loop>
+					<source src="<?php print $video; ?>" type="video/webm">
+				</video>
+				<?php } ?>
+
 				<?php if ( !empty( $content ) ) { ?>
 				<div class="slide-content">
 					<?php if ( !empty( $content ) ) { print apply_filters( 'the_content', $content ); } ?>
@@ -76,6 +82,14 @@ function showcase_metabox( $meta_boxes ) {
             'group_title'   => __( 'Slide {#}', 'cmb' ), // since version 1.1.4, {#} gets replaced by row number
             'sortable' => true, // beta
         )
+    ) );
+
+	$showcase_metabox->add_group_field( $showcase_metabox_group, array(
+        'name' => 'Video',
+        'id'   => 'video',
+        'desc' => 'Upload a .webm video file to use on large screens.',
+        'type' => 'file',
+        'preview_size' => array( 200, 100 )
     ) );
 
     $showcase_metabox->add_group_field( $showcase_metabox_group, array(

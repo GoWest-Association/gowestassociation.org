@@ -1,0 +1,20 @@
+
+
+.page-template-page-advocacy-on-the-move {
+    #mc_embed_signup {
+        background: transparent;
+
+        form {
+            padding: 0;
+        }
+
+        .button {
+            @extend .btn;
+            background: $green;
+        }
+    }
+
+    .subscribe-form {
+        background-color: $grey-light;
+    }
+}
