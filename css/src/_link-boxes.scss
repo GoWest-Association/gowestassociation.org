@@ -13,6 +13,17 @@
 		border: 1px solid $navy;
 		margin-bottom: 40px;
 		background-size: cover;
+		
+		&:before {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			content: '';
+			background: rgba( black, .3 );
+			z-index: 1;
+		}
 
 		a {
 			@include font-bold;
@@ -22,12 +33,13 @@
 			color: white;
 			font-size: 1.4em;
 			line-height: 1.4em;
-			background: rgba( black, .3 );
 			transition: background 400ms ease-in-out;
+
+			position: relative;
+			z-index: 2;
 
 			&:hover {
 				text-decoration: none;
-				background: rgba( black, .5 );
 			}
 
 			@include respond-to( $bp-m ) {
