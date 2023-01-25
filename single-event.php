@@ -243,6 +243,7 @@ if ( has_cmb_value( 'event_registration' ) ) {
 
 }
 
+the_footer_buttons();
 
 get_footer();
 

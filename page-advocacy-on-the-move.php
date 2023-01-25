@@ -58,12 +58,13 @@ if ( is_member() ) {
 	<div class="page-articles">
 		<h2>On The Move</h2>
 		<div class="filtering">
-			<label><input type="checkbox" name="arizona" value="Arizona" class="arizona-filter" /> Arizona</label>
-			<label><input type="checkbox" name="colorado" value="Colorado" class="colorado-filter" /> Colorado</label>
-			<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> Idaho</label>
-			<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> Oregon</label>
-			<label><input type="checkbox" name="washington" value="Washington" class="washington-filter" /> Washington</label>
-			<label><input type="checkbox" name="wyoming" value="Wyoming" class="wyoming-filter" /> Wyoming</label>
+			<label><input type="checkbox" name="arizona" value="Arizona" class="arizona-filter" /> AZ</label>
+			<label><input type="checkbox" name="colorado" value="Colorado" class="colorado-filter" /> CO</label>
+			<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> ID</label>
+			<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> OR</label>
+			<label><input type="checkbox" name="washington" value="Washington" class="washington-filter" /> WA</label>
+			<label><input type="checkbox" name="wyoming" value="Wyoming" class="wyoming-filter" /> WY</label>
+			<label><input type="checkbox" name="federal" value="Federal" class="federal-filter" /> Federal</label>
 			<label><input type="checkbox" name="regulatory" value="Regulatory" class="regulatory-filter" /> Regulatory</label>
 			<a href="#subscribe" class="btn green">Get Updates</a>
 		</div>

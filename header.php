@@ -93,6 +93,11 @@ gtag('config', 'G-J4GTY9QELN');
 		print '<div class="aux-buttons">';
 		print '<a href="https://gowestassociation.org" class="foundation"><span>Association</span></a>';
 		print '</div>';
+	} else if ( is_newsletter() ) {
+		print do_shortcode( get_snippet( "header-menu", 0 ) ); 
+		print '<div class="aux-buttons">';
+		print '<a href="https://gowestassociation.org" class="association"><span>Association</span></a>';
+		print '</div>';
 	} else {
 		print do_shortcode( get_snippet( "header-menu", 0 ) ); 
 		print '<div class="aux-buttons">';

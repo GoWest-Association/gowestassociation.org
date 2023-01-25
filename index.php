@@ -6,6 +6,8 @@ Home/catch-all template
 // set the newsletter global
 $is_newsletter = true;
 
+set_brand( 'association' );
+
 get_header(); 
 
 the_showcase();
