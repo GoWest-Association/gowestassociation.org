@@ -619,8 +619,8 @@ function show_month_events( $month, $year ) {
 		// loop through all the events and list them for this day.
 		$day_events = '';
 		foreach ( $events as $event ) {
-			if ( ( $event->_p_event_start > $day_start && $event->_p_event_start < $day_end ) /* ) || 
-				 ( $event->_p_event_end > $day_start && $event->_p_event_end < $day_end ) || 
+			if ( ( $event->_p_event_start > $day_start && $event->_p_event_start < $day_end ) || 
+				 ( $event->_p_event_end > $day_start && $event->_p_event_end < $day_end ) /* || 
 				 ( $event->_p_event_start < $day_start && $event->_p_event_end > $day_end ) */ ) {
 				$day_events .= 'event';
 			}
@@ -662,9 +662,11 @@ function show_month_events( $month, $year ) {
 	$events_list = '';
 	if ( !empty( $events ) ) {
 		foreach ( $events as $event ) {
+			$start_time = ( date( "g:ia", $event->_p_event_start ) != '12:00am' ? date( "F jS g:i a", $event->_p_event_start ) : date( "F jS", $event->_p_event_start ) );
+			$end_time = ( date( "FjY", $event->_p_event_start ) == date( "FjY", $event->_p_event_end ) ? date( "g:i a", $event->_p_event_end ) : date( "F jS g:i a", $event->_p_event_end ) );
 			$events_list .= "<div class='event' data-day='" . date( 'n', $event->_p_event_start ) . "-" . date( 'j', $event->_p_event_start ) . "'>
 				<div class='event-title'>" . ( $event->_p_event_nolink == 'on' ? "" : "<a href=\"" . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . "\" target='_blank'>" ) . $event->post_title . ( $event->_p_event_nolink == 'on' ? "" : "</a>" ) . "</div>
-				<div class='event-time'>" . ( date( "g:ia", $event->_p_event_start ) != '12:00am' ? date( "F jS g:i a", $event->_p_event_start ) /* . " - " . date( "g:i a", $event->_p_event_end ) */ : date( "F jS", $event->_p_event_start ) ) . "</div>
+				<div class='event-time'>" . $start_time . " - " . $end_time . "</div>
 				<div class='event-description'>" . $event->post_excerpt . "</div>
 			</div>";
 		}
