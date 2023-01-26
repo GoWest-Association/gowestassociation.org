@@ -40,7 +40,7 @@ function articles_shortcode( $atts ) {
             $query->the_post();
             $return .= '<div class="entry">';
             $return .= '<div class="entry-thumbnail">';
-            $return .= '<a href="' . get_the_permalink() . '">';
+            $return .= '<a href="' . get_the_permalink() . '" class="no-line">';
             $return .= get_the_post_thumbnail( null, array( 768, 480 ) );
             $return .= '</a>';
             $return .= '</div>';
@@ -162,7 +162,11 @@ function the_page_articles( $posts_per_page = 3 ) {
         print '<div class="page-articles">';
         print '<h2>' . get_cmb_value( 'page-articles-title') . '</h2>';
         print do_shortcode( '[articles cats="' . get_cmb_value('page-articles') . '" posts_per_page=' . $posts_per_page . ' /]' );
-        print '<a href="/onthego" class="btn navy">View All Articles</a>';
+        if ( is_foundation() && is_front_page() ) { 
+            print '<a href="/news" class="btn navy">View All Articles</a>';
+        } else if ( get_brand() == 'association' && is_front_page() ) {
+            print '<a href="/onthego" class="btn navy">View All Articles</a>';
+        }
         print '</div>';
     }
 }

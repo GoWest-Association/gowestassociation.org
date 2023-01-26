@@ -114,3 +114,12 @@ function set_brand( $brand = '' ) {
     define( 'BRAND', $brand );
 }
 
+
+function get_brand() {
+    if ( defined( 'BRAND' ) ) {
+        return BRAND;
+    } else {
+        return false;
+    }
+}
+

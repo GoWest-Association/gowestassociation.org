@@ -20,17 +20,28 @@ the_showcase();
 		}
 
 		if ( have_posts() ) : 
-
+			?>
+		<div class="article-cards">
+			<?php
+			$return = '';
 			// Start the Loop.
 			while ( have_posts() ) : the_post(); 
-				?>
-				<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
-				<?php the_excerpt(); ?>
-				<p class="quiet">Posted by <?php print get_the_author_link() ?> in <?php print get_the_category_list( ', ' ) ?>.</p>
-				<hr />
-				<?php
+				$return .= '<div class="entry">';
+				$return .= '<div class="entry-thumbnail">';
+				$return .= '<a href="' . get_the_permalink() . '" class="no-line">';
+				$return .= get_the_post_thumbnail( null, array( 768, 480 ) );
+				$return .= '</a>';
+				$return .= '</div>';
+				$return .= '<div class="entry-inner">';
+				$return .= '<h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
+				$return .= wpautop( get_the_excerpt() );
+				$return .= '</div>';
+				$return .= '</div>';
 			endwhile;
-
+			print $return;
+			?>
+		</div>
+			<?php
 		else :
 
 			print "<p>There are currently no posts to list here.</p>";
