@@ -583,7 +583,7 @@ function show_month_events( $month, $year ) {
 	$calendar .= '<div class="calendar-container"><div class="calendar-grid">';
 
 	// add the prev and next buttons to switch months
-	$calendar .= '<a href="/events/' . $prev['year'] . '/' . $prev['month'] . '/" class="month-nav previous">&lt; Previous</a>';
+	$calendar .= '<a href="/events/' . $prev['year'] . '/' . $prev['month'] . '/" class="month-nav previous">&lt; Prev</a>';
 	$calendar .= '<a href="/events/' . $next['year'] . '/' . $next['month'] . '/" class="month-nav next">Next &gt;</a>';
 
 	// begin the table

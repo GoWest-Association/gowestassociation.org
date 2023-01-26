@@ -61,6 +61,13 @@ function settings_metaboxes() {
         ),
     ) );
 
+    $settings_metabox->add_field( array(
+        'name' => 'Member Only?',
+        'id'   => CMB_PREFIX . 'member-only',
+        'desc' => 'Members Only',
+        'type' => 'checkbox'
+    ) );
+
 }
 
 

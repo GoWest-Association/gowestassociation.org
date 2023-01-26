@@ -67,7 +67,7 @@ gtag('config', 'G-J4GTY9QELN');
 			<a href="/donate" class="btn fulvous">Donate</a>
 			<a href="/friends/join" class="btn navy">Become a Friend</a>
 			<?php } else { ?>
-			<a href="/account/login" class="btn green">Member Login</a>
+			<?php account_button(); ?>
 			<a href="/account/new" class="btn navy">First Time User</a>
 			<?php } ?>
 		</div>
@@ -89,6 +89,11 @@ gtag('config', 'G-J4GTY9QELN');
 		print '<a href="https://gowestassociation.org" class="association"><span>Association</span></a>';
 		print '</div>';
 	} else if ( is_foundation() ) {
+		print do_shortcode( get_snippet( "header-menu", 0 ) ); 
+		print '<div class="aux-buttons">';
+		print '<a href="https://gowestassociation.org" class="association"><span>Association</span></a>';
+		print '</div>';
+	} else if ( is_newsletter() ) {
 		print do_shortcode( get_snippet( "header-menu", 0 ) ); 
 		print '<div class="aux-buttons">';
 		print '<a href="https://gowestassociation.org" class="association"><span>Association</span></a>';
