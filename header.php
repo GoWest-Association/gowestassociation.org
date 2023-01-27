@@ -65,7 +65,7 @@ gtag('config', 'G-J4GTY9QELN');
 		<div class="account-buttons">
 			<?php if ( is_foundation() ) { ?>
 			<a href="/donate" class="btn fulvous">Donate</a>
-			<a href="/friends/join" class="btn navy">Become a Friend</a>
+			<a href="/friends-of-the-foundation/" class="btn navy">Become a Friend</a>
 			<?php } else { ?>
 			<?php account_button(); ?>
 			<a href="/account/new" class="btn navy">First Time User</a>
@@ -73,7 +73,11 @@ gtag('config', 'G-J4GTY9QELN');
 		</div>
 
 		<div class="contact">
+			<?php if ( is_foundation() ) { ?>
+			<a href="/connect-with-us" class="contact-link">Contact Us</a>
+			<?php } else { ?>
 			<a href="/contact" class="contact-link">Contact Us</a>
+			<?php } ?>
 		</div>
 
 	</div>

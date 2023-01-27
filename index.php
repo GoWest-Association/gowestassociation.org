@@ -10,6 +10,18 @@ set_brand( 'association' );
 
 get_header(); 
 
+?>
+<div class="page-title">
+	<h1><?php 
+	if ( is_foundation() ) {
+		print "Foundation News";
+	} else {
+		print "News";
+	}
+	?></h1>
+</div>
+<?php
+
 the_showcase();
 
 ?>
