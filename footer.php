@@ -38,9 +38,11 @@ $admin_email = get_option( 'admin_email' );
 					// wp_nav_menu( array( 'theme_location' => 'footer', 'menu_class' => 'nav-menu' ) ); 
 					?>
 				</div>
+				<?php if ( !is_foundation() ) { ?>
 				<div class="column subscribe">
 					<?php print get_snippet( 'footer-subscribe' ); ?>
 				</div>
+				<?php } ?>
 			</div>
 
 			<p class="small">Copyright &copy; <?php print date( 'Y' ); ?> GoWest Credit Union Association. All Rights Reserved.</p>

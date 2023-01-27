@@ -13,7 +13,9 @@ get_header();
 ?>
 <div class="page-title">
 	<h1><?php 
-	if ( is_foundation() ) {
+	if ( is_search() ) {
+		print "Search Results: <span>'" . $_REQUEST["s"] . "'";
+	} else if ( is_foundation() ) {
 		print "Foundation News";
 	} else {
 		print "News";
@@ -30,7 +32,7 @@ the_showcase();
 
 		<?php
 		if ( is_search() ) {
-			?><h1 class="post-title">Search Results for <span>'<?php print $_REQUEST["s"]; ?>'</span></h1><?php
+			?><h1 class="post-title"></span></h1><?php
 		}
 
 		if ( have_posts() ) : 

@@ -4,6 +4,14 @@ set_brand( 'newsletter' );
 
 get_header();
 
+if ( is_foundation() ) {
+?>
+<div class="page-title">
+	<h1>Foundation News</h1>
+</div>
+<?php
+}
+
 the_showcase();
 
 if ( !is_foundation() ) {
