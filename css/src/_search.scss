@@ -1,0 +1,123 @@
+
+
+.search-list {
+	.searchform {
+		label {
+			display: block;
+			padding: 3px 0;
+
+			@include respond-to( 768px ) {
+				display: inline-block;
+				padding: 0;
+				margin: 0 5px;
+			}
+		}
+
+		input[type=submit] {
+			margin: 5px 0 0;
+
+			@include respond-to( 768px ) {
+				margin: 0 0 0 10px;
+			}
+		}
+	}
+
+	.entries {
+		margin: 20px 0 0 0;
+
+		@include respond-to( 1024px ) {
+			display: flex;
+			flex-wrap: wrap;
+			margin-right: -3%;
+		}
+	}
+
+	.entry {
+		border: 3px solid #ddd;
+		padding: 20px;
+		margin-bottom: 20px;
+		position: relative;
+
+		@include respond-to( 1024px ) {
+			flex: 1;
+			flex-basis: 47%;
+			margin: 0 3% 3% 0;
+		}
+
+		@include respond-to( 1220px ) {
+			flex-basis: 30.3333%;
+			margin: 0 3% 3% 0;
+		}
+
+		&:before {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			background: #eee;
+			padding: 6px 12px;
+			font-size: .8em;
+			line-height: 1em;
+			opacity: .8;
+		}
+
+		&.post:before {
+			content: 'ARTICLE';
+		}
+
+		&.page:before {
+			content: 'PAGE';
+		}
+
+		&.event:before {
+			content: 'EVENT';
+		}
+
+		&.people:before {
+			content: 'PERSON';
+		}
+
+		&.job:before {
+			content: 'JOB';
+		}
+	}
+
+	.post-category {
+		display: inline-block;
+		background: #ddd;
+		padding: 5px 8px;
+		font-size: .9em;
+	}
+}
+
+
+.featured-search {
+	padding: 20px;
+
+	@include respond-to( $bp-m ) {
+		padding: 30px 30px 0;
+	}
+
+	@include respond-to( $bp-l ) {
+		padding: 30px 40px 0;
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding: 30px 50px 0;
+	}
+
+	.featured-search-title {
+		text-transform: uppercase;
+		padding: 0;
+	}
+
+	.article-cards {
+		border-bottom: 3px solid #ddd;
+
+		.entry {
+			@include respond-to( $bp-l ) {
+				margin: 0 3% 0 0;
+				flex-basis: 30.3333%;
+			}
+		}	
+	}
+}

@@ -92,7 +92,7 @@ function pagination( $prev = '&laquo;', $next = '&raquo;' ) {
     );
     */
 
-    echo '<div class="pagination">' . paginate_links( $pagination ) . '</div>';
+    echo '<div class="pagination">' . paginate_links() . '</div>';
 }
 
 
