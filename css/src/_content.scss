@@ -115,6 +115,7 @@
 			max-width: 55%;
 			float: right;
 			margin: 0 0 15px 15px;
+
 		}
 	}
 }
@@ -167,6 +168,14 @@
 		.three-quarter {
 			width: 75%;
 			margin: 0;
+		}
+	}
+
+	.featured-image {
+		@include respond-to( $bp-m ) {
+			max-width: 35%;
+			float: right;
+			margin: 0 0 15px 15px;
 		}
 	}
 
