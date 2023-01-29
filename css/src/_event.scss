@@ -74,11 +74,11 @@
 	}
 
 	.all-events {
-		background: url(../img/icon-calendar-dark.png) left center / contain no-repeat;
+		background: url(../img/icon-calendar-vermillion.svg) left center / contain no-repeat;
 		color: $vermillion;
 		@include font-bold;
-		padding-left: 35px;
-		font-size: .8em;
+		padding: 5px 5px 5px 35px;
+		font-size: .9em;
 		line-height: 1.2em;
 		text-transform: uppercase;
 
