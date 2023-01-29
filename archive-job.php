@@ -113,7 +113,7 @@ $job_count = $wp_query->found_posts;
 				</div>
 				<div class="job-excerpt">
 					<p class="job-info"><?php print ( has_cmb_value( 'job_company' ) ? get_cmb_value( 'job_company' ) : '' ); ?><?php print ( has_cmb_value( 'job_region' ) ? " | " .get_cmb_value( 'job_region' ) : '' ); ?></p>
-					<?php the_excerpt(); ?>
+					<?php print wp_trim_words( get_the_excerpt(), 25, '...' ); ?>
 				</div>
 			</div>
 					<?php
