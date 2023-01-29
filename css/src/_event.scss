@@ -319,6 +319,18 @@
 			padding-top: 0;
 		}
 
+		.calendar-event-list-title {
+			padding: 0 0 10px;
+			border-bottom: 2px solid rgba( $grey, .2 );
+			margin-bottom: 10px;
+
+			h4 {
+				@include font-bold;
+				text-transform: uppercase;
+				font-size: 1.2em;
+			}
+		}
+
 		.clear-filter {
 			display: none;
 			color: $orange;
