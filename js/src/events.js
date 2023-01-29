@@ -12,6 +12,7 @@ jQuery(document).ready(function($){
 
 		// store the day they click
 		var day = $(this).data('day');
+		console.log( day );
 		
 		// show all
 		$( '.calendar-event-list .event.hide' ).removeClass( 'hide' );

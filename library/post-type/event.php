@@ -90,49 +90,9 @@ register_taxonomy( 'event_cat',
 		'show_admin_column' => true, 
 		'show_ui' => true,
 		'query_var' => true,
-		'rewrite' => array( 
-			'slug' => 'events'
-		)
+		'rewrite' => false
 	)
 );
-
-
-add_action('init','event_rewrite_rules');
-function event_rewrite_rules(){
-    // Replace custom_post_type_slug with the slug of your custom post type
-    add_rewrite_rule( 
-		'^events/([^/]*)/([^/]*)?', 
-		"index.php?post_type=event", 
-		'top'
-	);
-}
-
-
-function parse_event_url() {
-	global $event_yr, $event_mo, $event_mo_name;
-
-	// get the request uri
-	$url = str_replace( '/events/', '', $_SERVER['REQUEST_URI'] );
-
-	// split it
-	$url_parts = explode( '/', $url );
-
-	// if we have a year
-	if ( !empty( $url_parts[0] ) ) {
-		$event_yr = $url_parts[0];
-	} else {
-		$event_yr = date( 'Y' );
-	}
-
-	// if we have a month
-	if ( !empty( $url_parts[1] ) ) {
-		$event_mo = $url_parts[1];
-		$event_mo_name = date( 'F', strtotime( $event_yr . '-' . $event_mo . '-01' ) );
-	} else {
-		$event_mo = date( 'm' );
-		$event_mo_name = date( 'F' );
-	}
-}
 
 
 
@@ -354,17 +314,103 @@ function event_metaboxes( $meta_boxes ) {
 add_filter( 'cmb2_admin_init', 'event_metaboxes' );
 
 
-
-function add_event_query_vars_filter( $vars ){
-	$vars[] = "mo";
-	$vars[] = "yr";
-	return $vars;
+// event url rewrite rules
+add_action('init','event_rewrite_rules');
+function event_rewrite_rules(){
+    // Replace custom_post_type_slug with the slug of your custom post type
+    add_rewrite_rule( 
+		'^events/([^/]*)/([^/]*)/([^/]*)?', 
+		"index.php?post_type=event", 
+		'top'
+	);
+	add_rewrite_rule( 
+		'^events/([^/]*)/([^/]*)/?', 
+		"index.php?post_type=event", 
+		'top'
+	);
+	add_rewrite_rule( 
+		'^events/([^/]*)/?', 
+		"index.php?post_type=event", 
+		'top'
+	);
 }
-add_filter( 'query_vars', 'add_event_query_vars_filter' );
 
 
+// get the url parts from the request_uri
+function get_url_parts() {
 
-// a little function to get the event registration button
+	// get the request uri
+	$url = str_replace( '/events/', '', $_SERVER['REQUEST_URI'] );
+
+	// split it and return it
+	return explode( '/', $url );
+
+}
+
+
+// parse the event url and determine defaults if we don't have all we need
+function parse_events_url() {
+
+	// make our globals
+	global $event_cat, $event_yr, $event_mo, $event_mo_name;
+
+	// get url parts
+	$url_parts = get_url_parts();
+
+	// if we have a year
+	if ( !empty( $url_parts[0] ) ) {
+		$event_cat = $url_parts[0] ;
+	}
+	if ( !isset( $event_cat ) ) {
+		// or set to all categories
+		$event_cat = 'all';
+	}
+
+	// if we have a year
+	if ( !empty( $url_parts[1] ) ) {
+		$event_yr = $url_parts[1];
+	} else { 
+		// or current year
+		$event_yr = date( 'Y' );
+	}
+
+	// if we have a month
+	if ( !empty( $url_parts[2] ) ) {
+		$event_mo = $url_parts[2];
+		$event_mo_name = date( 'M', strtotime( $event_yr . '-' . $event_mo . '-01' ) );
+	} else {
+		// or current month
+		$event_mo = date( 'n' );
+		$event_mo_name = date( 'M' );
+	}
+
+}
+
+
+// checks an event url to see if it's got all the required parameters, and redirect it if not.
+function check_events_url() {
+
+	// make our globals
+	global $event_cat, $event_yr, $event_mo, $event_mo_name;
+
+	// get the request uri parts
+	$url_parts = get_url_parts();
+
+	// parse the existing url
+	parse_events_url();
+
+	// verify that we have 
+	if ( !isset( $url_parts[1] ) || !isset( $url_parts[2] ) || !isset( $url_parts[3] ) ) {
+		
+		// redirect to the defaults we set with parse_events_url function above
+		wp_redirect( '/events/' . $event_cat . '/' . $event_yr . '/' . $event_mo . '/' );
+
+	}
+
+}
+
+
+// function to get the event registration button
 function get_registration_button( $event_id = 0 ) {
 	
 	// get the current post ID if we don't have one
@@ -384,8 +430,8 @@ function get_registration_button( $event_id = 0 ) {
 add_shortcode( 'event-registration-button', 'get_registration_button' );
 
 
-
-function get_month_events( $m, $y, $category='' ) {
+// get the events for a given month
+function get_month_events( $m, $y, $category='all' ) {
 
 	$timestamp_start = mktime( 0, 0, 0, $m, 1, $y );
 	$timestamp_end = mktime( 23, 59, 59, $m, date( 't', $timestamp_start ), $y );
@@ -421,14 +467,6 @@ function get_month_events( $m, $y, $category='' ) {
 				)
 			),
 		),
-		'tax_query' => array(
-			array(
-				'taxonomy' => 'event_cat',
-				'field'    => 'slug',
-				'terms'    => 'exclude',
-				'operator' => 'NOT IN',
-			),
-		),
 		'post_type' => 'event',
 		'orderby' => 'meta_value_num',
 		'order' => 'ASC',
@@ -436,21 +474,20 @@ function get_month_events( $m, $y, $category='' ) {
 		'posts_per_page' => 100
 	);
 
-	if ( isset( $_GET['event_category'] ) ) {
-		if ( $_GET['event_category'] != 0 ) {
-			$event_cat = get_term( $_GET['event_category'], 'event_cat' );
-			$args[ 'event_cat' ] = $event_cat->slug;
-		} else {
-			$args['tax_query'] = array(
-				array(
-					'taxonomy' => 'event_cat',
-					'field'    => 'slug',
-					'terms'    => 'exclude',
-					'operator' => 'NOT IN',
-				),
-			);
-		}
+	if ( $category != 'all' ) {
+		$args[ 'event_cat' ] = $category;
+	} /*
+	else {
+		$args['tax_query'] = array(
+			array(
+				'taxonomy' => 'event_cat',
+				'field'    => 'slug',
+				'terms'    => 'exclude',
+				'operator' => 'NOT IN',
+			),
+		);
 	}
+	*/
 
 	$event_query = new WP_Query( $args );
 	$events = $event_query->get_posts();
@@ -471,7 +508,8 @@ function get_month_events( $m, $y, $category='' ) {
 }
 
 
-function get_upcoming_events( $limit, $category=0 ) {
+// get upcoming events based on optional category
+function get_upcoming_events( $limit, $category = 0 ) {
 
 	$timestamp_start = mktime( 0, 0, 0 );
 
@@ -510,7 +548,8 @@ function get_upcoming_events( $limit, $category=0 ) {
 				)
 			);
 		}
-	} else {
+	} /*
+	else {
 		$args['tax_query'] = array(
 			array(
 				'taxonomy' => 'event_cat',
@@ -520,6 +559,7 @@ function get_upcoming_events( $limit, $category=0 ) {
 			),
 		);
 	}
+	*/
 
 	$event_query = new WP_Query( $args );
 	$events = $event_query->get_posts();
@@ -540,7 +580,7 @@ function get_upcoming_events( $limit, $category=0 ) {
 }
 
 
-
+// determine the previous month
 function get_previous_month( $month, $year ) {
 	if ( $month == 1 ) {
 		return array( 'month' => 12, 'year' => $year-1 );
@@ -550,7 +590,7 @@ function get_previous_month( $month, $year ) {
 }
 
 
-
+// determine the next month
 function get_next_month( $month, $year ) {
 	if ( $month == 12 ) {
 		return array( 'month' => 1, 'year' => $year+1 );
@@ -560,17 +600,16 @@ function get_next_month( $month, $year ) {
 }
 
 
-
 // show month events
-function show_month_events( $month, $year ) {
+function show_month_events( $month, $year, $category = 'all' ) {
 
-	$event_list_url = "/events";
+	$event_base_url = "/events/";
 
 	// let's make an empty calendar
 	$calendar = '';
 
 	// get the events for the month.
-	$events = get_month_events( $month, $year );
+	$events = get_month_events( $month, $year, $category );
 
 	// show next and previous month links.
 	$prev = get_previous_month( $month, $year );
@@ -578,13 +617,18 @@ function show_month_events( $month, $year ) {
 	$next = get_next_month( $month, $year );
 	$next_ts = mktime( 0, 0, 0, $next['month'], 1, $next['year'] );
 
-
 	// open the table tags
 	$calendar .= '<div class="calendar-container"><div class="calendar-grid">';
 
 	// add the prev and next buttons to switch months
-	$calendar .= '<a href="/events/' . $prev['year'] . '/' . $prev['month'] . '/" class="month-nav previous">&lt; Prev</a>';
-	$calendar .= '<a href="/events/' . $next['year'] . '/' . $next['month'] . '/" class="month-nav next">Next &gt;</a>';
+	$calendar .= '<a href="' . $event_base_url . $category . '/' . $prev['year'] . '/' . $prev['month'] . '/" class="month-nav previous">&lt; Prev</a>';
+	$calendar .= '<a href="' . $event_base_url . $category . '/' . $next['year'] . '/' . $next['month'] . '/" class="month-nav next">Next &gt;</a>';
+
+	// get the month name based on the month and year passed
+	$month_name = date( 'M', strtotime( $year . '-' . $month . '-01' ) );
+
+	// month name
+	$calendar .= '<h4>' . $month_name . " " . $year . '</h4>';
 
 	// begin the table
 	$calendar .= '<table cellpadding="0" cellspacing="0" class="calendar">';
@@ -654,6 +698,13 @@ function show_month_events( $month, $year ) {
 
 	// close the table
 	$calendar .= '</table>';
+
+	// get the category dropdown
+	$event_categories = get_terms(array(
+		'taxonomy' => 'event_cat',
+		'hide_empty' => true,
+	));
+	$calendar .= '';
 	
 	// close the grid container
 	$calendar .= '</div>';
@@ -685,7 +736,6 @@ function show_month_events( $month, $year ) {
 }
 
 
-
 // get a list of event categories in an array
 function get_event_categories() {
     $args = array(
@@ -697,7 +747,6 @@ function get_event_categories() {
     );
     return get_categories( $args ); 
 }
-
 
 
 // filter events by category using a dropdown menu
@@ -717,7 +766,6 @@ function filter_by_event_type() {
 	);
 
 }
-
 
 
 // returns a duration from start and end timestamps
@@ -781,7 +829,7 @@ function manage_event_clauses( $pieces, $query ) {
 		$pieces[ 'join' ] .= " LEFT JOIN $wpdb->term_taxonomy wp_termtax ON wp_termrel.term_taxonomy_id = wp_termtax.term_id ";
 		$pieces[ 'join' ] .= " LEFT JOIN $wpdb->terms wp_terms ON wp_terms.term_id = wp_termtax.term_id ";
 		
-		//
+		// add order
 		$pieces[ 'orderby' ] = "wp_terms.name $order";
 
 	}
@@ -895,7 +943,6 @@ function events_shortcode( $event_atts ) {
 
 			// piece together an excerpt.
 			$excerpt = ( !empty( $event->post_excerpt ) ? $event->post_excerpt : wp_trim_words( $event->post_content, 30 ) . "[...]" );
-
 
 			$list .= '<div class="event' . ( $num == 0 ? ' first' : '' ) . '">';
 			$list .= '<div class="event-date">';
