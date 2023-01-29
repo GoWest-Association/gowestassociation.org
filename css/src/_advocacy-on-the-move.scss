@@ -17,4 +17,73 @@
     .subscribe-form {
         background-color: $grey-light;
     }
+
+    .aotm-updates {
+        margin: 20px 30px 0;
+
+        @include respond-to( $bp-m ) {
+            margin: 0;
+            position: absolute;
+            top: 27px;
+            right: 40px;
+        }
+
+        @include respond-to( $bp-l ) {
+            right: 50px;
+        }
+
+        @include respond-to( $bp-xl ) {
+            right: 60px;
+        }
+    }
+
+    .filtering-header {
+        @include respond-to( $bp-l ) {
+            display: flex;
+            align-items: center;
+            vertical-align: middle;
+        }
+
+        .filtering-title { 
+            @include respond-to( $bp-l ) {
+                flex: 1;
+                flex-basis: 30%;
+            }
+
+            @include respond-to( $bp-xl ) {
+                flex-basis: 25%;
+            }
+        }
+
+        .filtering {
+            display: flex;
+            flex-wrap: wrap;
+            text-align: center;
+
+            @include respond-to( $bp-l ) {
+                 flex: 1;
+                flex-basis: 70%;
+                flex-wrap: nowrap;
+                text-align: right;
+            }
+
+            @include respond-to( $bp-xl ) {
+                flex-basis: 75%;
+            }
+
+            label {
+                flex: 1;
+                white-space: nowrap;
+                padding: 5px;
+
+                @include respond-to( $bp-xl ) {
+                    padding: 5px 15px;
+                }
+
+                @include respond-to( $bp-xxl ) {
+                    padding: 5px 25px;
+                }
+            }
+        }
+    }
 }

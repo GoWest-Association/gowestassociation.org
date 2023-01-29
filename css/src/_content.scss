@@ -145,6 +145,11 @@
 }
 
 
+.content {
+	position: relative;
+}
+
+
 .content-wide {
 	@include clearfix;
 	@extend .content-style;

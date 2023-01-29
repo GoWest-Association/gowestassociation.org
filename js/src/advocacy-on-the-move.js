@@ -11,6 +11,7 @@ jQuery(document).ready(function($){
 			var show_washington = $( '.washington-filter' ).is(':checked');
 			var show_wyoming = $( '.wyoming-filter' ).is(':checked');
 			var show_regulatory = $( '.regulatory-filter' ).is(':checked');
+			var show_federal = $( '.federal-filter' ).is(':checked');
 
 			var advocacy_blog = $( '.aotm-listing' );
 			advocacy_blog.find('.entry').each(function(){
@@ -36,6 +37,9 @@ jQuery(document).ready(function($){
 				if ( show_regulatory && $(this).hasClass( 'regulatory' ) ) {
 					$(this).show();
 				}
+				if ( show_federal && $(this).hasClass( 'federal' ) ) {
+					$(this).show();
+				}
 			});
 
 			if ( !show_arizona && !show_colorado && !show_idaho && !show_oregon && !show_washington && !show_wyoming && !show_regulatory ) {
@@ -50,6 +54,7 @@ jQuery(document).ready(function($){
 		$( '.washington-filter' ).change( do_filtering );
 		$( '.wyoming-filter' ).change( do_filtering );
 		$( '.regulatory-filter' ).change( do_filtering );
+		$( '.federal-filter' ).change( do_filtering );
 	}
 
 	$('.category-select').on( 'change', function(){
