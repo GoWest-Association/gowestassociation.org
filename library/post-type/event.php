@@ -704,7 +704,15 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		'taxonomy' => 'event_cat',
 		'hide_empty' => true,
 	));
-	$calendar .= '';
+
+	$calendar .= '<div class="event-category-switcher-container"><label for="event-category-switcher">Event Category</label><select name="event-category-switcher" class="event-category-switcher">';
+	$calendar .= '<option value="/events/all/' . $year . '/' . $month . '/"' . ( $category == 'all' ? ' selected' : '' ) . '>- All Categories -</option>';
+foreach ( $event_categories as $event_category ) {
+		$calendar .= '<option value="/events/' . $event_category->slug . '/' . $year . '/' . $month . '/"' . ( $event_category->slug == $category ? ' selected' : '' ) . '>' . 
+			$event_category->name . 
+			'</option>';
+	}
+	$calendar .= '</select></div>';
 	
 	// close the grid container
 	$calendar .= '</div>';

@@ -219,10 +219,14 @@
 			float: left;
 			cursor: pointer;
 			border-bottom: 0;
-			font-size: .8em;
 			text-transform: uppercase;
 			letter-spacing: 1px;
 			transition: color 400ms ease-in-out;
+
+			font-size: .7em;
+			@include respond-to( $bp-l ) {
+				font-size: .8em;
+			}
 		
 			&.next {
 				float: right;
@@ -230,6 +234,32 @@
 		
 			&:hover {
 				color: $navy;
+			}
+		}
+
+		.event-category-switcher-container {
+			padding: 20px 0 10px;
+
+			@include respond-to( $bp-m ) {
+				padding: 40px 0;
+			}
+
+			label {
+				display: block;
+				@include font-bold;
+				text-transform: uppercase;
+				font-size: 1em;
+				text-align: center;
+			}
+
+			select {
+				display: block;
+				width: 100%;
+				margin-top: 5px;
+
+				@include respond-to( $bp-m ) {
+					margin: 20px 0;
+				}
 			}
 		}
 	

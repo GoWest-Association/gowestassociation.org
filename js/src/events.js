@@ -12,7 +12,7 @@ jQuery(document).ready(function($){
 
 		// store the day they click
 		var day = $(this).data('day');
-		console.log( day );
+		console.log( day )
 		
 		// show all
 		$( '.calendar-event-list .event.hide' ).removeClass( 'hide' );
@@ -29,21 +29,15 @@ jQuery(document).ready(function($){
 
 	});
 
+	// clear the day filters on click
 	$( '.calendar-event-list .clear-filter' ).click(function(){
-		
-		// show all
 		$( '.calendar-event-list .event.hide' ).removeClass( 'hide' );
-
 		$(this).hide();
-
 	});
 
-	$( 'select.event-category' ).change(function(){
-		location.href = $.query.set( "event_category", $(this).val() );
-	});
 
-	$( 'a.month-nav' ).click(function(){
-		location.href = $.query.set( "mo", $(this).data('month') ).set( "yr", $(this).data('year') );
+	$( 'select.event-category-switcher' ).change(function(){
+		location.href = $(this).val();
 	});
 
 
