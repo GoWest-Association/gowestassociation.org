@@ -42,8 +42,6 @@ if ( is_member() ) {
 	the_partner_logos();
 	print '</div>';
 
-	the_page_ads();
-
 	the_testimonials();
 
 	if ( have_posts() ) :
@@ -70,6 +68,8 @@ if ( is_member() ) {
 	the_accordions();
 
 	the_page_events_row();
+
+	the_page_ads();
 
 	the_page_articles();
 
