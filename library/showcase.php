@@ -20,7 +20,7 @@ function the_showcase() {
 				$alt = ( isset( $slide['alt-text'] ) ? $slide["alt-text"] : "Link to " . $link );
 				$content = ( isset( $slide['content'] ) ? $slide["content"] : "" );
 				$image = $slide["image"];
-				$video = $slide['video'];
+				$video = ( isset( $slide['video'] ) ? $slide['video'] : '' );
 
 				?>
 			<div class="slide <?php print ( $key == 0 ? 'visible' : '' ); ?> <?php print ( !empty( $link ) ? 'has-link' : '' ) ?>" <?php if ( !empty( $link ) ) { print 'data-href="' . $link . '"'; } ?> style="background-image: url(<?php print $image ?>);">
