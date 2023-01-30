@@ -705,6 +705,7 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		'hide_empty' => true,
 	));
 
+	// category filter dropdown
 	$calendar .= '<div class="event-category-switcher-container"><label for="event-category-switcher">Event Category</label><select name="event-category-switcher" class="event-category-switcher">';
 	$calendar .= '<option value="/events/all/' . $year . '/' . $month . '/"' . ( $category == 'all' ? ' selected' : '' ) . '>- All Categories -</option>';
 foreach ( $event_categories as $event_category ) {
@@ -712,7 +713,13 @@ foreach ( $event_categories as $event_category ) {
 			$event_category->name . 
 			'</option>';
 	}
-	$calendar .= '</select></div>';
+	$calendar .= '</select>';
+
+	// show category filter clear link if there's a category set
+	if ( $category != 'all' ) $calendar .= '<a href="' . $event_base_url . 'all/' . $next['year'] . '/' . $next['month'] . '/" class="clear-category-filter">Show All Categories</a>';
+	
+	// close category filter div
+	$calendar .= '</div>';
 	
 	// close the grid container
 	$calendar .= '</div>';

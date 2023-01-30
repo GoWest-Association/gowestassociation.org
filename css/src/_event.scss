@@ -258,8 +258,16 @@
 				margin-top: 5px;
 
 				@include respond-to( $bp-m ) {
-					margin: 20px 0;
+					margin: 20px 0 10px;
 				}
+			}
+
+			.clear-category-filter {
+				display: block;
+				border-bottom: 0;
+				padding: 5px 0 5px;
+				text-align: center;
+				color: $vermillion;
 			}
 		}
 	
