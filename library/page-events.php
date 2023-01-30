@@ -22,14 +22,12 @@ function the_page_events( $display = 'list' ) {
 function the_page_events_row() {
 
     $event_category = get_cmb_value( 'page-events' );
-    $event_category_info = get_term_by( 'slug', $event_category, 'event_cat' );
-    //print_r( $event_category_info );
 
     if ( has_cmb_value( 'page-events' ) ) {
     ?>
     <div class="page-events">
         <h3 class="page-events-title"><?php print get_cmb_value( 'page-events-title' ) ?></h3>
-        <a href="/events?event_category=<?php print $event_category_info->term_id ?>" class="all-events">All Events</a>
+        <a href="/events/<?php print $event_category ?>/" class="all-events">All Events</a>
         <?php print do_shortcode( '[events limit=4 category="' . get_cmb_value( 'page-events' ) . '" /]' ); ?>
     </div>
     <?php
