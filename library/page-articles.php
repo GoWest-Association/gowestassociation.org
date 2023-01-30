@@ -38,7 +38,7 @@ function articles_shortcode( $atts ) {
         // Start looping over the query results.
         while ( $query->have_posts() ) {
             $query->the_post();
-            $return .= '<div class="entry">';
+            $return .= '<div class="article-card entry">';
             $return .= '<div class="entry-thumbnail">';
             $return .= '<a href="' . get_the_permalink() . '" class="no-line">';
             $return .= get_the_post_thumbnail( null, array( 768, 480 ) );
@@ -160,7 +160,7 @@ function page_articles_metaboxes() {
 function the_page_articles( $posts_per_page = 3 ) {
     if ( has_cmb_value( 'page-articles' ) ) {
         print '<div class="page-articles">';
-        print '<h2>' . get_cmb_value( 'page-articles-title') . '</h2>';
+        print '<h2 class="page-articles-title">' . get_cmb_value( 'page-articles-title') . '</h2>';
         print do_shortcode( '[articles cats="' . get_cmb_value('page-articles') . '" posts_per_page=' . $posts_per_page . ' /]' );
         if ( is_foundation() && is_front_page() ) { 
             print '<a href="/news" class="btn navy">View All Articles</a>';

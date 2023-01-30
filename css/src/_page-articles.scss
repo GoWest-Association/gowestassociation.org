@@ -7,7 +7,12 @@
 	@include respond-to( $bp-xl ) { padding: 50px 60px; }
 
 	background: url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
+
+	.page-articles-title {
+		padding-bottom: 15px;
+	}
 }
+
 
 .article-cards {
 	@include respond-to( $bp-s ) {
