@@ -23,19 +23,15 @@
 
 
 .page-template-page-newsletter {
-	.sidebar .headlines {
-		// display: none;
-	}
-
 	.article-cards {
 		img {
-			margin-bottom: 20px; 
+			margin-bottom: 15px; 
 		}
 
 		h4 {
 			@include font-bold;
 			font-size: 1em;
-			line-height: 1.3em;
+			line-height: 1.5em;
 			text-transform: uppercase;
 		}
 
@@ -54,62 +50,18 @@
 		}
 	}
 
-	.two-column .right-column .right-column-inner ul.article-list {
-		padding: 0 0 0 20px;
-		list-style: disc;
+	.two-column .right-column .right-column-inner {	
+		ul.article-list {
+			padding: 0 0 0 20px;
+			list-style: disc;
 
-		li {
-			padding: 5px 0;
-		}
-	}
-}
-
-.article-cards {
-	.article-card {
-		margin-bottom: 20px;
-	}
-
-	@include respond-to( $bp-s ) {
-		display: flex;
-		margin-right: -4%;
-		flex-wrap: wrap;
-
-		.article-card {
-			flex: 1;
-			flex-basis: 46%;
-			flex-grow: 0;
-			margin-right: 4%;
-		}
-	}
-
-	@include respond-to( $bp-l ) {
-		margin-right: -3%;
-
-		.article-card {
-			flex-basis: 30.3333%;
-			margin-right: 3%;
-		}
-	}
-
-	.article-card {
-		img {
-			margin-bottom: 20px; 
-		}
-
-		h4 {
-			@include font-bold;
-			font-size: 1em;
-			line-height: 1.3em;
-			text-transform: uppercase;
-		}
-
-		p {
-			font-size: .8em;
+			li {
+				padding: 5px 0;
+			}
 		}
 	}
 
 }
-
 
 
 .title-bar {
