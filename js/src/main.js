@@ -22,13 +22,12 @@ jQuery(document).ready(function($){
 		menu_ul.find( 'a' ).click(function(){
 			var parent_li = $( this ).parent( 'li' );
 			var submenu = $( this ).next( '.columns' );
-			if ( !submenu.is( ':visible' ) && typeof( submenu ) !== 'undefined' ) {
+			if ( typeof( submenu ) !== 'undefined' ) {
 				event.preventDefault();
-				parent_li.addClass( 'open' );
-				submenu.show();
+				parent_li.toggleClass( 'open' );
+				submenu.toggle();
 			}
 		});
-
 	});
 
 
