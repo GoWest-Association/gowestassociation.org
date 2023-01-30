@@ -24,21 +24,6 @@
 
 .page-template-page-newsletter {
 	.article-cards {
-		img {
-			margin-bottom: 15px; 
-		}
-
-		h4 {
-			@include font-bold;
-			font-size: 1em;
-			line-height: 1.5em;
-			text-transform: uppercase;
-		}
-
-		p {
-			font-size: .8em;
-		}
-
 		@include respond-to( $bp-l ) {
 			display: flex;
 			margin-right: -4%;
