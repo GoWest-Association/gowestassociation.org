@@ -22,7 +22,7 @@ jQuery(document).ready(function($){
 		menu_ul.find( 'a' ).click(function(){
 			var parent_li = $( this ).parent( 'li' );
 			var submenu = $( this ).next( '.columns' );
-			if ( typeof( submenu ) !== 'undefined' ) {
+			if ( typeof( submenu ) !== 'undefined' && $( this ).attr('href') == '#' ) {
 				event.preventDefault();
 				parent_li.toggleClass( 'open' );
 				submenu.toggle();
