@@ -9,6 +9,8 @@
  * @since Twenty Twelve 1.0
  */
 $admin_email = get_option( 'admin_email' );
+
+if ( function_exists( 'gowest_association_lightbox' ) ) { gowest_association_lightbox(); }
 ?>
 	
 	</section>
