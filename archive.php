@@ -5,7 +5,11 @@
 
 $is_newsletter = true;
 
-set_brand( 'newsletter' );
+if ( is_foundation() ) {
+	set_brand( 'foundation' );
+} else {
+	set_brand( 'newsletter' );
+}
 
 get_header(); 
 
