@@ -42,7 +42,7 @@ the_showcase();
 			$return = '';
 			// Start the Loop.
 			while ( have_posts() ) : the_post(); 
-				$return .= '<div class="entry">';
+				$return .= '<div class="article-card entry">';
 				$return .= '<div class="entry-thumbnail">';
 				$return .= '<a href="' . get_the_permalink() . '" class="no-line">';
 				$return .= get_the_post_thumbnail( null, array( 768, 480 ) );
