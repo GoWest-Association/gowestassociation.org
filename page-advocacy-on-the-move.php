@@ -209,6 +209,10 @@ if ( is_member() ) {
 
 	the_footer_buttons();
 
+} else {
+
+	do_member_error();
+
 }
 
 get_footer();
