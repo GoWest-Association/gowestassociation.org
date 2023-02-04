@@ -94,7 +94,7 @@ if ( is_member() ) {
 		// Start looping over the query results.
 		while ( $query->have_posts() ) {
 			$query->the_post();
-			$return .= '<div class="entry' . 
+			$return .= '<div class="article-card entry' . 
 				( in_category(259) ? ' arizona' : '' ) . 
 				( in_category(260) ? ' colorado' : '' ) . 
 				( in_category(249) ? ' idaho' : '' ) . 
