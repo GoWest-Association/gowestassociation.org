@@ -1,6 +1,10 @@
 <?php
 
 
+// start a session.
+session_start();
+
+
 // removing this constant will mess up any modules that add to the theme options dashboard area.
 define( 'PURE', true );
 
