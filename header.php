@@ -18,6 +18,18 @@
 <?php wp_head(); ?>
 <link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=48" rel="stylesheet" type="text/css">
 
+
+<?php if ( is_foundation() ) { ?>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3DSHTX2Q9Y"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-3DSHTX2Q9Y');
+</script>
+<?php } else { ?>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-J4GTY9QELN"></script>
 <script>
@@ -26,12 +38,14 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-J4GTY9QELN');
 </script>
+<?php } ?>
 
 </head>
 <body <?php body_class(); ?>>
 <div class="container <?php print ( isset( $_REQUEST['notemplate'] ) ? 'notemplate' : '' ); ?>">
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 <?php the_notice_bar(); ?>
+<?php if ( function_exists( 'gowest_association_bar' ) ) { gowest_association_bar(); } ?>
 <header>
 
 	<?php if ( is_newsletter() ) { ?>
