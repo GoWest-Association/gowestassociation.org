@@ -6,22 +6,6 @@ jQuery(document).ready(function($){
     // function to trigger the video lightbox
     var trigger_video_lightbox = function( href ){
 
-        $.magnificPopup.open({
-            mainClass: 'mfp-video',
-            items: {
-                src: href
-            },
-            type: 'iframe'
-        });
-
-    }
-
-    // handle lightbox-video link/object clicks
-    $('.lightbox-video').on( 'click', function(){
-
-        // get the data-href property of the clicked element
-        var href = $(this).data('href');
-        
         // if that's empty, grab the href assuming it's a link
         if ( href.length == 0 ) {
             href = $(this).attr('href');
@@ -38,13 +22,56 @@ jQuery(document).ready(function($){
     
             } else {
 
-                // trigger the video lightbox
-                trigger_video_lightbox( href );
-
+                // trigger the lightbox
+                $.magnificPopup.open({
+                    mainClass: 'mfp-video',
+                    items: {
+                        src: href
+                    },
+                    type: 'iframe'
+                });
             }
-        
+
         }
+
+    }
+
+    // handle object clicks
+    $(':not(a).lightbox-video').on( 'click', function(){
+
+        // get the data-href property of the clicked element
+        var href = $(this).data('href');
+        
+        // if that's empty, grab the href assuming it's a link
+        if ( href.length == 0 ) {
+            href = $(this).attr('href');
+        }
+
+        // trigger the video lightbox
+        trigger_video_lightbox( href );
+
     });
+
+    
+    // handle link clicks
+    $('a.lightbox-video').on( 'click', function( event ){
+
+        // prevent the default
+        event.preventDefault();
+
+        // get the data-href property of the clicked element
+        var href = $(this).data('href');
+        
+        // if that's empty, grab the href assuming it's a link
+        if ( href.length == 0 ) {
+            href = $(this).attr('href');
+        }
+
+        // trigger the video lightbox
+        trigger_video_lightbox( href );
+
+    });
+
 
 });
 
