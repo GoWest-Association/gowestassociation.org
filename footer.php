@@ -11,9 +11,9 @@
 $admin_email = get_option( 'admin_email' );
 
 if ( function_exists( 'gowest_association_lightbox' ) ) {
-	//if ( is_front() ) {
+	if ( is_front_page() ) {
 		gowest_association_lightbox();
-	//}
+	}
 }
 ?>
 	
