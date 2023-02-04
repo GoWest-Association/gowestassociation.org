@@ -278,6 +278,24 @@ button::-moz-focus-inner {
     height: 95%;
 }
 
+.mfp-video .mfp-iframe-holder .mfp-content {
+    line-height: 0;
+    width: 100%;
+    max-width: 720px;
+    height: 480px;
+    background: black;
+
+    @include respond-to( $bp-xl ) {
+        max-width: 1150px;
+        height: 647px;
+    }
+
+    @include respond-to( $bp-xxl ) {
+        max-width: 1220px;
+        height: 687px;
+    }
+}
+
 .mfp-iframe-holder .mfp-close {
     top: -40px;
 }

@@ -37,14 +37,9 @@ jQuery(document).ready(function($){
 				}
 
 				// switch the slides
-				current_slide.attr( 'class', 'slide' );
-				prev_slide.attr( 'class', 'slide visible' );
-
-				// wait a second and mimic infinite looping
-				setTimeout(function(){
-					current_slide.attr( 'class', 'slide hide-left' );
-				}, 400 );
-
+				current_slide.removeClass( 'visible' );
+				prev_slide.addClass( 'visible' );
+				
 			};
 			
 
@@ -61,13 +56,8 @@ jQuery(document).ready(function($){
 				}
 
 				// switch the slides
-				current_slide.attr( 'class', 'slide hide-left' );
-				next_slide.attr( 'class', 'slide visible' );
-
-				// wait a second and mimic infinite looping
-				setTimeout(function(){
-					current_slide.attr( 'class', 'slide' );
-				}, 400 );
+				current_slide.removeClass( 'visible' );
+				next_slide.addClass( 'visible' );
 
 			};
 
@@ -79,10 +69,26 @@ jQuery(document).ready(function($){
 
 
 			// on click handler
-			showcase.find( '.slide.visible' ).on( 'click', function(){
+			showcase.find( '.slide.has-link' ).on( 'click', function(){
+
 				var href = $(this).data('href');
+
 				if ( href.length > 0 ) {
-					location.href = href;
+
+					if ( $(window).width() < 768 ) {
+
+						window.open( href, '_blank' );
+			
+					} else {
+
+						if ( !$(this).hasClass( 'lightbox-video' ) ) {
+
+							location.href = href;
+
+						}
+						
+					}
+				
 				}
 			});
 
@@ -109,18 +115,6 @@ jQuery(document).ready(function($){
 				if ( slide_count > 1 ) {
 					clearInterval( auto_rotate );
 				}
-			});
-
-			// move slides to left if they mouse over the previous nav
-			// gives the illusion of infinite scrolling
-			showcase.find( '.showcase-nav a.previous' ).hover(function(){
-				showcase.find( '.slide:not(.visible)' ).attr( 'class', 'slide hide-left' );
-			});
-
-			// move slides to right (default) if they mouse over the next nav
-			// gives the illusion of infinite scrolling
-			showcase.find( '.showcase-nav a.next' ).hover(function(){
-				showcase.find( '.showcase .slide:not(.visible)' ).attr( 'class', 'slide' );
 			});
 
 		}

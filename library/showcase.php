@@ -23,7 +23,7 @@ function the_showcase() {
 				$video = ( isset( $slide['video'] ) ? $slide['video'] : '' );
 
 				?>
-			<div class="slide <?php print ( $key == 0 ? 'visible' : '' ); ?> <?php print ( !empty( $link ) ? 'has-link' : '' ) ?>" <?php if ( !empty( $link ) ) { print 'data-href="' . $link . '"'; } ?> style="background-image: url(<?php print $image ?>);">
+			<div class="slide<?php print ( $key == 0 ? ' visible' : '' ); print ( stristr( $link, 'youtube' ) || stristr( $link, 'vimeo' ) ? ' lightbox-video' : '' ); print ( !empty( $link ) ? ' has-link' : '' ) ?>" <?php print ( !empty( $link ) ? 'data-href="' . $link . '"' : '' ); ?> style="background-image: url(<?php print $image ?>);">
 				
 				<?php if ( stristr( $video, '.webm' ) ) { ?>
 				<video class="slide-video" autoplay muted loop>
