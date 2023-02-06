@@ -74,9 +74,12 @@ function settings_metaboxes() {
 // is newsletter boolean function
 function is_newsletter() {
 
-    // if the newsletter global is set
-    if ( BRAND == 'newsletter' ) {
-        return true;
+    // if the brand constant is set
+    if ( defined( 'BRAND' ) ) {
+        // if the newsletter global is set
+        if ( BRAND == 'newsletter' ) {
+            return true;
+        }
     }
 
     // otherwise, return false
@@ -94,9 +97,12 @@ function is_foundation() {
         $response = true;
     }
 
-    // if the foundation global is set
-    if ( BRAND == 'foundation' ) {
-        $response = true;
+    // if the brand constant is set
+    if ( defined( 'BRAND' ) ) {
+        // if the foundation global is set
+        if ( BRAND == 'foundation' ) {
+            $response = true;
+        }
     }
 
     // otherwise, return false
@@ -107,9 +113,12 @@ function is_foundation() {
 function is_solutions() {
     global $is_solutions;
 
-    // if the solutions global is set
-    if ( BRAND == 'solutions' ) {
-        return true;
+    // if the brand constant is set
+    if ( defined( 'BRAND' ) ) {
+        // if the solutions global is set
+        if ( BRAND == 'solutions' ) {
+            return true;
+        }
     }
 
     // otherwise, return false
