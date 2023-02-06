@@ -309,6 +309,7 @@ nav.main-menu-container {
 
 						@include respond-to( $bp-m ) {
 							text-align: left;
+							display: inline-block;
 						}
 
 						&:hover {
