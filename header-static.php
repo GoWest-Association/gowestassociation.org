@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<?php header("Access-Control-Allow-Origin: *"); ?><!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8" lang="en-US"><![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!--><html lang="en-US"><!--<![endif]-->
@@ -17,18 +17,9 @@
 </head>
 <body class="home page-template page-template-page-front page-template-page-front-php page page-id-9 logged-in admin-bar no-customize-support">
 <div class="container ">
-	<div class="bar-merger">
-		<div class="bar-content">
-			Need help navigating the new website? <a href="https://gowestassociation.org/website-faq/">Find helpful tips here</a>.
-		</div>
-		<div class="bar-buttons">
-			<!-- <a href="https://gowestassociation.org" class="bar-button">Learn More</a> -->
-			<a href="https://gowestassociation.org/website-faq/" class="bar-button green">View FAQs</a>
-		</div>
-	</div>
 	<header>
 
-		<div class="logo left">
+	<div class="logo left">
 		<a href="/" title="GoWest Association" rel="home"><img src="https://gowestassociation.org/wp-content/themes/gowest/img/logo.png" alt="GoWest Association"></a>
 	</div>
 	
