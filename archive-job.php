@@ -92,7 +92,12 @@ $job_count = $wp_query->found_posts;
 		<h1>Career Center</h1>
 	</div>
 
+
 	<div class="content-wide" role="main">
+
+		<div class="jobs-intro">
+			<?php print do_shortcode( '[snippet slug="jobs-intro" /]' ); ?>
+		</div>
 
 		<div class="job-filter">
 			<div class="job-search"><label for="job-search">Search:</label> <input type="text" id="job-search" value="" placeholder="Search Jobs"></div>
