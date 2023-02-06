@@ -80,11 +80,10 @@ gtag('config', 'G-J4GTY9QELN');
 			<?php if ( is_foundation() ) { ?>
 			<a href="/donate" class="btn fulvous">Donate</a>
 			<a href="/friends-of-the-foundation/" class="btn navy">Become a Friend</a>
-			<?php } else { ?>
-			<?php account_button(); ?>
-			<a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a>
-			<!-- https://members.gowest.org/s/login/SelfRegister?startURL=%2Fs%2Fredirect-with-url-params%3Furl%3Dhttps%253A%252F%252Fbrvw5a2d.gowestassociation.org%252Fsolutions%252F -->
-			<?php } ?>
+			<?php } else { 
+				account_button();
+				if ( !is_user_logged_in() ) print '<a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a>';
+			} ?>
 		</div>
 
 		<div class="contact">

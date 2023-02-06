@@ -34,8 +34,7 @@
 		</div>
 
 		<div class="account-buttons">
-			<a href="https://members.gowest.org/s/redirect-with-url-params?url=https://gowestassociation.org/" class='btn green account'>Log In</a>			<a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a>
-			<!-- https://members.gowest.org/s/login/SelfRegister?startURL=%2Fs%2Fredirect-with-url-params%3Furl%3Dhttps%253A%252F%252Fbrvw5a2d.gowestassociation.org%252Fsolutions%252F -->
+			<a href="https://members.gowest.org/s/my-account" class='btn green account'>My Account</a>
 		</div>
 
 		<div class="contact">
