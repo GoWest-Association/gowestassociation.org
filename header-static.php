@@ -34,13 +34,13 @@
 		</div>
 
 		<div class="account-buttons">
-						<a href="https://members.gowest.org/s/redirect-with-url-params?url=https://gowestassociation.org/" class='btn green account'>Log In</a>			<a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a>
+			<a href="https://members.gowest.org/s/redirect-with-url-params?url=https://gowestassociation.org/" class='btn green account'>Log In</a>			<a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a>
 			<!-- https://members.gowest.org/s/login/SelfRegister?startURL=%2Fs%2Fredirect-with-url-params%3Furl%3Dhttps%253A%252F%252Fbrvw5a2d.gowestassociation.org%252Fsolutions%252F -->
-					</div>
+		</div>
 
 		<div class="contact">
-						<a href="/about-gowest/contact-gowest/" class="contact-link">Contact Us</a>
-					</div>
+			<a href="/about-gowest/contact-gowest/" class="contact-link">Contact Us</a>
+		</div>
 
 	</div>
 	

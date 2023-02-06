@@ -89,7 +89,7 @@ gtag('config', 'G-J4GTY9QELN');
 
 		<div class="contact">
 			<?php if ( is_foundation() ) { ?>
-			<a href="/connect-with-us" class="contact-link">Contact Us</a>
+			<a href="/connect" class="contact-link">Contact Us</a>
 			<?php } else { ?>
 			<a href="/about-gowest/contact-gowest/" class="contact-link">Contact Us</a>
 			<?php } ?>
