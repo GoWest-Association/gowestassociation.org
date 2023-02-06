@@ -184,6 +184,8 @@ if ( has_introduction() ) {
 
 the_icons();
 
+the_accordions();
+
 the_testimonials();
 
 // if ( has_content() ) {
@@ -212,8 +214,6 @@ the_testimonials();
 // }
 
 the_agenda();
-
-the_accordions();
 
 the_link_boxes();
 
