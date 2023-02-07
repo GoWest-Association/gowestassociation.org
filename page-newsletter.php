@@ -73,7 +73,7 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/2022" class="navy small"]View all News[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/' . date( 'Y' ) . '" class="navy small"]View all News[/button]' ); ?></p>
 
 			</div>
 		</div>
