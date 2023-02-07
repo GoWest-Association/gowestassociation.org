@@ -76,6 +76,12 @@ the_showcase();
 				<p><?php print do_shortcode( '[button url="/' . date( 'Y' ) . '" class="navy small"]View all News[/button]' ); ?></p>
 
 			</div>
+			<div class="title-bar navy"><h3>Want More Industry News?</h3></div>
+			<div class="right-column-inner">
+
+				<p><?php print do_shortcode( '[button url="/category/headlines/" class="navy small"]View all Headlines[/button]' ); ?></p>
+
+			</div>
 		</div>
 		<div class="sidebar">
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
