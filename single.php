@@ -26,8 +26,23 @@ if ( !is_foundation() ) {
 } else {
 	?>
 	<div class="content-wide article" role="main">
+		
 			<?php 
-}
+}	
+			// loop through the items
+			print '<div class="breadcrumbs">';
+
+			// show home crumb
+			print '<a href="/">Home</a> &raquo; ';
+			if ( is_foundation() ) {
+				print '<a href="/news">Foundation News</a> &raquo; ';
+			} else {
+				print '<a href="/onthego">On The Go</a> &raquo; ';
+			}
+
+			// close breadcrumbs
+			print '</div>';
+
 			if ( have_posts() ) :
 				while ( have_posts() ) : the_post(); 
 					?>

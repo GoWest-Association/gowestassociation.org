@@ -41,9 +41,26 @@ endif;
 	<div class="page-title">
 		<h1><?php print $page_title; ?></h1>
 	</div>
-	<div class="content-wide article-cards" role="main">
+	<div class="content-wide" role="main">
+	<?php
+	// loop through the items
+	print '<div class="breadcrumbs">';
 
-	<?php 
+	// show home crumb
+	print '<a href="/">Home</a> &raquo; ';
+	if ( is_foundation() ) {
+		print '<a href="/news">Foundation News</a> &raquo; ';
+	} else {
+		print '<a href="/onthego">On The Go</a> &raquo; ';
+	}
+
+	// show current page title only
+	print '<span class="current">' . $page_title . '</span>';
+
+	// close breadcrumbs
+	print '</div>';
+
+	print '<div class="article-cards">';
 	if ( have_posts() ) : 
 
 		// Start the Loop.
@@ -64,7 +81,8 @@ endif;
 	endif;
 	?>
 
-	</div><!-- #primary -->
+		</div><!-- /article-cards -->
+	</div><!-- /content-wide -->
 
 	<?php paginate(); ?>
 
