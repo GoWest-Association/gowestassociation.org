@@ -74,13 +74,12 @@ the_showcase();
 				}
 				?>
 				</ul>
-				<p><?php print do_shortcode( '[button url="/' . date( 'Y' ) . '" class="navy small"]View all News[/button]' ); ?></p>
 
 			</div>
 			<div class="title-bar navy"><h3>Want More Industry News?</h3></div>
 			<div class="right-column-inner">
 
-				<p><?php print do_shortcode( '[button url="/category/headlines/" class="navy small"]View all Headlines[/button]' ); ?></p>
+				<p><?php print do_shortcode( '[button url="/' . date( 'Y' ) . '" class="navy small"]View all Headlines[/button]' ); ?></p>
 
 			</div>
 		</div>
