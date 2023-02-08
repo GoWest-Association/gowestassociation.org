@@ -25,7 +25,7 @@
         <header>
 
             <div class="logo left">
-                <a href="/" title="GoWest Association" rel="home"><img
+                <a href="https://gowestassociation.org" title="GoWest Association" rel="home"><img
                         src="https://gowestassociation.org/wp-content/themes/gowest/img/logo.png"
                         alt="GoWest Association"></a>
             </div>
