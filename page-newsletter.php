@@ -18,23 +18,24 @@ the_showcase();
 			$posts = get_posts( $args );
 			?>
 			<div class="title-bar orange"><h3>Top Headlines</h3></div>
-			<div class="right-column-inner article-cards">
+			<div class="right-column-inner">
+				<div class="article-cards">
 
 				<?php
 				foreach ( $posts as $key => $a_post ) {
 					if ( $key < 2 ) { ?>
-				<div class="article-card">
-					<?php
-					print '<a href="' . get_the_permalink( $a_post ) . '" class="no-line">' . get_the_post_thumbnail( $a_post->ID, array( 720, 480 ) ) . '</a>';
-					print '<h4><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></h4>';
-					print '<p>' . get_the_excerpt( $a_post ) . '</p>';
-					?>
-				</div>
+					<div class="article-card">
+						<?php
+						print '<a href="' . get_the_permalink( $a_post ) . '" class="no-line">' . get_the_post_thumbnail( $a_post->ID, array( 720, 480 ) ) . '</a>';
+						print '<h4><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></h4>';
+						print '<p>' . get_the_excerpt( $a_post ) . '</p>';
+						?>
+					</div>
 					<?php
 					}
 				}
 				?>
-
+				</div>
 				<ul class="article-list">
 				<?php
 				foreach ( $posts as $key => $a_post ) {
