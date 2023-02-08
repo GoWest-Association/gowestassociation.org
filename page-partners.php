@@ -98,7 +98,7 @@ if ( show_title() ) {
 						<?php the_post_thumbnail( array( 500, 500 ) ); ?>
 					</div>
 					<h3 class="partner-title"><?php the_title(); ?></h3>
-					<p>For more information on this solution please reach out to the Strategic Link team below.</p>
+					<p>For more information on this solution please reach out to the GoWest Solutions team below.</p>
 					<p class="partner-buttons"><?php print do_shortcode( '[button url="mailto:solutions@gowest.org" class="green"]Email Us[/button] [button url="tel:8009959064" class="green phone"]&#9743; 800.995.9064[/button]' ); ?></p>
 					<p>Learn more about <?php the_title(); ?> by visiting their social media accounts or website below.</p>
 					<div class="partner-links">
