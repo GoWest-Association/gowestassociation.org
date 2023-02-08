@@ -14,7 +14,7 @@ the_showcase();
 	<div class="two-column newsletter reverse" role="main">
 		<div class="right-column">
 			<?php
-			$args = array( 'numberposts' => get_option( 'gw_posts_top' ) );
+			$args = array( 'numberposts' => get_option( 'gw_posts_top' ), 'category_name' => 'headlines' );
 			$posts = get_posts( $args );
 			?>
 			<div class="title-bar orange"><h3>Top Headlines</h3></div>
