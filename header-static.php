@@ -841,9 +841,8 @@
                     </div>
                 </li>
             </ul>
-            <div class="aux-buttons"><a href="https://gowestassociation.org/solutions"
-                    class="solutions"><span>Solutions</span></a><a href="https://gowestfoundation.org"
-                    class="foundation"><span>Foundation</span></a></div>
+            <div class="aux-buttons"><a href="https://gowestassociation.org/"
+                    class="association"><span>Association</span></a></div>
         </nav>
 
         <section class="content">
