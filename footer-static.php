@@ -1,5 +1,5 @@
 <?php header("Access-Control-Allow-Origin: *"); ?>
-		</section>
+	<div class="container">
 
 		<footer class="footer">
 			<div class="footer-inner">

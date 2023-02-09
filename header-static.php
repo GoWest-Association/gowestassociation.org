@@ -844,5 +844,4 @@
             <div class="aux-buttons"><a href="https://gowestassociation.org/"
                     class="association"><span>Association</span></a></div>
         </nav>
-
-        <section class="content">
+    </div>
