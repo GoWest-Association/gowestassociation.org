@@ -328,8 +328,10 @@ nav.main-menu-container {
 			position: absolute;
 			top: 0;
 			right: 0;
+			padding-left: 30px;
 			display: flex;
 			z-index: 1001;
+			overflow-x: hidden;
 		}
 
 		a {
