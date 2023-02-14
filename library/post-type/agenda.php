@@ -38,7 +38,7 @@ function agenda_post_type() {
 			'menu_icon' => 'dashicons-editor-ol', /* the icon for the custom post type menu */
 			'has_archive' => true, /* you can rename the slug here */
 			'capability_type' => 'post',
-			'hierarchical' => false,
+			'hierarchical' => true,
 			'rewrite' => array(
 				'slug' => 'agenda'
 			),
