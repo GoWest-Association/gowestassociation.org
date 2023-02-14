@@ -5,7 +5,7 @@
 	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 -2% 0 0;
+	margin: 0;
 
 	.icon {
 		padding: 0 0 30px 0;
@@ -26,23 +26,19 @@
 	}
 	
 	@include respond-to( $bp-m ) {
-		margin: 0 -2% 0 0;
-
 		.icon {
 			flex: 1;
 			flex-basis: 31.3333%;
-			margin: 0 2% 0 0;
+			margin: 0 1%;
 		}
 	}
 	
 	@include respond-to( $bp-xl ) {
 		flex-wrap: nowrap;
-		margin: 0 -2% 0 0;
-
 		.icon {
 			flex: 1;
 			flex-basis: 1;
-			margin: 0 2% 0 0;
+			margin: 0 1%;
 		}
 	}
 }
