@@ -59,6 +59,10 @@ $job_count = $the_query->found_posts;
 	<h1><?php the_title(); ?></h1>
 </div>
 
+<?php 
+if ( is_member() ) { 
+	?>
+
 	<div class="content-wide" role="main">
 
 		<div class="job-filter">
@@ -94,10 +98,16 @@ $job_count = $the_query->found_posts;
 			endif;
 
 			?>
-
 		</div>
 
 	</div><!-- #content -->
+	<?php
+} else {
+	
+	do_member_error();
+
+}
+?>
 
 <?php
 
