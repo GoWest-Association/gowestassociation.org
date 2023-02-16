@@ -36,8 +36,8 @@ function the_price_table() {
                 <div class="buttons">
                     <?php if ( !empty( $price['button-1-text'] ) && !empty( $price['button-1-link'] ) ) { ?><a href="<?php print $price['button-1-link']; ?>" class="btn <?php print ( !empty( $price['button-1-class'] ) ? ' ' . $price['button-1-class'] : '' ) ?>"><?php print $price['button-1-text']; ?></a><?php } ?>
                     <?php if ( !empty( $price['button-2-text'] ) && !empty( $price['button-2-link'] ) ) { ?><a href="<?php print $price['button-2-link']; ?>" class="btn <?php print ( !empty( $price['button-2-class'] ) ? ' ' . $price['button-2-class'] : '' ) ?>"><?php print $price['button-2-text']; ?></a><?php } ?>
-                    <?php if ( !empty( $price['button-3-text'] ) && !empty( $price['button-3-link'] ) ) { ?><a href="<?php print $price['button-3-link']; ?>" class="btn <?php print ( !empty( $pri3e['button-3-class'] ) ? ' ' . $price['button-3-class'] : '' ) ?>"><?php print $price['button-3-text']; ?></a><?php } ?>
-                    <?php if ( !empty( $price['button-4-text'] ) && !empty( $price['button-4-link'] ) ) { ?><a href="<?php print $price['button-4-link']; ?>" class="btn <?php print ( !empty( $pri3e['button-4-class'] ) ? ' ' . $price['button-4-class'] : '' ) ?>"><?php print $price['button-4-text']; ?></a><?php } ?>
+                    <?php if ( !empty( $price['button-3-text'] ) && !empty( $price['button-3-link'] ) ) { ?><a href="<?php print $price['button-3-link']; ?>" class="btn <?php print ( !empty( $price['button-3-class'] ) ? ' ' . $price['button-3-class'] : '' ) ?>"><?php print $price['button-3-text']; ?></a><?php } ?>
+                    <?php if ( !empty( $price['button-4-text'] ) && !empty( $price['button-4-link'] ) ) { ?><a href="<?php print $price['button-4-link']; ?>" class="btn <?php print ( !empty( $price['button-4-class'] ) ? ' ' . $price['button-4-class'] : '' ) ?>"><?php print $price['button-4-text']; ?></a><?php } ?>
                 </div>
 			</div>
 					<?php
