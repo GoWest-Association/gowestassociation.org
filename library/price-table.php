@@ -23,10 +23,13 @@ function the_price_table() {
                 <div class="prices">
                     <?php  
                     if ( !empty( $price['price-1-text'] ) && !empty( $price['price-1-value'] ) ) {
-                        print '<div class="price">' . $price['price-1-text'] . '<br><span>' . $price['price-1-value'] . '</span></div>';
+                        print '<div class="price one">' . $price['price-1-text'] . '<br><span>' . $price['price-1-value'] . '</span></div>';
                     }
                     if ( !empty( $price['price-2-text'] ) && !empty( $price['price-2-value'] ) ) {
-                        print '<div class="price">' . $price['price-2-text'] . '<br><span>' . $price['price-2-value'] . '</span></div>';
+                        print '<div class="price two">' . $price['price-2-text'] . '<br><span>' . $price['price-2-value'] . '</span></div>';
+                    }
+                    if ( !empty( $price['price-3-text'] ) && !empty( $price['price-3-value'] ) ) {
+                        print '<div class="price three">' . $price['price-3-text'] . '<br><span>' . $price['price-3-value'] . '</span></div>';
                     }
                     ?>
                 </div>
@@ -34,6 +37,7 @@ function the_price_table() {
                     <?php if ( !empty( $price['button-1-text'] ) && !empty( $price['button-1-link'] ) ) { ?><a href="<?php print $price['button-1-link']; ?>" class="btn <?php print ( !empty( $price['button-1-class'] ) ? ' ' . $price['button-1-class'] : '' ) ?>"><?php print $price['button-1-text']; ?></a><?php } ?>
                     <?php if ( !empty( $price['button-2-text'] ) && !empty( $price['button-2-link'] ) ) { ?><a href="<?php print $price['button-2-link']; ?>" class="btn <?php print ( !empty( $price['button-2-class'] ) ? ' ' . $price['button-2-class'] : '' ) ?>"><?php print $price['button-2-text']; ?></a><?php } ?>
                     <?php if ( !empty( $price['button-3-text'] ) && !empty( $price['button-3-link'] ) ) { ?><a href="<?php print $price['button-3-link']; ?>" class="btn <?php print ( !empty( $pri3e['button-3-class'] ) ? ' ' . $price['button-3-class'] : '' ) ?>"><?php print $price['button-3-text']; ?></a><?php } ?>
+                    <?php if ( !empty( $price['button-4-text'] ) && !empty( $price['button-4-link'] ) ) { ?><a href="<?php print $price['button-4-link']; ?>" class="btn <?php print ( !empty( $pri3e['button-4-class'] ) ? ' ' . $price['button-4-class'] : '' ) ?>"><?php print $price['button-4-text']; ?></a><?php } ?>
                 </div>
 			</div>
 					<?php
@@ -110,6 +114,20 @@ function price_table_metabox( $meta_boxes ) {
     ) );
 
     $price_table_metabox->add_group_field( $price_table_metabox_group, array(
+        'name' => 'Price 3 Text',
+        'id'   => 'price-3-text',
+        'type' => 'text',
+        'sanitization_cb' => false
+    ) );
+
+    $price_table_metabox->add_group_field( $price_table_metabox_group, array(
+        'name' => 'Price 3 Value',
+        'id'   => 'price-3-value',
+        'type' => 'text',
+        'sanitization_cb' => false
+    ) );
+
+    $price_table_metabox->add_group_field( $price_table_metabox_group, array(
         'name' => 'Button 1 Text',
         'id'   => 'button-1-text',
         'type' => 'text',
@@ -163,6 +181,25 @@ function price_table_metabox( $meta_boxes ) {
     $price_table_metabox->add_group_field( $price_table_metabox_group, array(
         'name' => 'Button 3 Class',
         'id'   => 'button-3-class',
+        'type' => 'text',
+    ) );
+
+    $price_table_metabox->add_group_field( $price_table_metabox_group, array(
+        'name' => 'Button 4 Text',
+        'id'   => 'button-4-text',
+        'type' => 'text',
+    ) );
+
+    $price_table_metabox->add_group_field( $price_table_metabox_group, array(
+        'name' => 'Button 4 Link',
+        'id'   => 'button-4-link',
+        'type' => 'text',
+        'sanitization_cb' => 'cmb2_relative_urls'
+    ) );
+
+    $price_table_metabox->add_group_field( $price_table_metabox_group, array(
+        'name' => 'Button 4 Class',
+        'id'   => 'button-4-class',
         'type' => 'text',
     ) );
 
