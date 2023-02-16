@@ -37,12 +37,12 @@ function agenda_post_type() {
 			'menu_position' => 8, /* this is what order you want it to appear in on the left hand side menu */ 
 			'menu_icon' => 'dashicons-editor-ol', /* the icon for the custom post type menu */
 			'has_archive' => true, /* you can rename the slug here */
-			'capability_type' => 'post',
+			'capability_type' => 'page',
 			'hierarchical' => true,
 			'rewrite' => array(
 				'slug' => 'agenda'
 			),
-			'supports' => array( 'title', 'revisions' )
+			'supports' => array( 'title', 'revisions', 'page-attributes' )
 		) /* end of options */
 	); /* end of register post type */
 	
