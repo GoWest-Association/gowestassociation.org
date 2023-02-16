@@ -41,7 +41,7 @@ if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
 	unset( $_SESSION['sf_user'] );
 
 	// redirect to the homepage and exit
-	wp_redirect( '/' );
+	wp_redirect( 'https://members.gowest.org/secur/logout.jsp' );
 	exit;
 	
 }
