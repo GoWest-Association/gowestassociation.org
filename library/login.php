@@ -186,9 +186,9 @@ function do_member_error() {
 		<p>To check and see if your membership has been approved, please <a href="/logout">log out</a> and back in.</p>
 			<?php
 		} else {
+			$login_link = '<a href="' . $sf_url . 'redirect-with-url-params?url=' . $referer . '">log in</a>';
+			print str_replace( '[login-link]', $login_link, get_snippet( 'member-error' ) );
 			?>
-		<h3>A membership is required to view this content.</h3>
-		<p>Please <a href="<?php print $sf_url; ?>redirect-with-url-params?url=<?php print $referer ?>">log in</a> to view this content.</p>
 		<iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
 			<?php
 		}
