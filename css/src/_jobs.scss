@@ -109,5 +109,21 @@
         border-top: 3px solid rgba( $grey-light, .2 );
         padding-top: 40px;
     }
+
+    .job-info {
+        margin-bottom: 40px;
+        border-bottom: 4px solid rgba( $grey, .4 );
+        padding-bottom: 25px;
+
+        @include respond-to( $bp-m ) {
+            float: right;
+            width: 35%;
+            margin: 27px 0 25px 25px;
+            border-bottom: 0;
+            padding-bottom: 0;
+            padding-left: 25px;
+            border-left: 4px solid rgba( $grey, .4 );
+        }
+    }
 }
 
