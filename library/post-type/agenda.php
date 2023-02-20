@@ -79,6 +79,17 @@ function agenda_metaboxes() {
 		)
     ) );
     
+	$agenda_metabox->add_field( array(
+        'name' => 'Style',
+        'id'   => 'agenda-style',
+        'type' => 'select',
+		'options' => array(
+			'normal' => 'Normal',
+			'slim' => 'Slim',
+		),
+		'default' => 'normal'
+    ) );
+    
     $agenda_metabox_group = $agenda_metabox->add_field( array(
         'id' => 'agenda',
         'type' => 'group',
@@ -116,7 +127,7 @@ function agenda_metaboxes() {
 
 // output the agenda for the current post/page/event
 function the_agenda() {
-	print do_shortcode( '[agenda id="' . get_the_ID() . '"]' );
+	print do_shortcode( '[agenda id="' . get_the_ID() . '" ]' );
 }
 
 
@@ -129,6 +140,7 @@ function agenda_shortcode( $atts ) {
 		'slug' => '',
 		'id' => 0,
 		'show_title' => 0,
+		'style' => ''
 	), $atts ));
 
 	// if we have a slug
@@ -156,10 +168,11 @@ function agenda_shortcode( $atts ) {
 
 	    // get the agenda items
 	    $agenda_timezone = get_post_meta( $agenda->ID, 'agenda-timezone', 1 );
+	    $agenda_style = get_post_meta( $agenda->ID, 'agenda-style', 1 );
 	    $agenda_items = get_post_meta( $agenda->ID, 'agenda', 1 );
 
 	    // empty content in case we don't have agenda items
-	    $agenda_content = '';
+	    $agenda_content = '<div class="agenda-container' . ( !empty( $agenda_style ) ? ' ' . $agenda_style : '' ) . '">';
 
 	    // make sure we have agenda items
 	    if ( !empty( $agenda_items ) ) {
@@ -182,6 +195,8 @@ function agenda_shortcode( $atts ) {
 			$agenda_content .='</section>';
 
 	    }
+
+		$agenda_content .= '</div>';
     }
 
 	return $agenda_content;

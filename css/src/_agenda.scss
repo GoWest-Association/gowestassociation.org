@@ -7,6 +7,12 @@
 	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
 }
 
+.agenda-container {
+	&.slim {
+		margin-top: -30px;
+	}
+}
+
 .agenda {
 	background: $grey-light;
 	padding: 10px 30px;
