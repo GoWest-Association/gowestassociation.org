@@ -319,6 +319,14 @@ nav.main-menu-container {
 							border-bottom: 2px dotted rgba( $grey-dark, .6 );
 						}
 					}
+
+					&.no-line > a{
+						border-bottom: 0;
+
+						&:hover {
+							border-bottom: none;
+						}
+					}
 				}
 			}
 		}
