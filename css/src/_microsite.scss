@@ -1,0 +1,98 @@
+
+
+header.microsite {
+	background: $navy;
+	text-align: center;
+}
+
+
+.microsite-boxes {
+	background: white center center / cover fixed no-repeat;
+    overflow-x: hidden;
+
+	padding: 30px;
+	@include respond-to( $bp-m ) { padding: 40px 40px 0; }
+	@include respond-to( $bp-l ) { padding: 40px 50px 0; }
+	@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
+	
+	&.state-az .microsite-box { background: url(../img/bg-microsite-boxes-state-az.png) center center / cover no-repeat; }
+	&.state-co .microsite-box { background: url(../img/bg-microsite-boxes-state-co.png) center center / cover no-repeat; }
+	&.state-id .microsite-box { background: url(../img/bg-microsite-boxes-state-id.png) center center / cover no-repeat; }
+	&.state-or .microsite-box { background: url(../img/bg-microsite-boxes-state-or.png) center center / cover no-repeat; }
+	&.state-wa .microsite-box { background: url(../img/bg-microsite-boxes-state-wa.png) center center / cover no-repeat; }
+	&.state-wy .microsite-box { background: url(../img/bg-microsite-boxes-state-wy.png) center center / cover no-repeat; }
+
+	.microsite-box {
+		position: relative;
+		border: 3px solid $navy;
+		margin-bottom: 40px;
+        text-align: center;
+		cursor: pointer;
+
+		a {
+			@include font-title;
+			text-transform: uppercase;
+			display: block;
+			padding: 20px;
+			text-align: center;
+			color: white;
+			font-size: 1.2em;
+			line-height: 1.4em;
+			background: $navy;
+			transition: background 400ms ease-in-out;
+
+			&:hover {
+				text-decoration: none;
+			}
+
+			@include respond-to( $bp-m ) {
+				padding: 25px;
+			}
+		}
+
+		&.navy a { border-bottom: 25px solid $navy; }
+		&.blue a { border-bottom: 25px solid $blue; }
+		&.blue-whale a { border-bottom: 25px solid $blue-whale; }
+		&.sky a { border-bottom: 25px solid $sky; }
+		&.fulvous a { border-bottom: 25px solid $fulvous; }
+		&.orange a { border-bottom: 25px solid $orange; }
+		&.vermillion a { border-bottom: 25px solid $vermillion; }
+		&.green a { border-bottom: 25px solid $green; }
+
+		&.state-az a { border-bottom: 25px solid $color-az; }
+		&.state-co a { border-bottom: 25px solid $color-co; }
+		&.state-id a { border-bottom: 25px solid $color-id; }
+		&.state-or a { border-bottom: 25px solid $color-or; }
+		&.state-wa a { border-bottom: 25px solid $color-wa; }
+		&.state-wy a { border-bottom: 25px solid $color-wy; }
+	}
+	
+	@include respond-to( $bp-m ) {
+		display: flex;
+		flex-wrap: wrap;
+		margin-right: -3%;
+
+		.microsite-box {
+			flex: 1;
+			flex-basis: 47%;
+			margin-right: 3%;
+		}
+	}
+
+	@include respond-to( $bp-xl ) {
+		padding-top: 40px;
+
+		.microsite-box {
+			flex: 1;
+			flex-basis: 30.3333%;
+			margin-right: 3%;
+		}
+	}
+
+}
+
+
+footer.microsite {
+	text-align: center;
+}
+

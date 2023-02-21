@@ -46,6 +46,9 @@ require_multi(
     'accordion', 'link-boxes', 'button-bar', 'price-table', 'footer-buttons', 'image-boxes', 'notice',
 
     // add shortcodes
-    'shortcode/button', 'shortcode/menu' 
+    'shortcode/button', 'shortcode/menu',
+
+    // microsite
+    'microsite'
 );
 
