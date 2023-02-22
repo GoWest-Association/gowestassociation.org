@@ -1,72 +1,75 @@
 
 
-.link-boxes {
-	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+.link-boxes-container {
+	overflow-x: hidden;
 
-	padding: 30px;
-	@include respond-to( $bp-m ) { padding: 40px 40px 0; }
-	@include respond-to( $bp-l ) { padding: 40px 50px 0; }
-	@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
+	.link-boxes {
+		background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 
-	.link-box {
-		position: relative;
-		border: 1px solid $navy;
-		margin-bottom: 40px;
-		background-size: cover;
-		
-		&:before {
-			position: absolute;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			content: '';
-			background: rgba( black, .3 );
-			z-index: 1;
-		}
-
-		a {
-			@include font-bold;
-			display: block;
-			padding: 30px;
-			text-align: center;
-			color: white;
-			font-size: 1.4em;
-			line-height: 1.4em;
-			transition: background 400ms ease-in-out;
-
-			position: relative;
-			z-index: 2;
-
-			&:hover {
-				text-decoration: none;
-			}
-
-			@include respond-to( $bp-m ) {
-				padding: 40px;
-			}
-
-			@include respond-to( $bp-l ) {
-				padding: 60px;
-			}
-		}
-	}
-	
-	@include respond-to( $bp-m ) {
-		display: flex;
-		flex-wrap: wrap;
-		margin-right: -3%;
+		padding: 30px;
+		@include respond-to( $bp-m ) { padding: 40px 40px 0; }
+		@include respond-to( $bp-l ) { padding: 40px 50px 0; }
+		@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
 
 		.link-box {
-			flex: 1;
-			flex-basis: 47%;
-			margin-right: 3%;
+			position: relative;
+			border: 1px solid $navy;
+			margin-bottom: 40px;
+			background-size: cover;
+			
+			&:before {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				content: '';
+				background: rgba( black, .3 );
+				z-index: 1;
+			}
+
+			a {
+				@include font-bold;
+				display: block;
+				padding: 30px;
+				text-align: center;
+				color: white;
+				font-size: 1.4em;
+				line-height: 1.4em;
+				transition: background 400ms ease-in-out;
+
+				position: relative;
+				z-index: 2;
+
+				&:hover {
+					text-decoration: none;
+				}
+
+				@include respond-to( $bp-m ) {
+					padding: 40px;
+				}
+
+				@include respond-to( $bp-l ) {
+					padding: 60px;
+				}
+			}
 		}
-	}
+		
+		@include respond-to( $bp-m ) {
+			display: flex;
+			flex-wrap: wrap;
+			margin-right: -3%;
 
-	@include respond-to( $bp-xl ) {
-		padding-top: 40px;
-	}
+			.link-box {
+				flex: 1;
+				flex-basis: 47%;
+				margin-right: 3%;
+			}
+		}
 
+		@include respond-to( $bp-xl ) {
+			padding-top: 40px;
+		}
+
+	}
 }
-

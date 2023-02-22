@@ -14,7 +14,8 @@ function the_link_boxes() {
 
 		// if it's an array, we'll assume it's got content
 		?>
-		<div class="link-boxes">
+        <div class="link-boxes-container">
+            <div class="link-boxes">
 			<?php
 			foreach ( $links as $link ) {
 				if ( !empty( $link['link'] ) && !empty( $link['image'] ) && !empty( $link['title'] ) ) { 
@@ -27,6 +28,7 @@ function the_link_boxes() {
 				} 
 			}
 			?>
+            </div>
 		</div>
 		<?php
 		}
