@@ -18,7 +18,9 @@ if ( show_title() ) {
 if ( is_member() ) {
 	
 	the_microsite_boxes();
-
+	
+	the_showcase();
+	
 	if ( has_introduction() ) {
 		?>
 	<div class="content-wide" role="main">
@@ -34,9 +36,7 @@ if ( is_member() ) {
 	</div><!-- #content -->
 		<?php
 	}
-	
-	the_showcase();
-	
+
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
 			if ( !empty( get_the_content() ) ) {
