@@ -184,8 +184,9 @@ function agenda_shortcode( $atts ) {
 
 		    // loop through and include each agenda item
 		    foreach ( $agenda_items as $item ) {
+				$datetime = get_ap_month( date( 'n', $item['time'] ) ) . ' ' .date( 'j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) );
 		    	$agenda_content .='<div class="agenda-item">' . 
-					'<div class="time"><strong>' . date( 'M. j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) . '</strong></div>' .
+					'<div class="time"><strong>' . $datetime . '</strong></div>' .
 					'<div class="location">' . ( isset( $item['location'] ) ? $item['location'] : '' ) . '</div>' .
 					'<div class="content">' . apply_filters( 'the_content', $item['content'] ) . '</div>' .
 				'</div>';
@@ -202,4 +203,24 @@ function agenda_shortcode( $atts ) {
 	return $agenda_content;
 }
 add_shortcode( 'agenda', 'agenda_shortcode' );
+
+
+// display month (by number) in AP style
+function get_ap_month( $m ) {
+	$months = array(
+		1 => 'Jan.',
+		2 => 'Feb.',
+		3 => 'March',
+		4 => 'April',
+		5 => 'May',
+		6 => 'June',
+		7 => 'July',
+		8 => 'Aug.',
+		9 => 'Sept.',
+		10 => 'Oct.',
+		11 => 'Nov.',
+		12 => 'Dec.',
+	);
+	return $months[$m];
+}
 
