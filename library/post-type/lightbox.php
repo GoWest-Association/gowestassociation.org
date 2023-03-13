@@ -102,7 +102,9 @@ function get_lightbox() {
 				$cookie = 'lightbox-' . md5( $cookie );
 
 				// if this page/event id is selected
-				if ( in_array( $current_page, $lightbox_pages ) ) $display_lightbox = true;
+				if ( is_array( $lightbox_pages ) ) {
+					if ( in_array( $current_page, $lightbox_pages ) ) $display_lightbox = true;
+				}
 
 				// if this url is selected 
 				$current_url = $_SERVER['REQUEST_URI'];
@@ -110,11 +112,14 @@ function get_lightbox() {
 				// separate multiple specific urls for the match
 				$lightbox_urls_array = explode( ',', $lightbox_urls );
 
-				foreach ( $lightbox_urls_array as $lightbox_url ) {
+				// check if it's a valid array
+				if ( is_array( $lightbox_urls_array ) ) {
+					foreach ( $lightbox_urls_array as $lightbox_url ) {
 
-					// if the current url matches the specified 
-					if ( fnmatch( $lightbox_url, $current_url ) && !$display_lightbox ) {
-						$display_lightbox = true;
+						// if the current url matches the specified 
+						if ( fnmatch( $lightbox_url, $current_url ) && !$display_lightbox ) {
+							$display_lightbox = true;
+						}
 					}
 				}
 
