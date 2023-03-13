@@ -40,7 +40,7 @@ function btn_add_mce_button() {
 		add_filter( 'mce_buttons', 'btn_register_mce_button' );
 	}
 }
-add_action('admin_head', 'btn_add_mce_button');
+add_action('init', 'btn_add_mce_button');
 
 
 
