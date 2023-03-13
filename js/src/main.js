@@ -61,7 +61,7 @@ jQuery(document).ready(function($){
 	});
 
 
-	$('.content-wide, .lightbox-merger').fitVids();
+	$('.content-wide, .lightbox-merger, .lightbox-theme').fitVids();
 
 
 });
