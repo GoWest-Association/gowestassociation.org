@@ -112,13 +112,25 @@ function get_lightbox() {
 				// separate multiple specific urls for the match
 				$lightbox_urls_array = explode( ',', $lightbox_urls );
 
-				// check if it's a valid array
+				// check our url list is a valid array
 				if ( is_array( $lightbox_urls_array ) ) {
 					foreach ( $lightbox_urls_array as $lightbox_url ) {
 
-						// if the current url matches the specified 
-						if ( fnmatch( $lightbox_url, $current_url ) && !$display_lightbox ) {
+						// trim the spaces from the url fragment so we can use it as a match
+						$pattern = trim( $lightbox_url, ' ' );
+
+						// if the current url matches the specified
+						if ( fnmatch( $pattern, $current_url ) && !$display_lightbox ) {
 							$display_lightbox = true;
+						}
+
+						// if we have any excludes
+						if ( stristr( $pattern, '!' ) ) {
+							print "don't show it";
+							if ( fnmatch( str_replace( '!', '', $pattern ), $current_url ) ) {
+								$display_lightbox = false;
+								exit;
+							}
 						}
 					}
 				}
