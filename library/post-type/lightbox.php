@@ -126,10 +126,9 @@ function get_lightbox() {
 
 						// if we have any excludes
 						if ( stristr( $pattern, '!' ) ) {
-							print "don't show it";
 							if ( fnmatch( str_replace( '!', '', $pattern ), $current_url ) ) {
 								$display_lightbox = false;
-								exit;
+								break;
 							}
 						}
 					}
