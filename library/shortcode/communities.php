@@ -9,18 +9,17 @@ function communities_shortcode( $atts, $content = null ) {
 	), $atts );
 
     // generate the code
-    $code = '<script src="https://gowest.lightning.force.com/lightning/lightning.out.js"></script>
+    $code = '<div id="lightning-out"></div>
+<script src=https://gowest.lightning.force.com/lightning/lightning.out.js></script>
 <script>
-$Lightning.use("c:boardMemberExternalApp",
-function() {
-    $Lightning.createComponent(
-        "c:boardMemberExternal",
-        { communityType: "' . $a['type'] . '" },
-        "lightning locator",
-        function(cmp){});
-    },
-    "https://gowest.force.com"
-);
+document.addEventListener("DOMContentLoaded", function(){
+    $Lightning.use("c:boardMemberExternalApp", function() {
+        console.log( "Loaded boardMemberExternalApp app" );
+        $Lightning.createComponent( "c:boardMemberExternal", {communityType: "' . $a['type'] . '" }, "lightning-out", function(cmp) {
+            console.log( "component boardMemberExternal created" );
+        });
+    }, "https://gowest.my.site.com");
+});
 </script>';
 
     // return it
