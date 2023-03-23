@@ -16,10 +16,11 @@ function the_introduction() {
     // get the slides
     $intro_video = get_cmb_value( 'intro_video' );
     $intro_content = get_cmb_value( 'intro_content' );
+    $intro_wrap = get_cmb_value( 'intro_wrap' );
 
     if ( !empty( $intro_content ) ) {
         ?>
-        <div class="intro-columns">
+        <div class="intro-columns<?php print ( $intro_wrap == 'on' ? ' wrap' : '' ) ?>">
             <?php
             if ( $intro_video ) {
                 print '<div class="intro-video">' . apply_filters( 'the_content', $intro_video ) . '</div>';
@@ -64,6 +65,13 @@ function page_metaboxes() {
         'options' => array(
             'textarea_rows' => 14,
         ),
+    ) );
+
+    $page_metabox->add_field( array(
+        'name' => 'Text Wrapping',
+        'id'   => CMB_PREFIX . 'intro_wrap',
+        'desc' => 'Allow text to wrap around the bottom of the video.',
+        'type' => 'checkbox',
     ) );
 
 }
