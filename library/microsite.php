@@ -55,7 +55,7 @@ function microsite_metabox( $meta_boxes ) {
         'id' => 'microsite_metabox',
         'title' => 'Microsite Settings',
         'object_types' => array( 'page' ),
-        'show_on_cb'   => array( 'key' => 'page-template', 'value' => 'page-microsite.php' ),
+        'show_on'   => array( 'key' => 'page-template', 'value' => 'page-microsite.php' ),
         'context' => 'normal',
         'priority' => 'high',
     ) );
@@ -90,7 +90,7 @@ function microsite_boxes_metaboxes( $meta_boxes ) {
         'id' => 'microsite_boxes_metabox',
         'title' => 'Microsite Boxes',
         'object_types' => array( 'page' ),
-        'show_on_cb'   => array( 'key' => 'page-template', 'value' => 'page-microsite.php' ),
+        'show_on'   => array( 'key' => 'page-template', 'value' => 'page-microsite.php' ),
         'context' => 'normal',
         'priority' => 'high',
     ) );

@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying Archive pages
+ * Template Name: Events Calendar
  */
 
 set_brand( 'association' );
