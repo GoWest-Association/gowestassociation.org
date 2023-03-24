@@ -323,7 +323,7 @@ function event_rewrite() {
 	$page_id = $events_page->ID;
 
 	// add the rewrite rule
-	add_rewrite_rule('^events*', 'index.php?page_id=' . $page_id, 'top');
+	add_rewrite_rule('^events/*', 'index.php?page_id=' . $page_id, 'top');
 
 }
 add_action( 'init', 'event_rewrite' );
@@ -632,167 +632,169 @@ function show_month_events( $month, $year, $category = 'all' ) {
 	// set up the events base url
 	$event_base_url = "/events/";
 	
-	// get the cache
-	$month_cache = get_month_cache( $month, $year, $category );
+	if ( stristr( $_SERVER['REQUEST_URI'], $event_base_url ) ) {
 
-	// if we have cached the month code
-	if ( $month_cache && !isset( $_REQUEST['fresh'] ) ) {
-		
-		// output the cache file
-		print $month_cache;
+		// get the cache
+		$month_cache = get_month_cache( $month, $year, $category );
 
-	} else {
+		// if we have cached the month code
+		if ( $month_cache && !isset( $_REQUEST['fresh'] ) ) {
+			
+			// output the cache file
+			print $month_cache;
 
-		// get the cache filename
-		$event_cache_file = get_month_cache_filename( $month, $year, $category );
+		} else {
 
-		// let's make an empty calendar
-		$calendar = '';
+			// get the cache filename
+			$event_cache_file = get_month_cache_filename( $month, $year, $category );
 
-		// get the events for the month.
-		$events = get_month_events( $month, $year, $category );
+			// let's make an empty calendar
+			$calendar = '';
 
-		// show next and previous month links.
-		$prev = get_previous_month( $month, $year );
-		$prev_ts = mktime( 0, 0, 0, $prev['month'], 1, $prev['year'] );
-		$next = get_next_month( $month, $year );
-		$next_ts = mktime( 0, 0, 0, $next['month'], 1, $next['year'] );
+			// get the events for the month.
+			$events = get_month_events( $month, $year, $category );
 
-		// open the table tags
-		$calendar .= '<div class="calendar-container"><div class="calendar-grid">';
+			// show next and previous month links.
+			$prev = get_previous_month( $month, $year );
+			$prev_ts = mktime( 0, 0, 0, $prev['month'], 1, $prev['year'] );
+			$next = get_next_month( $month, $year );
+			$next_ts = mktime( 0, 0, 0, $next['month'], 1, $next['year'] );
 
-		// add the prev and next buttons to switch months
-		$calendar .= '<a href="' . $event_base_url . $category . '/' . $prev['year'] . '/' . $prev['month'] . '/" class="month-nav previous">&lt; Prev</a>';
-		$calendar .= '<a href="' . $event_base_url . $category . '/' . $next['year'] . '/' . $next['month'] . '/" class="month-nav next">Next &gt;</a>';
+			// open the table tags
+			$calendar .= '<div class="calendar-container"><div class="calendar-grid">';
 
-		// get the month name based on the month and year passed
-		$month_name = date( 'M', strtotime( $year . '-' . $month . '-01' ) );
+			// add the prev and next buttons to switch months
+			$calendar .= '<a href="' . $event_base_url . $category . '/' . $prev['year'] . '/' . $prev['month'] . '/" class="month-nav previous">&lt; Prev</a>';
+			$calendar .= '<a href="' . $event_base_url . $category . '/' . $next['year'] . '/' . $next['month'] . '/" class="month-nav next">Next &gt;</a>';
 
-		// month name
-		$calendar .= '<h4>' . $month_name . " " . $year . '</h4>';
+			// get the month name based on the month and year passed
+			$month_name = date( 'M', strtotime( $year . '-' . $month . '-01' ) );
 
-		// begin the table
-		$calendar .= '<table cellpadding="0" cellspacing="0" class="calendar">';
+			// month name
+			$calendar .= '<h4>' . $month_name . " " . $year . '</h4>';
 
-		// day titles
-		$headings = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
-		$calendar .= '<tr class="calendar-row"><td class="calendar-day-head">' . implode('</td><td class="calendar-day-head">', $headings ) . '</td></tr>';
+			// begin the table
+			$calendar .= '<table cellpadding="0" cellspacing="0" class="calendar">';
 
-		// days and weeks vars now ...
-		$running_day = date('w',mktime(0,0,0,$month,1,$year));
-		$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
-		$days_in_this_week = 1;
-		$day_counter = 0;
-		$dates_array = array();
+			// day titles
+			$headings = array('Sun','Mon','Tue','Wed','Thu','Fri','Sat');
+			$calendar .= '<tr class="calendar-row"><td class="calendar-day-head">' . implode('</td><td class="calendar-day-head">', $headings ) . '</td></tr>';
 
-		// row for week one
-		$calendar .= '<tr class="calendar-row">';
+			// days and weeks vars now ...
+			$running_day = date('w',mktime(0,0,0,$month,1,$year));
+			$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
+			$days_in_this_week = 1;
+			$day_counter = 0;
+			$dates_array = array();
 
-		// print "blank" days until the first of the current week
-		for ( $x = 0; $x < $running_day; $x++ ) :
-			$calendar .= '<td class="calendar-day-np"> </td>';
-			$days_in_this_week++;
-		endfor;
+			// row for week one
+			$calendar .= '<tr class="calendar-row">';
 
-		// keep going with days....
-		for ( $list_day = 1; $list_day <= $days_in_month; $list_day++ ) :
+			// print "blank" days until the first of the current week
+			for ( $x = 0; $x < $running_day; $x++ ) :
+				$calendar .= '<td class="calendar-day-np"> </td>';
+				$days_in_this_week++;
+			endfor;
 
-			// let's check the start and end of the day
-			$day_start = mktime( 0, 0, 0, $month, $list_day, $year );
-			$day_end = mktime( 23, 59, 59, $month, $list_day, $year );
+			// keep going with days....
+			for ( $list_day = 1; $list_day <= $days_in_month; $list_day++ ) :
+
+				// let's check the start and end of the day
+				$day_start = mktime( 0, 0, 0, $month, $list_day, $year );
+				$day_end = mktime( 23, 59, 59, $month, $list_day, $year );
+
+				// loop through all the events and list them for this day.
+				$day_events = '';
+				foreach ( $events as $event ) {
+					if ( ( $event->_p_event_start > $day_start && $event->_p_event_start < $day_end ) || 
+						( $event->_p_event_end > $day_start && $event->_p_event_end < $day_end ) /* || 
+						( $event->_p_event_start < $day_start && $event->_p_event_end > $day_end ) */ ) {
+						$day_events .= 'event';
+					}
+				}
+
+				// start building out the day.
+				$calendar .= '<td class="calendar-day' . ( !empty( $day_events ) ? ' has-events' : '' ) . '" data-day="' . $month . '-' . $list_day . '">' . $list_day . '</td>';
+
+				// end row if it's the end of the week.
+				if ( $running_day == 6 ) :
+					$calendar .= '</tr>';
+					if(($day_counter+1) != $days_in_month):
+						$calendar .= '<tr class="calendar-row">';
+					endif;
+					$running_day = -1;
+					$days_in_this_week = 0;
+				endif;
+				$days_in_this_week++; $running_day++; $day_counter++;
+
+			endfor;
+
+			// finish the rest of the days in the week
+			if ( $days_in_this_week < 8 ) :
+				for ( $x = 1; $x <= ( 8 - $days_in_this_week ); $x++ ) :
+					$calendar .= '<td class="calendar-day-np"> </td>';
+				endfor;
+			endif;
+
+			// end final row
+			$calendar .= '</tr>';
+
+			// close the table
+			$calendar .= '</table>';
+
+			// get the category dropdown
+			$event_categories = get_terms(array(
+				'taxonomy' => 'event_cat',
+				'hide_empty' => true,
+			));
+
+			// category filter dropdown
+			$calendar .= '<div class="event-category-switcher-container"><label for="event-category-switcher">Event Category</label><select name="event-category-switcher" class="event-category-switcher">';
+			$calendar .= '<option value="/events/all/' . $year . '/' . $month . '/"' . ( $category == 'all' ? ' selected' : '' ) . '>- All Categories -</option>';
+			foreach ( $event_categories as $event_category ) {
+				$calendar .= '<option value="/events/' . $event_category->slug . '/' . $year . '/' . $month . '/"' . ( $event_category->slug == $category ? ' selected' : '' ) . '>' . 
+					$event_category->name . 
+					'</option>';
+			}
+			$calendar .= '</select>';
+
+			// show category filter clear link if there's a category set
+			if ( $category != 'all' ) $calendar .= '<a href="' . $event_base_url . 'all/' . $next['year'] . '/' . $next['month'] . '/" class="clear-category-filter">Show All Categories</a>';
+			
+			// close category filter div
+			$calendar .= '</div>';
+			
+			// close the grid container
+			$calendar .= '</div>';
 
 			// loop through all the events and list them for this day.
-			$day_events = '';
-			foreach ( $events as $event ) {
-				if ( ( $event->_p_event_start > $day_start && $event->_p_event_start < $day_end ) || 
-					( $event->_p_event_end > $day_start && $event->_p_event_end < $day_end ) /* || 
-					( $event->_p_event_start < $day_start && $event->_p_event_end > $day_end ) */ ) {
-					$day_events .= 'event';
+			$events_list = '';
+			if ( !empty( $events ) ) {
+				foreach ( $events as $event ) {
+					$show_times = ( date( "g:ia", $event->_p_event_start ) != '12:00am' ? true : false );
+					$same_day = ( date( "FjY", $event->_p_event_start ) == date( "FjY", $event->_p_event_end ) ? true : false );
+					$start_time = ( $show_times ? date( "F jS g:i a", $event->_p_event_start ) : date( "F jS", $event->_p_event_start ) );
+					$end_time = ( $same_day ? ( $show_times ? date( "g:i a", $event->_p_event_end ) : '' ) : ( $show_times ? date( "F jS g:i a", $event->_p_event_end ) : date( "F jS", $event->_p_event_end ) ));
+					$events_list .= "<div class='event' data-day='" . date( 'n', $event->_p_event_start ) . "-" . date( 'j', $event->_p_event_start ) . "'>
+						<div class='event-title'>" . ( $event->_p_event_nolink == 'on' ? "" : "<a href=\"" . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . "\" target='_blank'>" ) . $event->post_title . ( $event->_p_event_nolink == 'on' ? "" : "</a>" ) . "</div>
+						<div class='event-time'>" . $start_time . ( !$same_day ? " - " . $end_time : '' ) . "</div>
+						<div class='event-description'>" . $event->post_excerpt . "</div>
+					</div>";
 				}
+			} else {
+				$events_list .= '<p>No events to list for the selected month.</p>';
 			}
 
-			// start building out the day.
-			$calendar .= '<td class="calendar-day' . ( !empty( $day_events ) ? ' has-events' : '' ) . '" data-day="' . $month . '-' . $list_day . '">' . $list_day . '</td>';
-
-			// end row if it's the end of the week.
-			if ( $running_day == 6 ) :
-				$calendar .= '</tr>';
-				if(($day_counter+1) != $days_in_month):
-					$calendar .= '<tr class="calendar-row">';
-				endif;
-				$running_day = -1;
-				$days_in_this_week = 0;
-			endif;
-			$days_in_this_week++; $running_day++; $day_counter++;
-
-		endfor;
-
-		// finish the rest of the days in the week
-		if ( $days_in_this_week < 8 ) :
-			for ( $x = 1; $x <= ( 8 - $days_in_this_week ); $x++ ) :
-				$calendar .= '<td class="calendar-day-np"> </td>';
-			endfor;
-		endif;
-
-		// end final row
-		$calendar .= '</tr>';
-
-		// close the table
-		$calendar .= '</table>';
-
-		// get the category dropdown
-		$event_categories = get_terms(array(
-			'taxonomy' => 'event_cat',
-			'hide_empty' => true,
-		));
-
-		// category filter dropdown
-		$calendar .= '<div class="event-category-switcher-container"><label for="event-category-switcher">Event Category</label><select name="event-category-switcher" class="event-category-switcher">';
-		$calendar .= '<option value="/events/all/' . $year . '/' . $month . '/"' . ( $category == 'all' ? ' selected' : '' ) . '>- All Categories -</option>';
-		foreach ( $event_categories as $event_category ) {
-			$calendar .= '<option value="/events/' . $event_category->slug . '/' . $year . '/' . $month . '/"' . ( $event_category->slug == $category ? ' selected' : '' ) . '>' . 
-				$event_category->name . 
-				'</option>';
-		}
-		$calendar .= '</select>';
-
-		// show category filter clear link if there's a category set
-		if ( $category != 'all' ) $calendar .= '<a href="' . $event_base_url . 'all/' . $next['year'] . '/' . $next['month'] . '/" class="clear-category-filter">Show All Categories</a>';
-		
-		// close category filter div
-		$calendar .= '</div>';
-		
-		// close the grid container
-		$calendar .= '</div>';
-
-		// loop through all the events and list them for this day.
-		$events_list = '';
-		if ( !empty( $events ) ) {
-			foreach ( $events as $event ) {
-				$show_times = ( date( "g:ia", $event->_p_event_start ) != '12:00am' ? true : false );
-				$same_day = ( date( "FjY", $event->_p_event_start ) == date( "FjY", $event->_p_event_end ) ? true : false );
-				$start_time = ( $show_times ? date( "F jS g:i a", $event->_p_event_start ) : date( "F jS", $event->_p_event_start ) );
-				$end_time = ( $same_day ? ( $show_times ? date( "g:i a", $event->_p_event_end ) : '' ) : ( $show_times ? date( "F jS g:i a", $event->_p_event_end ) : date( "F jS", $event->_p_event_end ) ));
-				$events_list .= "<div class='event' data-day='" . date( 'n', $event->_p_event_start ) . "-" . date( 'j', $event->_p_event_start ) . "'>
-					<div class='event-title'>" . ( $event->_p_event_nolink == 'on' ? "" : "<a href=\"" . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . "\" target='_blank'>" ) . $event->post_title . ( $event->_p_event_nolink == 'on' ? "" : "</a>" ) . "</div>
-					<div class='event-time'>" . $start_time . ( !$same_day ? " - " . $end_time : '' ) . "</div>
-					<div class='event-description'>" . $event->post_excerpt . "</div>
-				</div>";
+			// add an empty div to populate event list into (for use on mobile).
+			$calendar .= '<div class="calendar-event-list"><div class="calendar-event-list-title"><h4>Upcoming Events</h4></div><a class="clear-filter">Show All</a>' . $events_list . '</div></div>';
+			
+			if ( !file_put_contents( $event_cache_file, $calendar ) ) {
+				print 'Error writing cache file.';
 			}
-		} else {
-			$events_list .= '<p>No events to list for the selected month.</p>';
+
+			/* all done, return result */
+			print $calendar;
 		}
-
-		// add an empty div to populate event list into (for use on mobile).
-		$calendar .= '<div class="calendar-event-list"><div class="calendar-event-list-title"><h4>Upcoming Events</h4></div><a class="clear-filter">Show All</a>' . $events_list . '</div></div>';
-		
-		if ( !file_put_contents( $event_cache_file, $calendar ) ) {
-			print 'Error writing cache file.';
-		}
-
-		/* all done, return result */
-		print $calendar;
-
 	}
 
 }
