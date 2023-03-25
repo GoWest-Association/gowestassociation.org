@@ -120,6 +120,10 @@
 	}
 
 	table.slds-table {
+		thead tr th {
+			@include font-bold;
+		}
+
 		tr th {
 			&:nth-child(1), &:nth-child(2) {
 				width: 30%;
