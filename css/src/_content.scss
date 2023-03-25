@@ -121,6 +121,7 @@
 	table.slds-table {
 		thead tr th {
 			font-weight: bold !important;
+			font-size: 1.2em !important;
 
 			&:nth-child(1) {
 				padding-left: 0 !important;
@@ -131,14 +132,14 @@
 			&:nth-child(1), &:nth-child(2) {
 				width: 30%;
 				@include font;
-				font-size: 1.2em;
+				font-size: 1.1em;
 				padding-left: 0 !important;
 			}
 
 			&:nth-child(3) {
 				width: 40%;
 				@include font;
-				font-size: 1.2em;
+				font-size: 1.1em;
 			}
 		}
 	}
