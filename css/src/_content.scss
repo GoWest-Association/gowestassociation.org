@@ -115,13 +115,16 @@
 			max-width: 55%;
 			float: right;
 			margin: 0 0 15px 15px;
-
 		}
 	}
 
 	table.slds-table {
 		thead tr th {
 			@include font-bold;
+
+			&:nth-child(1) {
+				padding-left: 0 !important;
+			}
 		}
 
 		tr th {
@@ -129,13 +132,14 @@
 				width: 30%;
 				@include font;
 				font-size: 1.2em;
-				}
+				padding-left: 0 !important;
+			}
 
 			&:nth-child(3) {
 				width: 40%;
 				@include font;
 				font-size: 1.2em;
-				}
+			}
 		}
 	}
 }
