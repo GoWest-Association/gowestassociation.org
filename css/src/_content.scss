@@ -120,7 +120,7 @@
 
 	table.slds-table {
 		thead tr th {
-			@include font-bold;
+			font-weight: bold !important;
 
 			&:nth-child(1) {
 				padding-left: 0 !important;
