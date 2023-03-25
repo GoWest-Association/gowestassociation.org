@@ -118,6 +118,18 @@
 
 		}
 	}
+
+	table.slds-table {
+		tr th {
+			&:nth-child(1), &:nth-child(2) {
+				width: 30%;
+			}
+
+			&:nth-child(3) {
+				width: 40%;
+			}
+		}
+	}
 }
 
 

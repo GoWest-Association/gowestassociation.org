@@ -786,6 +786,7 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		// add an empty div to populate event list into (for use on mobile).
 		$calendar .= '<div class="calendar-event-list"><div class="calendar-event-list-title"><h4>Upcoming Events</h4></div><a class="clear-filter">Show All</a>' . $events_list . '</div></div>';
 		
+		// create the cache file, erring if we can't
 		if ( !file_put_contents( $event_cache_file, $calendar ) ) {
 			print 'Error writing cache file.';
 		}
