@@ -128,18 +128,24 @@
 			}
 		}
 
-		tr th {
-			&:nth-child(1), &:nth-child(2) {
-				width: 30%;
-				@include font;
-				font-size: 1.1em;
-				padding-left: 0 !important;
+		tr {
+			th {
+				&:nth-child(1), &:nth-child(2) {
+					width: 30%;
+					@include font;
+					font-size: 1.1em;
+					padding-left: 0 !important;
+				}
+
+				&:nth-child(3) {
+					width: 40%;
+					@include font;
+					font-size: 1.1em;
+				}
 			}
 
-			&:nth-child(3) {
-				width: 40%;
-				@include font;
-				font-size: 1.1em;
+			&:hover th {
+				background: none !important;
 			}
 		}
 	}
