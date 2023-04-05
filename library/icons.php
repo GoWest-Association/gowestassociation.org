@@ -6,6 +6,7 @@ function the_icons() {
 
 	// get the icons
 	$icons = get_cmb_value( 'icon_showcase' );
+    $icons_per_row = get_cmb_value( 'icons_per_row' );
 
 	// if it's an array
 	if ( is_array( $icons ) ) {
@@ -101,6 +102,15 @@ function icon_metaboxes( $meta_boxes ) {
         'type' => 'select',
         'options' => $colors,
         'default' => 'navy'
+    ) );
+
+    $icon_showcase_metabox->add_field( array(
+        'name' => 'Icons per Row',
+        'desc' => 'Set the number of icons per row when there are more than 6 and you want to split them evenly.',
+        'id'   => 'icons_per_row',
+        'type' => 'select',
+        'options' => array( '3', '4', '5', '6' ),
+        'default' => '6'
     ) );
 
 
