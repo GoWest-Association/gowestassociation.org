@@ -105,7 +105,7 @@ function account_buttons() {
 	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 	// if the user is logged in.
-	if ( isset( $_SESSION['sf_user'] ) ) {
+	if ( isset( $_SESSION['sf_user'] ) || is_user_logged_in() ) {
 		?><a href="<?php print $sf_url ?>my-account" class='btn green account'>My Account</a> <a href="/logout" class="btn grey-light">Logout</a><?php
 	} else {
 		?><a href="<?php print $sf_url ?>redirect-with-url-params?url=<?php print $referer ?>" class='btn green account'>Log In</a> <a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a><?php 
