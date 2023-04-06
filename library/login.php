@@ -39,6 +39,9 @@ if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
 
 	// unset the salesforce user from session
 	unset( $_SESSION['sf_user'] );
+	
+	// log the user out of wordpress as well.
+	wp_logout();
 
 	// redirect to the homepage and exit
 	wp_redirect( 'https://members.gowest.org/secur/logout.jsp' );
