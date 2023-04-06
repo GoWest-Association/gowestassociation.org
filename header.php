@@ -16,7 +16,7 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=69" rel="stylesheet" type="text/css">
+<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=70" rel="stylesheet" type="text/css">
 
 
 <?php if ( is_foundation() ) { ?>
@@ -81,9 +81,7 @@ gtag('config', 'G-J4GTY9QELN');
 			<a href="/donate" class="btn fulvous">Donate</a>
 			<a href="/friends-of-the-foundation/" class="btn navy">Become a Friend</a>
 			<?php } else { 
-				account_button(); ?>
-				<a href="https://members.gowest.org/s/login/SelfRegister" class="btn navy">First Time User</a>
-				<?php
+				account_buttons();
 			} ?>
 		</div>
 

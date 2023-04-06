@@ -58,5 +58,10 @@
 	&.fulvous {
 		background-color: $fulvous;
 	}
+
+	&.grey-light {
+		background-color: $grey-light;
+		color: $grey-dark;	
+	}
 }
 
