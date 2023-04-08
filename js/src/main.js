@@ -32,10 +32,10 @@ jQuery(document).ready(function($){
 
 
 	// couple of quick bindings for magnific popup
-	$( '.lightbox-iframe' ).magnificPopup({ 'type': 'iframe' });
+	$( '.lightbox-iframe, .lightbox-icon' ).magnificPopup({ 'type': 'iframe' });
 	$( '.lightbox' ).magnificPopup({ 'type': 'image' });
 
-
+	/*
 	// handle icon clicks
 	$( '.icons .icon' ).on( 'click', function(){
 		var icon = $(this);
@@ -59,6 +59,7 @@ jQuery(document).ready(function($){
 		}
 
 	});
+	*/
 
 
 	$('.content-wide, .lightbox-merger, .lightbox-theme').fitVids();

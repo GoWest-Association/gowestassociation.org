@@ -18,6 +18,18 @@
 		flex-basis: 47%;
 		margin: 0 2% 2% 0;
 
+		.icon-image {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 110px;
+			width: 100%;
+
+			img {
+				max-height: 100%;
+			}
+		}
+
 		h3 {
 			margin-top: 10px;
 			font-size: 1.2em;
@@ -37,10 +49,71 @@
 	
 	@include respond-to( $bp-xl ) {
 		flex-wrap: nowrap;
+
 		.icon {
 			flex: 1;
 			flex-basis: 1;
 			margin: 0 1%;
+		}
+	}
+
+	&.three {
+		@include respond-to( $bp-m ) {
+			.icon {
+				flex-basis: 31.3333%;
+				margin: 0 1%;
+				flex-grow: 0;
+			}
+		}
+
+		@include respond-to( $bp-xl ) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&.four {
+		@include respond-to( $bp-l ) {
+			.icon {
+				flex-basis: 23%;
+				margin: 0 1%;
+				flex-grow: 0;
+			}
+		}
+
+		@include respond-to( $bp-xl ) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&.five {
+		@include respond-to( $bp-l ) {
+			.icon {
+				flex-basis: 18%;
+				margin: 0 1%;
+				flex-grow: 0;
+			}
+		}
+
+		@include respond-to( $bp-xl ) {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+	}
+
+	&.size {
+		@include respond-to( $bp-l ) {
+			.icon {
+				flex-basis: 14.6666%;
+				margin: 0 1%;
+				flex-grow: 0;
+			}
+		}
+
+		@include respond-to( $bp-xl ) {
+			flex-wrap: wrap;
+			justify-content: center;
 		}
 	}
 }
