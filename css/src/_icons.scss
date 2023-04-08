@@ -17,6 +17,8 @@
 		flex: 1;
 		flex-basis: 47%;
 		margin: 0 2% 2% 0;
+		opacity: 1;
+		transition: 400ms all ease-in-out;
 
 		.icon-image {
 			display: flex;
@@ -26,6 +28,7 @@
 			width: 100%;
 
 			img {
+				transition: 400ms all ease-in-out;
 				max-height: 100%;
 			}
 		}
@@ -36,6 +39,15 @@
 			color: $navy;
 			border-bottom: 2px dotted $grey;
 			display: inline-block;
+		}
+
+		&:hover {
+			opacity: .7;
+
+			img {
+				filter: grayscale(1);
+				opacity: .7;
+			}
 		}
 	}
 	
