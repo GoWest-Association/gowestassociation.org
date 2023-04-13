@@ -10,6 +10,18 @@
 			padding: 20px;
 			margin-bottom: 20px;
 
+			.info {
+				@extend .content-style;
+
+				ul {
+					padding: 0 0 0 35px;
+
+					li {
+						padding: 0;
+					}
+				}
+			}
+
 			@include respond-to( $bp-l ) {
 				display: flex;
 				flex-wrap: wrap;
