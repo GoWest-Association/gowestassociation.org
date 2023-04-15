@@ -206,17 +206,25 @@ add_action( 'admin_init', 'add_job_caps');
 // check if user owns job
 function user_owns_job( $post_id ) {
 
+	// empty email variable in case not logged in
+	$email = '';
+
+	// check if they're logged in via salesforce
 	if ( isset( $_SESSION['sf_user']['email'] ) ) {
 		$email = $_SESSION['sf_user']['email'];
+
+	// check if they're logged into wordpress
 	} else if ( is_user_logged_in() ) {
 		$the_user = wp_get_current_user();
 		$email = $the_user->data->user_email;
 	}
 
+	// if the job creator matches or if the wordpress user is an administrator
 	if ( get_cmb_value( 'job_creator', $post_id ) == $email || current_user_can( 'administrator' ) ) {
 		return true;
 	}
 
+	// if no response yet, return false
 	return false;
 }
 
@@ -252,7 +260,6 @@ function edit_job_form() {
 }
 
 
-
 // when a user submits the job editor form
 add_action( 'gform_after_submission_20', 'update_job', 10, 2 );
 function update_job( $entry, $form ) {
@@ -260,8 +267,10 @@ function update_job( $entry, $form ) {
  	// store the post ID
  	$post_id = $entry[29];
 
+	// if the current user owns the job
  	if ( user_owns_job( $post_id ) ) {
 
+		// let's assemble some post data
 	 	$post_fields = array(
 	 		'ID' => $post_id,
 	 		'post_title' => $entry[30],
@@ -280,15 +289,14 @@ function update_job( $entry, $form ) {
 		update_post_meta( $post_id, '_p_job_region', $entry[38] );
 		update_post_meta( $post_id, '_p_job_apply_email', $entry[39] );
 		update_post_meta( $post_id, '_p_job_apply_link', $entry[40] );
-		update_post_meta( $post_id, '_p_job_expires', $entry[41] );
+		update_post_meta( $post_id, '_p_job_expires', date( 'Y-m-d', strtotime( $entry[41] ) ) );
 
- 	}
+	}
 
  	$the_post = get_post( $post_id );
  	wp_redirect( '/job/' . $the_post->post_name );
 
 }
-
 
 
 // list a specific job category
@@ -328,7 +336,6 @@ function list_job_category( $category ) {
 	wp_reset_postdata();
 
 }
-
 
 
 // get the jobs in a particular category
