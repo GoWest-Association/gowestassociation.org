@@ -261,7 +261,9 @@ function edit_job_form() {
 
 
 // when a user submits the job editor form
-add_action( 'gform_after_submission_20', 'update_job', 10, 2 );
+if ( !is_foundation() ) {
+	add_action( 'gform_after_submission_20', 'update_job', 10, 2 );
+}
 function update_job( $entry, $form ) {
  	
  	// store the post ID
