@@ -1,57 +1,54 @@
 <?php
 
 
-global $sf_url;
-
-// use the live salesforce URL.
-$sf_url = "https://members.gowest.org/s/";
-
-
-// get the request URI and remove the query string
-$request = parse_query_string();
-
-
-// check if this is an auth request.
-if ( substr( $_SERVER['REQUEST_URI'], 0, 5 ) == '/auth' ) {
-
-	// log the auth request
-	// $logfile = $_SERVER["DOCUMENT_ROOT"] . '/wp-content/uploads/logs/auth.log';
-	$logfile = '../logs/auth.log';
-	file_put_contents( $logfile, "\r\n" . $_SERVER['REQUEST_URI'], FILE_APPEND );
-
-	// set session
-	$_SESSION['sf_user'] = $request;
-
-	// log them in as 'member'
-	if ( !is_user_logged_in() ) {
-		wp_set_auth_cookie( 8, false );
-	}
-
-	// redirect to infosight
-	wp_redirect( 'https://gowestassociation.leagueinfosight.com/admin/client/is/frontend/gowest_sso.php?' . http_build_query( $request ) );
-	exit;
-
-}
-
-
-// handle logout requests
-if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
-
-	// log the user out of wordpress as well.
-	wp_logout();
-
-	// redirect to the homepage and exit
-	wp_redirect( 'https://members.gowest.org/secur/logout.jsp' );
-	exit;
-	
-}
-
-
 // start sessions
 function gowest_session_start() {
-    //if ( !session_id() ) {
+    if ( !session_id() ) {
         session_start();
-    //}
+    }
+
+	// set up a global for the sf_url
+	global $sf_url;
+
+	// use the live salesforce URL.
+	$sf_url = "https://members.gowest.org/s/";
+	
+	// get the request URI and remove the query string
+	$request = parse_query_string();
+	
+	// check if this is an auth request.
+	if ( substr( $_SERVER['REQUEST_URI'], 0, 5 ) == '/auth' ) {
+	
+		// log the auth request
+		// $logfile = $_SERVER["DOCUMENT_ROOT"] . '/wp-content/uploads/logs/auth.log';
+		$logfile = '../logs/auth.log';
+		file_put_contents( $logfile, "\r\n" . $_SERVER['REQUEST_URI'], FILE_APPEND );
+	
+		// set session
+		$_SESSION['sf_user'] = $request;
+	
+		// log them in as 'member'
+		if ( !is_user_logged_in() ) {
+			wp_set_auth_cookie( 8, false );
+		}
+	
+		// redirect to infosight
+		wp_redirect( 'https://gowestassociation.leagueinfosight.com/admin/client/is/frontend/gowest_sso.php?' . http_build_query( $request ) );
+		exit;
+	
+	}
+	
+	// handle logout requests
+	if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
+		
+		// log the user out of wordpress as well.
+		wp_logout();
+	
+		// redirect to the homepage and exit
+		wp_redirect( 'https://members.gowest.org/secur/logout.jsp' );
+		exit;
+		
+	}
 }
 add_action( 'init', 'gowest_session_start', 1 );
 
@@ -101,8 +98,6 @@ function cal_link() {
 add_shortcode( 'cal-link', 'cal_link' );
 
 
-
-
 // only show the admin toolbar for admin users.
 add_action('after_setup_theme', 'remove_admin_bar');
 function remove_admin_bar() {
@@ -119,7 +114,7 @@ function account_buttons() {
 	global $sf_url;
 
 	// get the referer
-	$referer = 'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 
 	// if the user is logged in.
 	if ( isset( $_SESSION['sf_user'] ) || is_user_logged_in() ) {
@@ -129,7 +124,6 @@ function account_buttons() {
 	}
 
 }
-
 
 
 // membership check - boolean function, that checks to see if there were previous access roles and adds the appropriate new meta.
@@ -192,7 +186,7 @@ function do_member_error() {
 	global $sf_url;
 	
 	// set the referrer
-	$referer = 'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
 	?>
 	<div class="member-notice content-wide">
 		<?php
@@ -205,11 +199,10 @@ function do_member_error() {
 		} else {
 			$login_link = '<a href="' . $sf_url . 'redirect-with-url-params?url=' . $referer . '">log in</a>';
 			print str_replace( '[login-link]', $login_link, get_snippet( 'member-error' ) );
-			//<iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
+			// <iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
 		}
 		?> 
 	</div>
 	<?php
 }
-
 
