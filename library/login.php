@@ -37,17 +37,28 @@ if ( substr( $_SERVER['REQUEST_URI'], 0, 5 ) == '/auth' ) {
 // handle logout requests
 if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
 
-	// unset the salesforce user from session
-	unset( $_SESSION['sf_user'] );
-	
-	// log the user out of wordpress as well.
-	wp_logout();
-
 	// redirect to the homepage and exit
 	wp_redirect( 'https://members.gowest.org/secur/logout.jsp' );
 	exit;
 	
 }
+
+
+// start sessions
+function gowest_session_start() {
+    if ( !session_id() ) {
+        session_start();
+    }
+}
+add_action( 'init', 'gowest_session_start', 1 );
+
+
+// function to end the session
+function gowest_session_end() {
+    session_destroy();
+}
+add_action( 'wp_logout', 'gowest_session_end' );
+add_action( 'wp_login', 'gowest_session_end' );
 
 
 // [cal-link] shortcode handler

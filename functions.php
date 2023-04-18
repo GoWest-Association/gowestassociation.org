@@ -1,8 +1,8 @@
 <?php
 
 
-// start a session.
-session_start();
+// start a session - 4.17.2023: updated to use actions in the login.php for both session start and destroy functionality
+// session_start();
 
 
 // removing this constant will mess up any modules that add to the theme options dashboard area.
