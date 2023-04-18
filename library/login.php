@@ -192,7 +192,7 @@ function do_member_error() {
 	global $sf_url;
 	
 	// set the referrer
-	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . '?loggedin';
 	?>
 	<div class="member-notice content-wide">
 		<?php
