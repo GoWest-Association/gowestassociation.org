@@ -119,7 +119,7 @@ function account_buttons() {
 	global $sf_url;
 
 	// get the referer
-	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . "?loggedin";
+	$referer = 'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . "?loggedin";
 
 	// if the user is logged in.
 	if ( isset( $_SESSION['sf_user'] ) || is_user_logged_in() ) {
@@ -192,7 +192,7 @@ function do_member_error() {
 	global $sf_url;
 	
 	// set the referrer
-	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . '?loggedin';
+	$referer = 'https://' . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . '?loggedin';
 	?>
 	<div class="member-notice content-wide">
 		<?php
