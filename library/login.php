@@ -37,6 +37,9 @@ if ( substr( $_SERVER['REQUEST_URI'], 0, 5 ) == '/auth' ) {
 // handle logout requests
 if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
 
+	// log the user out of wordpress as well.
+	wp_logout();
+
 	// redirect to the homepage and exit
 	wp_redirect( 'https://members.gowest.org/secur/logout.jsp' );
 	exit;
