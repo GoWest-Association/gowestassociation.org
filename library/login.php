@@ -49,9 +49,9 @@ if ( substr( $_SERVER['REQUEST_URI'], 0, 7 ) == '/logout' ) {
 
 // start sessions
 function gowest_session_start() {
-    if ( !session_id() ) {
+    //if ( !session_id() ) {
         session_start();
-    }
+    //}
 }
 add_action( 'init', 'gowest_session_start', 1 );
 
