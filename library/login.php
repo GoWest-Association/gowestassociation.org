@@ -205,9 +205,7 @@ function do_member_error() {
 		} else {
 			$login_link = '<a href="' . $sf_url . 'redirect-with-url-params?url=' . $referer . '">log in</a>';
 			print str_replace( '[login-link]', $login_link, get_snippet( 'member-error' ) );
-			?>
-		<iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
-			<?php
+			//<iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
 		}
 		?> 
 	</div>
