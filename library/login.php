@@ -119,7 +119,7 @@ function account_buttons() {
 	global $sf_url;
 
 	// get the referer
-	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"];
+	$referer = ( isset( $_SERVER['HTTPS'] ) ? 'https://' : 'http://' ) . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"] . "?loggedin";
 
 	// if the user is logged in.
 	if ( isset( $_SESSION['sf_user'] ) || is_user_logged_in() ) {
