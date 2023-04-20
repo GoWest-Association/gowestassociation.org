@@ -262,7 +262,7 @@ function edit_job_form() {
 
 // when a user submits the job editor form
 if ( !is_foundation() ) {
-	add_action( 'gform_after_submission_20', 'update_job', 10, 2 );
+	add_action( 'gform_after_submission_13', 'update_job', 10, 2 );
 }
 function update_job( $entry, $form ) {
  	
@@ -291,7 +291,7 @@ function update_job( $entry, $form ) {
 		update_post_meta( $post_id, '_p_job_region', $entry[38] );
 		update_post_meta( $post_id, '_p_job_apply_email', $entry[39] );
 		update_post_meta( $post_id, '_p_job_apply_link', $entry[40] );
-		update_post_meta( $post_id, '_p_job_expires', date( 'Y-m-d', strtotime( $entry[41] ) ) );
+		update_post_meta( $post_id, '_p_job_expires', $entry[41] );
 
 	}
 
