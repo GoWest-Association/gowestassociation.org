@@ -106,7 +106,7 @@ if ( is_member() ) {
 			'">';
 			$return .= '<div class="entry-thumbnail">';
 			$return .= '<a href="' . get_the_permalink() . '">';
-			$return .= get_the_post_thumbnail( null, array( 768, 480 ) );
+			$return .= get_the_post_thumbnail();
 			$return .= '</a>';
 			$return .= '</div>';
 			$return .= '<div class="entry-inner">';
