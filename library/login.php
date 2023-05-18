@@ -17,12 +17,12 @@ function gowest_session_start() {
 	$request = parse_query_string();
 	
 	// check if this is an auth request.
-	if ( substr( $_SERVER['REQUEST_URI'], 0, 5 ) == '/auth' ) {
+	if ( substr( $_SERVER['REQUEST_URI'], 0, 5 ) == '/auth' && substr( $_SERVER['REQUEST_URI'], 0, 7 ) != '/author'  ) {
 	
 		// log the auth request
 		// $logfile = $_SERVER["DOCUMENT_ROOT"] . '/wp-content/uploads/logs/auth.log';
-		$logfile = '../logs/auth.log';
-		file_put_contents( $logfile, "\r\n" . $_SERVER['REQUEST_URI'], FILE_APPEND );
+		//$logfile = '../logs/auth.log';
+		//file_put_contents( $logfile, "\r\n" . $_SERVER['REQUEST_URI'], FILE_APPEND );
 	
 		// set session
 		$_SESSION['sf_user'] = $request;

@@ -69,6 +69,7 @@ endif;
 		<div class="article-card">
 			<a href="<?php the_permalink(); ?>" class="no-line"><?php the_post_thumbnail( array( 720, 480 ) ); ?></a>
 			<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+			<p class="post-author"><?php print get_the_date() ?></p>
 			<?php the_excerpt(); ?>
 		</div>
 			<?php

@@ -44,10 +44,12 @@ if ( !is_foundation() ) {
 			print '</div>';
 
 			if ( have_posts() ) :
-				while ( have_posts() ) : the_post(); 
+				while ( have_posts() ) : the_post();
+					$hide = get_cmb_value( 'hide-author' );
+					$hide = ( $hide == 'on' ? true : false );
 					?>
 				<h1><?php the_title(); ?></h1>
-				<p class="post-date"><?php the_date(); ?></p>
+				<p class="post-date"><?php if ( !$hide ) { ?>Posted by <?php the_author_posts_link(); ?> on <?php } the_date(); ?></p>
 				<div class="featured-image">
 					<?php the_post_thumbnail( 'full' ); ?>
 					<?php if ( has_cmb_value( 'caption' ) ) { ?><div class="caption"><?php show_cmb_value( 'caption' ) ?></div><?php } ?>

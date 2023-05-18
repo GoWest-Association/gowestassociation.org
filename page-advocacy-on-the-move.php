@@ -8,7 +8,7 @@ set_brand( 'association' );
 
 get_header();
 
-
+/*
 if ( show_title() ) {
 	?>
 <div class="page-title">
@@ -17,7 +17,12 @@ if ( show_title() ) {
 	<?php
 }
 
-print '<a href="#subscribe" class="btn green aotm-updates">Get Updates</a>';
+print '<a href="/mailing-lists/" class="btn green aotm-updates">Get Updates</a>';
+*/
+
+?>
+<a href="/mailing-lists/"><img src="<?php bloginfo("template_url") ?>/img/onthemove.svg" class="on-the-move-header" /></a>
+<?php
 
 if ( is_member() ) {
 
@@ -60,7 +65,7 @@ if ( is_member() ) {
 	?>
 	<div class="page-articles">
 		<div class="filtering-header">
-			<h2 class="filtering-title">On The Move</h2>
+			<!--<h2 class="filtering-title">On The Move</h2>-->
 			<div class="filtering">
 				<label><input type="checkbox" name="arizona" value="Arizona" class="arizona-filter" /> AZ</label>
 				<label><input type="checkbox" name="colorado" value="Colorado" class="colorado-filter" /> CO</label>
@@ -111,6 +116,7 @@ if ( is_member() ) {
 			$return .= '</div>';
 			$return .= '<div class="entry-inner">';
 			$return .= '<h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
+			$return .= '<p class="post-author">' . get_the_date() . '</p>';
 			$return .= wpautop( get_the_excerpt() );
 			$return .= '</div>';
 			$return .= '</div>';
