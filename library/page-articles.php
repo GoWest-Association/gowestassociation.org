@@ -46,6 +46,7 @@ function articles_shortcode( $atts ) {
             $return .= '</div>';
             $return .= '<div class="entry-inner">';
             $return .= '<h4><a href="' . get_the_permalink() . '">' . get_the_title() . '</a></h4>';
+			$return .= '<p class="post-author">' . get_the_date() . '</p>';
             $return .= wpautop( get_the_excerpt() );
             $return .= '</div>';
             $return .= '</div>';
