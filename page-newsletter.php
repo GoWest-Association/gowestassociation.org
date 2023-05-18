@@ -28,6 +28,7 @@ the_showcase();
 						<?php
 						print '<a href="' . get_the_permalink( $a_post ) . '" class="no-line">' . get_the_post_thumbnail( $a_post->ID ) . '</a>';
 						print '<h4><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></h4>';
+						print '<p class="post-author">' . get_the_date() . '</p>';
 						print '<p>' . get_the_excerpt( $a_post ) . '</p>';
 						?>
 					</div>
