@@ -14,7 +14,7 @@
     <link rel="pingback" href="https://gowestassociation.org/xmlrpc.php" />
 
     <meta name='robots' content='noindex, nofollow' />
-    <link href="https://gowestassociation.org/wp-content/themes/gowest/css/main.css?v=74" rel="stylesheet"
+    <link href="https://gowestassociation.org/wp-content/themes/gowest/css/main.css?v=75" rel="stylesheet"
         type="text/css">
 
 </head>
