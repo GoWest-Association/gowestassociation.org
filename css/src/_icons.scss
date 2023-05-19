@@ -114,7 +114,7 @@
 		}
 	}
 
-	&.size {
+	&.six {
 		@include respond-to( $bp-l ) {
 			.icon {
 				flex-basis: 14.6666%;
