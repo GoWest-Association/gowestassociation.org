@@ -21,7 +21,7 @@ print '<a href="/mailing-lists/" class="btn green aotm-updates">Get Updates</a>'
 */
 
 ?>
-<a href="/mailing-lists/"><img src="<?php bloginfo("template_url") ?>/img/onthemove.svg" class="on-the-move-header" /></a>
+<a href="/mailing-lists/"><img src="<?php bloginfo("template_url") ?>/img/onthemove.svg?v=1" class="on-the-move-header" /></a>
 <?php
 
 if ( is_member() ) {
