@@ -60,7 +60,6 @@ function notice_metabox( $meta_boxes ) {
         'options' => $colors
     ) );
 
-
 }
 add_filter( 'cmb2_init', 'notice_metabox' );
 
