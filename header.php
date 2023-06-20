@@ -48,7 +48,7 @@ gtag('config', 'G-J4GTY9QELN');
 <?php if ( function_exists( 'gowest_association_bar' ) ) { gowest_association_bar(); } ?>
 <header>
 
-	<?php if ( is_newsletter() ) { ?>
+	<?php if ( is_newsletter() && !is_foundation() ) { ?>
 	<div class="logo left">
 		<a href="/onthego" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php bloginfo( "template_url" ) ?>/img/logo-newsletter.png" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
