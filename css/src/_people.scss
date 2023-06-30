@@ -69,8 +69,8 @@
 
 	.person-entry {
 		display: flex;
-		align-items: center;
-		justify-content: center;
+		// align-items: center;
+		// justify-content: center;
 		padding: 10px 0;
 
 		.person-thumbnail {
@@ -92,10 +92,14 @@
 			p {
 				padding: 0;
 				font-size: .9em;
+
+				&.person-bio {
+					padding: 10px 0;
+				}
 			}
 
-			.person-excerpt, .person-bio-link {
-				display: none;
+			.person-link {
+				margin-top: 8px;
 			}
 
 			.person-title {
@@ -335,7 +339,7 @@
 
 			p {
 				padding: 3px 0;
-				color: $grey;
+				color: darken( $grey, 25% );
 
 				&.person-social {
 					padding: 15px 0;

@@ -78,7 +78,7 @@ if ( is_member() ) {
 			</div>
 		</div>
 	<?php
-			
+	
 	$args = array(
 		'tax_query' => array(
 			array(
