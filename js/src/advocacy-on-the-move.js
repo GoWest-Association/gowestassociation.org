@@ -60,5 +60,12 @@ jQuery(document).ready(function($){
 	$('.category-select').on( 'change', function(){
 		location.href = '/category/' + $(this).val();
 	});
+
+	setTimeout( function(){
+		if ( $('body').hasClass( 'aotm-refresh-onload' ) ) {
+			do_filtering();
+		}
+	}, 500 )
+
 });
 

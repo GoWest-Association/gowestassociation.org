@@ -3,6 +3,22 @@
 /*
 Template Name: Advocacy on the Move
 */
+$request = parse_query_string();
+if ( isset( $request['state'] ) ) {
+	add_filter( 'body_class', function( $classes ) {
+		return array_merge( $classes, array( 'aotm-refresh-onload' ) );
+	} );
+}
+
+function state_selected( $state = '' ) {
+	$request = parse_query_string();
+	if ( !empty( $state ) ) {
+		if ( stristr( $request['state'], $state ) ) {
+			print 'checked="checked"';
+		}
+	}
+}
+
 
 set_brand( 'association' );
 
@@ -67,14 +83,14 @@ if ( is_member() ) {
 		<div class="filtering-header">
 			<!--<h2 class="filtering-title">On The Move</h2>-->
 			<div class="filtering">
-				<label><input type="checkbox" name="arizona" value="Arizona" class="arizona-filter" /> AZ</label>
-				<label><input type="checkbox" name="colorado" value="Colorado" class="colorado-filter" /> CO</label>
-				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" /> ID</label>
-				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" /> OR</label>
-				<label><input type="checkbox" name="washington" value="Washington" class="washington-filter" /> WA</label>
-				<label><input type="checkbox" name="wyoming" value="Wyoming" class="wyoming-filter" /> WY</label>
-				<label><input type="checkbox" name="federal" value="Federal" class="federal-filter" /> Federal</label>
-				<label><input type="checkbox" name="regulatory" value="Regulatory" class="regulatory-filter" /> Regulatory</label>
+				<label><input type="checkbox" name="arizona" value="Arizona" class="arizona-filter" <?php state_selected( 'AZ' ); ?> /> AZ</label>
+				<label><input type="checkbox" name="colorado" value="Colorado" class="colorado-filter" <?php state_selected( 'CO' ); ?> /> CO</label>
+				<label><input type="checkbox" name="idaho" value="Idaho" class="idaho-filter" <?php state_selected( 'ID' ); ?> /> ID</label>
+				<label><input type="checkbox" name="oregon" value="Oregon" class="oregon-filter" <?php state_selected( 'OR' ); ?> /> OR</label>
+				<label><input type="checkbox" name="washington" value="Washington" class="washington-filter" <?php state_selected( 'WA' ); ?> /> WA</label>
+				<label><input type="checkbox" name="wyoming" value="Wyoming" class="wyoming-filter" <?php state_selected( 'WY' ); ?> /> WY</label>
+				<label><input type="checkbox" name="federal" value="Federal" class="federal-filter" <?php state_selected( 'FED' ); ?> /> Federal</label>
+				<label><input type="checkbox" name="regulatory" value="Regulatory" class="regulatory-filter" <?php state_selected( 'REG' ); ?> /> Regulatory</label>
 			</div>
 		</div>
 	<?php
