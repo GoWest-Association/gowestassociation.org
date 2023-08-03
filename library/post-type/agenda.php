@@ -62,13 +62,14 @@ function agenda_metaboxes() {
     // area of interest information
     $agenda_metabox = new_cmb2_box( array(
         'id' => 'agenda',
-        'title' => 'Agenda',
+        'title' => 'Agenda (Legacy)',
         'object_types' => array( 'agenda', 'event', 'page' ), // Post type
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left
     ) );
 
+	/*
 	$agenda_metabox->add_field( array(
         'name' => 'Timezone',
         'id'   => 'agenda-timezone',
@@ -89,6 +90,14 @@ function agenda_metaboxes() {
 		),
 		'default' => 'normal'
     ) );
+    
+	$agenda_metabox->add_field( array(
+        'name' => 'Show Heading',
+        'id'   => 'agenda-heading',
+        'type' => 'checkbox',
+		'default' => 'on'
+    ) );
+	*/
     
     $agenda_metabox_group = $agenda_metabox->add_field( array(
         'id' => 'agenda',
@@ -125,11 +134,26 @@ function agenda_metaboxes() {
 }
 
 
+// shorten the wysiwygs in this section
+add_action('admin_head', 'admin_styles');
+function admin_styles() {
+    if( get_post_type() == "agenda" ) {
+	?>
+	<style>
+		.acf-editor-wrap iframe {
+			height: 120px !important;
+			min-height: 120px;
+		}
+	</style>
+	<?php
+	}
+}
+
+
 // output the agenda for the current post/page/event
 function the_agenda() {
 	print do_shortcode( '[agenda id="' . get_the_ID() . '" ]' );
 }
-
 
 
 // add a people shortcode
@@ -167,29 +191,59 @@ function agenda_shortcode( $atts ) {
 		}
 
 	    // get the agenda items
-	    $agenda_timezone = get_post_meta( $agenda->ID, 'agenda-timezone', 1 );
-	    $agenda_style = get_post_meta( $agenda->ID, 'agenda-style', 1 );
+	    $agenda_timezone = get_field( 'agenda-timezone', $agenda->ID );
+	    $agenda_style = get_field( 'agenda-style', $agenda->ID );
+	    $agenda_heading = get_field( 'agenda-heading', $agenda->ID );
+
+		// get legacy values
 	    $agenda_items = get_post_meta( $agenda->ID, 'agenda', 1 );
 
 	    // empty content in case we don't have agenda items
 	    $agenda_content = '<div class="agenda-container' . ( !empty( $agenda_style ) ? ' ' . $agenda_style : '' ) . '">';
 
 	    // make sure we have agenda items
-	    if ( !empty( $agenda_items ) ) {
+	    if ( !empty( $agenda_items ) || have_rows('item', $agenda->ID ) ) {
 
 			$agenda_content .= '<div class="agenda-timezone">All times listed are <strong>' . ( $agenda_timezone == 'pt' ? 'Pacific' : 'Mountain' ) . '</strong>.</div>';
 
 		    // start generating the agenda code
 		    $agenda_content .= '<section class="agenda">';
 
-		    // loop through and include each agenda item
-		    foreach ( $agenda_items as $item ) {
-				$datetime = get_ap_month( date( 'n', $item['time'] ) ) . ' ' .date( 'j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) );
-		    	$agenda_content .='<div class="agenda-item">' . 
-					'<div class="time"><strong>' . $datetime . '</strong></div>' .
-					'<div class="location">' . ( isset( $item['location'] ) ? $item['location'] : '' ) . '</div>' .
-					'<div class="content">' . apply_filters( 'the_content', $item['content'] ) . '</div>' .
+			// if we're supposed to display the headers, do so
+			if ( $agenda_heading ) {
+				$agenda_content .='<div class="agenda-item agenda-heading">' . 
+					'<div class="time">Date/Time</div>' .
+					'<div class="location">Room Name</div>' .
+					'<div class="content">Session Description/Speaker</div>' .
 				'</div>';
+			}
+
+			// get and display the acf items
+			if ( have_rows('item') ):
+				while ( have_rows('item') ) : the_row();
+					$time = get_sub_field( 'time' );
+					$time = strtotime( $time );
+					$datetime = get_ap_month( date( 'n', $time ) ) . ' ' .date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+					$agenda_content .='<div class="agenda-item">' . 
+						'<div class="time"><strong>' . $datetime . '</strong></div>' .
+						'<div class="location">' . get_sub_field( 'location' ) . '</div>' .
+						'<div class="content">' . get_sub_field( 'content' ) . '</div>' .
+					'</div>';
+				endwhile;
+			else :
+				// no rows found
+			endif;
+
+			// loop through and display the legacy items
+			if ( !empty( $agenda_items ) ) {
+				foreach ( $agenda_items as $item ) {
+					$datetime = get_ap_month( date( 'n', $item['time'] ) ) . ' ' .date( 'j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) );
+					$agenda_content .='<div class="agenda-item">' . 
+						'<div class="time"><strong>' . $datetime . '</strong></div>' .
+						'<div class="location">' . ( isset( $item['location'] ) ? $item['location'] : '' ) . '</div>' .
+						'<div class="content">' . apply_filters( 'the_content', $item['content'] ) . '</div>' .
+					'</div>';
+				}
 			}
 
 			// close the agenda div
