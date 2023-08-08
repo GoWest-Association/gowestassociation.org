@@ -202,7 +202,7 @@ function agenda_shortcode( $atts ) {
 	    $agenda_content = '<div class="agenda-container' . ( !empty( $agenda_style ) ? ' ' . $agenda_style : '' ) . '">';
 
 	    // make sure we have agenda items
-	    if ( !empty( $agenda_items ) || have_rows('item', $agenda->ID ) ) {
+	    if ( !empty( $agenda_items ) || have_rows( 'item', $agenda->ID ) ) {
 
 			$agenda_content .= '<div class="agenda-timezone">All times listed are <strong>' . ( $agenda_timezone == 'pt' ? 'Pacific' : 'Mountain' ) . '</strong>.</div>';
 
@@ -219,8 +219,8 @@ function agenda_shortcode( $atts ) {
 			}
 
 			// get and display the acf items
-			if ( have_rows('item') ):
-				while ( have_rows('item') ) : the_row();
+			if ( have_rows('item', $agenda->ID) ):
+				while ( have_rows('item', $agenda->ID) ) : the_row();
 					$time = get_sub_field( 'time' );
 					$time = strtotime( $time );
 					$datetime = get_ap_month( date( 'n', $time ) ) . ' ' .date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
