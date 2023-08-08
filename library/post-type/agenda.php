@@ -221,14 +221,23 @@ function agenda_shortcode( $atts ) {
 			// get and display the acf items
 			if ( have_rows('item', $agenda->ID) ):
 				while ( have_rows('item', $agenda->ID) ) : the_row();
-					$time = get_sub_field( 'time' );
-					$time = strtotime( $time );
-					$datetime = get_ap_month( date( 'n', $time ) ) . ' ' .date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+
+					// get start time
+					$time_start = get_sub_field( 'time' );
+					$time_start = strtotime( $time_start );
+
+					// get end time
+					$time_end = get_sub_field( 'time_end' );
+					$time_end = strtotime( $time_end );
+
+					// compile displayed datetime
+					$datetime = get_agenda_time( $time_start, $time_end );
 					$agenda_content .='<div class="agenda-item">' . 
 						'<div class="time"><strong>' . $datetime . '</strong></div>' .
 						'<div class="location">' . get_sub_field( 'location' ) . '</div>' .
 						'<div class="content">' . get_sub_field( 'content' ) . '</div>' .
 					'</div>';
+
 				endwhile;
 			else :
 				// no rows found
@@ -276,5 +285,23 @@ function get_ap_month( $m ) {
 		12 => 'Dec.',
 	);
 	return $months[$m];
+}
+
+
+// a handy function to display a timerange logically
+function get_agenda_time( $time_start, $time_end = '' ) {
+
+	// get start date and time as strings
+	$start_date = get_ap_month( date( 'n', $time_start ) ) . ' ' . date( 'j', $time_start );
+	$start_time = ( !stristr( date( 'g:ia', $time_start ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time_start ) ) );
+
+	if ( !empty( $time_end ) ) {
+		// get end date and time as strings
+		$end_date = get_ap_month( date( 'n', $time_end ) ) . ' ' . date( 'j', $time_end );
+		$end_time = ( !stristr( date( 'g:ia', $time_end ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time_end ) ) );
+	}
+
+	// return a complete string, eliminating month and date from end time if it's the same as the start
+	return $start_date . ' ' . $start_time . ( !empty( $time_end ) ? ' - ' . ( $start_date != $end_date ? '<br>' . $end_date . ' : ' : ' ' ) . ' ' . $end_time : '' );
 }
 
