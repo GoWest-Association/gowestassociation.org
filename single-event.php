@@ -215,8 +215,9 @@ the_testimonials();
 
 the_agenda();
 
-the_link_boxes();
+the_page_articles();
 
+the_link_boxes();
 
 // output the registration button if there's a registration link.
 if ( has_cmb_value( 'event_registration' ) ) {
