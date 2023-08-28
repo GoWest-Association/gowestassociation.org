@@ -217,45 +217,49 @@ the_testimonials();
 		
 			the_content();
 
-			// output datetime
-			$time = strtotime( get_field( '_p_event_start', get_the_ID() ) );
-			$time_end = strtotime( get_field( '_p_event_end', get_the_ID() ) );
-			$datetime = date( 'F', $time ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
-			$datetime_end = date( 'F', $time_end ) . ' ' . date( 'j', $time_end ) . ( !stristr( date( 'g:ia', $time_end ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time_end ) ) );
-			print "<hr><h4>Event Date / Time</h4>";
-			print '<p>' . $datetime . ' - ' . $datetime_end . '</p>';
+			// show the event info if they have the 'hide on page' feature unchecked.
+			if ( !get_field( 'hide_info_on_page' ) ) {
+				// output datetime
+				$time = strtotime( get_field( '_p_event_start', get_the_ID() ) );
+				$time_end = strtotime( get_field( '_p_event_end', get_the_ID() ) );
+				$datetime = date( 'F', $time ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+				$datetime_end = date( 'F', $time_end ) . ' ' . date( 'j', $time_end ) . ( !stristr( date( 'g:ia', $time_end ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time_end ) ) );
+				print "<hr><h4>Event Date / Time</h4>";
+				print '<p>' . $datetime . ' - ' . $datetime_end . '</p>';
 
-			// the call to action intro
-			if ( has_cmb_value( 'event_location_text' ) ) {		
-				print '<hr><h4>Room Name / Location</h4>';
-				print '<div class="location">';
-				print apply_filters( 'the_content', get_cmb_value( 'event_location_text') );
-				print '</div>';
-			}
-
-			// put together the people
-			$people = get_field( 'people' );
-			$people_content = '';
-			if ( !empty( $people ) ) {
-				foreach ( $people as $person ) {
-					$person_info = get_post( $person );
-					$person_thumbnail = get_the_post_thumbnail_url( $person_info );
-					$people_content .= '<div class="person">' . 
-						( !empty( $person_thumbnail ) ? '<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' : '' ) .
-						'<div class="person-info"><strong>' . $person_info->post_title . '</strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
-					'</div>';
+				// the call to action intro
+				if ( has_cmb_value( 'event_location_text' ) ) {		
+					print '<hr><h4>Room Name / Location</h4>';
+					print '<div class="location">';
+					print apply_filters( 'the_content', get_cmb_value( 'event_location_text') );
+					print '</div>';
 				}
-				print '<hr><h4>Speakers</h4><div class="event-people">' . $people_content . '</div>';
+
+				// put together the people
+				$people = get_field( 'people' );
+				$people_content = '';
+				if ( !empty( $people ) ) {
+					foreach ( $people as $person ) {
+						$person_info = get_post( $person );
+						$person_thumbnail = get_the_post_thumbnail_url( $person_info );
+						$people_content .= '<div class="person">' . 
+							( !empty( $person_thumbnail ) ? '<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' : '' ) .
+							'<div class="person-info"><strong>' . $person_info->post_title . '</strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
+						'</div>';
+					}
+					print '<hr><h4>Speakers</h4><div class="event-people">' . $people_content . '</div>';
+				}
+
+				// put together the sponsors
+				$sponsor_content = '';
+				if ( have_rows( 'sponsors' ) ) {
+					while ( have_rows( 'sponsors' ) ) : the_row();
+						$sponsor_content .= '<div class="sponsor"><img src="' . get_sub_field( 'logo' ) . '" alt="' . get_sub_field( 'name' ) . '" /></div>';
+					endwhile;
+					print '<hr><h4>Sponsors</h4><div class="event-sponsors">' . $sponsor_content . '</div>';
+				}
 			}
 
-			// put together the sponsors
-			$sponsor_content = '';
-			if ( have_rows( 'sponsors' ) ) {
-				while ( have_rows( 'sponsors' ) ) : the_row();
-					$sponsor_content .= '<div class="sponsor"><img src="' . get_sub_field( 'logo' ) . '" alt="' . get_sub_field( 'name' ) . '" /></div>';
-				endwhile;
-				print '<hr><h4>Sponsors</h4><div class="event-sponsors">' . $sponsor_content . '</div>';
-			}
 
 		endwhile;
 	endif;
