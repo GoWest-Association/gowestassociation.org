@@ -1,6 +1,6 @@
 
 
-.event {
+.single-event {
 	.event-header {
 		@include respond-to( 600px ) {
 			display: flex;
@@ -48,6 +48,51 @@
 			}
 		}
 	}
+
+	.event-sponsors {
+		display: flex;
+		align-items: center;
+		vertical-align: middle;
+
+		.sponsor {
+			flex: 1;
+			flex-grow: 0;
+			text-align: center;
+			padding: 0 20px 0 0;
+
+			img {
+				max-width: 150px;
+				filter: grayscale(100%);
+				opacity: .6;
+			}
+		}
+	}
+
+	.event-people {
+		padding: 10px 0;
+
+		.person {
+			display: flex;
+			align-items: center;
+			vertical-align: middle;
+			padding-bottom: 5px;
+
+			.person-thumbnail, .person-info {
+				flex: 1;
+			}
+
+			.person-thumbnail {
+				padding: 0 15px 5px 0;
+				max-width: 70px;
+
+				img {
+					display: block;
+				}
+			}
+		}
+	}
+
+
 }
 
 
@@ -190,6 +235,7 @@
 		font-size: 2.2em;
 	}
 }
+
 
 .calendar-container {
 	@include clearfix;

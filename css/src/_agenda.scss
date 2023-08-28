@@ -12,6 +12,23 @@
 		margin-top: -30px;
 	}
 }
+	
+.agenda-day-header {
+	background: $navy;
+	color: white;
+	padding: 20px 30px;
+	
+	@include respond-to( $bp-m ) { margin: 0; padding: 20px 40px; }
+	@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
+	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
+
+	.content-wide & {
+		margin: 20px -30px 0;
+		@include respond-to( $bp-m ) { margin: 20px -40px 0; }
+		@include respond-to( $bp-l ) { margin: 25px -50px 0; }
+		@include respond-to( $bp-xl ) { margin: 25px -60px 0; }
+	}	
+}
 
 .agenda {
 	background: $grey-light;
@@ -21,12 +38,12 @@
 	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
 
 	.content-wide & {
-		margin: 20px -30px;
-		@include respond-to( $bp-m ) { margin: 20px -40px; }
-		@include respond-to( $bp-l ) { margin: 45px -50px; }
-		@include respond-to( $bp-xl ) { margin: 30px -60px; }
+		margin: 0 -30px 20px;
+		@include respond-to( $bp-m ) { margin: 0 -40px 30px; }
+		@include respond-to( $bp-l ) { margin: 0 -50px 35px; }
+		@include respond-to( $bp-xl ) { margin: 0 -60px 35px; }
 	}
-
+	
 	.agenda-item {
 		display: flex;
 		flex-wrap: wrap;
@@ -63,12 +80,66 @@
 			padding-right: 10px;
 		}
 
+		.location {
+			p {
+				padding: 0;
+			}
+		}
+
 		.content {
 			flex-basis: 100%;
 			line-height: 1.5em;
 
 			p {
 				padding: 0 0 15px;
+			}
+
+			.people {
+				padding: 10px 0;
+			}
+
+			.person {
+				display: flex;
+				align-items: center;
+				vertical-align: middle;
+
+				.person-thumbnail, .person-info {
+					flex: 1;
+				}
+
+				.person-thumbnail {
+					padding: 0 15px 5px 0;
+					max-width: 70px;
+
+					img {
+						display: block;
+					}
+				}
+			}
+
+			.sponsors {
+
+				@include respond-to( 500px ) {
+					display: flex;
+				}
+				align-items: center;
+				vertical-align: middle;
+
+				.sponsor {
+					@include respond-to( 500px ) {
+						flex: 1;
+					}
+					
+					flex-grow: 0;
+					text-align: center;
+					padding: 0 10px 0 0;
+
+					img {
+						max-width: 100px;
+						filter: grayscale(100%);
+						opacity: .6;
+					}
+				}
 			}
 		}
 

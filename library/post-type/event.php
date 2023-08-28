@@ -312,7 +312,7 @@ function event_metaboxes( $meta_boxes ) {
     ) );
 
 }
-add_filter( 'cmb2_admin_init', 'event_metaboxes' );
+//add_filter( 'cmb2_admin_init', 'event_metaboxes' );
 
 
 // the rewrite rules for event pages
@@ -420,6 +420,30 @@ add_shortcode( 'event-registration-button', 'get_registration_button' );
 // get the events for a given month
 function get_month_events( $m, $y, $category='all' ) {
 
+	$args = array(
+		'meta_query' => array(
+			'relation' => 'OR',
+			array(
+				array(
+					'key' => '_p_event_start',
+					'value' => $y . '-' . str_pad( $m, 2, '0', STR_PAD_LEFT ),
+					'compare' => 'LIKE'
+				),
+				array(
+					'key' => '_p_event_end',
+					'value' => $y . '-' . str_pad( $m, 2, '0', STR_PAD_LEFT ),
+					'compare' => 'LIKE'
+				)
+			)
+		),
+		'post_type' => 'event',
+		'orderby' => 'meta_value',
+		'order' => 'ASC',
+		'meta_key' => '_p_event_start',
+		'posts_per_page' => 100
+	);
+
+	/*
 	$timestamp_start = mktime( 0, 0, 0, $m, 1, $y );
 	$timestamp_end = mktime( 23, 59, 59, $m, date( 't', $timestamp_start ), $y );
 	$timestamp_today = time();
@@ -460,6 +484,7 @@ function get_month_events( $m, $y, $category='all' ) {
 		'meta_key' => '_p_event_start',
 		'posts_per_page' => 100
 	);
+	*/
 
 	if ( $category != 'all' ) {
 		$args[ 'event_cat' ] = $category;
@@ -498,19 +523,18 @@ function get_month_events( $m, $y, $category='all' ) {
 // get upcoming events based on optional category
 function get_upcoming_events( $limit, $category = 0 ) {
 
-	$timestamp_start = mktime( 0, 0, 0 );
+	$timestamp_start = date( 'Y-m-d', mktime( 0, 0, 0 ) );
 
 	$args = array(
 		'meta_query' => array(
-			'relation' => 'AND',
 			array(
 				'key' => '_p_event_start',
 				'value' => $timestamp_start,
-				'compare' => '>='
+				'compare' => '>=',
 			)
 		),
 		'post_type' => 'event',
-		'orderby' => 'meta_value_num',
+		'orderby' => 'meta_value',
 		'meta_key' => '_p_event_start',
 		'order' => 'ASC',
 		'posts_per_page' => $limit
@@ -535,18 +559,7 @@ function get_upcoming_events( $limit, $category = 0 ) {
 				)
 			);
 		}
-	} /*
-	else {
-		$args['tax_query'] = array(
-			array(
-				'taxonomy' => 'event_cat',
-				'field'    => 'slug',
-				'terms'    => 'exclude',
-				'operator' => 'NOT IN',
-			),
-		);
 	}
-	*/
 
 	$event_query = new WP_Query( $args );
 	$events = $event_query->get_posts();
@@ -769,11 +782,11 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		$events_list = '';
 		if ( !empty( $events ) ) {
 			foreach ( $events as $event ) {
-				$show_times = ( date( "g:ia", $event->_p_event_start ) != '12:00am' ? true : false );
-				$same_day = ( date( "FjY", $event->_p_event_start ) == date( "FjY", $event->_p_event_end ) ? true : false );
-				$start_time = ( $show_times ? date( "F jS g:i a", $event->_p_event_start ) : date( "F jS", $event->_p_event_start ) );
-				$end_time = ( $same_day ? ( $show_times ? date( "g:i a", $event->_p_event_end ) : '' ) : ( $show_times ? date( "F jS g:i a", $event->_p_event_end ) : date( "F jS", $event->_p_event_end ) ));
-				$events_list .= "<div class='event' data-day='" . date( 'n', $event->_p_event_start ) . "-" . date( 'j', $event->_p_event_start ) . "'>
+				$show_times = ( date( "g:ia", strtotime( $event->_p_event_start ) ) != '12:00am' ? true : false );
+				$same_day = ( date( "FjY", strtotime( $event->_p_event_start ) ) == date( "FjY", strtotime( $event->_p_event_end ) ) ? true : false );
+				$start_time = ( $show_times ? date( "F jS g:i a", strtotime( $event->_p_event_start ) ) : date( "F jS", strtotime( $event->_p_event_start ) ) );
+				$end_time = ( $same_day ? ( $show_times ? date( "g:i a", strtotime( $event->_p_event_end ) ) : '' ) : ( $show_times ? date( "F jS g:i a", strtotime( $event->_p_event_end ) ) : date( "F jS", strtotime( $event->_p_event_end ) ) ));
+				$events_list .= "<div class='event' data-day='" . date( 'n', strtotime( $event->_p_event_start ) ) . "-" . date( 'j', strtotime( $event->_p_event_start ) ) . "'>
 					<div class='event-title'>" . ( $event->_p_event_nolink == 'on' ? "" : "<a href=\"" . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . "\" target='_blank'>" ) . $event->post_title . ( $event->_p_event_nolink == 'on' ? "" : "</a>" ) . "</div>
 					<div class='event-time'>" . $start_time . ( !$same_day ? " - " . $end_time : '' ) . "</div>
 					<div class='event-description'>" . $event->post_excerpt . "</div>
@@ -858,8 +871,7 @@ function edit_event_columns( $columns ) {
 	$columns = array(
 		'cb' => '<input type="checkbox" />',
 		'title' => __( 'Event' ),
-		'start' => __( 'Starts' ),
-		'end' => __( 'Ends' ),
+		'start' => __( 'Date' ),
 		'category' => __( 'Category' ),
 	);
 
@@ -913,28 +925,16 @@ function manage_event_columns( $column, $post_id ) {
 			$start = get_post_meta( $post_id, '_p_event_start', true );
 
 			/* If no duration is found, output a default message. */
-			if ( empty( $start ) )
+			if ( empty( $start ) ) {
 				echo __( '-' );
 
-			/* If there is a duration, append 'minutes' to the text string. */
-			else
+			} else if ( is_numeric( $start ) ) {
 				printf( date( 'n/j/Y @ g:ia', $start ) );
-
-			break;
-
-		/* If displaying the 'duration' column. */
-		case 'end' :
-
-			/* Get the post meta. */
-			$end = get_post_meta( $post_id, '_p_event_end', true );
-
-			/* If no duration is found, output a default message. */
-			if ( empty( $end ) )
-				echo __( '-' );
-
+			
 			/* If there is a duration, append 'minutes' to the text string. */
-			else
-				printf( date( 'n/j/Y @ g:ia', $end) );
+			} else {
+				printf( date( 'n/j/Y @ g:ia', strtotime( $start ) ) );
+			}
 
 			break;
 
@@ -1004,8 +1004,8 @@ function events_shortcode( $event_atts ) {
 
 			$list .= '<div class="event' . ( $num == 0 ? ' first' : '' ) . '">';
 			$list .= '<div class="event-date">';
-				$list .= '<span class="event-date-month">' . date( 'M', $event->_p_event_start ) . '</span>';
-				$list .= '<span class="event-date-day">' . date( 'j', $event->_p_event_start ) . '</span>';
+				$list .= '<span class="event-date-month">' . date( 'M', strtotime( $event->_p_event_start ) ) . '</span>';
+				$list .= '<span class="event-date-day">' . date( 'j', strtotime( $event->_p_event_start ) ) . '</span>';
 			$list .= '</div>';
 			$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
 			$list .= '<div class="event-excerpt">' . $excerpt . '</div>';
@@ -1019,6 +1019,156 @@ function events_shortcode( $event_atts ) {
 
 }
 add_shortcode( 'events', 'events_shortcode' );
+
+
+// add a people shortcode
+function event_agenda_shortcode( $atts ) {
+
+	// set default params and override with those in shortcode
+	extract( shortcode_atts( array(
+		'category' => '',
+		'show_title' => 0,
+		'style' => ''
+	), $atts ));
+
+	// if we have a slug
+	if ( !empty( $category ) ) {
+		
+		// get the agenda posts matching the slug
+		$agenda_events = get_posts( array(
+			'posts_per_page' => -1,
+			'post_type' => 'event',
+			'post_status' => 'publish',
+			'tax_query' => array(
+				array(
+					'taxonomy' => 'event_cat',
+					'field' => 'slug',
+					'terms' => $category
+				),
+			),
+			'orderby' => 'meta_value',
+			'meta_key' => '_p_event_start',
+			'order' => 'ASC'
+		) );
+			
+		// if we're displaying by day
+		if ( $style == 'group-days' ) {
+			$day_stepper = 0;
+		}
+
+	    // make sure we have agenda items
+	    if ( !empty( $agenda_events ) ) {
+
+			// if we don't have a current day
+			if ( !isset( $current_day ) ) {
+				$current_day = date( 'F j, Y', strtotime( get_field( '_p_event_start', $agenda_events[0]->ID ) ) );
+			}
+
+			$agenda_content = '';
+
+			// show header if we're grouping by days
+			if ( $style == 'group-days' ) $agenda_content .= '<h3 class="agenda-day-header">' . $current_day . '</h3>';
+
+			// empty content in case we don't have agenda items
+			$agenda_content .= '<div class="agenda-container' . ( !empty( $agenda_style ) ? ' ' . $agenda_style : '' ) . '">';
+
+			// start generating the agenda code
+			$agenda_content .= '<section class="agenda">';
+
+			// if we're supposed to display the headers, do so
+			$agenda_content .='<div class="agenda-item agenda-heading">' . 
+				'<div class="time">' . ( $style == 'group-days' ? 'Time' : 'Date/Time' ) . '</div>' .
+				'<div class="location">Room Name</div>' .
+				'<div class="content">Session Information</div>' .
+			'</div>';
+
+			foreach ( $agenda_events as $item ) {
+
+				// get the time, location, and description
+				$time = strtotime( get_field( '_p_event_start', $item->ID ) );
+				$time_end = strtotime( get_field( '_p_event_end', $item->ID ) );
+				$location = get_field( '_p_event_location_text', $item->ID );
+				$description = apply_filters( 'the_content', $item->post_excerpt );
+
+				// if we're grouping by days
+				if ( $style == 'group-days' && $current_day != date( 'F j, Y', $time ) ) {
+
+					// set the current day
+					$current_day = date( 'F j, Y', $time );
+
+					// close the previous days agenda div
+					$agenda_content .= '</section></div>';
+
+					$agenda_content .= '<h3 class="agenda-day-header">' . $current_day . '</h3>';
+
+					// empty content in case we don't have agenda items
+					$agenda_content .= '<div class="agenda-container' . ( !empty( $agenda_style ) ? ' ' . $agenda_style : '' ) . '">';
+	
+					// start generating the agenda code
+					$agenda_content .= '<section class="agenda">';
+	
+					// if we're supposed to display the headers, do so
+					$agenda_content .='<div class="agenda-item agenda-heading">' . 
+						'<div class="time">' . ( $style == 'group-days' ? 'Time' : 'Date/Time' ) . '</div>' .
+						'<div class="location">Room Name</div>' .
+						'<div class="content">Session Information</div>' .
+					'</div>';
+
+				}
+
+				// put together the people
+				$people = get_field( 'people', $item->ID );
+				$people_content = '';
+				if ( !empty( $people ) ) {
+					foreach ( $people as $person ) {
+						$person_info = get_post( $person );
+						$people_content .= '<div class="person">' . 
+							'<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' .
+							'<div class="person-info"><strong>' . $person_info->post_title . '</strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
+						'</div>';
+					}
+				}
+
+				// put together the sponsors
+				$sponsor_content = '';
+				if ( have_rows( 'sponsors', $item->ID  ) ) {
+					while ( have_rows( 'sponsors', $item->ID ) ) : the_row();
+						$sponsor_content .= '<div class="sponsor"><img src="' . get_sub_field( 'logo' ) . '" alt="' . get_sub_field( 'name' ) . '" /></div>';
+					endwhile;
+				}
+				
+				// get the date/time to list in agenda table
+				if ( $style == 'group-days' ) {
+					$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) );
+				} else {
+					$datetime = get_ap_month( date( 'n', $time ) ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+				}
+
+				// create agenda item
+				$agenda_content .='<div class="agenda-item">' . 
+					'<div class="time"><strong>' . $datetime . '</strong></div>' .
+					'<div class="location">' . $location . '</div>' .
+					'<div class="content">' . 
+					'<strong><a href="' . get_permalink( $item ) . '">' . $item->post_title . '</a></strong>' .
+					( !empty( $people_content ) ? '<div class="people">' . $people_content . '</div>' : '' ). 
+					'<div class="description">' . $description . '</div>' . 
+					( !empty( $sponsor_content ) ? '<div class="sponsors">' . $sponsor_content . '</div>' : '' ) .
+					'</div>' .
+				'</div>';
+
+			}
+
+			// close the agenda div
+			$agenda_content .= '</section>';
+
+	    }
+
+		$agenda_content .= '</div>';
+    }
+
+	return $agenda_content;
+}
+add_shortcode( 'event-agenda', 'event_agenda_shortcode' );
 
 
 // event-cta shortcode
@@ -1072,7 +1222,7 @@ function events_cta_shortcode( $event_atts ) {
 			// start event info
 			$list .= '<div class="event-info">';
 			$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
-			$list .= '<div class="event-date">' . date( 'M j, Y \a\t g:i a', $event->_p_event_start ) . '</div>';
+			$list .= '<div class="event-date">' . date( 'M j, Y \a\t g:i a', strtotime( $event->_p_event_start ) ) . '</div>';
 			$list .= '<p class="event-excerpt">' . $excerpt . '</p>';
 			$list .= '</div>';
 
