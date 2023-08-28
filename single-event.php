@@ -141,6 +141,8 @@ if ( have_posts() ) :
 endif;
 */
 
+global $post;
+
 if ( has_cmb_value( 'page_brand' ) ) {
 	set_brand( get_cmb_value( 'page_brand' ) );
 } else {
@@ -193,12 +195,20 @@ the_testimonials();
 <div class="content-wide" role="main">
 	<?php
 	if ( !has_introduction() && show_breadcrumbs() ) {
-		breadcrumbs( array(
+		$breadcrumb_array = array(
 			array(
 				'href' => '/events/',
 				'text' => 'Events'
 			)
-		) );
+		);
+		if ( $post->post_parent ) { 
+			array_push( $breadcrumb_array, array( 
+				'href' => get_permalink( $post->post_parent ),
+				'text' => get_the_title( $post->post_parent )
+			) );
+		}
+
+		breadcrumbs( $breadcrumb_array );
 	}
 
 	if ( have_posts() ) :
@@ -206,6 +216,14 @@ the_testimonials();
 
 		
 			the_content();
+
+			// output datetime
+			$time = strtotime( get_field( '_p_event_start', get_the_ID() ) );
+			$time_end = strtotime( get_field( '_p_event_end', get_the_ID() ) );
+			$datetime = date( 'F', $time ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+			$datetime_end = date( 'F', $time_end ) . ' ' . date( 'j', $time_end ) . ( !stristr( date( 'g:ia', $time_end ), '12:00am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time_end ) ) );
+			print "<hr><h4>Event Date / Time</h4>";
+			print '<p>' . $datetime . ' - ' . $datetime_end . '</p>';
 
 			// the call to action intro
 			if ( has_cmb_value( 'event_location_text' ) ) {		
