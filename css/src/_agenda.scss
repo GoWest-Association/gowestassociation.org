@@ -37,7 +37,7 @@
 	@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
 	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
 
-	.content-wide & {
+	.content-wide &, .accordion-content & {
 		margin: 0 -30px 20px;
 		@include respond-to( $bp-m ) { margin: 0 -40px 30px; }
 		@include respond-to( $bp-l ) { margin: 0 -50px 35px; }
@@ -129,7 +129,7 @@
 					@include respond-to( 500px ) {
 						flex: 1;
 					}
-					
+
 					flex-grow: 0;
 					text-align: center;
 					padding: 0 10px 0 0;
