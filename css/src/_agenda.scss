@@ -102,14 +102,15 @@
 				display: flex;
 				align-items: center;
 				vertical-align: middle;
+				padding-bottom: 5px;
 
 				.person-thumbnail, .person-info {
 					flex: 1;
 				}
 
 				.person-thumbnail {
-					padding: 0 15px 5px 0;
-					max-width: 70px;
+					padding: 0 15px 0 0;
+					max-width: 90px;
 
 					img {
 						display: block;

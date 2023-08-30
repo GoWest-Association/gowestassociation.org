@@ -1124,7 +1124,7 @@ function event_agenda_shortcode( $atts ) {
 						$person_info = get_post( $person );
 						$people_content .= '<div class="person">' . 
 							'<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' .
-							'<div class="person-info"><strong>' . $person_info->post_title . '</strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
+							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . '">' . $person_info->post_title . '</a></strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
 						'</div>';
 					}
 				}

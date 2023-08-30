@@ -1,4 +1,11 @@
 
+.date-at {
+	@include font;
+	opacity: .4;
+	line-height: 100%;
+	display: inline-block;
+	padding: 0 3px;
+}
 
 .single-event {
 	.event-header {
@@ -83,11 +90,15 @@
 
 			.person-thumbnail {
 				padding: 0 15px 5px 0;
-				max-width: 70px;
+				max-width: 150px;
 
 				img {
 					display: block;
 				}
+			}
+
+			.person-info {
+				line-height: 1.5em;
 			}
 		}
 	}
