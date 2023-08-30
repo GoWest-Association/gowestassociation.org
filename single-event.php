@@ -246,7 +246,7 @@ the_testimonials();
 						$person_thumbnail = get_the_post_thumbnail_url( $person_info );
 						$people_content .= '<div class="person">' . 
 							( !empty( $person_thumbnail ) ? '<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' : '' ) .
-							'<div class="person-info"><strong>' . $person_info->post_title . '</strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
+							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . '">' . $person_info->post_title . '</a></strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
 						'</div>';
 					}
 					print '<hr><h4>Speakers</h4><div class="event-people">' . $people_content . '</div>';
