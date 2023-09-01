@@ -1150,8 +1150,8 @@ function event_agenda_shortcode( $atts ) {
 					'<div class="location">' . $location . '</div>' .
 					'<div class="content">' . 
 					'<strong><a href="' . get_permalink( $item ) . '">' . $item->post_title . '</a></strong>' .
-					( !empty( $people_content ) ? '<div class="people">' . $people_content . '</div>' : '' ). 
 					'<div class="description">' . $description . '</div>' . 
+					( !empty( $people_content ) ? '<div class="people">' . $people_content . '</div>' : '' ). 
 					( !empty( $sponsor_content ) ? '<div class="sponsors">' . $sponsor_content . '</div>' : '' ) .
 					'</div>' .
 				'</div>';

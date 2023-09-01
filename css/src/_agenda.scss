@@ -128,7 +128,7 @@
 
 				.sponsor {
 					@include respond-to( 500px ) {
-						flex: 1;
+						flex: 0;
 					}
 
 					flex-grow: 0;
@@ -139,6 +139,7 @@
 						max-width: 100px;
 						filter: grayscale(100%);
 						opacity: .6;
+						margin-right: 10px;
 					}
 				}
 			}
