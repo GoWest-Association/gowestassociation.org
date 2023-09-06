@@ -1067,7 +1067,7 @@ function event_agenda_shortcode( $atts ) {
 			$agenda_content = '';
 
 			// show header if we're grouping by days
-			if ( $style == 'group-days' ) $agenda_content .= '<h3 class="agenda-day-header">' . $current_day . '</h3>';
+			if ( stristr( $style, 'group-days' ) && !stristr( $style, 'no-title' ) ) $agenda_content .= '<h3 class="agenda-day-header">' . $current_day . '</h3>';
 
 			// empty content in case we don't have agenda items
 			$agenda_content .= '<div class="agenda-container' . ( !empty( $agenda_style ) ? ' ' . $agenda_style : '' ) . '">';
@@ -1121,10 +1121,14 @@ function event_agenda_shortcode( $atts ) {
 				$people_content = '';
 				if ( !empty( $people ) ) {
 					foreach ( $people as $person ) {
+						// get some info about the person
+						$person_title = get_post_meta( $person, '_p_person_title', 1 );
+						$person_org = get_post_meta( $person, '_p_person_organization', 1 );
+
 						$person_info = get_post( $person );
 						$people_content .= '<div class="person">' . 
 							'<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' .
-							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . '">' . $person_info->post_title . '</a></strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
+							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . '">' . $person_info->post_title . '</a></strong>' . ( !empty( $person_title ) ? '<br>' . $person_title : '' ) . ( !empty( $person_org ) ? '<br>' . $person_org : '' ) . '</div>' .
 						'</div>';
 					}
 				}
@@ -1169,6 +1173,56 @@ function event_agenda_shortcode( $atts ) {
 	return $agenda_content;
 }
 add_shortcode( 'event-agenda', 'event_agenda_shortcode' );
+
+
+// format times for output in agendas and event pages (work in)
+function format_times( $time_start = 0, $time_end = 0 ) {
+
+	// empty array to return
+	$return = array();
+
+	// if we have a start date/time
+	if ( $time_start > 0 ) {
+
+		// if we also have an end time
+		if ( $time_end > 0 ) {
+
+			// store that it has an end date
+			$return['has_end'] = true;
+
+		} else { 
+
+			// no end time
+			$return['has_end'] = false;
+			$return['is_multiday'] = false;
+
+		}
+
+		// is same day
+		$same_day = ( date( 'md', $time ) == date( 'md', $time_end ) ? true : false );
+
+		// store the string we'll use between dates and times
+		$at = '<span class="date-at">@</span>';
+
+		// 
+		$datetime = date( 'F', $time ) . ' ' . date( 'j', $time ) . '<sup>' . date( 'S', $time ) . '</sup> ' . ( $same_day ? '<span class="date-at">from</span>' : $at ) . ' ' . ( !stristr( date( 'g:i a', $time ), '12:00 am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time ) ) );
+		$datetime_end = ( !$same_day ? date( 'F', $time_end ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ' . $at . ' ' : '' ) . ( !stristr( date( 'g:i a', $time_end ), '12:00 am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time_end ) ) );
+		print "<hr><h4>Event Date / Time</h4>";
+		print '<p>' . $datetime . ' &mdash; ' . $datetime_end . '</p>';
+
+		// format times based on whether we have to show multiple dates or if it's just time(s)
+		if ( $return['is_multiday'] ) {
+
+
+			$starttime = str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time ) ) );
+			print $starttime;
+			$datetime = get_ap_month( date( 'n', $time ) ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+		} else {
+			$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) );
+		}
+
+	}
+}
 
 
 // event-cta shortcode
