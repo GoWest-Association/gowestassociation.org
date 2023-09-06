@@ -1142,7 +1142,7 @@ function event_agenda_shortcode( $atts ) {
 				}
 				
 				// get the date/time to list in agenda table
-				if ( $style == 'group-days' ) {
+				if ( stristr( $style, 'group-days' ) ) {
 					$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) );
 				} else {
 					$datetime = get_ap_month( date( 'n', $time ) ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
