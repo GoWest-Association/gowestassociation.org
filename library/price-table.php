@@ -22,14 +22,14 @@ function the_price_table() {
                 </div> 
                 <div class="prices">
                     <?php  
-                    if ( !empty( $price['price-1-text'] ) && !empty( $price['price-1-value'] ) ) {
-                        print '<div class="price one">' . $price['price-1-text'] . '<br><span>' . $price['price-1-value'] . '</span></div>';
+                    if ( !empty( $price['price-1-text'] ) ) {
+                        print '<div class="price one">' . $price['price-1-text'] . ( !empty( $price['price-1-value'] ) ? '<br><span>' . $price['price-1-value'] . '</span>' : "" ) . '</div>';
                     }
-                    if ( !empty( $price['price-2-text'] ) && !empty( $price['price-2-value'] ) ) {
-                        print '<div class="price two">' . $price['price-2-text'] . '<br><span>' . $price['price-2-value'] . '</span></div>';
+                    if ( !empty( $price['price-2-text'] ) ) {
+                        print '<div class="price two">' . $price['price-2-text'] . ( !empty( $price['price-2-value'] ) ? '<br><span>' . $price['price-2-value'] . '</span>' : "" ) . '</div>';
                     }
-                    if ( !empty( $price['price-3-text'] ) && !empty( $price['price-3-value'] ) ) {
-                        print '<div class="price three">' . $price['price-3-text'] . '<br><span>' . $price['price-3-value'] . '</span></div>';
+                    if ( !empty( $price['price-3-text'] ) ) {
+                        print '<div class="price three">' . $price['price-3-text'] . ( !empty( $price['price-3-value'] ) ? '<br><span>' . $price['price-3-value'] . '</span>' : "" ) . '</div>';
                     }
                     ?>
                 </div>

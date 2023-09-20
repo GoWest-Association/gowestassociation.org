@@ -1050,7 +1050,7 @@ function event_agenda_shortcode( $atts ) {
 			'meta_key' => '_p_event_start',
 			'order' => 'ASC'
 		) );
-			
+		
 		// if we're displaying by day
 		if ( $style == 'group-days' ) {
 			$day_stepper = 0;
