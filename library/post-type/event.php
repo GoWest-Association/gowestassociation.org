@@ -655,7 +655,7 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		print $month_cache;
 
 	} else {
-
+	
 		// get the cache filename
 		$event_cache_file = get_month_cache_filename( $month, $year, $category );
 
@@ -717,9 +717,7 @@ function show_month_events( $month, $year, $category = 'all' ) {
 			// loop through all the events and list them for this day.
 			$day_events = '';
 			foreach ( $events as $event ) {
-				if ( ( $event->_p_event_start > $day_start && $event->_p_event_start < $day_end ) || 
-					( $event->_p_event_end > $day_start && $event->_p_event_end < $day_end ) /* || 
-					( $event->_p_event_start < $day_start && $event->_p_event_end > $day_end ) */ ) {
+				if ( ( strtotime( $event->_p_event_start ) >= $day_start && strtotime( $event->_p_event_start ) <= $day_end ) ) {
 					$day_events .= 'event';
 				}
 			}
@@ -806,6 +804,7 @@ function show_month_events( $month, $year, $category = 'all' ) {
 
 		/* all done, return result */
 		print $calendar;
+
 	}
 
 }
@@ -1175,8 +1174,8 @@ function event_agenda_shortcode( $atts ) {
 add_shortcode( 'event-agenda', 'event_agenda_shortcode' );
 
 
-// format times for output in agendas and event pages (work in)
-function format_times( $time_start = 0, $time_end = 0 ) {
+// format times for output in agendas and event pages
+function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 
 	// empty array to return
 	$return = array();
@@ -1184,44 +1183,61 @@ function format_times( $time_start = 0, $time_end = 0 ) {
 	// if we have a start date/time
 	if ( $time_start > 0 ) {
 
+		$start_short_month = get_ap_month( date( 'n', $time_start ) );
+		$end_short_month = get_ap_month( date( 'n', $time_end ) );
+
+		// format dates and times
+		$return['start_date'] = ( $short ? get_ap_month( date( 'n', $time_start ) ) : date( 'F', $time_start ) ) . ' ' . date( 'j', $time_start ) . '<sup>' . date( 'S', $time_start ) . '</sup>';
+		$return['start_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_start ) );
+		$return['end_date'] = ( $short ? get_ap_month( date( 'n', $time_end ) ) : date( 'F', $time_start ) ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ';
+		$return['end_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_end ) );
+		$return['show_start_time'] = ( $return['start_time'] == '12 am' ? false : true );
+		$return['show_end_time'] = ( $return['end_time'] == '12 am' ? false : true );
+
+		// determine if the start and end are the same day
+		$return['is_multiday'] = ( date( 'md', $time_start ) == date( 'md', $time_end ) ? false : true );
+
 		// if we also have an end time
-		if ( $time_end > 0 ) {
-
-			// store that it has an end date
-			$return['has_end'] = true;
-
-		} else { 
-
-			// no end time
-			$return['has_end'] = false;
-			$return['is_multiday'] = false;
-
-		}
-
-		// is same day
-		$same_day = ( date( 'md', $time ) == date( 'md', $time_end ) ? true : false );
+		$return['has_end'] = ( $time_end > 0 ? true : false );
 
 		// store the string we'll use between dates and times
-		$at = '<span class="date-at">@</span>';
+		$at = ( !$short ? ' ' : '' ) . '<span class="date-at">@</span>' . ( !$short ? ' ' : '' );
+		$from = ' <span class="date-at">from</span> ';
+		$dash = ( !$short ? ' ' : '' ) . '<span class="date-at">&mdash;</span>' . ( !$short ? ' ' : '' );
 
-		// 
-		$datetime = date( 'F', $time ) . ' ' . date( 'j', $time ) . '<sup>' . date( 'S', $time ) . '</sup> ' . ( $same_day ? '<span class="date-at">from</span>' : $at ) . ' ' . ( !stristr( date( 'g:i a', $time ), '12:00 am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time ) ) );
-		$datetime_end = ( !$same_day ? date( 'F', $time_end ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ' . $at . ' ' : '' ) . ( !stristr( date( 'g:i a', $time_end ), '12:00 am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time_end ) ) );
-		print "<hr><h4>Event Date / Time</h4>";
-		print '<p>' . $datetime . ' &mdash; ' . $datetime_end . '</p>';
-
-		// format times based on whether we have to show multiple dates or if it's just time(s)
+		// format the date
 		if ( $return['is_multiday'] ) {
 
+			// show multi-day event
+			$return['formatted'] = $return['start_date'] . ( $return['show_start_time'] ? $at . $return['start_time'] : '' ) . 
+				( $return['has_end'] ? $dash . $return['end_date'] . ( $return['show_end_time'] ? $at . $return['end_time'] : '' ) : '' );
 
-			$starttime = str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time ) ) );
-			print $starttime;
-			$datetime = get_ap_month( date( 'n', $time ) ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
 		} else {
-			$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) );
+						
+			// show same day event start and end or date without end time.
+			$return['formatted'] = $return['start_date'] . ( $return['has_end'] ? $from : '' ) . 
+				( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . $return['start_time'] : '' ) . 
+				( $return['has_end'] ? $dash . $return['end_time'] : '' );
+
 		}
 
+	} else {
+
+		// return empty if we don't have a start time
+		$return['start_date'] = false;
+		$return['start_time'] = false;
+		$return['end_date'] = false;
+		$return['end_time'] = false;
+		$return['show_start_time'] = false;
+		$return['show_end_time'] = false;
+		$return['is_multiday'] = false;
+		$return['has_end'] = false;
+		$return['formatted'] = false;
+		
 	}
+	
+	// return it
+	return $return;
 }
 
 
@@ -1273,10 +1289,15 @@ function events_cta_shortcode( $event_atts ) {
 			// start event columns
 			$list .= '<div class="event-cta-columns">';
 
+			$time_start = strtotime( $event->_p_event_start );
+			$time_end = strtotime( $event->_p_event_end );
+			$time_formatted = format_times( $time_start, $time_end, 1 );
+			print_r( $time_formatted );
+			
 			// start event info
 			$list .= '<div class="event-info">';
 			$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
-			$list .= '<div class="event-date">' . date( 'M j, Y \a\t g:i a', strtotime( $event->_p_event_start ) ) . '</div>';
+			$list .= '<div class="event-date">' . $time_formatted['formatted'] /* date( 'M j, Y \a\t g:i a', strtotime( $event->_p_event_start ) ) */ . '</div>';
 			$list .= '<p class="event-excerpt">' . $excerpt . '</p>';
 			$list .= '</div>';
 

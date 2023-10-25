@@ -121,3 +121,8 @@ function breadcrumbs( $items = array() ) {
 
 }
 
+
+function empty_content( $str ) {
+    return trim(str_replace('&nbsp;','',strip_tags($str))) == '';
+}
+

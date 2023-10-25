@@ -671,6 +671,10 @@
 					@include font-title;
 					font-size: 1.2em;
 					padding-bottom: 5px;
+
+					.date-at {
+						@include font-title;
+					}
 				}
 
 				h3 {

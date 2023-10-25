@@ -214,20 +214,22 @@ the_testimonials();
 	if ( have_posts() ) :
 		while ( have_posts() ) : the_post();
 
-		
 			the_content();
 
 			// show the event info if they have the 'hide on page' feature unchecked.
 			if ( !get_field( 'hide_info_on_page' ) ) {
+
+				// only output the hr if we have content above it
+				print ( !empty_content( $post->post_content ) ? '<hr>' : '' );
+
 				// output datetime
 				$time = strtotime( get_field( '_p_event_start', get_the_ID() ) );
 				$time_end = strtotime( get_field( '_p_event_end', get_the_ID() ) );
-				$same_day = ( date( 'md', $time ) == date( 'md', $time_end ) ? true : false );
-				$at = '<span class="date-at">@</span>';
-				$datetime = date( 'F', $time ) . ' ' . date( 'j', $time ) . '<sup>' . date( 'S', $time ) . '</sup> ' . ( $same_day ? '<span class="date-at">from</span>' : $at ) . ' ' . ( !stristr( date( 'g:i a', $time ), '12:00 am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time ) ) );
-				$datetime_end = ( !$same_day ? date( 'F', $time_end ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ' . $at . ' ' : '' ) . ( !stristr( date( 'g:i a', $time_end ), '12:00 am' ) ? ' ' : '' ) . str_replace( ':00', '', str_replace( '12:00 am', "", date( 'g:i a', $time_end ) ) );
-				print "<hr><h4>Event Date / Time</h4>";
-				print '<p>' . $datetime . ' &mdash; ' . $datetime_end . '</p>';
+				$time_formatted = format_times( $time, $time_end );
+
+				// output the date and time
+				print "<h4>Event Date / Time</h4>";
+				print '<p>' . $time_formatted['formatted'] . '</p>';
 
 				// the call to action intro
 				if ( has_cmb_value( 'event_location_text' ) ) {		
