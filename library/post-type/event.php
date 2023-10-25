@@ -1292,7 +1292,6 @@ function events_cta_shortcode( $event_atts ) {
 			$time_start = strtotime( $event->_p_event_start );
 			$time_end = strtotime( $event->_p_event_end );
 			$time_formatted = format_times( $time_start, $time_end, 1 );
-			print_r( $time_formatted );
 			
 			// start event info
 			$list .= '<div class="event-info">';
