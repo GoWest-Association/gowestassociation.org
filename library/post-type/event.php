@@ -1189,7 +1189,7 @@ function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 		// format dates and times
 		$return['start_date'] = ( $short ? get_ap_month( date( 'n', $time_start ) ) : date( 'F', $time_start ) ) . ' ' . date( 'j', $time_start ) . '<sup>' . date( 'S', $time_start ) . '</sup>';
 		$return['start_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_start ) );
-		$return['end_date'] = ( $short ? get_ap_month( date( 'n', $time_end ) ) : date( 'F', $time_start ) ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ';
+		$return['end_date'] = ( $short ? get_ap_month( date( 'n', $time_end ) ) : date( 'F', $time_end ) ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ';
 		$return['end_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_end ) );
 		$return['show_start_time'] = ( $return['start_time'] == '12 am' ? false : true );
 		$return['show_end_time'] = ( $return['end_time'] == '12 am' ? false : true );
