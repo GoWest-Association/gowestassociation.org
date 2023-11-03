@@ -1217,8 +1217,8 @@ function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 						
 			// show same day event start and end or date without end time.
 			$return['formatted'] = $return['start_date'] . ( $return['has_end'] ? ( !$short ? $from : '<span class="date-at">:</span> ' ) : '' ) . 
-				( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . $return['start_time'] : '' ) . 
-				( $return['has_end'] ? $dash . $return['end_time'] : '' );
+				( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . '<span class="nowrap">' . $return['start_time'] : '' ) . 
+				( $return['has_end'] ? $dash . $return['end_time'] : '' ) . '</span>';
 
 		}
 
