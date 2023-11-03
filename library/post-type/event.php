@@ -1077,7 +1077,7 @@ function event_agenda_shortcode( $atts ) {
 			// if we're supposed to display the headers, do so
 			$agenda_content .='<div class="agenda-item agenda-heading">' . 
 				'<div class="time">' . ( $style == 'group-days' ? 'Time' : 'Date/Time' ) . '</div>' .
-				'<div class="location">Room Name</div>' .
+				'<div class="location">Location</div>' .
 				'<div class="content">Session Information</div>' .
 			'</div>';
 
@@ -1109,7 +1109,7 @@ function event_agenda_shortcode( $atts ) {
 					// if we're supposed to display the headers, do so
 					$agenda_content .='<div class="agenda-item agenda-heading">' . 
 						'<div class="time">' . ( $style == 'group-days' ? 'Time' : 'Date/Time' ) . '</div>' .
-						'<div class="location">Room Name</div>' .
+						'<div class="location">Location</div>' .
 						'<div class="content">Session Information</div>' .
 					'</div>';
 
@@ -1144,7 +1144,8 @@ function event_agenda_shortcode( $atts ) {
 				if ( stristr( $style, 'group-days' ) ) {
 					$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) );
 				} else {
-					$datetime = get_ap_month( date( 'n', $time ) ) . ' ' . date( 'j', $time ) . ( !stristr( date( 'g:ia', $time ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $time ) ) );
+					$times = format_times( $time, $time_end, 1 );
+					$datetime = $times['formatted'];
 				}
 
 				// create agenda item
@@ -1210,12 +1211,12 @@ function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 
 			// show multi-day event
 			$return['formatted'] = $return['start_date'] . ( $return['show_start_time'] ? $at . $return['start_time'] : '' ) . 
-				( $return['has_end'] ? $dash . $return['end_date'] . ( $return['show_end_time'] ? $at . $return['end_time'] : '' ) : '' );
+				( $return['has_end'] ? $dash . '<span class="nowrap">' . $return['end_date'] . ( $return['show_end_time'] ? $at . $return['end_time'] : '' ) . '</span>' : '' );
 
 		} else {
 						
 			// show same day event start and end or date without end time.
-			$return['formatted'] = $return['start_date'] . ( $return['has_end'] ? $from : '' ) . 
+			$return['formatted'] = $return['start_date'] . ( $return['has_end'] ? ( !$short ? $from : '<span class="date-at">:</span> ' ) : '' ) . 
 				( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . $return['start_time'] : '' ) . 
 				( $return['has_end'] ? $dash . $return['end_time'] : '' );
 

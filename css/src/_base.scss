@@ -113,18 +113,22 @@ sub, sup {
 	/* Note that if you're using Eric Meyer's reset.css, this
 	   is already set and you can remove this rule */
 	vertical-align: baseline;
-  }
+}
   
-  sup {
+sup {
 	/* Move the superscripted text up */
 	top: -0.5em;
-  }
+}
   
-  sub {
+sub {
 	/* Move the subscripted text down, but only
 	   half as far down as the superscript moved up */
 	bottom: -0.25em;
-  }
+}
+
+.nowrap {
+	white-space: nowrap;
+}
 
 .text-center {
 	text-align: center;
