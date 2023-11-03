@@ -213,7 +213,7 @@ function agenda_shortcode( $atts ) {
 			if ( $agenda_heading ) {
 				$agenda_content .='<div class="agenda-item agenda-heading">' . 
 					'<div class="time">Date/Time</div>' .
-					'<div class="location">Room Name</div>' .
+					'<div class="location">Location</div>' .
 					'<div class="content">Session Description/Speaker</div>' .
 				'</div>';
 			}
