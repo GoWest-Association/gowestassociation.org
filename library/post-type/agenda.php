@@ -231,7 +231,9 @@ function agenda_shortcode( $atts ) {
 					$time_end = strtotime( $time_end );
 
 					// compile displayed datetime
-					$datetime = get_agenda_time( $time_start, $time_end );
+					$times = format_times( $time, $time_end, 1 );
+					$datetime = $times['formatted'];
+
 					$agenda_content .='<div class="agenda-item">' . 
 						'<div class="time"><strong>' . $datetime . '</strong></div>' .
 						'<div class="location">' . get_sub_field( 'location' ) . '</div>' .
