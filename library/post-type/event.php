@@ -1192,11 +1192,13 @@ function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 		$return['start_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_start ) );
 		$return['end_date'] = ( $short ? get_ap_month( date( 'n', $time_end ) ) : date( 'F', $time_end ) ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ';
 		$return['end_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_end ) );
-		$return['show_start_time'] = ( $return['start_time'] == '12 am' ? false : true );
-		$return['show_end_time'] = ( $return['end_time'] == '12 am' ? false : true );
+		$return['show_start_time'] = ( $return['start_time'] == '12 am' || $return['start_time'] == '12am' ? false : true );
+		$return['show_end_time'] = ( $return['end_time'] == '12 am' || $return['end_time'] == '12am' ? false : true );
 
 		// determine if the start and end are the same day
 		$return['is_multiday'] = ( date( 'md', $time_start ) == date( 'md', $time_end ) ? false : true );
+
+		if ( $time_start == $time_end ) $return['is_multiday'] = false;
 
 		// if we also have an end time
 		$return['has_end'] = ( $time_end > 0 ? true : false );
