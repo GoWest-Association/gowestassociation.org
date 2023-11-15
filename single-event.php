@@ -220,7 +220,7 @@ the_testimonials();
 			if ( !get_field( 'hide_info_on_page' ) ) {
 
 				// only output the hr if we have content above it
-				print ( !empty_content( $post->post_content ) ? '<hr>' : '' );
+				print '<hr>';
 
 				// output datetime
 				$time = strtotime( get_field( '_p_event_start', get_the_ID() ) );
@@ -233,7 +233,7 @@ the_testimonials();
 
 				// the call to action intro
 				if ( has_cmb_value( 'event_location_text' ) ) {		
-					print '<hr><h4>Room Name / Location</h4>';
+					print '<hr><h4>Location</h4>';
 					print '<div class="location">';
 					print apply_filters( 'the_content', get_cmb_value( 'event_location_text') );
 					print '</div>';

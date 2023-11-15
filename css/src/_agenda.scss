@@ -17,7 +17,6 @@
 	background: $navy;
 	color: white;
 	padding: 20px 30px;
-	
 	@include respond-to( $bp-m ) { margin: 0; padding: 20px 40px; }
 	@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
 	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
@@ -32,10 +31,7 @@
 
 .agenda {
 	background: $grey-light;
-	padding: 10px 30px;
-	@include respond-to( $bp-m ) { margin: 0; padding: 20px 40px; }
-	@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
-	@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
+	margin-bottom: 10px;
 
 	.content-wide &, .accordion-content & {
 		margin: 0 -30px 20px;
@@ -50,6 +46,82 @@
 		border-bottom: 1px solid $grey;
 		padding: 15px 0;
 		margin-bottom: 10px;
+		padding: 10px 30px;
+		@include respond-to( $bp-m ) { margin: 0; padding: 20px 40px; }
+		@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
+		@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
+	
+		&.red {
+			background: $color-id;
+			border-bottom: darken( $color-id, 10% );
+			color: white;
+		}
+
+		&.green {
+			background: $green;
+			border-bottom: darken( $green, 10% );
+			color: white;
+		}
+
+		&.navy {
+			background: $navy;
+			border-bottom: darken( $navy, 10% );
+			color: white;
+		}
+
+		&.yellow {
+			background: $color-az;
+			border-bottom: darken( $color-az, 10% );
+			color: black;
+		}
+
+		&.purple {
+			background: $color-co;
+			border-bottom: darken( $color-co, 10% );
+			color: white;
+		}
+
+		&.orange {
+			background: $orange;
+			border-bottom: darken( $orange, 10% );
+			color: white;
+		}
+
+		&.vermilion {
+			background: $vermillion;
+			border-bottom: darken( $vermillion, 10% );
+			color: white;
+		}
+
+		&.dark-grey {
+			background: $silver-sand;
+			border-bottom: darken( $silver-sand, 10% );
+			color: white;
+		}
+
+		&.turquoise {
+			background: $color-or;
+			border-bottom: darken( $color-or, 10% );
+			color: white;
+		}
+
+		&.teton {
+			background: $color-wy;
+			border-bottom: darken( $color-wy, 10% );
+			color: white;
+		}
+
+		&.whale {
+			background: $blue-whale;
+			border-bottom: darken( $blue-whale, 10% );
+			color: white;
+		}
+
+		&.fulvous {
+			background: $fulvous;
+			border-bottom: darken( $fulvous, 10% );
+			color: white;
+		}
 
 		&:last-child {
 			border-bottom: none;
@@ -61,8 +133,11 @@
 
 		&.agenda-heading {
 			display: none;
-			padding: 8px 0;
-
+			padding: 8px 30px;
+			@include respond-to( $bp-m ) { margin: 0; padding: 8px 40px; }
+			@include respond-to( $bp-l ) { margin: 0; padding: 8px 50px; }
+			@include respond-to( $bp-xl ) { margin: 0; padding: 8px 60px; }
+	
 			.time, .location, .content {
 				@include font-bold;
 				font-size: .8em;
