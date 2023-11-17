@@ -1077,7 +1077,7 @@ function event_agenda_shortcode( $atts ) {
 			// if we're supposed to display the headers, do so
 			$agenda_content .='<div class="agenda-item agenda-heading">' . 
 				'<div class="time">' . ( $style == 'group-days' ? 'Time' : 'Date/Time' ) . '</div>' .
-				'<div class="location">Location</div>' .
+				( !stristr( $style, 'no-location' ) ? '<div class="location">Location</div>' : '' ) .
 				'<div class="content">Session Information</div>' .
 			'</div>';
 
@@ -1111,7 +1111,7 @@ function event_agenda_shortcode( $atts ) {
 					// if we're supposed to display the headers, do so
 					$agenda_content .='<div class="agenda-item agenda-heading">' . 
 						'<div class="time">' . ( $style == 'group-days' ? 'Time' : 'Date/Time' ) . '</div>' .
-						'<div class="location">Location</div>' .
+						( !stristr( $style, 'no-location' ) ? '<div class="location">Location</div>' : '' ) .
 						'<div class="content">Session Information</div>' .
 					'</div>';
 
@@ -1153,7 +1153,7 @@ function event_agenda_shortcode( $atts ) {
 				// create agenda item
 				$agenda_content .='<div class="agenda-item ' . $color . '">' . 
 					'<div class="time"><strong>' . $datetime . '</strong></div>' .
-					'<div class="location">' . $location . '</div>' .
+					( !stristr( $style, 'no-location' ) ? '<div class="location">' . $location . '</div>' : '' ) .
 					'<div class="content">' . 
 					'<strong><a href="' . get_permalink( $item ) . '">' . $item->post_title . '</a></strong>' .
 					'<div class="description">' . $description . '</div>' . 

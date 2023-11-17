@@ -213,7 +213,7 @@ function agenda_shortcode( $atts ) {
 			if ( $agenda_heading ) {
 				$agenda_content .='<div class="agenda-item agenda-heading">' . 
 					'<div class="time">Date/Time</div>' .
-					'<div class="location">Location</div>' .
+					( !stristr( $style, 'no-location' ) ? '<div class="location">Location</div>' : '' ) .
 					'<div class="content">Session Description/Speaker</div>' .
 				'</div>';
 			}
@@ -238,7 +238,7 @@ function agenda_shortcode( $atts ) {
 
 					$agenda_content .='<div class="agenda-item ' . $color . '">' . 
 						'<div class="time"><strong>' . $datetime . '</strong></div>' .
-						'<div class="location">' . get_sub_field( 'location' ) . '</div>' .
+						( !stristr( $style, 'no-location' ) ? '<div class="location">' . get_sub_field( 'location' ) . '</div>' : '' ) .
 						'<div class="content">' . get_sub_field( 'content' ) . '</div>' .
 					'</div>';
 
@@ -253,7 +253,7 @@ function agenda_shortcode( $atts ) {
 					$datetime = get_ap_month( date( 'n', $item['time'] ) ) . ' ' .date( 'j', $item['time'] ) . ( !stristr( date( 'g:ia', $item['time'] ), '12:00am' ) ? ': ' : '' ) . str_replace( ':00', '', str_replace( '12:00am', "", date( 'g:ia', $item['time'] ) ) );
 					$agenda_content .='<div class="agenda-item">' . 
 						'<div class="time"><strong>' . $datetime . '</strong></div>' .
-						'<div class="location">' . ( isset( $item['location'] ) ? $item['location'] : '' ) . '</div>' .
+						( !stristr( $style, 'no-location' ) ? '<div class="location">' . ( isset( $item['location'] ) ? $item['location'] : '' ) . '</div>' : '' ) .
 						'<div class="content">' . apply_filters( 'the_content', $item['content'] ) . '</div>' .
 					'</div>';
 				}
