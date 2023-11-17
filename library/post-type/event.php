@@ -1088,6 +1088,8 @@ function event_agenda_shortcode( $atts ) {
 				$time_end = strtotime( get_field( '_p_event_end', $item->ID ) );
 				$location = get_field( '_p_event_location_text', $item->ID );
 				$description = apply_filters( 'the_content', $item->post_excerpt );
+				$color = get_field( 'color', $item->ID );
+				if ( !$color ) $color = 'grey';
 
 				// if we're grouping by days
 				if ( $style == 'group-days' && $current_day != date( 'F j, Y', $time ) ) {
@@ -1149,7 +1151,7 @@ function event_agenda_shortcode( $atts ) {
 				}
 
 				// create agenda item
-				$agenda_content .='<div class="agenda-item">' . 
+				$agenda_content .='<div class="agenda-item ' . $color . '">' . 
 					'<div class="time"><strong>' . $datetime . '</strong></div>' .
 					'<div class="location">' . $location . '</div>' .
 					'<div class="content">' . 

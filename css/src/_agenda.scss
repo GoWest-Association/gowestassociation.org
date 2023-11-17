@@ -41,8 +41,6 @@
 	}
 	
 	.agenda-item {
-		display: flex;
-		flex-wrap: wrap;
 		border-bottom: 1px solid $grey;
 		padding: 15px 0;
 		margin-bottom: 10px;
@@ -50,85 +48,9 @@
 		@include respond-to( $bp-m ) { margin: 0; padding: 20px 40px; }
 		@include respond-to( $bp-l ) { margin: 0; padding: 20px 50px; }
 		@include respond-to( $bp-xl ) { margin: 0; padding: 20px 60px; }
-	
-		&.red {
-			background: $color-id;
-			border-bottom: darken( $color-id, 10% );
-			color: white;
-		}
-
-		&.green {
-			background: $green;
-			border-bottom: darken( $green, 10% );
-			color: white;
-		}
-
-		&.navy {
-			background: $navy;
-			border-bottom: darken( $navy, 10% );
-			color: white;
-		}
-
-		&.yellow {
-			background: $color-az;
-			border-bottom: darken( $color-az, 10% );
-			color: black;
-		}
-
-		&.purple {
-			background: $color-co;
-			border-bottom: darken( $color-co, 10% );
-			color: white;
-		}
-
-		&.orange {
-			background: $orange;
-			border-bottom: darken( $orange, 10% );
-			color: white;
-		}
-
-		&.vermilion {
-			background: $vermillion;
-			border-bottom: darken( $vermillion, 10% );
-			color: white;
-		}
-
-		&.dark-grey {
-			background: $silver-sand;
-			border-bottom: darken( $silver-sand, 10% );
-			color: white;
-		}
-
-		&.turquoise {
-			background: $color-or;
-			border-bottom: darken( $color-or, 10% );
-			color: white;
-		}
-
-		&.teton {
-			background: $color-wy;
-			border-bottom: darken( $color-wy, 10% );
-			color: white;
-		}
-
-		&.whale {
-			background: $blue-whale;
-			border-bottom: darken( $blue-whale, 10% );
-			color: white;
-		}
-
-		&.fulvous {
-			background: $fulvous;
-			border-bottom: darken( $fulvous, 10% );
-			color: white;
-		}
-
+		
 		&:last-child {
 			border-bottom: none;
-		}
-
-		div {
-			flex: 1;
 		}
 
 		&.agenda-heading {
@@ -147,12 +69,29 @@
 			}
 		}
 		
+		div {
+			padding: 5px 0;
+		}
 
-		.time, .location {
-			flex-basis: 50%;
-			line-height: 1.5em;
-			padding-bottom: 10px;
-			padding-right: 10px;
+		@include respond-to( $bp-l ) {
+			display: flex;
+			flex-wrap: wrap;
+
+			div {
+				flex: 1;
+			}
+
+			.time, .location {
+				flex-basis: 50%;
+				line-height: 1.5em;
+				padding-bottom: 20px;
+				padding-right: 10px;
+			}
+		
+			.content {
+				flex-basis: 100%;
+				line-height: 1.5em;
+			}
 		}
 
 		.location {
@@ -161,9 +100,66 @@
 			}
 		}
 
+		&.red .content:before {
+			background: $color-id;
+		}
+
+		&.green .content:before {
+			background: $green;
+		}
+
+		&.navy .content:before {
+			background: $navy;
+		}
+
+		&.yellow .content:before {
+			background: $color-az;
+		}
+
+		&.purple .content:before {
+			background: $color-co;
+		}
+
+		&.orange .content:before {
+			background: $orange;
+		}
+
+		&.vermilion .content:before {
+			background: $vermillion;
+		}
+
+		&.dark-grey .content:before {
+			background: $silver-sand;
+		}
+
+		&.turquoise .content:before {
+			background: $color-or;
+		}
+
+		&.teton .content:before {
+			background: $color-wy;
+		}
+
+		&.whale .content:before {
+			background: $blue-whale;
+		}
+
+		&.fulvous .content:before {
+			background: $fulvous;
+		}
+
 		.content {
-			flex-basis: 100%;
-			line-height: 1.5em;
+			position: relative;
+
+			&:before {
+				content: '';
+				position: absolute;
+				top: 3px;
+				left: -45px;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+			}
 
 			p {
 				padding: 0 0 15px;
