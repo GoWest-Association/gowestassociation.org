@@ -1086,6 +1086,7 @@ function event_agenda_shortcode( $atts ) {
 				// get the time, location, and description
 				$time = strtotime( get_field( '_p_event_start', $item->ID ) );
 				$time_end = strtotime( get_field( '_p_event_end', $item->ID ) );
+				$virtual = get_field( 'virtual', $item->ID );
 				$location = get_field( '_p_event_location_text', $item->ID );
 				$description = apply_filters( 'the_content', $item->post_excerpt );
 				$color = get_field( 'color', $item->ID );
@@ -1144,9 +1145,9 @@ function event_agenda_shortcode( $atts ) {
 				
 				// get the date/time to list in agenda table
 				if ( stristr( $style, 'group-days' ) ) {
-					$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) );
+					$datetime = str_replace( ':00', '', date( 'g:i a', $time ) ) . ' - ' . str_replace( ':00', '', date( 'g:i a', $time_end ) ) . ( $virtual ? ' PT' : '' );
 				} else {
-					$times = format_times( $time, $time_end, 1 );
+					$times = format_times( $time, $time_end, 1, $virtual );
 					$datetime = $times['formatted'];
 				}
 
@@ -1178,7 +1179,7 @@ add_shortcode( 'event-agenda', 'event_agenda_shortcode' );
 
 
 // format times for output in agendas and event pages
-function format_times( $time_start = 0, $time_end = 0, $short = false ) {
+function format_times( $time_start = 0, $time_end = 0, $short = false, $virtual = false ) {
 
 	// empty array to return
 	$return = array();
@@ -1186,21 +1187,31 @@ function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 	// if we have a start date/time
 	if ( $time_start > 0 ) {
 
+		// get the short month names for start and end
 		$start_short_month = get_ap_month( date( 'n', $time_start ) );
 		$end_short_month = get_ap_month( date( 'n', $time_end ) );
 
-		// format dates and times
+		// start dates+times in multiple timezones
 		$return['start_date'] = ( $short ? get_ap_month( date( 'n', $time_start ) ) : date( 'F', $time_start ) ) . ' ' . date( 'j', $time_start ) . '<sup>' . date( 'S', $time_start ) . '</sup>';
 		$return['start_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_start ) );
+		$return['start_time_mt'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_start + 3600 ) );
+		$return['start_time_et'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_start + ( 3600 * 3 ) ) );
+		
+		// end times in multiple timezones
 		$return['end_date'] = ( $short ? get_ap_month( date( 'n', $time_end ) ) : date( 'F', $time_end ) ) . ' ' . date( 'j', $time_end ) . '<sup>' . date( 'S', $time_end ) . '</sup> ';
 		$return['end_time'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_end ) );
+		$return['end_time_mt'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_end + 3600 ) );
+		$return['end_time_et'] = str_replace( ':00', '', date( ( $short ? 'g:ia' : 'g:i a' ), $time_end + ( 3600 * 3 ) ) );
+
+		// store whether or not to display times based on if they're midnight
 		$return['show_start_time'] = ( $return['start_time'] == '12 am' || $return['start_time'] == '12am' ? false : true );
 		$return['show_end_time'] = ( $return['end_time'] == '12 am' || $return['end_time'] == '12am' ? false : true );
 
 		// determine if the start and end are the same day
 		$return['is_multiday'] = ( date( 'md', $time_start ) == date( 'md', $time_end ) ? false : true );
 
-		if ( $time_start == $time_end ) $return['is_multiday'] = false;
+		// check if start and end happen on same day
+		if ( $return['start_date'] == $return['end_date'] ) $return['is_multiday'] = false;
 
 		// if we also have an end time
 		$return['has_end'] = ( $time_end > 0 ? true : false );
@@ -1215,14 +1226,28 @@ function format_times( $time_start = 0, $time_end = 0, $short = false ) {
 
 			// show multi-day event
 			$return['formatted'] = $return['start_date'] . ( $return['show_start_time'] ? $at . $return['start_time'] : '' ) . 
-				( $return['has_end'] ? $dash . '<span class="nowrap">' . $return['end_date'] . ( $return['show_end_time'] ? $at . $return['end_time'] : '' ) . '</span>' : '' );
+				( $return['has_end'] ? $dash . '<span class="nowrap">' . $return['end_date'] . 
+				( $return['show_end_time'] ? $at . $return['end_time'] : '' ) . '</span>' : '' );
 
 		} else {
-						
-			// show same day event start and end or date without end time.
-			$return['formatted'] = $return['start_date'] . ( $return['has_end'] ? ( !$short ? $from : '<span class="date-at">:</span> ' ) : '' ) . 
-				( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . '<span class="nowrap">' . $return['start_time'] : '' ) . 
-				( $return['show_end_time'] ? ( $return['has_end'] ? $dash . $return['end_time'] : '' ) : '' ) . '</span>';
+			
+			if ( $virtual ) {
+				$return['formatted'] = '<strong>' . $return['start_date'] . '</strong><br>' .
+					( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . '<span class="nowrap">' . $return['start_time'] : '' ) . 
+					( $return['show_end_time'] ? ( $return['has_end'] ? $dash . $return['end_time'] : '' ) : '' ) . ' PT</span><br>' . 
+					( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . '<span class="nowrap">' . $return['start_time_mt'] : '' ) . 
+					( $return['show_end_time'] ? ( $return['has_end'] ? $dash . $return['end_time_mt'] : '' ) : '' ) . ' MT</span><br>' . 
+					( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . '<span class="nowrap">' . $return['start_time_et'] : '' ) . 
+					( $return['show_end_time'] ? ( $return['has_end'] ? $dash . $return['end_time_et'] : '' ) : '' ) . ' ET</span>';
+
+			} else {
+
+				// show same day event start and end or date without end time.
+				$return['formatted'] = $return['start_date'] . ( $return['has_end'] ? ( !$short ? $from : '<span class="date-at">:</span> ' ) : '' ) . 
+					( $return['show_start_time'] ? ( !$return['has_end'] ? $at : '' ) . '<span class="nowrap">' . $return['start_time'] : '' ) . 
+					( $return['show_end_time'] ? ( $return['has_end'] ? $dash . $return['end_time'] : '' ) : '' ) . '</span>';
+					
+			}
 
 		}
 

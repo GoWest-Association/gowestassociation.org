@@ -225,7 +225,7 @@ the_testimonials();
 				// output datetime
 				$time = strtotime( get_field( '_p_event_start', get_the_ID() ) );
 				$time_end = strtotime( get_field( '_p_event_end', get_the_ID() ) );
-				$time_formatted = format_times( $time, $time_end );
+				$time_formatted = format_times( $time, $time_end, 0, get_field('virtual') );
 
 				// output the date and time
 				print "<h4>Event Date / Time</h4>";
