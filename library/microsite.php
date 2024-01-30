@@ -132,7 +132,7 @@ function microsite_boxes_metaboxes( $meta_boxes ) {
         'name' => 'Text',
         'desc' => 'Set text for this link.',
         'id'   => 'title',
-        'type' => 'text',
+        'type' => 'wysiwyg',
         'sanitization_cb' => false
     ) );
 
