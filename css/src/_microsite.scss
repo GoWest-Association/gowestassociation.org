@@ -9,10 +9,10 @@ header.microsite {
 .microsite-boxes {
     overflow-x: hidden;
 
-	padding: 30px;
-	@include respond-to( $bp-m ) { padding: 40px 40px 0; }
-	@include respond-to( $bp-l ) { padding: 40px 50px 0; }
-	@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
+	padding: 0 30px 30px;
+	@include respond-to( $bp-m ) { padding: 0 40px; }
+	@include respond-to( $bp-l ) { padding: 0 50px; }
+	@include respond-to( $bp-xl ) { padding: 0 60px; }
 	
 	&.state-az .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-az.png); }
 	&.state-co .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-co.png); }
