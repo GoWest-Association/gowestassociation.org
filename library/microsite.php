@@ -27,12 +27,12 @@ function the_microsite_boxes() {
 		<div class="microsite-boxes <?php show_cmb_value('microsite_boxes_theme'); ?>">
 			<?php
 			foreach ( $links as $link ) {
-				if ( !empty( $link['link'] ) && !empty( $link['image'] ) && !empty( $link['title'] ) ) { 
+				if ( !empty( $link['image'] ) && !empty( $link['title'] ) ) { 
                     $title = str_replace( '|', '<br>', $link['title'] );
 					?>
-			<div data-href="<?php print $link['link']; ?>" class="microsite-box <?php print $link['color'] ?>">
-                <img src="<?php print $link['image']; ?>" />
-                <a href="<?php print $link['link']; ?>"><?php print $title; ?></a>
+			<div<?php print ( !empty( $link["link"] ) ? ' data-href="' . $link['link'] . '"' : '' ) ?> class="microsite-box <?php print $link['color'] ?>">
+                <div class="icon"><img src="<?php print $link['image']; ?>" /></div>
+                <div class="content"><?php print apply_filters( 'the_content', $title ); ?></div>
             </div>
 					<?php
 				} 

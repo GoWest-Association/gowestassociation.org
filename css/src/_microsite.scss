@@ -7,7 +7,6 @@ header.microsite {
 
 
 .microsite-boxes {
-	background: white center center / cover fixed no-repeat;
     overflow-x: hidden;
 
 	padding: 30px;
@@ -15,12 +14,12 @@ header.microsite {
 	@include respond-to( $bp-l ) { padding: 40px 50px 0; }
 	@include respond-to( $bp-xl ) { padding: 40px 60px 0; }
 	
-	&.state-az .microsite-box { background: url(../img/bg-microsite-boxes-state-az.png) center center / cover no-repeat; }
-	&.state-co .microsite-box { background: url(../img/bg-microsite-boxes-state-co.png) center center / cover no-repeat; }
-	&.state-id .microsite-box { background: url(../img/bg-microsite-boxes-state-id.png) center center / cover no-repeat; }
-	&.state-or .microsite-box { background: url(../img/bg-microsite-boxes-state-or.png) center center / cover no-repeat; }
-	&.state-wa .microsite-box { background: url(../img/bg-microsite-boxes-state-wa.png) center center / cover no-repeat; }
-	&.state-wy .microsite-box { background: url(../img/bg-microsite-boxes-state-wy.png) center center / cover no-repeat; }
+	&.state-az .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-az.png); }
+	&.state-co .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-co.png); }
+	&.state-id .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-id.png); }
+	&.state-or .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-or.png); }
+	&.state-wa .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-wa.png); }
+	&.state-wy .microsite-box .icon { background-image: url(../img/bg-microsite-boxes-state-wy.png); }
 
 	.microsite-box {
 		position: relative;
@@ -28,8 +27,13 @@ header.microsite {
 		margin-bottom: 40px;
         text-align: center;
 		cursor: pointer;
+		background: $navy;
 
-		a {
+		.icon {
+			background: white center center / cover no-repeat;
+		}
+
+		a, .content {
 			@include font-title;
 			text-transform: uppercase;
 			display: block;
@@ -38,7 +42,6 @@ header.microsite {
 			color: white;
 			font-size: 1.2em;
 			line-height: 1.4em;
-			background: $navy;
 			transition: background 400ms ease-in-out;
 
 			&:hover {
@@ -46,7 +49,7 @@ header.microsite {
 			}
 
 			@include respond-to( $bp-m ) {
-				padding: 25px;
+				padding: 10px 25px;
 			}
 		}
 
