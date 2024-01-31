@@ -33,23 +33,24 @@ header.microsite {
 			background: white center center / cover no-repeat;
 		}
 
-		a, .content {
-			@include font-title;
-			text-transform: uppercase;
+		.content {
 			display: block;
 			padding: 20px;
 			text-align: center;
 			color: white;
-			font-size: 1.2em;
-			line-height: 1.4em;
 			transition: background 400ms ease-in-out;
 
-			&:hover {
-				text-decoration: none;
+			h1, h2, h3, h4, h5, h6 {
+				color: white;
+				text-transform: uppercase;
+			}
+
+			p {
+				font-size: .9em;
 			}
 
 			@include respond-to( $bp-m ) {
-				padding: 10px 25px;
+				padding: 25px;
 			}
 		}
 
