@@ -20,7 +20,7 @@ function the_microsite_boxes() {
 	// if it's an array
 	if ( is_array( $links ) ) {
 
-		if ( !empty( $links[0]['link'] ) && !empty( $links[0]['image'] ) && !empty( $links[0]['title'] ) ) {
+		if ( !empty( $links[0]['image'] ) && !empty( $links[0]['title'] ) ) {
 
 		// if it's an array, we'll assume it's got content
 		?>
