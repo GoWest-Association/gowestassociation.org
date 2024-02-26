@@ -41,6 +41,25 @@ endif;
 	<div class="page-title">
 		<h1><?php print $page_title; ?></h1>
 	</div>
+	<?php
+	if ( !is_foundation() ) {
+		$term = get_queried_object();
+		?>
+	<div class="news-aux">
+		<div class="news-aux-col">
+			<h5>By Category</h5>
+			<?php wp_dropdown_categories( array( 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $term->slug ) ); ?>
+		</div>
+		<div class="news-aux-col">
+			<h5>By Month</h5>
+			<select name="archive-dropdown" onchange="document.location.href=this.options[this.selectedIndex].value;"><option>Select a Month</option><?php wp_get_archives('type=monthly&format=option&show_post_count=1'); ?></select>
+		</div>
+		<div class="news-aux-col right"><a href="/onthego" class="btn small navy">&laquo; Back to News</a></div>
+	</div>
+		<?php
+	}
+	?>
+
 	<div class="content-wide" role="main">
 	<?php
 	// loop through the items
