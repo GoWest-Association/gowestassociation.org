@@ -40,7 +40,7 @@ print '<a href="/mailing-lists/" class="btn green aotm-updates">Get Updates</a>'
 <a href="/mailing-lists/"><img src="<?php bloginfo("template_url") ?>/img/header-aotm.svg" class="Advocacy on the Move" /></a>
 <?php
 
-if ( is_member() ) {
+if ( is_member() && is_board() ) {
 
 	if ( has_introduction() ) {
 		?>

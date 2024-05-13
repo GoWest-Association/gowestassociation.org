@@ -11,7 +11,12 @@ function gowest_session_start() {
 	global $sf_url;
 
 	// use the live salesforce URL.
-	$sf_url = "https://members.gowest.org/s/";
+	if ( $_SERVER['HTTP_HOST'] == 'gowest.jpederson.io' ) {
+		$sf_url = "https://nwcua--staging.sandbox.my.site.com/s/";
+	} else {
+		$sf_url = "https://members.gowest.org/s/";
+	}
+
 	
 	// get the request URI and remove the query string
 	$request = parse_query_string();
@@ -23,9 +28,10 @@ function gowest_session_start() {
 		// $logfile = $_SERVER["DOCUMENT_ROOT"] . '/wp-content/uploads/logs/auth.log';
 		//$logfile = '../logs/auth.log';
 		//file_put_contents( $logfile, "\r\n" . $_SERVER['REQUEST_URI'], FILE_APPEND );
-	
+
 		// set session
 		$_SESSION['sf_user'] = $request;
+		$_SESSION['sf_user']['board'] = ( $_SESSION['sf_user']['board'] === 'true' ? true : false );
 	
 		// log them in as 'member'
 		if ( !is_user_logged_in() ) {
@@ -51,6 +57,8 @@ function gowest_session_start() {
 	}
 }
 add_action( 'init', 'gowest_session_start', 1 );
+
+
 
 
 // function to end the session
@@ -137,10 +145,8 @@ function is_member() {
 		// if the content requires membership
 		if ( get_cmb_value( 'member-only' ) == 'on' ) {
 
+			// if they're an admin, let them in automatically
 			return user_has_membership();
-
-			// they don't have any of the required roles, they can't access it.
-			return false;
 
 		} else {
 
@@ -165,11 +171,14 @@ function user_has_membership() {
 		return true;
 	}
 
-	// check if we've got a salesforce user logged in
-	if ( isset( $_SESSION['sf_user'] )  ) {
+	// array of acceptable membership types
+	$accepted_memberships = array( 'Member', 'Associate Member' , 'Trial Member' );
 
-		// see if the user is an editor
-		if ( $_SESSION['sf_user']['membershiptype'] != 'Non Member' ) return true;
+	// check if we've got a salesforce user logged in
+	if ( isset( $_SESSION['sf_user'] ) ) {
+
+		// see if the user is a member
+		if ( in_array( $_SESSION['sf_user']['membershiptype'], $accepted_memberships ) ) return true;
 
 	}
 
@@ -201,8 +210,67 @@ function do_member_error() {
 			print str_replace( '[login-link]', $login_link, get_snippet( 'member-error' ) );
 			// <iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
 		}
-		?> 
+		?>
 	</div>
 	<?php
 }
+
+
+// membership check - boolean function, that checks to see if there were previous access roles and adds the appropriate new meta.
+function is_board() {
+
+	global $post;
+
+	// see if there is a member's only value
+	if ( has_cmb_value( 'board-only' )  ) {
+
+		// if they're an admin, let them in automatically
+		if ( current_user_can( 'administrator' ) ) { 
+			return true;
+		}
+	
+		// if the content requires membership
+		if ( get_cmb_value( 'board-only' ) == 'on' ) {
+
+			// if they're a board member in salesforce
+			if ( isset( $_SESSION['sf_user']['board'] ) ) {
+				if ( $_SESSION['sf_user']['board'] ) {
+					return true;
+				}
+			}
+
+			// they don't have any of the required roles, they can't access it.
+			return false;
+
+		} else {
+
+			// members only checkbox exists and is unchecked, they can access
+			return true;
+		}
+
+	} else {
+
+		// there's no value available for the member's only checkbox, they can access.
+		return true;
+	}
+
+}
+
+
+function member_debug() {
+	$return = '<hr>';
+
+	if ( isset( $_SESSION['sf_user'] ) ) {
+		$return .= '<p><strong>Name:</strong> ' . $_SESSION['sf_user']['name'] . '<br>';
+		$return .= '<strong>Email:</strong> ' . $_SESSION['sf_user']['email'] . '<br>';
+		$return .= '<strong>User ID:</strong> ' . $_SESSION['sf_user']['nwcua_id'] . '<br>';
+		$return .= '<strong>Membership Type:</strong> ' . $_SESSION['sf_user']['membershiptype'] . '<br>';
+		$return .= '<strong>Board Member:</strong> ' . ( $_SESSION['sf_user']['board'] ? 'Yes' : 'No' ) . '</p>';
+	} else {
+		$return .= '<hr>Member not logged into Salesforce<hr>';
+	}
+	$return .= '<hr>';
+	return $return;
+}
+add_shortcode( 'member-debug', 'member_debug' );
 

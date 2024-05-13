@@ -21,7 +21,7 @@ if ( show_title() ) {
 	<?php
 }
 
-if ( is_member() ) {
+if ( is_member() && is_board() ) {
 
 	the_showcase();
 

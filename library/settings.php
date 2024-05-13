@@ -68,6 +68,13 @@ function settings_metaboxes() {
         'type' => 'checkbox'
     ) );
 
+    $settings_metabox->add_field( array(
+        'name' => 'Board Only?',
+        'id'   => CMB_PREFIX . 'board-only',
+        'desc' => 'Board Members Only',
+        'type' => 'checkbox'
+    ) );
+
 }
 
 

@@ -60,7 +60,7 @@ $job_count = $the_query->found_posts;
 </div>
 
 <?php 
-if ( is_member() ) { 
+if ( is_member() && is_board() ) { 
 	?>
 
 	<div class="content-wide" role="main">
