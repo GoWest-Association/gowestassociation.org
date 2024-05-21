@@ -3,9 +3,9 @@
 // tab controls
 jQuery(document).ready(function($){
 
-	if ( $( '.accordions' ).length ) {
+	if ( $( '.accordion' ).length ) {
 
-		$( '.accordions .accordion .accordion-handle' ).click(function(){
+		$( '.accordion .accordion-handle' ).click(function(){
 			$( this ).parent( '.accordion' ).toggleClass( 'open' );
 		});
 

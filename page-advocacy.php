@@ -38,6 +38,8 @@ if ( is_member() && is_board() ) {
 
 	the_icons();
 
+	the_faqs();
+
 	the_accordions();
 
 	the_image_boxes();

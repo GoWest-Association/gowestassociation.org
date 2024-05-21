@@ -58,6 +58,8 @@ if ( is_member() && is_board() ) {
 
 	the_agenda();
 
+	the_faqs();
+
 	the_accordions();
 
 	the_page_ads();

@@ -1,0 +1,8 @@
+
+
+.faq-section {
+    padding: 30px;
+	@include respond-to( $bp-m ) { padding: 40px 40px 30px; }
+	@include respond-to( $bp-l ) { padding: 45px 50px 30px; }
+	@include respond-to( $bp-xl ) { padding: 50px 60px 30px; }
+}
