@@ -146,3 +146,23 @@ function get_brand() {
     }
 }
 
+
+// add category support to pages
+function categories_for_pages() {  
+    register_taxonomy_for_object_type( 'category', 'page' );  
+}
+add_action( 'init', 'categories_for_pages' );
+
+
+// exclude pages that are in a specific category from search results.
+function wpb_search_filter( $query ) {
+    if ( $query->is_search && !is_admin() ) {
+        $category = get_category_by_slug( 'exclude' );
+        if ( !empty( $category ) ) {
+            $query->set( 'cat', '-' . $category->term_id );
+        }
+    }
+    return $query;
+}
+add_filter( 'pre_get_posts', 'wpb_search_filter' );
+
