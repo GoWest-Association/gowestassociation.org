@@ -85,6 +85,10 @@ the_showcase();
 			</div>
 		</div>
 		<div class="sidebar">
+			<div class="widget widget_categories">
+				<?php wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'exclude' => array( 35 ), 'orderby' => 'name' ) ); ?>
+			</div>
+
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
 
@@ -97,4 +101,3 @@ the_footer_buttons();
 
 get_footer();
 
-?>

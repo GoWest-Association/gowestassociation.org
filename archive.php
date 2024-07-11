@@ -48,7 +48,7 @@ endif;
 	<div class="news-aux">
 		<div class="news-aux-col">
 			<h5>By Category</h5>
-			<?php wp_dropdown_categories( array( 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $term->slug ) ); ?>
+			<?php wp_dropdown_categories( array( 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $term->slug, 'exclude' => array( 35 ) ) ); ?>
 		</div>
 		<div class="news-aux-col">
 			<h5>By Month</h5>

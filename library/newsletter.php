@@ -29,3 +29,4 @@ function newsletter_metabox( $meta_boxes ) {
 }
 add_filter( 'cmb2_init', 'newsletter_metabox' );
 
+
