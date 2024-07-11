@@ -65,16 +65,21 @@ the_showcase();
 			<?php the_page_ads(); ?>
 			<div class="title-bar grey-dark"><h3>Compliance Resources</h3></div>
 			<div class="right-column-inner">
-
+				
+				<?php print get_snippet( 'compliance-newsletter' ); ?>
+				<!--
 				<ul class="article-list">
 				<?php
+				/*
 				$args = array( 'numberposts' => get_option( 'gw_posts_compliance' ), 'category_name' => 'compliance-resources' );
 				$posts = get_posts( $args );
 				foreach ( $posts as $key => $a_post ) {
 					print '<li><a href="' . get_the_permalink( $a_post ) . '">' . $a_post->post_title . '</a></li>';
 				}
+				*/
 				?>
 				</ul>
+				-->
 
 			</div>
 			<div class="title-bar navy"><h3>Want More Industry News?</h3></div>
