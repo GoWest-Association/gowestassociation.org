@@ -1045,9 +1045,19 @@ function event_agenda_shortcode( $atts ) {
 					'terms' => $category
 				),
 			),
-			'orderby' => 'meta_value',
-			'meta_key' => '_p_event_start',
-			'order' => 'ASC'
+			'meta_query' => array(
+				'relation' => 'AND',
+				'event_start' => array(
+					'key' => '_p_event_start'
+				),
+				'event_end' => array(
+					'key' => '_p_event_end',
+				),
+			),
+			'orderby' => array(
+				'event_start' => 'ASC',
+				'event_end' => 'ASC',
+			),
 		) );
 		
 		// if we're displaying by day
