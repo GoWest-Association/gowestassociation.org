@@ -30,3 +30,20 @@ function newsletter_metabox( $meta_boxes ) {
 add_filter( 'cmb2_init', 'newsletter_metabox' );
 
 
+// get advocacy-on-the-move and all its children as an array of ids.
+function get_aotm_categories() {
+
+    // get aotm category
+    $aotm_parent = get_category_by_slug( 'advocacy-on-the-move' );
+
+    // get aotm children
+    $aotm_cats = get_term_children( $aotm_parent->term_id, 'category' );
+
+    // add the parent category to the list.
+    $aotm_cats[] = $aotm_parent->term_id;
+
+    // return the array of ids,
+    return $aotm_cats;
+}
+
+

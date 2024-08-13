@@ -48,7 +48,15 @@ endif;
 	<div class="news-aux">
 		<div class="news-aux-col">
 			<h5>By Category</h5>
-			<?php wp_dropdown_categories( array( 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $term->slug, 'exclude' => array( 35 ) ) ); ?>
+			<?php
+
+			/// get all the advocacy on the move category ids
+			$aotm_cats = get_aotm_categories();
+
+			// display the category dropdown, excluding aotm ones.
+			wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $term->slug, 'exclude' => $aotm_cats, 'orderby' => 'name' ) );
+			
+			?>
 		</div>
 		<div class="news-aux-col">
 			<h5>By Month</h5>

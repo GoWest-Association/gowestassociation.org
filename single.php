@@ -18,6 +18,18 @@ if ( !is_foundation() ) {
 ?>
 	<div class="two-column article" role="main">
 		<div class="sidebar">
+			<div class="widget widget_categories">
+				<?php
+
+				/// get all the advocacy on the move category ids
+				$aotm_cats = get_aotm_categories();
+
+				// display the category dropdown, excluding aotm ones.
+				wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'exclude' => $aotm_cats, 'orderby' => 'name' ) );
+				
+				?>
+			</div>
+
 			<?php if ( !function_exists('dynamic_sidebar') || !dynamic_sidebar('newsletter') ) : ?><!-- no sidebar --><?php endif; ?>
 		</div>
 		<div class="right-column">
