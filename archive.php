@@ -5,6 +5,14 @@
 
 $is_newsletter = true;
 
+
+/// get all the advocacy on the move category ids
+$aotm_cats = get_aotm_categories();
+query_posts(array(
+	'category__not_in' => $aotm_cats
+));
+
+
 if ( is_foundation() ) {
 	set_brand( 'foundation' );
 } else {
@@ -50,11 +58,8 @@ endif;
 			<h5>By Category</h5>
 			<?php
 
-			/// get all the advocacy on the move category ids
-			$aotm_cats = get_aotm_categories();
-
 			// display the category dropdown, excluding aotm ones.
-			wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $term->slug, 'exclude' => $aotm_cats, 'orderby' => 'name' ) );
+			wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => ( isset( $term->slug ) ? $term->slug : 0 ), 'exclude' => $aotm_cats, 'orderby' => 'name' ) );
 			
 			?>
 		</div>

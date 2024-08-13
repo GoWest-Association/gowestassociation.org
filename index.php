@@ -6,6 +6,14 @@ Home/catch-all template
 // set the newsletter global
 $is_newsletter = true;
 
+
+/// get all the advocacy on the move category ids
+$aotm_cats = get_aotm_categories();
+query_posts( array(
+	'category__not_in' => $aotm_cats
+) );
+
+
 set_brand( 'association' );
 
 get_header(); 

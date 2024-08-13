@@ -47,3 +47,10 @@ function get_aotm_categories() {
 }
 
 
+function exclude_category_posts( $category_array ) {
+
+    global $wp_query;
+    print $wp_query->category__not_in;
+
+}
+
