@@ -6,13 +6,6 @@
 $is_newsletter = true;
 
 
-/// get all the advocacy on the move category ids
-$aotm_cats = get_aotm_categories();
-query_posts(array(
-	'category__not_in' => $aotm_cats
-));
-
-
 if ( is_foundation() ) {
 	set_brand( 'foundation' );
 } else {
@@ -21,6 +14,9 @@ if ( is_foundation() ) {
 
 get_header(); 
 
+
+// empty slug for non-category pages
+$slug = 0;
 
 if ( is_day() ) :
 	$page_title = 'Daily Archives: <span>' . get_the_date() . '</span>';
@@ -36,6 +32,7 @@ elseif ( is_year() ) :
 
 elseif ( is_category() ) :
 	$category = get_queried_object();
+	$slug = $category->slug;
 	$page_title = $category->name;
 	$page_subtitle = ( !empty( $category->category_description ) ? $category->category_description : '&nbsp;' );
 
@@ -51,15 +48,17 @@ endif;
 	</div>
 	<?php
 	if ( !is_foundation() ) {
-		$term = get_queried_object();
 		?>
 	<div class="news-aux">
 		<div class="news-aux-col">
 			<h5>By Category</h5>
 			<?php
 
+			// get advocacy on the move and its children
+			$aotm_cats = get_aotm_categories();
+
 			// display the category dropdown, excluding aotm ones.
-			wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => ( isset( $term->slug ) ? $term->slug : 0 ), 'exclude' => $aotm_cats, 'orderby' => 'name' ) );
+			wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'selected' => $slug, 'exclude' => $aotm_cats, 'orderby' => 'name' ) );
 			
 			?>
 		</div>
