@@ -57,7 +57,7 @@ function exclude_category_posts( $query ) {
         $aotm_cats = get_aotm_categories();
         
         // Let's change the query for category archives.
-        $query->set( 'category__not_in', $aotm_cats  );
+        // $query->set( 'category__not_in', $aotm_cats );
     }
 }
 add_action( 'pre_get_posts', 'exclude_category_posts' );
