@@ -51,13 +51,14 @@ function get_aotm_categories() {
 function exclude_category_posts( $query ) {
 
     // target only archive pages
-    if ( !is_admin() && $query->is_main_query() ) {
+    if ( !is_admin() && !is_feed() && $query->is_main_query() ) {
 
         // get aotm categories
         $aotm_cats = get_aotm_categories();
         
         // Let's change the query for category archives.
         $query->set( 'category__not_in', $aotm_cats );
+
     }
 }
 add_action( 'pre_get_posts', 'exclude_category_posts' );
