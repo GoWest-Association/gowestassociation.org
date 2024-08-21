@@ -48,47 +48,47 @@
 							<ul id="menu-footer-links" class="menu">
 								<li id="menu-item-115091"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115091"><a
-										href="/about-gowest/">About Us</a></li>
+										href="https://gowestassociation.org/about-gowest/">About Us</a></li>
 								<li id="menu-item-115092"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115092"><a
-										href="/assumption-of-risk/">Acknowledgment of Risk</a></li>
+										href="https://gowestassociation.org/assumption-of-risk/">Acknowledgment of Risk</a></li>
 								<li id="menu-item-115093"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115093"><a
-										href="/contact-us-2/">Contact Us</a></li>
+										href="https://gowestassociation.org/contact-us-2/">Contact Us</a></li>
 								<li id="menu-item-115094"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115094"><a
-										href="/directory/">Credit Union Directory</a></li>
+										href="https://gowestassociation.org/directory/">Credit Union Directory</a></li>
 								<li id="menu-item-117177"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-117177"><a
-										href="/resource-centers/digital-media-resource-center/">For Reporters</a></li>
+										href="https://gowestassociation.org/resource-centers/digital-media-resource-center/">For Reporters</a></li>
 								<li id="menu-item-115095"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115095"><a
 										href="https://www.gowestfoundation.org">GoWest Foundation</a></li>
 								<li id="menu-item-115098"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115098"><a
-										href="/solutions">GoWest Solutions</a></li>
+										href="https://gowestassociation.org/solutions">GoWest Solutions</a></li>
 								<li id="menu-item-115096"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115096"><a
-										href="/our-commitments/">Our Commitments</a></li>
+										href="https://gowestassociation.org/our-commitments/">Our Commitments</a></li>
 								<li id="menu-item-115097"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115097"><a
-										href="/about/privacy-policy-2/">Privacy Policy</a></li>
+										href="https://gowestassociation.org/about/privacy-policy-2/">Privacy Policy</a></li>
 								<li id="menu-item-115099"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-115099"><a
-										href="/submit-your-news/">Submit Your News</a></li>
+										href="https://gowestassociation.org/submit-your-news/">Submit Your News</a></li>
 								<li id="menu-item-117174"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-117174"><a
-										href="/speak-at-a-future-event/">Speak At A Future Event</a></li>
+										href="https://gowestassociation.org/speak-at-a-future-event/">Speak At A Future Event</a></li>
 								<li id="menu-item-117176"
 									class="menu-item menu-item-type-custom menu-item-object-custom menu-item-117176"><a
-										href="/wp-content/uploads/2022/07/Safelisting-for-GoWest-Final.pdf">Safelist Us</a></li>
+										href="https://gowestassociation.org/wp-content/uploads/2022/07/Safelisting-for-GoWest-Final.pdf">Safelist Us</a></li>
 							</ul>
 						</div>
 					</div>
 					<div class="column subscribe">
 						<h4>Customize Your Experience</h4>
 						<p>Sign up for On The Go News, alerts, updates, event &amp; registration information, and more.</p>
-						<a href="/subscribe" class="btn green" target="_top">Subscribe</a>
+						<a href="https://gowestassociation.org/subscribe" class="btn green" target="_top">Subscribe</a>
 					</div>
 				</div>
 
