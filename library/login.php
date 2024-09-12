@@ -213,7 +213,7 @@ function do_member_error() {
 			<?php
 		} else {
 			if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
-				$login_link = '<a href="' . $sf_url . '">log in</a>';
+				$login_link = '<a href="' . $sf_url . '" class="btn navy">log in</a>';
 			} else {
 				$login_link = '<a href="' . $sf_url . 'redirect-with-url-params?url=' . $referer . '">log in</a>';
 			}
