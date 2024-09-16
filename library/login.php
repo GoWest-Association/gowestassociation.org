@@ -258,6 +258,12 @@ function is_board() {
 				}
 			}
 
+			if ( isset( $_SESSION['sf_user']['foundation_board'] ) ) {
+				if ( $_SESSION['sf_user']['foundation_board'] ) {
+					return true;
+				}
+			}
+
 			// they don't have any of the required roles, they can't access it.
 			return false;
 
