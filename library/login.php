@@ -38,7 +38,6 @@ function gowest_session_start() {
 		// log them in as 'member'
 		if ( !is_user_logged_in() ) {
 			if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
-				print_r( $_SESSION ); die;
 				wp_set_auth_cookie( 16, false );
 			} else {
 				wp_set_auth_cookie( 8, false );
