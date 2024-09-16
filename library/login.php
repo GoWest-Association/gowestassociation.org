@@ -46,7 +46,11 @@ function gowest_session_start() {
 	
 		// redirect to infosight
 		if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
-			wp_redirect( '/board-portal/' );
+			if ( $_SESSION['sf_user']['board'] ) {
+				wp_redirect( '/board-portal/' );
+			} else {
+				wp_redirect( '/login-error/' );
+			}
 		} else {
 			wp_redirect( 'https://gowestassociation.leagueinfosight.com/admin/client/is/frontend/gowest_sso.php?' . http_build_query( $request ) );
 		}
