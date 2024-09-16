@@ -34,6 +34,7 @@ function gowest_session_start() {
 		// set session
 		$_SESSION['sf_user'] = $request;
 		$_SESSION['sf_user']['board'] = ( $_SESSION['sf_user']['board'] === 'true' ? true : false );
+		$_SESSION['sf_user']['foundation_board'] = ( isset( $_SESSION['sf_user']['foundation_board'] ) ? ( $_SESSION['sf_user']['foundation_board'] === 'true' ? true : false ) : false );
 	
 		// log them in as 'member'
 		if ( !is_user_logged_in() ) {
@@ -46,7 +47,7 @@ function gowest_session_start() {
 	
 		// redirect to infosight
 		if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
-			if ( $_SESSION['sf_user']['board'] ) {
+			if ( $_SESSION['sf_user']['foundation_board'] ) {
 				wp_redirect( '/board-portal/' );
 			} else {
 				wp_redirect( '/login-error/' );
