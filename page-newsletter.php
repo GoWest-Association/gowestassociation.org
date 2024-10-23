@@ -95,6 +95,7 @@ the_showcase();
 
 				/// get all the advocacy on the move category ids
 				$aotm_cats = get_aotm_categories();
+				$aotm_cats[] = 222;
 
 				// display the category dropdown, excluding aotm ones.
 				wp_dropdown_categories( array( 'show_option_all' => 'Select Category', 'value_field' => 'slug', 'class' => 'category-dropdown', 'exclude' => $aotm_cats, 'orderby' => 'name' ) );

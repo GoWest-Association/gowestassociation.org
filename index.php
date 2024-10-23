@@ -31,9 +31,6 @@ the_showcase();
 	<div class="content-wide" role="main">
 
 		<?php
-		if ( is_search() ) {
-			?><h1 class="post-title"></span></h1><?php
-		}
 
 		if ( have_posts() ) : 
 			?>
