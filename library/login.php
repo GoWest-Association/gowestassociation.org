@@ -13,6 +13,8 @@ function gowest_session_start() {
 	// use the live salesforce URL.
 	if ( $_SERVER['HTTP_HOST'] == 'gowest.jpederson.io' ) {
 		$sf_url = "https://nwcua--staging.sandbox.my.site.com/s/";
+	} else if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
+		$sf_url = "https://gowest.my.site.com/foundation/s/login/?startURL=https%3A%2F%2Fgowestfoundation.org%2Fboard-portal%2F";
 	} else {
 		$sf_url = "https://members.gowest.org/s/";
 	}
@@ -32,14 +34,27 @@ function gowest_session_start() {
 		// set session
 		$_SESSION['sf_user'] = $request;
 		$_SESSION['sf_user']['board'] = ( $_SESSION['sf_user']['board'] === 'true' ? true : false );
+		$_SESSION['sf_user']['foundation_board'] = ( isset( $_SESSION['sf_user']['foundation_board'] ) ? ( $_SESSION['sf_user']['foundation_board'] === 'true' ? true : false ) : false );
 	
 		// log them in as 'member'
 		if ( !is_user_logged_in() ) {
-			wp_set_auth_cookie( 8, false );
+			if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
+				wp_set_auth_cookie( 16, false );
+			} else {
+				wp_set_auth_cookie( 8, false );
+			}
 		}
 	
 		// redirect to infosight
-		wp_redirect( 'https://gowestassociation.leagueinfosight.com/admin/client/is/frontend/gowest_sso.php?' . http_build_query( $request ) );
+		if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
+			if ( $_SESSION['sf_user']['foundation_board'] ) {
+				wp_redirect( '/board-portal/' );
+			} else {
+				wp_redirect( '/login-error/' );
+			}
+		} else {
+			wp_redirect( 'https://gowestassociation.leagueinfosight.com/admin/client/is/frontend/gowest_sso.php?' . http_build_query( $request ) );
+		}
 		exit;
 	
 	}
@@ -206,7 +221,11 @@ function do_member_error() {
 		<p>To check and see if your membership has been approved, please <a href="/logout">log out</a> and back in.</p>
 			<?php
 		} else {
-			$login_link = '<a href="' . $sf_url . 'redirect-with-url-params?url=' . $referer . '">log in</a>';
+			if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
+				$login_link = '<a href="' . $sf_url . '" class="btn navy">log in</a>';
+			} else {
+				$login_link = '<a href="' . $sf_url . 'redirect-with-url-params?url=' . $referer . '">log in</a>';
+			}
 			print str_replace( '[login-link]', $login_link, get_snippet( 'member-error' ) );
 			// <iframe src="https://members.gowest.org/secur/logout.jsp" style="width: 0; height: 0;"></iframe>
 		}
@@ -235,6 +254,12 @@ function is_board() {
 			// if they're a board member in salesforce
 			if ( isset( $_SESSION['sf_user']['board'] ) ) {
 				if ( $_SESSION['sf_user']['board'] ) {
+					return true;
+				}
+			}
+
+			if ( isset( $_SESSION['sf_user']['foundation_board'] ) ) {
+				if ( $_SESSION['sf_user']['foundation_board'] ) {
 					return true;
 				}
 			}

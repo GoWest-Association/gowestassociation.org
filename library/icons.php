@@ -78,7 +78,7 @@ function icon_metaboxes( $meta_boxes ) {
 
     $icon_showcase_metabox->add_group_field( $icon_showcase_metabox_group, array(
         'name' => 'Title',
-        'desc' => 'Set a title to display below this icon.',
+        'desc' => 'Set a title to display below this icon. Add "|" to insert a line break.',
         'id'   => 'title',
         'type' => 'text',
         'sanitization_cb' => false
