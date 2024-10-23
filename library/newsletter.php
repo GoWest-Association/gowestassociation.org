@@ -42,9 +42,6 @@ function get_aotm_categories() {
     // add the parent category to the list.
     $aotm_cats[] = $aotm_parent->term_id;
 
-    // add 'News Releases' to the exclusions.
-    $aotm_cats[] = 222;
-
     // return the array of ids,
     return $aotm_cats;
 }
