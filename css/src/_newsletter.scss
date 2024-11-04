@@ -169,14 +169,6 @@
 		max-width: 50%;
 	}
 
-	.caption {
-		padding: 5px 0 0 0;
-		@include font-med-italic;
-		font-size: .75em;
-		line-height: 1.6em;
-		color: #1E3241;
-	}
-
 	.wp-post-image {
 		border: 1px solid $grey;
 		box-shadow: 0 0 20px rgba( $grey, .5 );
@@ -184,5 +176,13 @@
 	}
 }
 
+
+.single-post .two-column .right-column .featured-image .caption, .wp-caption-text {
+		padding: 5px 0 0 0;
+		@include font-med-italic;
+		font-size: .75em;
+		line-height: 1.6em;
+		color: #1E3241;
+	}
 
 
