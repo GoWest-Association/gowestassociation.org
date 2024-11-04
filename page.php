@@ -69,6 +69,8 @@ if ( is_member() && is_board() ) {
 
 	the_page_events_row();
 
+	the_image_boxes();
+
 	the_page_ads();
 
 	the_page_articles();
