@@ -1,8 +1,10 @@
-<?php header("Access-Control-Allow-Origin: *"); ?><!DOCTYPE html>
+<?php header("Access-Control-Allow-Origin: *"); ?>
+<!DOCTYPE html>
 <!--[if IE 7]><html class="ie ie7" lang="en-US"><![endif]-->
 <!--[if IE 8]><html class="ie ie8" lang="en-US"><![endif]-->
 <!--[if !(IE 7) | !(IE 8)  ]><!-->
-<html lang="en-US"><!--<![endif]-->
+<html lang="en-US">
+<!--<![endif]-->
 
 <head>
     <meta charset="UTF-8" />
@@ -32,7 +34,7 @@
             <div class="account-tools">
 
                 <div class="search">
-                    <form role="search" method="get" id="searchform" class="searchform" action="/" _lpchecked="1">
+                    <form role="search" method="get" id="searchform" class="searchform" action="https://gowestassociation.org/" _lpchecked="1">
                         <label for="s">Search our site:</label>
                         <input type="text" value="" name="s" id="s" placeholder="Search" title="Search our site.">
                         <input type="submit" id="searchsubmit" value="Search">
@@ -44,7 +46,8 @@
                 </div>
 
                 <div class="contact">
-                    <a href="https://gowestassociation.org/about-gowest/contact-gowest/" class="contact-link">Contact Us</a>
+                    <a href="https://gowestassociation.org/about-gowest/contact-gowest/" class="contact-link">Contact
+                        Us</a>
                 </div>
 
             </div>
@@ -62,7 +65,12 @@
                                 <ul id="menu-calendar" class="menu">
                                     <li id="menu-item-116963"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116963">
-                                        <a href="https://gowestassociation.org/events">Upcoming Events</a></li>
+                                        <a href="https://gowestassociation.org/events/all-upcoming-events/2024/1/">Upcoming
+                                            Events</a></li>
+                                    <li id="menu-item-133790"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133790">
+                                        <a href="https://gowestassociation.org/2025-signature-events-highlight/">2025
+                                            Can&#8217;t Miss Highlights</a></li>
                                 </ul>
                             </div>
                             <h4>Leadership Development</h4>
@@ -75,9 +83,6 @@
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116110">
                                         <a href="https://gowestassociation.org/event/advanced-leadership-program/">Advanced Leadership Program</a>
                                     </li>
-                                    <li id="menu-item-116108"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116108">
-                                        <a href="https://gowestassociation.org/event/executive-ready/">Executive Ready</a></li>
                                 </ul>
                             </div>
                             <h4>Online Learning</h4>
@@ -91,24 +96,27 @@
 
                         </div>
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/seminars">Seminars</h4>
+                            <h4><a href="https://gowestassociation.org/seminars">Seminars</a></h4>
                             <div class="menu-development-seminars-container">
                                 <ul id="menu-development-seminars" class="menu">
                                     <li id="menu-item-116557"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116557">
                                         <a href="https://gowestassociation.org/seminars/#accordion-5">Advocacy Training</a></li>
+                                    <li id="menu-item-116970"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116970">
+                                        <a href="https://gowestassociation.org/event/bsa-officer-training/">BSA Officer
+                                            Training</a></li>
                                     <li id="menu-item-116967"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116967">
-                                        <a href="https://gowestassociation.org/seminars/#accordion-2">Compliance Update</a></li>
+                                        <a href="https://gowestassociation.org/seminars/#accordion-2">Compliance Legal Update</a></li>
                                     <li id="menu-item-116968"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116968">
                                         <a href="https://gowestassociation.org/seminars/#accordion-1">HR Update</a></li>
                                     <li id="menu-item-116969"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116969">
-                                        <a href="https://gowestassociation.org/seminars/#accordion-4">IRA School</a></li>
-                                    <li id="menu-item-116970"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116970">
-                                        <a href="https://gowestassociation.org/seminars/#accordion-3">Risk &#038; Opportunities</a></li>
+                                        <a
+                                            href="https://gowestassociation.org/seminars/virtual-ira-school-essentials-advanced-iras/">IRA
+                                            School</a></li>
                                 </ul>
                             </div>
 
@@ -131,8 +139,7 @@
                                         <a href="https://gowestassociation.org/councilsb/hr-trainers-council/">HR &#038; Trainers</a></li>
                                     <li id="menu-item-116123"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116123">
-                                        <a href="https://gowestassociation.org/councilsb/innovation-operations-council/">Innovations &#038;
-                                            Operations</a></li>
+                                        <a href="https://gowestassociation.org/councilsb/innovation-operations-council/">Digital Innovation</a></li>
                                     <li id="menu-item-116124"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116124">
                                         <a href="https://gowestassociation.org/councilsb/lenders-council/">Lenders</a></li>
@@ -147,27 +154,7 @@
 
                         </div>
                         <div class="column">
-                            <h4>By Category</h4>
-                            <div class="menu-development-by-title-container">
-                                <ul id="menu-development-by-title" class="menu">
-                                    <li id="menu-item-116394"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116394">
-                                        <a href="https://gowestassociation.org/c-suite-development/">C-Suite</a></li>
-                                    <li id="menu-item-116395"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116395">
-                                        <a href="https://gowestassociation.org/executive-development/">Executive</a></li>
-                                    <li id="menu-item-116398"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116398">
-                                        <a href="https://gowestassociation.org/director-development/">Director</a></li>
-                                    <li id="menu-item-116397"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116397">
-                                        <a href="https://gowestassociation.org/operations-development/">Operations</a></li>
-                                    <li id="menu-item-116396"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116396">
-                                        <a href="https://gowestassociation.org/manager-development/">Manager</a></li>
-                                </ul>
-                            </div>
-                            <h4><a href="https://gowestassociation.org/jobs/">CU Careers</h4>
+                            <h4><a href="https://gowestassociation.org/jobs/">CU Careers</a></h4>
                             <div class="menu-development-cu-careers-container">
                                 <ul id="menu-development-cu-careers" class="menu">
                                     <li id="menu-item-116400"
@@ -178,20 +165,17 @@
                                         <a href="https://gowestassociation.org/post-a-job/">Post A Job</a></li>
                                     <li id="menu-item-116402"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116402">
-                                        <a href="https://gowestassociation.org/edit-a-job/">Edit Job Posting</a></li>
+                                        <a href="https://gowestassociation.org/job-manager/">Job Manager</a></li>
                                 </ul>
                             </div>
 
                         </div>
                         <div class="column">
                             <h4>Leadership Development</h4>
-                            <h5><a href="https://gowestassociation.org/event/executive-ready/">Executive Ready</a></h5>
-                            <p>Accelerate your skill development</p>
-                            <p><a href="https://gowestassociation.org/event/executive-ready/" class="btn green" target="_top">Learn More</a></p>
                             <h5><a href="https://gowestassociation.org/event/leadership-institute/">Leadership Institute</a></h5>
                             <p>Where leaders are made, not born</p>
                             <p><a href="https://gowestassociation.org/event/leadership-institute/" class="btn green" target="_top">Learn More</a></p>
-                            <h5><a href="https://gowestassociation.org/event/advanced-leadership-program/">Advanced Leadership Program</a></h5>
+                            <h5><a href="https://gowestassociation.org/event/advanced-leadership-program/">Advanced Leadership</a></h5>
                             <p>Equipping next-gen CU leaders</p>
                             <p><a href="https://gowestassociation.org/event/advanced-leadership-program/" class="btn green" target="_top">Learn
                                     More</a></p>
@@ -207,60 +191,79 @@
                                 <ul id="menu-calendar-1" class="menu">
                                     <li
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116963">
-                                        <a href="https://gowestassociation.org/events">Upcoming Events</a></li>
+                                        <a href="https://gowestassociation.org/events/all-upcoming-events/2024/1/">Upcoming
+                                            Events</a></li>
+                                    <li
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133790">
+                                        <a href="https://gowestassociation.org/2025-signature-events-highlight/">2025
+                                            Can&#8217;t Miss Highlights</a></li>
                                 </ul>
                             </div>
                             <h4>Signature Events</h4>
                             <div class="menu-events-key-events-container">
                                 <ul id="menu-events-key-events" class="menu">
+                                    <li id="menu-item-122598"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-122598">
+                                        <a href="https://gowestassociation.org/event-ceo-co-lab/">CEO Co-Lab</a></li>
                                     <li id="menu-item-116351"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116351">
-                                        <a href="https://gowestassociation.org/event/executives-vail/"><span class="__cf_email__"
-                                                data-cfemail="43063b262036372a3526300315222a2f">[email&#160;protected]</span></a>
-                                    </li>
+                                        <a href="https://gowestassociation.org/event/exec-retreat/">Executives@Vail</a></li>
                                     <li id="menu-item-116978"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116978">
                                         <a href="https://gowestassociation.org/event/yp-summit/">YP Summit</a></li>
                                     <li id="menu-item-116352"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116352">
-                                        <a href="https://gowestassociation.org/event/maxx-annual-convention/">MAXX Convention</a></li>
-                                    <li id="menu-item-116482"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116482">
-                                        <a href="https://gowestassociation.org/event/solutions-trade-show/">Solutions Trade Show</a></li>
+                                        <a href="https://gowestassociation.org/event/maxx-2025/">MAXX</a></li>
                                 </ul>
                             </div>
 
                         </div>
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/dac">Days at the Capitol</h4>
+                            <h4><a href="https://gowestassociation.org/dac">Days at the Capitol</a></h4>
                             <div class="menu-events-days-at-the-capitol-container">
                                 <ul id="menu-events-days-at-the-capitol" class="menu">
-                                    <li id="menu-item-116355"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116355">
-                                        <a href="https://gowestassociation.org/event/wyoming-cu-day-at-the-capitol/">Wyoming</a></li>
-                                    <li id="menu-item-116356"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116356">
-                                        <a href="https://gowestassociation.org/event/idaho-cu-day-at-the-capitol/">Idaho</a></li>
-                                    <li id="menu-item-116357"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116357">
-                                        <a href="https://gowestassociation.org/event/colorado-cu-day-at-the-capitol/">Colorado</a></li>
-                                    <li id="menu-item-116358"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116358">
-                                        <a href="https://gowestassociation.org/event/washington-cu-day-at-the-capitol/">Washington</a></li>
-                                    <li id="menu-item-116359"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116359">
-                                        <a href="https://gowestassociation.org/event/oregon-cu-day-at-the-capitol/">Oregon</a></li>
                                     <li id="menu-item-116360"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116360">
                                         <a href="https://gowestassociation.org/event/arizona-cu-day-at-the-capitol/">Arizona</a></li>
+                                    <li id="menu-item-116357"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116357">
+                                        <a href="https://gowestassociation.org/event/colorado-cu-day-at-the-capitol/">Colorado</a></li>
+                                    <li id="menu-item-116356"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116356">
+                                        <a href="https://gowestassociation.org/event/idaho-cu-day-at-the-capitol/">Idaho</a></li>
+                                    <li id="menu-item-116359"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116359">
+                                        <a href="https://gowestassociation.org/event/oregon-cu-day-at-the-capitol/">Oregon</a></li>
+                                    <li id="menu-item-116358"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116358">
+                                        <a href="https://gowestassociation.org/event/washington-cu-day-at-the-capitol/">Washington</a></li>
+                                    <li id="menu-item-116355"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116355">
+                                        <a href="https://gowestassociation.org/event/wyoming-cu-day-at-the-capitol/">Wyoming</a></li>
                                 </ul>
                             </div>
-                            <h4>CUNA GAC</h4>
+                            <h4>The GAC</h4>
                             <div class="menu-events-cuna-gac-container">
                                 <ul id="menu-events-cuna-gac" class="menu">
-                                    <li id="menu-item-116362"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116362">
-                                        <a href="https://gowestassociation.org/event/cuna-gac-gowest-rendition/">GoWest Rendition</a></li>
+                                    <li id="menu-item-135505"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-135505">
+                                        <a href="https://gowestassociation.org/event/cuna-gac-gowest-rendition/">GoWest
+                                            Rendition</a></li>
+                                </ul>
+                            </div>
+                            <h4>Advocacy</h4>
+                            <div class="menu-advocacy-container">
+                                <ul id="menu-advocacy" class="menu">
+                                    <li id="menu-item-119724"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-119724">
+                                        <a
+                                            href="https://gowestassociation.org/advocacy/advocacy-training-events/advocacy-101-201-training/advocacy-101-training/">Advocacy
+                                            101 Training</a></li>
+                                    <li id="menu-item-119723"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-119723">
+                                        <a
+                                            href="https://gowestassociation.org/advocacy/advocacy-training-events/advocacy-101-201-training/advocacy-201-training/">Advocacy
+                                            201 Training</a></li>
                                 </ul>
                             </div>
 
@@ -309,25 +312,24 @@
 
                         </div>
                         <div class="column">
-                            <h4>Travel Information</h4>
+                            <h4><a href="https://gowestassociation.org/travel-discounts-and-exemptions-association/">Travel Information</a></h4>
                             <div class="menu-events-travel-info-container">
                                 <ul id="menu-events-travel-info" class="menu">
                                     <li id="menu-item-116371"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116371">
-                                        <a href="https://gowestassociation.org/solutions/travel-discounts-exemptions/#accordion-1">Hotels</a></li>
-                                    <li id="menu-item-116372"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116372">
-                                        <a href="https://gowestassociation.org/solutions/travel-discounts-exemptions">Transportation</a></li>
+                                        <a href="https://gowestassociation.org/travel-discounts-and-exemptions-association/#accordion-1">Hotels</a>
+                                    </li>
                                     <li id="menu-item-116373"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116373">
-                                        <a href="https://gowestassociation.org/solutions/travel-discounts-exemptions/#accordion-3">Car Rental</a>
-                                    </li>
+                                        <a href="https://gowestassociation.org/travel-discounts-and-exemptions-association/#accordion-3">Car
+                                            Rental</a></li>
                                     <li id="menu-item-116374"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116374">
-                                        <a href="https://gowestassociation.org/solutions/travel-discounts-exemptions/#accordion-2">Airfare</a></li>
+                                        <a href="https://gowestassociation.org/travel-discounts-and-exemptions-association/#accordion-2">Airfare</a>
+                                    </li>
                                     <li id="menu-item-116375"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116375">
-                                        <a href="https://gowestassociation.org/solutions/travel-discounts-exemptions/#accordion-4">FCU Tax
+                                        <a href="https://gowestassociation.org/travel-discounts-and-exemptions-association/#accordion-4">FCU Tax
                                             Exemption</a></li>
                                 </ul>
                             </div>
@@ -335,40 +337,32 @@
                         </div>
                         <div class="column">
                             <h4>Signature Events</h4>
-                            <h5><a href="https://gowestassociation.org/event/executivesvail/"><span class="__cf_email__"
-                                        data-cfemail="b3f6cbd6d0c6c7dac5d6c0f3e5d2dadf">[email&#160;protected]</span></a>
-                            </h5>
-                            <p>Where leaders build the future</p>
-                            <p><a href="https://gowestassociation.org/event/executivesvail/" class="btn green" target="_top">Learn More</a></p>
-                            <h5><a href="#">MAXX Convention</a></h5>
+                            <h5><a href="https://gowestassociation.org/event/maxx-convention/">MAXX Convention</a></h5>
                             <p>Where regional CUs come together</p>
-                            <p><a href="#" class="btn green" target="_top">Learn More</a></p>
-                            <h5><a href="#">Solutions Trade Show</a></h5>
-                            <p>120+ booths showcasing products & services</p>
-                            <p><a href="#" class="btn green" target="_top">Learn More</a></p>
+                            <p><a href="https://gowestassociation.org/event/maxx-convention/" class="btn green" target="_top">Learn More</a></p>
+                            <h5><a href="https://gowestassociation.org/event/solutions-trade-show/">Solutions Trade Show</a></h5>
+                            <p>120+ booths showcasing products &amp; services</p>
+                            <p><a href="https://gowestassociation.org/event/solutions-trade-show/" class="btn green" target="_top">Learn More</a></p>
 
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="columns"></div>
-                </li>
                 <li><a href="#">Resources</a>
                     <div class="columns">
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/advocacy">Advocacy</h4>
+                            <h4><a href="https://gowestassociation.org/advocacy">Advocacy</a></h4>
                             <div class="menu-resources-advocacy-container">
                                 <ul id="menu-resources-advocacy" class="menu">
                                     <li id="menu-item-116411"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116411">
-                                        <a href="https://gowestassociation.org/advocacy/priorities/">Priorities</a></li>
+                                        <a href="https://qrco.de/CUadvocate">Toolbox</a></li>
                                     <li id="menu-item-116083"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116083">
                                         <a href="https://gowestassociation.org/advocacy/advocacy-training-events/">Training &#038; Events</a></li>
                                     <li id="menu-item-117208"
                                         class="menu-item menu-item-type-post_type menu-item-object-page menu-item-117208">
-                                        <a href="https://gowestassociation.org/advocacy/on-the-move/">On the Move</a>
-                                    </li>
+                                        <a href="https://gowestassociation.org/advocacy/on-the-move/">On the Move
+                                            Blog</a></li>
                                     <li id="menu-item-116412"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116412">
                                         <a href="https://gowestassociation.org/advocacy/state-advocacy/">State-Specific</a></li>
@@ -377,13 +371,13 @@
                                         <a href="https://gowestassociation.org/advocacy/cu-designations/">CU Designations</a></li>
                                     <li id="menu-item-116079"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116079">
-                                        <a href="https://gowestassociation.org/advocacy/grassroots-advocacy-center/">Grassroots</a></li>
+                                        <a href="https://gowestassociation.org/advocacy/grassroots-advocacy-center/">Calls to Action</a></li>
                                     <li id="menu-item-116082"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116082">
                                         <a href="https://gowestassociation.org/advocacy/regulatory-advocacy/">Regulatory</a></li>
                                 </ul>
                             </div>
-                            <h4><a href="https://gowestassociation.org/compliance">Compliance</h4>
+                            <h4><a href="https://gowestassociation.org/compliance">Compliance</a></h4>
                             <div class="menu-resources-compliance-container">
                                 <ul id="menu-resources-compliance" class="menu">
                                     <li id="menu-item-116084"
@@ -404,12 +398,22 @@
 
                         </div>
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/resource-centers/">Resource Centers</h4>
+                            <h4><a href="https://gowestassociation.org/resource-centers/">Resource Centers</a></h4>
                             <div class="menu-resources-resource-centers-container">
                                 <ul id="menu-resources-resource-centers" class="menu">
-                                    <li id="menu-item-116171"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116171">
-                                        <a href="https://gowestassociation.org/advocacy-on-the-move/">Advocacy</a></li>
+                                    <li id="menu-item-130055"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130055">
+                                        <a href="https://gowestassociation.org/advocacy/">Advocacy</a></li>
+                                    <li id="menu-item-119614"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-119614">
+                                        <a
+                                            href="https://gowestassociation.org/resource-centers/board-resource-center/">Board</a>
+                                    </li>
+                                    <li id="menu-item-126147"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-126147">
+                                        <a
+                                            href="https://gowestfoundation.org/resources/community-development-financial-institution/">CDFI
+                                            Fund</a></li>
                                     <li id="menu-item-116166"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116166">
                                         <a href="https://gowestassociation.org/compliance/compliance-resource-center/">Compliance</a></li>
@@ -417,9 +421,6 @@
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116175">
                                         <a href="https://gowestassociation.org/resource-centers/digital-media-resource-center/">Digital Media</a>
                                     </li>
-                                    <li id="menu-item-116167"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116167">
-                                        <a href="#">Directors&#8217;</a></li>
                                     <li id="menu-item-116174"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116174">
                                         <a href="https://gowestassociation.org/resource-centers/dei-resource-center/">Diversity Equity Inclusion</a>
@@ -429,7 +430,8 @@
                                         <a href="https://gowestassociation.org/resource-centers/hr-resource-center/">Human Resources</a></li>
                                     <li id="menu-item-116169"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116169">
-                                        <a href="https://gowestassociation.org/resource-centers/marketing-resource-center/">Marketing</a></li>
+                                        <a href="https://gowestassociation.org/resource-centers/marketing-resource-center/">Marketing &#038; PR</a>
+                                    </li>
                                     <li id="menu-item-116172"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116172">
                                         <a href="https://gowestassociation.org/resource-centers/natural-disasters-resource-center/">Natural
@@ -437,14 +439,10 @@
                                     <li id="menu-item-116170"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116170">
                                         <a href="https://gowestassociation.org/resource-centers/smallcreditunions/">Small Credit Unions</a></li>
-                                </ul>
-                            </div>
-                            <h4>Speak at a future Event</h4>
-                            <div class="menu-resources-speaker-at-a-future-event-container">
-                                <ul id="menu-resources-speaker-at-a-future-event" class="menu">
-                                    <li id="menu-item-116511"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116511">
-                                        <a href="https://gowestassociation.org/speak-at-a-future-event/">Speak at a Future Event</a></li>
+                                    <li id="menu-item-128465"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-128465">
+                                        <a href="https://gowestassociation.org/talent-development-resource-center/">Talent
+                                            Development</a></li>
                                 </ul>
                             </div>
 
@@ -489,10 +487,18 @@
                                         <a href="https://gowestassociation.org/website-faq/">Website FAQ</a></li>
                                 </ul>
                             </div>
+                            <h4>Speak at a future Event</h4>
+                            <div class="menu-resources-speaker-at-a-future-event-container">
+                                <ul id="menu-resources-speaker-at-a-future-event" class="menu">
+                                    <li id="menu-item-116511"
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116511">
+                                        <a href="https://gowestassociation.org/speak-at-a-future-event/">Speak at a Future Event</a></li>
+                                </ul>
+                            </div>
 
                         </div>
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/solutions/">Solutions</h4>
+                            <h4><a href="https://gowestassociation.org/solutions/">Solutions</a></h4>
                             <div class="menu-resources-solutions-container">
                                 <ul id="menu-resources-solutions" class="menu">
                                     <li id="menu-item-116414"
@@ -509,7 +515,7 @@
                                         <a href="https://gowestassociation.org/solutions/resources-for-partners/">Resources for Partners</a></li>
                                 </ul>
                             </div>
-                            <h4><a href="https://gowestfoundation.org/">Foundation</h4>
+                            <h4><a href="https://gowestfoundation.org/">Foundation</a></h4>
                             <div class="menu-resources-foundation-container">
                                 <ul id="menu-resources-foundation" class="menu">
                                     <li id="menu-item-116418"
@@ -547,9 +553,6 @@
                         </div>
                     </div>
                 </li>
-                <li>
-                    <div class="columns"></div>
-                </li>
                 <li><a href="#">Engagement</a>
                     <div class="columns">
                         <div class="column">
@@ -558,7 +561,12 @@
                                 <ul id="menu-calendar-2" class="menu">
                                     <li
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116963">
-                                        <a href="https://gowestassociation.org/events">Upcoming Events</a></li>
+                                        <a href="https://gowestassociation.org/events/all-upcoming-events/2024/1/">Upcoming
+                                            Events</a></li>
+                                    <li
+                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-133790">
+                                        <a href="https://gowestassociation.org/2025-signature-events-highlight/">2025
+                                            Can&#8217;t Miss Highlights</a></li>
                                 </ul>
                             </div>
                             <h4>Outreach &amp; Awareness</h4>
@@ -584,7 +592,7 @@
                                 <ul id="menu-about-resources-news" class="menu">
                                     <li id="menu-item-116454"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116454">
-                                        <a href="https://gowestassociation.org/onthego/">On The Go</a></li>
+                                        <a href="https://gowestassociation.org/onthego/">On The Go News</a></li>
                                     <li id="menu-item-116456"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116456">
                                         <a href="https://gowestassociation.org/mailing-lists/">Manage Preferences</a></li>
@@ -599,18 +607,23 @@
 
                         </div>
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/communities">CU Communities</h4>
+                            <h4><a href="https://gowestassociation.org/communities">CU Communities</a></h4>
                             <div class="menu-resources-credit-union-communities-container">
                                 <ul id="menu-resources-credit-union-communities" class="menu">
                                     <li id="menu-item-116404"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116404">
                                         <a href="https://gowestassociation.org/communities/credit-union-chapters/">Chapters</a></li>
-                                    <li id="menu-item-116405"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116405">
-                                        <a href="https://cuwomen.org/">GWLN</a></li>
+                                    <li id="menu-item-133207"
+                                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-133207">
+                                        <a href="https://gowestassociation.org/communities/credit-union-conversations/">CU
+                                            Conversations</a></li>
                                     <li id="menu-item-116408"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116408">
-                                        <a href="https://gowestassociation.org/development-education/program/">CUDE Network</a></li>
+                                        <a href="https://www.ncuf.coop/development-education/program/">CUDE Network</a>
+                                    </li>
+                                    <li id="menu-item-116405"
+                                        class="no-line menu-item menu-item-type-custom menu-item-object-custom menu-item-116405">
+                                        <a href="https://cuwomen.org/">Global Women’s Leadership Network (GWLN)</a></li>
                                     <li id="menu-item-116409"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116409">
                                         <a href="https://gowestassociation.org/events/">Upcoming Events</a></li>
@@ -622,7 +635,7 @@
 
                         </div>
                         <div class="column">
-                            <h4><a href="https://gowestassociation.org/communities/young-professionals/">Young Professionals</h4>
+                            <h4><a href="https://gowestassociation.org/communities/young-professionals/">Young Professionals</a></h4>
                             <div class="menu-engage-yp-container">
                                 <ul id="menu-engage-yp" class="menu">
                                     <li id="menu-item-116492"
@@ -631,18 +644,11 @@
                                             Networks</a></li>
                                     <li id="menu-item-116493"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116493">
-                                        <a href="#">Career Development</a></li>
+                                        <a href="https://gowestassociation.org/communities/young-professionals/#accordion-1">Career Development</a>
+                                    </li>
                                     <li id="menu-item-116495"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116495">
-                                        <a href="#">Lead Summit</a></li>
-                                </ul>
-                            </div>
-                            <h4>Awards</h4>
-                            <div class="menu-engage-awards-container">
-                                <ul id="menu-engage-awards" class="menu">
-                                    <li id="menu-item-116487"
-                                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116487">
-                                        <a href="#">More Info Coming Soon</a></li>
+                                        <a href="https://gowestassociation.org/event/yp-summit/">YP Summit</a></li>
                                 </ul>
                             </div>
                             <h4>CU4Kids</h4>
@@ -658,26 +664,25 @@
                                         <a href="https://cu4kids.org/about/">About CU4Kids</a></li>
                                     <li id="menu-item-116987"
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116987">
-                                        <a href="https://gowestassociation.org/event/maxx-convention/">CU4Kids Auction</a></li>
+                                        <a
+                                            href="https://gowestassociation.org/maxx-convention/totally-awesome-cu4kids-auction-prom/">CU4Kids
+                                            Auction</a></li>
                                 </ul>
                             </div>
 
                         </div>
                         <div class="column">
                             <h4>News</h4>
-                            <h5><a href="https://gowestassociation.org//onthego/">On The Go</a></h5>
+                            <h5><a href="https://gowestassociation.org/onthego/">On The Go News</a></h5>
                             <p>News for CUs across the region</p>
                             <p><a href="https://gowestassociation.org/onthego/" class="btn green" target="_top">Learn More</a></p>
                             <h4>Community &amp; Impact</h4>
-                            <h5><a href="https://gowestassociation.org//advocacy/impact/">Econ & Community Impact</a></h5>
+                            <h5><a href="https://gowestassociation.org//advocacy/impact/">Econ &amp; Community Impact</a></h5>
                             <p>ECONorthwest &amp; GoWest survey results are in</p>
                             <p><a href="https://gowestassociation.org/advocacy/impact/" class="btn navy" target="_top">Learn More</a></p>
 
                         </div>
                     </div>
-                </li>
-                <li>
-                    <div class="columns"></div>
                 </li>
                 <li><a href="#">About</a>
                     <div class="columns">
@@ -747,7 +752,7 @@
                                         <a href="https://gowestassociation.org/post-a-job/">Post A Job</a></li>
                                     <li
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116402">
-                                        <a href="https://gowestassociation.org/edit-a-job/">Edit Job Posting</a></li>
+                                        <a href="https://gowestassociation.org/job-manager/">Job Manager</a></li>
                                 </ul>
                             </div>
 
@@ -758,7 +763,7 @@
                                 <ul id="menu-about-resources-news-1" class="menu">
                                     <li
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116454">
-                                        <a href="https://gowestassociation.org/onthego/">On The Go</a></li>
+                                        <a href="https://gowestassociation.org/onthego/">On The Go News</a></li>
                                     <li
                                         class="menu-item menu-item-type-custom menu-item-object-custom menu-item-116456">
                                         <a href="https://gowestassociation.org/mailing-lists/">Manage Preferences</a></li>
@@ -840,7 +845,8 @@
                     </div>
                 </li>
             </ul>
-            <div class="aux-buttons"><a href="https://gowestassociation.org/"
-                    class="association"><span>Association</span></a></div>
+            <div class="aux-buttons"><a href="https://gowestassociation.org/solutions"
+                    class="solutions"><span>Solutions</span></a><a href="https://gowestfoundation.org"
+                    class="foundation"><span>Foundation</span></a></div>
         </nav>
     </div>
