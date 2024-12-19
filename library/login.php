@@ -45,7 +45,7 @@ function gowest_session_start() {
 			}
 		}
 	
-		// redirect to infosight
+		// redirect after login
 		if ( $_SERVER['HTTP_HOST'] == 'gowestfoundation.jpederson.io' || is_foundation() ) {
 			if ( $_SESSION['sf_user']['foundation_board'] ) {
 				wp_redirect( '/board-portal/' );
@@ -75,13 +75,13 @@ add_action( 'init', 'gowest_session_start', 1 );
 
 
 
-
 // function to end the session
 function gowest_session_end() {
     session_destroy();
 }
 add_action( 'wp_logout', 'gowest_session_end' );
 add_action( 'wp_login', 'gowest_session_end' );
+
 
 
 // [cal-link] shortcode handler
@@ -235,21 +235,37 @@ function do_member_error() {
 }
 
 
-// membership check - boolean function, that checks to see if there were previous access roles and adds the appropriate new meta.
+
+// no caching on board portal page
+function no_cache() {
+	if ( $_SERVER['REQUEST_URI'] == '/board-portal/' ) {
+
+		// disable the page cache
+		define( 'WP_CACHE', false );
+
+		// send no cache headers
+		nocache_headers();
+
+	}
+}
+add_action( 'init', 'no_cache' );
+
+
+// membership check - boolean function that checks salesforce user info to see if they have the board flag.
 function is_board() {
 
 	global $post;
 
 	// see if there is a member's only value
 	if ( has_cmb_value( 'board-only' )  ) {
-
-		// if they're an admin, let them in automatically
-		if ( current_user_can( 'administrator' ) ) { 
-			return true;
-		}
 	
 		// if the content requires membership
 		if ( get_cmb_value( 'board-only' ) == 'on' ) {
+
+			// if they're an admin, let them in automatically
+			if ( current_user_can( 'administrator' ) ) { 
+				return true;
+			}
 
 			// if they're a board member in salesforce
 			if ( isset( $_SESSION['sf_user']['board'] ) ) {
