@@ -118,5 +118,21 @@ function remove_width_attribute( $html ) {
    return $html;
 }
 
-remove_action( 'wp_head', 'wp_print_auto_sizes_contain_css_fix', 1 );
+
+// remove sizes=auto from images.
+add_filter(
+    'wp_content_img_tag',
+    static function ( $image ) {
+            return str_replace( ' sizes="auto, ', ' sizes="', $image );
+    }
+);
+add_filter(
+    'wp_get_attachment_image_attributes',
+    static function ( $attr ) {
+            if ( isset( $attr['sizes'] ) ) {
+                    $attr['sizes'] = preg_replace( '/^auto, /', '', $attr['sizes'] );
+            }
+            return $attr;
+    }
+);
 
