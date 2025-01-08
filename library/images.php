@@ -118,6 +118,5 @@ function remove_width_attribute( $html ) {
    return $html;
 }
 
-
 remove_action( 'wp_head', 'wp_print_auto_sizes_contain_css_fix', 1 );
 
