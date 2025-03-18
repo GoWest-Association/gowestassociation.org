@@ -53,6 +53,7 @@ function icon_metaboxes( $meta_boxes ) {
         'id' => 'icon_showcase_metabox',
         'title' => 'Icons',
         'object_types' => array( 'page', 'event' ),
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );

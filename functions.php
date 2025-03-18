@@ -48,6 +48,9 @@ require_multi(
     // add shortcodes
     'shortcode/button', 'shortcode/menu', 'shortcode/communities',
 
+    // components
+    'component',
+
     // microsite
     'microsite'
 );

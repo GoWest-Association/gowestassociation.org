@@ -61,6 +61,7 @@ function partner_logos_metabox( $meta_boxes ) {
         'id' => 'partner_logos_metabox',
         'title' => 'Partner Logos',
         'object_types' => array( 'page', 'event' ),
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );

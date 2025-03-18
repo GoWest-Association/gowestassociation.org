@@ -1,0 +1,273 @@
+{
+    "key": "group_64cbe8563a872",
+    "title": "Agenda Information",
+    "fields": [
+        {
+            "key": "field_64cbe856c98f6",
+            "label": "Timezone",
+            "name": "agenda-timezone",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "pt": "Pacific Time",
+                "mt": "Mountain Time",
+                "et": "Eastern Time"
+            },
+            "default_value": "pt",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_64cbe8b5beba6",
+            "label": "Style",
+            "name": "agenda-style",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "normal": "Normal",
+                "slim": "Slim"
+            },
+            "default_value": "normal",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_64cbe8d5beba7",
+            "label": "Heading",
+            "name": "agenda-heading",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "message": "Check box to show the headings on each column.",
+            "default_value": 1,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_64cbe907beba8",
+            "label": "Items",
+            "name": "item",
+            "aria-label": "",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "acfe_repeater_stylised_button": 0,
+            "layout": "block",
+            "pagination": 0,
+            "min": 0,
+            "max": 0,
+            "collapsed": "field_64cbe91ebeba9",
+            "button_label": "Add Item",
+            "rows_per_page": 20,
+            "sub_fields": [
+                {
+                    "key": "field_64cbe91ebeba9",
+                    "label": "Date\/Time Start",
+                    "name": "time",
+                    "aria-label": "",
+                    "type": "date_time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "m\/d\/Y g:i a",
+                    "return_format": "m\/d\/Y g:i a",
+                    "first_day": 0,
+                    "parent_repeater": "field_64cbe907beba8"
+                },
+                {
+                    "key": "field_64d13f8e8dae0",
+                    "label": "Date\/Time End",
+                    "name": "time_end",
+                    "aria-label": "",
+                    "type": "date_time_picker",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "display_format": "m\/d\/Y g:i a",
+                    "return_format": "m\/d\/Y g:i a",
+                    "first_day": 0,
+                    "parent_repeater": "field_64cbe907beba8"
+                },
+                {
+                    "key": "field_64cbe983bebaa",
+                    "label": "Location",
+                    "name": "location",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "15",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_64cbe907beba8"
+                },
+                {
+                    "key": "field_64cbe991bebab",
+                    "label": "Content",
+                    "name": "content",
+                    "aria-label": "",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "55",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0,
+                    "parent_repeater": "field_64cbe907beba8"
+                },
+                {
+                    "key": "field_6555166a558cf",
+                    "label": "Color",
+                    "name": "color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "grey": "Grey",
+                        "red": "Red",
+                        "green": "Green",
+                        "navy": "Navy",
+                        "yellow": "Yellow",
+                        "purple": "Purple",
+                        "orange": "Orange",
+                        "vermilion": "Vermilion",
+                        "dark-grey": "Dark-Grey",
+                        "turquoise": "Turquoise",
+                        "teton": "Teton",
+                        "whale": "Whale",
+                        "fulvous": "Fulvous"
+                    },
+                    "default_value": "grey",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "parent_repeater": "field_64cbe907beba8"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "agenda"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "event"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            },
+            {
+                "param": "post_template",
+                "operator": "!=",
+                "value": "page-components.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "acf_after_title",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1742312430
+}

@@ -59,6 +59,7 @@ function accordion_metaboxes() {
         'id' => 'accordions',
         'title' => 'Accordions',
         'object_types' => array( 'page', 'event' ), // Post type
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left

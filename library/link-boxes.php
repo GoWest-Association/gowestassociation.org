@@ -47,6 +47,7 @@ function link_boxes_metaboxes( $meta_boxes ) {
         'id' => 'link_boxes_metabox',
         'title' => 'Link Boxes',
         'object_types' => array( 'page', 'event' ),
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );

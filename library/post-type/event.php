@@ -1012,6 +1012,8 @@ function events_shortcode( $event_atts ) {
 			$num++;
 		}
 		$list .= '</div>';
+	} else {
+		$list .= "<p>No upcoming events found in the database.</p>";
 	}
 
 	return $list;

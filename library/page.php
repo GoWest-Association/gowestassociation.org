@@ -47,6 +47,7 @@ function page_metaboxes() {
         'id' => 'page_metabox',
         'title' => 'Introduction',
         'object_types' => array( 'page', 'event', 'agenda' ), // Post type
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left

@@ -36,3 +36,12 @@ function show_cmb_wysiwyg_value( $field ) {
     print apply_filters( 'the_content', get_cmb_value( $field ) );
 }
 
+
+function cmb_exclude_on_components($cmb ) {
+    $template = get_page_template_slug( $cmb->object_id() );
+    if ( $template == 'page-components.php' ) { 
+        return false;
+    }
+
+	return true;
+}

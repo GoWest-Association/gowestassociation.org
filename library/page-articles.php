@@ -105,6 +105,7 @@ function caption_metabox( $meta_boxes ) {
         'id' => 'caption_metabox',
         'title' => 'Featured Image Caption',
         'object_types' => array( 'post' ), // post type
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );
@@ -129,6 +130,7 @@ function page_articles_metaboxes() {
         'id' => 'page_articles_metabox',
         'title' => 'Page Articles',
         'object_types' => array( 'page', 'event' ), // Post type
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
         'show_names' => true, // Show field names on the left

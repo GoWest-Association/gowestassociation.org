@@ -69,6 +69,7 @@ function showcase_metabox( $meta_boxes ) {
         'id' => 'showcase_metabox',
         'title' => 'Showcase',
         'object_types' => array( 'page', 'event' ), // post type
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );

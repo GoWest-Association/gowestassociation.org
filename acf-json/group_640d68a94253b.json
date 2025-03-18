@@ -1,0 +1,223 @@
+{
+    "key": "group_640d68a94253b",
+    "title": "Lightbox",
+    "fields": [
+        {
+            "key": "field_640d69913ba58",
+            "label": "Content",
+            "name": "lightbox_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_640f500924fa9",
+            "label": "Show On",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_640d68ab01aef",
+            "label": "Pages",
+            "name": "lightbox_pages",
+            "aria-label": "",
+            "type": "post_object",
+            "instructions": "Specify the pages, posts, or events on which to display this lightbox.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page",
+                "event"
+            ],
+            "taxonomy": "",
+            "return_format": "id",
+            "multiple": 1,
+            "allow_null": 0,
+            "ui": 1,
+            "save_custom": 0,
+            "save_post_type": "",
+            "save_post_status": "",
+            "bidirectional_target": []
+        },
+        {
+            "key": "field_640f4f52c085d",
+            "label": "Specific URLs",
+            "name": "lightbox_urls",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Choose specific URLs (ex. - \/events\/*) or URL strings to match. Separate multiple with comma.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_640d7373b2bfb",
+            "label": "Display Options",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_640d7335fc0a5",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "Set the theme to be used by this lightbox.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "association": "Association",
+                "foundation": "Foundation",
+                "solutions": "Solutions"
+            },
+            "default_value": "association",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_640d69e1e83ae",
+            "label": "Pageload Behavior",
+            "name": "pageload",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Display this lightbox on every pageload. (Not recommended for user experience)",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_640d7269cc3c4",
+            "label": "Expiration",
+            "name": "expires",
+            "aria-label": "",
+            "type": "date_time_picker",
+            "instructions": "Specify a date when this lightbox will expire and no longer show.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y g:i a",
+            "return_format": "Y-m-d H:i:s",
+            "first_day": 0
+        },
+        {
+            "key": "field_640f3bc90facb",
+            "label": "Cookie Name",
+            "name": "cookie",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Enter a cookie name - if none is specified, the lightbox ID will be used. This allows you to reset the visibility - showing the lightbox to people who have previously closed it.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "lightbox"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "acfe_display_title": "",
+    "acfe_autosync": [
+        "json"
+    ],
+    "acfe_form": 0,
+    "acfe_meta": "",
+    "acfe_note": "",
+    "modified": 1742309354
+}

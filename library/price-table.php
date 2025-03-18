@@ -60,6 +60,7 @@ function price_table_metabox( $meta_boxes ) {
         'id' => 'price_table_metabox',
         'title' => 'Price Table',
         'object_types' => array( 'page', 'event' ),
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );

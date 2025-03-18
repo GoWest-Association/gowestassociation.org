@@ -129,7 +129,7 @@ $accordion-arrow-size: 30px;
 
 		.accordion-content {
 			display: none;
-			background: white;
+			background: url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
 			@extend .content-style;
 		}
 

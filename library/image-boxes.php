@@ -45,7 +45,7 @@ function image_boxes_metaboxes( $meta_boxes ) {
         'id' => 'image_boxes_metabox',
         'title' => 'Image Boxes',
         'object_types' => array( 'page' ),
-        'show_on_cb'   => array( 'key' => 'page-template', 'value' => 'page-advocacy.php' ),
+		'show_on_cb' => 'cmb_exclude_on_components',
         'context' => 'normal',
         'priority' => 'high',
     ) );

@@ -11,6 +11,12 @@
 	border-bottom: 5px solid $grey-light;
 	height: 500px;
 
+	body.page-template-page-components & {
+		border-top: 0;
+		border-bottom: 0;
+		height: 484px;
+	}
+
 	.slide {
 		position: absolute;
 		top: 0;
