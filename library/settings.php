@@ -4,7 +4,7 @@
 // boolean for whether to show the title
 function show_title() {
     if ( has_cmb_value( 'show_title' ) ) {
-        if ( get_cmb_value( 'show_title') == 'on' ) return true;
+        if ( get_cmb_value( 'show_title') == 'on' || get_cmb_value( 'show_title') == true ) return true;
     }
     return false;
 }
@@ -13,7 +13,7 @@ function show_title() {
 // boolean for whether to show the breadcrumbs
 function show_breadcrumbs() {
     if ( has_cmb_value( 'hide_breadcrumbs' ) ) {
-        if ( get_cmb_value( 'hide_breadcrumbs') == 'on' ) return false;
+        if ( get_cmb_value( 'hide_breadcrumbs') == 'on' || get_cmb_value( 'hide_breadcrumbs') == true ) return false;
     }
     return true;
 }

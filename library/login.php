@@ -155,10 +155,10 @@ function is_member() {
 	global $post;
 
 	// see if there is a member's only value
-	if ( has_cmb_value( 'member-only' )  ) {
+	if ( has_cmb_value( 'member-only' ) ) {
 
 		// if the content requires membership
-		if ( get_cmb_value( 'member-only' ) == 'on' ) {
+		if ( get_cmb_value( 'member-only' ) == 'on' || get_cmb_value( 'member-only' ) == true ) {
 
 			// if they're an admin, let them in automatically
 			return user_has_membership();
@@ -260,7 +260,7 @@ function is_board() {
 	if ( has_cmb_value( 'board-only' )  ) {
 	
 		// if the content requires membership
-		if ( get_cmb_value( 'board-only' ) == 'on' ) {
+		if ( get_cmb_value( 'board-only' ) == 'on' || get_cmb_value( 'board-only' ) == true ) {
 
 			// if they're an admin, let them in automatically
 			if ( current_user_can( 'administrator' ) ) { 
