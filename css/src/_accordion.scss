@@ -145,6 +145,13 @@ $accordion-arrow-size: 30px;
 				@include respond-to( $bp-m ) { padding: 30px 40px; }
 				@include respond-to( $bp-l ) { padding: 30px 50px; }
 				@include respond-to( $bp-xl ) { padding: 35px 60px; }
+
+				&.components {
+					padding: 0;
+					@include respond-to( $bp-m ) { padding: 0; }
+					@include respond-to( $bp-l ) { padding: 0; }
+					@include respond-to( $bp-xl ) { padding: 0; }
+				}
 			}
 		}
 	}
