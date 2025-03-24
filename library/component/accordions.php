@@ -22,7 +22,7 @@ if ( have_rows( 'accordions' ) ) :
     <a name="accordion-<?php print $key; ?>"></a>
     <div class="accordion<?php print ( $open ? " open" : "" ); ?> <?php print $color ?>">
         <div class="accordion-handle"><h3><?php print $title ?></h3></div>
-        <div class="accordion-content components"><?php 
+        <div class="accordion-content<?php print ( have_rows( 'accordion_components' ) ? ' components' : '' ); ?>"><?php 
             if ( have_rows( 'accordion_components' ) ) :
                 while ( have_rows( 'accordion_components' ) ) : the_row();
                     // include the specific layout
