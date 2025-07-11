@@ -86,6 +86,8 @@ vgo('setTrackByDefault', true);
 vgo('process');
 </script>
 
+<?php print get_snippet( 'tracking-all', false ); ?>
+
 <?php wp_footer(); ?>
 </body>
 </html>
