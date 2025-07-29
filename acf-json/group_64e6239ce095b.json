@@ -54,7 +54,9 @@
             "search_placeholder": "",
             "allow_null": 0,
             "ui": 0,
-            "ajax": 0
+            "ajax": 0,
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_64e624287cdf3",
@@ -100,7 +102,9 @@
             "search_placeholder": "",
             "allow_null": 0,
             "ui": 0,
-            "ajax": 0
+            "ajax": 0,
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_64e624eb1ff32",
@@ -146,7 +150,9 @@
             "search_placeholder": "",
             "allow_null": 0,
             "ui": 0,
-            "ajax": 0
+            "ajax": 0,
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_6581ec01b48d5",
@@ -302,10 +308,14 @@
             ],
             "return_format": "id",
             "acfe_bidirectional": {
-                "acfe_bidirectional_enabled": "0"
+                "acfe_bidirectional_enabled": "1",
+                "acfe_bidirectional_related": [
+                    "field_688786e02ff60"
+                ]
             },
             "min": "",
             "max": "",
+            "allow_in_bindings": 1,
             "elements": "",
             "bidirectional": 0,
             "bidirectional_target": []
@@ -628,7 +638,9 @@
             "ajax": 0,
             "placeholder": "",
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         }
     ],
     "location": [
@@ -656,5 +668,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1742309359
+    "modified": 1753712402
 }
