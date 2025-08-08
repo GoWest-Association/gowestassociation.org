@@ -4,9 +4,6 @@
 function the_footer_buttons() {
 
 	$buttons = get_cmb_value( 'footer-buttons' );
-    if ( is_string( $buttons ) ) {
-        $buttons = get_field( 'footer-buttons' );
-    }
 	
 	// if we've got buttons
 	if ( !empty( $buttons ) ) {
@@ -17,11 +14,7 @@ function the_footer_buttons() {
 
 		// loop through them
 		foreach ( $buttons as $button ) {
-            if ( is_object( $button ) ) {
-                print do_shortcode( '[button url="' . $button->link . '" class="' . $button->class . '"]' . $button->text . '[/button] ' );
-            } else {
-                print do_shortcode( '[button url="' . $button['link'] . '" class="' . $button['class'] . '"]' . $button['text'] . '[/button] ' );
-            }
+            print do_shortcode( '[button url="' . $button['link'] . '" class="' . $button['class'] . '"]' . $button['text'] . '[/button] ' );
 		}
 
 		print '</div>';
