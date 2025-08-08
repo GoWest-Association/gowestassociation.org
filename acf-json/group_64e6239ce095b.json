@@ -653,11 +653,13 @@
         ]
     ],
     "menu_order": 1,
-    "position": "normal",
-    "style": "default",
+    "position": "acf_after_title",
+    "style": "seamless",
     "label_placement": "top",
     "instruction_placement": "label",
-    "hide_on_screen": "",
+    "hide_on_screen": [
+        "block_editor"
+    ],
     "active": true,
     "description": "",
     "show_in_rest": 0,
@@ -668,5 +670,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1753712402
+    "modified": 1754617036
 }

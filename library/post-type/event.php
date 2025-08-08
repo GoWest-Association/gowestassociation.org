@@ -1141,8 +1141,8 @@ function event_agenda_shortcode( $atts ) {
 
 						$person_info = get_post( $person );
 						$people_content .= '<div class="person">' . 
-							'<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' .
-							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . '">' . $person_info->post_title . '</a></strong>' . ( !empty( $person_title ) ? '<br>' . $person_title : '' ) . ( !empty( $person_org ) ? '<br>' . $person_org : '' ) . '</div>' .
+							'<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . '?notemplate" class="lightbox-iframe"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' .
+							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . '?notemplate" class="lightbox-iframe">' . $person_info->post_title . '</a></strong>' . ( !empty( $person_title ) ? '<br>' . $person_title : '' ) . ( !empty( $person_org ) ? '<br>' . $person_org : '' ) . '</div>' .
 						'</div>';
 					}
 				}
@@ -1168,7 +1168,7 @@ function event_agenda_shortcode( $atts ) {
 					'<div class="time"><strong>' . $datetime . '</strong></div>' .
 					( !stristr( $style, 'no-location' ) ? '<div class="location">' . $location . '</div>' : '' ) .
 					'<div class="content">' . 
-					'<strong><a href="' . get_permalink( $item ) . '">' . $item->post_title . '</a></strong>' .
+					'<strong><a href="' . get_permalink( $item ) . '?notemplate" class="lightbox-iframe">' . $item->post_title . '</a></strong>' .
 					'<div class="description">' . $description . '</div>' . 
 					( !empty( $people_content ) ? '<div class="people">' . $people_content . '</div>' : '' ). 
 					( !empty( $sponsor_content ) ? '<div class="sponsors">' . $sponsor_content . '</div>' : '' ) .

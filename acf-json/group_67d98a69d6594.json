@@ -31,7 +31,9 @@
             "ajax": 0,
             "placeholder": "",
             "allow_custom": 0,
-            "search_placeholder": ""
+            "search_placeholder": "",
+            "create_options": 0,
+            "save_options": 0
         },
         {
             "key": "field_67d98b0b93092",
@@ -74,6 +76,27 @@
             "ui_on_text": "",
             "ui_off_text": "",
             "ui": 1
+        },
+        {
+            "key": "field_68955533753a4",
+            "label": "Hide from Search",
+            "name": "hide-from-search",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Hide from all search results on-site.",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
         }
     ],
     "location": [
@@ -101,5 +124,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1742327013
+    "modified": 1754617247
 }

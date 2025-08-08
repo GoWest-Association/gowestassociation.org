@@ -16,6 +16,8 @@ if ( is_member() && is_board() ) {
 	
 	the_components();
 
+	the_footer_buttons();
+
 } else {
 
 	do_member_error();

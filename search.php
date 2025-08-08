@@ -12,6 +12,18 @@ $query_args['post_type'] = ( isset( $_REQUEST['post_type'] ) ? $_REQUEST['post_t
 $query_args['posts_per_page'] = 30;
 $query_args['s'] = $_REQUEST['s'];
 $query_args['paged'] = $paged;
+$query_args['meta_query'] = array(
+	'relation' => 'OR',
+	array(
+    	'key' => 'hide-from-search',
+    	'compare' => 'NOT EXISTS'
+    ),
+    array(
+        'key' => 'hide-from-search',
+        'value' => 1,
+        'compare' => 'NOT LIKE',
+    )
+);
 query_posts( $query_args );
 
 if ( $paged > 0 ) {

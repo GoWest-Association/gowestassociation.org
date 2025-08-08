@@ -4,6 +4,30 @@ set_brand( 'association' );
 
 get_header();
 
+$person_events = get_field( 'events' );
+if ( !empty( $person_events ) ) {
+	$list='';
+	foreach ( $person_events as $pevent ) {
+		$list .= '<div class="event-list">';
+		$num = 0;
+		foreach ( $person_events as $event ) {
+
+			// piece together an excerpt.
+			$excerpt = ( !empty( $event->post_excerpt ) ? $event->post_excerpt : wp_trim_words( $event->post_content, 30 ) . "[...]" );
+
+			$list .= '<div class="event' . ( $num == 0 ? ' first' : '' ) . '">';
+			$list .= '<div class="event-date">';
+				$list .= '<span class="event-date-month">' . date( 'M', strtotime( $event->_p_event_start ) ) . '</span>';
+				$list .= '<span class="event-date-day">' . date( 'j', strtotime( $event->_p_event_start ) ) . '</span>';
+			$list .= '</div>';
+			$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
+			$list .= '<div class="event-excerpt">' . $excerpt . '</div>';
+			$list .= '</div>';
+			$num++;
+		}
+		$list .= '</div>';
+	}
+}
 ?>
 
 <div class="page-title">
@@ -39,9 +63,16 @@ get_header();
 		<?php 
 		
 		if ( have_posts() ) :
-			while ( have_posts() ) : the_post(); 
-				?>
-		<?php the_content(); ?>
+			while ( have_posts() ) : the_post(); ?>
+				<div class="person-bio">
+					<?php the_content(); ?>
+				</div>
+				<?php if ( !empty( $person_events ) ) { ?>
+				<div class="person-events">
+					<h3>Events:</h3>
+					<?php print $list; ?>
+				</div>
+				<?php } ?>
 				<?php
 			endwhile;
 		endif;

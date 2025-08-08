@@ -89,8 +89,34 @@
 		tr {
 			td {
 				vertical-align: top;
-				padding: 6px 10px;
+				padding: 10px 12px;
 			}
+		}
+	}
+
+	.table {
+		padding: 12px 0;
+		
+		table {
+			border: 1px solid $grey;
+			border-right: 0;
+			border-bottom: 0;
+		}
+
+		th {
+			background: $grey-dark;
+			padding: 12px;
+			font-weight: bold;
+		}
+
+		td {
+			border: 1px solid $grey;
+			border-top: 0;
+			border-left: 0;
+		}
+
+		td.label {
+			background: $grey-light;
 		}
 	}
 	
@@ -157,8 +183,8 @@
 	max-width: 1450px;
 	margin: 0 auto;
 	background: white;
-	box-shadow: 0 0 50px rgba( $grey-light, .4 );
-	border: 1px solid rgba( $grey-light, .6 );
+	box-shadow: 0 0 50px $grey-light;
+	border: 1px solid $grey;
 	border-top: 0;
 	border-bottom: 0;
 	z-index: 100;

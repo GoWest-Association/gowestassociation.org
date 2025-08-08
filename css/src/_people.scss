@@ -356,5 +356,19 @@
 	.bio-content {
 		@extend .content-style;
 	}
+
+	.person-events {
+		& > h3 {
+			border-bottom: 2px solid $grey;
+			margin-bottom: 15px;
+		}
+		
+		margin-top: 20px;
+		padding-top: 20px;
+
+		.event {
+			padding-bottom: 20px;
+		}
+	}
 }
 
