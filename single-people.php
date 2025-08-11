@@ -18,7 +18,7 @@ if ( !empty( $person_events ) ) {
 			$list .= '<span class="event-date-month">' . date( 'M', strtotime( $event->_p_event_start ) ) . '</span>';
 			$list .= '<span class="event-date-day">' . date( 'j', strtotime( $event->_p_event_start ) ) . '</span>';
 		$list .= '</div>';
-		$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
+		$list .= '<h3><a href="' . ( !empty( $event->_p_event_website ) ? $event->_p_event_website : get_permalink( $event->ID ) ) . ( isset( $_REQUEST['notemplate'] ) ? '?notemplate' : '' ) . '"' . ( !empty( $event->_p_event_website ) ? ' target="_blank"' : '' ) . '>' . $event->post_title . '</a></h3>';
 		$list .= '<div class="event-excerpt">' . $excerpt . '</div>';
 		$list .= '</div>';
 		$num++;
