@@ -372,3 +372,42 @@
 	}
 }
 
+
+.people.bubble {
+	text-align: center;
+
+	.people-listing {
+		@include respond-to( $bp-m ) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+		.person-entry {
+			padding-bottom: 20px;
+
+			@include respond-to( $bp-m ) {
+				flex: 1;
+				flex-basis: 33%;
+				padding: 20px;
+			}
+
+			img {
+				max-width: 140px;
+				margin: 0 auto 20px;
+			}
+
+			h4, p {
+				padding: 0;
+			}
+
+			p.person-title {
+				@include font-title;
+			}
+
+			p.person-organization {
+				font-style: italic;
+			}
+		}
+	}
+}
+
