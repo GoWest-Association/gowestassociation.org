@@ -109,6 +109,32 @@
                     "display": "block",
                     "sub_fields": [
                         {
+                            "key": "field_689d3fe7f6a1f",
+                            "label": "Style",
+                            "name": "style",
+                            "aria-label": "",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-gw": "GoWest Background",
+                                "bg-waves": "Green Waves Background"
+                            },
+                            "default_value": "bg-gw",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal",
+                            "save_other_choice": 0
+                        },
+                        {
                             "key": "field_67d9ba5a3de70",
                             "label": "Components",
                             "name": "single",
@@ -153,6 +179,32 @@
                     "label": "Content (2-column)",
                     "display": "block",
                     "sub_fields": [
+                        {
+                            "key": "field_689d409e1d41e",
+                            "label": "Style",
+                            "name": "style",
+                            "aria-label": "",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "bg-gw": "GoWest Background",
+                                "bg-waves": "Green Waves Background"
+                            },
+                            "default_value": "bg-gw",
+                            "return_format": "value",
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "allow_in_bindings": 0,
+                            "layout": "horizontal",
+                            "save_other_choice": 0
+                        },
                         {
                             "key": "field_67d9a99685f9c",
                             "label": "(Column 6\/12)",
@@ -1000,5 +1052,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1754956154
+    "modified": 1755136238
 }

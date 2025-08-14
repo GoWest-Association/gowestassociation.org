@@ -1,4 +1,9 @@
-<div class="content-wide bg-gw">
+<?php  
+
+$style = get_sub_field( 'style' );
+
+?>
+<div class="content-wide <?php print ( !empty( $style ) ? $style : 'bg-gw' ) ?>">
     <div class="columns">
         <?php if ( have_rows( 'left_components' ) ) { ?>
         <div class="column left">

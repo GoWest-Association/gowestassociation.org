@@ -206,6 +206,15 @@
 }
 
 
+.bg-gw {
+	background: url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
+}
+
+.bg-waves {
+	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+}
+
+
 .content-wide {
 	@include clearfix;
 	@extend .content-style;
@@ -213,6 +222,10 @@
 
 	&.bg-gw {
 		background: url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
+	}
+
+	&.bg-waves {
+		background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 	}
 
 	@include respond-to( $bp-xl ) {
