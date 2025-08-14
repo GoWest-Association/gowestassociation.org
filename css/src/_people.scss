@@ -391,9 +391,13 @@
 				padding: 20px;
 			}
 
+			@include respond-to( $bp-l ) {
+				padding: 40px 20px;
+			}
+
 			img {
 				max-width: 140px;
-				margin: 0 auto 20px;
+				margin: 0 auto 10px;
 			}
 
 			h4, p {
