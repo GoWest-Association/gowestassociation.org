@@ -176,7 +176,7 @@ function people_shortcode( $atts ) {
 					( str_contains( $style, "phone" ) && has_cmb_value( 'person_tollfree' ) ? '<p class="person-tollfree">Toll-free: ' . get_cmb_value( "person_tollfree" ) . '</p>' : '' ) .
 					( str_contains( $style, "email" ) && has_cmb_value( 'person_email' ) ? '<p class="person-email"><a href="mailto:' . get_cmb_value( "person_email" ) . '">' . get_cmb_value( "person_email" ) . '</a></p>' : '' ) .
 					( str_contains( $style, "bio" ) && !empty( $bio ) ? '<p class="person-bio">' . $bio . '</p>' : '' ) .
-					( str_contains( $style, "link" ) ? '<p class="person-link"><a href="' . get_the_permalink() . '" class="btn navy">Read Bio</a></p>' : '' ) .
+					( str_contains( $style, "link" ) ? '<p class="person-link"><a href="' . get_the_permalink() . ( stristr( $style, 'bubble' ) ? '?notemplate' : '' ) . '" class="btn navy' . ( stristr( $style, 'bubble' ) ? ' lightbox-iframe' : '' ) . '">Read Bio</a></p>' : '' ) .
 				'</div>
 			</div>';
 
