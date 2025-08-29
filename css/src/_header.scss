@@ -197,6 +197,10 @@ nav.main-menu-container {
 				}
 			}
 
+			&.open .columns {
+				display: block;
+			}
+
 			&:hover, &.open {
 				& > a {
 					background-color: $grey;
@@ -204,6 +208,8 @@ nav.main-menu-container {
 
 				& > .columns {
 					.column {
+						padding: 0 20px;
+						
 						p {
 							font-size: .8em;
 
@@ -250,6 +256,16 @@ nav.main-menu-container {
 				background: white;
 				padding: 10px 0 25px;
 
+				.column {
+					div {
+						display: none;
+
+						@include respond-to( $bp-m ) {
+							display: block;
+						}
+					}
+				}
+
 				@include respond-to( $bp-m ) {
 					position: absolute;
 					left: 0;
@@ -267,14 +283,15 @@ nav.main-menu-container {
 				h4 {
 					@include font;
 					text-transform: uppercase;
-					color: $grey-dark;
-					font-size: .7em;
+					color: darken( $grey-dark, 20% );
+					font-size: .8em;
 					line-height: 1.2em;
 					text-align: center;
 					padding: 15px 0 5px;
 
 					@include respond-to( $bp-m ) {
 						text-align: left;
+						font-size: .7em;
 					}
 				}
 

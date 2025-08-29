@@ -24,10 +24,21 @@ jQuery(document).ready(function($){
 			var submenu = $( this ).next( '.columns' );
 			if ( typeof( submenu ) !== 'undefined' && $( this ).attr('href') == '#' ) {
 				event.preventDefault();
+				menu_ul.find( 'li' ).each(function(){
+					$( this ).removeClass('open');
+				});
 				parent_li.toggleClass( 'open' );
-				submenu.toggle();
+				//submenu.toggle();
 			}
 		});
+	});
+
+
+	$( '.main-menu-container .column h4' ).on( 'click', function(){
+		// if the menu is in mobile mode
+		if ( $(window).width() < 768 ) {
+			$(this).next( 'div' ).toggle();
+		}
 	});
 
 
