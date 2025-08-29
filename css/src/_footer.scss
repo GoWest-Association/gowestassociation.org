@@ -20,6 +20,7 @@ footer {
 		@include respond-to( $bp-m ) {
 			display: flex;
 			flex-wrap: wrap;
+			align-items: flex-start;
 			margin: 0 -20px;
 		}
 
