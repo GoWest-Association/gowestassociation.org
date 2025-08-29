@@ -49,6 +49,7 @@ gtag('config', 'G-J4GTY9QELN');
 <?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
 <?php the_notice_bar(); ?>
 <?php if ( function_exists( 'gowest_association_bar' ) ) { gowest_association_bar(); } ?>
+<!--- header --->
 <header>
 
 	<?php if ( is_newsletter() && !is_foundation() ) { ?>
@@ -127,6 +128,7 @@ gtag('config', 'G-J4GTY9QELN');
 	}
 	?>
 </nav>
+<!--- /header --->
 
 <?php } ?>
 <section class="content">

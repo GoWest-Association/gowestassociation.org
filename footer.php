@@ -20,6 +20,7 @@ if ( function_exists( 'gowest_association_lightbox' ) ) {
 	</section>
 	
 	<?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
+	<!--- footer --->
 	<footer class="footer">
 		<div class="footer-inner">
 		
@@ -55,6 +56,7 @@ if ( function_exists( 'gowest_association_lightbox' ) ) {
 
 		</div>
 	</footer>
+	<!--- /footer --->
 	<?php 
 }
 ?>
