@@ -20,9 +20,8 @@
         type="text/css">
 </head>
 
-<body
-    class="home page-template page-template-page-front page-template-page-front-php page page-id-9 logged-in admin-bar no-customize-support">
-    <div class="container ">
+<body class="home page-template page-template-page-front page-template-page-front-php page page-id-9 logged-in admin-bar no-customize-support">
+    <div class="container">
         <header>
 
             <div class="logo left">
@@ -850,3 +849,5 @@
                     class="foundation"><span>Foundation</span></a></div>
         </nav>
     </div>
+
+</div> <!--- /container --->

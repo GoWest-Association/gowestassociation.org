@@ -52,6 +52,6 @@ require_multi(
     'component',
 
     // microsite
-    'microsite'
+    'microsite', 'salesforce/salesforce'
 );
 
