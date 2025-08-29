@@ -8,10 +8,10 @@ function salesforce_header_generate() {
     $path_to_uploads = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/uploads/';
 
     // get current host so this works in all environments.
-    $current_host = 'https://' . $_SERVER['HTTP_HOST'] . '/?fakeloggedin';
+    $current_host = 'https://' . $_SERVER['HTTP_HOST'] . '/';
 
     // get the current version of that host
-    $file = file_get_contents( $current_host );
+    $file = file_get_contents( $current_host . '?fakeloggedin' );
 
     // get the templates we're working with for this.
     $header_template = file_get_contents( $path_to_script . '/template/header.txt' );
