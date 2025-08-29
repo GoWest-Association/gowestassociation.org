@@ -8,7 +8,7 @@ function salesforce_header_generate() {
     $path_to_uploads = $_SERVER['DOCUMENT_ROOT'] . '/wp-content/uploads/';
 
     // get current host so this works in all environments.
-    $current_host = 'https://' . $_SERVER['HTTP_HOST'] . '/';
+    $current_host = 'https://' . $_SERVER['HTTP_HOST'] . '/?fakeloggedin';
 
     // get the current version of that host
     $file = file_get_contents( $current_host );
