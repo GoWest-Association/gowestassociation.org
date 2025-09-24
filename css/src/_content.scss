@@ -401,6 +401,10 @@
 	@include respond-to( $bp-m ) {
 		display: flex;
 		align-items: center;
+
+		&.top {
+			align-items: start;
+		}
 		
 		.column {
 			flex: 1 48%;

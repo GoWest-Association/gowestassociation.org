@@ -57,3 +57,6 @@ if ( ! wp_next_scheduled( 'salesforce_header_generate' ) ) {
 if ( isset( $_REQUEST['sfgen_manual'] ) ) {
     salesforce_header_generate();
 }
+
+
+

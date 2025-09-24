@@ -1,7 +1,7 @@
 
 
 .page-title {
-	background: $navy;
+	background-color: $navy;
 	padding: 20px 30px;
 	border-top: 10px solid $grey-light;
 
@@ -17,6 +17,24 @@
 		padding: 20px 60px;
 	}
 
+	&.tall {
+		padding: 80px 30px 20px;
+		background: center center no-repeat;
+		background-size: cover;
+
+		@include respond-to( $bp-m ) {
+			padding: 80px 40px 20px;
+		}
+
+		@include respond-to( $bp-l ) {
+			padding: 80px 50px 20px;
+		}
+
+		@include respond-to( $bp-xl ) {
+			padding: 80px 60px 20px;
+		}
+	}
+
 	h1 {
 		color: white;
 		text-transform: uppercase;
@@ -27,8 +45,16 @@
 		}
 	}
 
-	&.green { background: $green; }
-	&.blue { background: $blue; }
-	&.sky { background: $sky; }
+	&.green { background-color: $green; }
+	&.blue, &.solutions { background-color: $blue; }
+	&.sky { background-color: $sky; }
+	&.fulvous { background-color: $fulvous; }
+	&.vermillion { background-color: $vermillion; }
+	&.state-az { background-color: $color-az; }
+	&.state-co { background-color: $color-co; }
+	&.state-id { background-color: $color-id; }
+	&.state-or { background-color: $color-or; }
+	&.state-wa { background-color: $color-wa; }
+	&.state-wy { background-color: $color-wy; }
 }
 
