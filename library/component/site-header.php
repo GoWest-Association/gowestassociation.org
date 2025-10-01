@@ -27,7 +27,7 @@
 	
 </header>
 
-<nav class="main-menu-container">
+<nav class="main-menu-container site-header-component">
 	<button class="menu-toggle">Show/hide Menu</button>
 	<?php 
     wp_nav_menu( array(

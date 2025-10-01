@@ -63,26 +63,27 @@ header {
 
 		@include respond-to( $bp-m ) {
 			display: flex;
-			margin: 0;
+			justify-content: center;
+			margin: 10px 0 0 0;
 
 			div {
 				flex: 1;
 			}
 
 			.contact {
-				flex-basis: 18%;
+				flex:  0 0 18%;
 				font-size: .9em;
 				white-space: nowrap;
 			}
 
 			.search {
-				flex-basis: 28%;
+				flex: 0 0 28%;
 				margin-right: 2%;
 				margin-top: 0;
 			}
 
 			.account-buttons {
-				flex-basis: 48%;
+				flex: 0 0 48%;
 				margin-right: 2%;
 				padding: 0;
 
@@ -92,9 +93,13 @@ header {
 				}
 			}
 		}
+
+		@include respond-to( $bp-l ) {
+			justify-content: right;
+		}
 	}
 
-	@include respond-to( $bp-m ) {
+	@include respond-to( $bp-l ) {
 		display: flex;
 		align-items: end;
 
@@ -137,6 +142,10 @@ header {
 nav.main-menu-container {
 	@include clearfix;
 	position: relative;
+
+	&.site-header-component {
+		border-bottom: 10px solid $grey-light;
+	}
 
 	button {
 		position: absolute;
