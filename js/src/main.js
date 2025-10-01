@@ -5,9 +5,9 @@ jQuery(document).ready(function($){
 
 
 	// show/hide menus when they click the toggler
-	var menu = $( '.container > nav.main-menu-container' );
+	var menu = $( '.container nav.main-menu-container' );
 	var menu_toggle = menu.find( 'button.menu-toggle' );
-	var menu_ul = $( '.container > nav.main-menu-container > ul' );
+	var menu_ul = $( '.container nav.main-menu-container > ul' );
 
 	// when the menu toggle is clicked
 	menu_toggle.click(function(){

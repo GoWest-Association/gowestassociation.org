@@ -12,7 +12,7 @@
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
-                "width": "",
+                "width": "50",
                 "class": "",
                 "id": ""
             },
@@ -26,13 +26,46 @@
             "default_value": "all",
             "return_format": "value",
             "multiple": 0,
-            "allow_custom": 0,
-            "placeholder": "",
-            "search_placeholder": "",
             "allow_null": 0,
             "allow_in_bindings": 0,
             "ui": 0,
-            "ajax": 0
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0,
+            "allow_custom": 0,
+            "search_placeholder": ""
+        },
+        {
+            "key": "field_68dc8668aaf4d",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "50",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "default": "Default",
+                "hexagons": "Hexagons"
+            },
+            "default_value": "default",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "placeholder": "",
+            "create_options": 0,
+            "save_options": 0,
+            "allow_custom": 0,
+            "search_placeholder": ""
         },
         {
             "key": "field_67d99e959f086",
@@ -147,6 +180,78 @@
                     "parent_repeater": "field_67d99e959f086"
                 },
                 {
+                    "key": "field_67d99f189f08c",
+                    "label": "Color",
+                    "name": "core_color",
+                    "aria-label": "",
+                    "type": "select",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "green": "Green",
+                        "blue": "Blue",
+                        "solutions": "Solutions",
+                        "navy": "Navy",
+                        "vermillion": "Vermillion",
+                        "fulvous": "Fulvous",
+                        "state-az": "State (Arizona)",
+                        "state-co": "State (Colorado)",
+                        "state-id": "State (Idaho)",
+                        "state-or": "State (Oregon)",
+                        "state-wa": "State (Washington)",
+                        "state-wy": "State (Wyoming)"
+                    },
+                    "default_value": "blue",
+                    "return_format": "value",
+                    "multiple": 0,
+                    "allow_null": 0,
+                    "allow_in_bindings": 0,
+                    "ui": 0,
+                    "ajax": 0,
+                    "placeholder": "",
+                    "allow_custom": 0,
+                    "search_placeholder": "",
+                    "create_options": 0,
+                    "save_options": 0,
+                    "parent_repeater": "field_67d99e959f086"
+                },
+                {
+                    "key": "field_68dc8a4a235ce",
+                    "label": "Button Text",
+                    "name": "button_text",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_68dc8668aaf4d",
+                                "operator": "==",
+                                "value": "hexagons"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_67d99e959f086"
+                },
+                {
                     "key": "field_67d99f0a9f08a",
                     "label": "Link",
                     "name": "link",
@@ -189,46 +294,6 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_67d99e959f086"
-                },
-                {
-                    "key": "field_67d99f189f08c",
-                    "label": "Color",
-                    "name": "core_color",
-                    "aria-label": "",
-                    "type": "select",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "50",
-                        "class": "",
-                        "id": ""
-                    },
-                    "choices": {
-                        "green": "Green",
-                        "blue": "Blue",
-                        "solutions": "Solutions",
-                        "navy": "Navy",
-                        "vermillion": "Vermillion",
-                        "fulvous": "Fulvous",
-                        "state-az": "State (Arizona)",
-                        "state-co": "State (Colorado)",
-                        "state-id": "State (Idaho)",
-                        "state-or": "State (Oregon)",
-                        "state-wa": "State (Washington)",
-                        "state-wy": "State (Wyoming)"
-                    },
-                    "default_value": "blue",
-                    "return_format": "value",
-                    "multiple": 0,
-                    "allow_null": 0,
-                    "allow_in_bindings": 0,
-                    "ui": 0,
-                    "ajax": 0,
-                    "placeholder": "",
-                    "allow_custom": 0,
-                    "search_placeholder": "",
-                    "parent_repeater": "field_67d99e959f086"
                 }
             ]
         }
@@ -258,5 +323,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1742317782
+    "modified": 1759283862
 }

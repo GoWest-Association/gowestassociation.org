@@ -63,7 +63,6 @@ header {
 
 		@include respond-to( $bp-m ) {
 			display: flex;
-			max-width: 675px;
 			margin: 0;
 
 			div {
@@ -95,17 +94,35 @@ header {
 		}
 	}
 
+	@include respond-to( $bp-m ) {
+		display: flex;
+		align-items: end;
+
+		.logo {
+			flex: 1 1 50%;
+		}
+
+		.account-tools {
+			flex: 1 1 50%;
+			padding-bottom: 25px;
+		}
+
+		&.no-search {
+			.logo {
+				flex: 1 1 60%;
+			}
+
+			.account-tools {
+				flex: 1 1 40%;
+			}
+		}
+	}
+
 	@include respond-to( $bp-xl ) {
 		padding-bottom: 25px;
 
 		.logo {
 			text-align: left;
-		}
-
-		.account-tools {
-			position: absolute;
-			right: 20px;
-			bottom: 30px;
 		}
 	}
 

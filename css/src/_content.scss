@@ -220,6 +220,10 @@
 	@extend .content-style;
 	@include padding;
 
+	&.pad-no-bottom {
+		@include padding-no-bottom;
+	}
+
 	&.bg-gw {
 		background: url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
 	}
@@ -411,6 +415,26 @@
 
 			&.right {
 				margin-left: 4%;
+			}
+		}
+
+		&.large-right {
+			.column.left {
+				flex-basis: 25%;
+			}
+
+			.column.right {
+				flex-basis: 70%;
+			}
+		}
+
+		&.large-left {
+			.column.left {
+				flex-basis: 70%;
+			}
+
+			.column.right {
+				flex-basis: 25%;
 			}
 		}
 	}

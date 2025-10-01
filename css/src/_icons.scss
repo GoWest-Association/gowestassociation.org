@@ -7,6 +7,34 @@
 	flex-wrap: wrap;
 	margin: 0;
 
+	&.hexagons {
+		background: white url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
+		padding-bottom: 100px;
+		display: block;
+
+		@include respond-to( $bp-s ) {
+			display: flex;
+		}
+
+		.icon {
+			margin-bottom: 40px;
+
+			h3 {
+				margin-top: 0;
+				@include font-bold;
+				font-size: 1em;
+				text-transform: uppercase;
+				border-bottom: 0;
+			}
+
+			button {
+				font-size: .8em;
+				padding: 5px 12px;
+				margin-top: 6px;
+			}
+		}
+	}
+
 	.icon {
 		padding: 0 0 30px 0;
 		display: block;
@@ -19,6 +47,72 @@
 		margin: 0 2% 2% 0;
 		opacity: 1;
 		transition: 400ms all ease-in-out;
+		text-align: center;
+		
+		.hexagon {
+			--b: 4px; /* adjust to control the border  */
+			height: 270px; /* adjust to control the size  */
+			aspect-ratio: cos(30deg);
+			clip-path: 
+			polygon(50% 0,-50% 50%,50% 100%,150% 50%,50% 0,
+			50% var(--b),
+			calc(100% - var(--b)*sin(60deg)) calc(25% + var(--b)*cos(60deg)),
+			calc(100% - var(--b)*sin(60deg)) calc(75% - var(--b)*cos(60deg)),
+			50% calc(100% - var(--b)),
+			calc(var(--b)*sin(60deg)) calc(75% - var(--b)*cos(60deg)),
+			calc(var(--b)*sin(60deg)) calc(25% + var(--b)*cos(60deg)),
+			50% var(--b));
+			background: #888;
+
+			position: relative;
+			left: 50%;
+			margin-left: -120px;
+			margin-bottom: -235px;
+		}
+
+		&.navy .hexagon {
+			background: $navy;
+		}
+
+		&.solutions .hexagon, &.blue .hexagon {
+			background: $blue;
+		}
+
+		&.green .hexagon {
+			background: $green;
+		}
+
+		&.vermillion .hexagon {
+			background: $vermillion;
+		}
+
+		&.fulvous .hexagon {
+			background: $fulvous;
+		}
+
+		&.state-az .hexagon {
+			background: $color-az;
+		}
+
+		&.state-co .hexagon {
+			background: $color-co;
+		}
+
+		&.state-id .hexagon {
+			background: $color-id;
+		}
+
+		&.state-or .hexagon {
+			background: $color-or;
+		}
+
+		&.state-wa .hexagon {
+			background: $color-wa;
+		}
+
+		&.state-wy .hexagon {
+			background: $color-wy;
+		}
 
 		.icon-image {
 			display: flex;
@@ -38,7 +132,6 @@
 			font-size: 1.2em;
 			color: $navy;
 			border-bottom: 2px dotted $grey;
-			display: inline-block;
 		}
 
 		&:hover {

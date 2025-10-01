@@ -16,7 +16,7 @@
 <![endif]-->
 
 <?php wp_head(); ?>
-<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=22" rel="stylesheet" type="text/css">
+<link href="<?php bloginfo( "template_url" ) ?>/css/main.css?v=23" rel="stylesheet" type="text/css">
 
 
 <?php if ( is_foundation() ) { ?>
@@ -46,7 +46,7 @@ gtag('config', 'G-J4GTY9QELN');
 </head>
 <body <?php body_class(); ?>>
 <div class="container <?php print ( isset( $_REQUEST['notemplate'] ) ? 'notemplate' : '' ); ?>">
-<?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
+<?php if ( !isset( $_REQUEST['notemplate'] ) && !has_header_component() ) { ?>
 <?php the_notice_bar(); ?>
 <?php if ( function_exists( 'gowest_association_bar' ) ) { gowest_association_bar(); } ?>
 <!--- header --->
