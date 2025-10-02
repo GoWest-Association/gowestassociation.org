@@ -44,3 +44,181 @@
 	}
 }
 
+
+.stats-container {
+	@include padding;
+	
+	@include respond-to( $bp-m ) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	
+	.stat {
+		display: flex;
+		align-items: center;
+		margin-bottom: 2%;
+
+		@include respond-to( $bp-m ) {
+			flex: 0 0 48%;
+			margin-right: 2%;
+		}
+
+		@include respond-to( $bp-xl ) {
+			flex: 0 0 31.3333%;
+			margin-right: 2%;
+		}
+
+		.stat-number {
+			flex: 0 0 40%;
+			aspect-ratio: 1 / 1;
+			max-width: 200px;
+			border-radius: 50%;
+			background: $grey-light;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			font-weight: bold;
+			font-size: 2.5em;
+			position: relative;
+			z-index: 1;
+
+			span {
+				flex: 1;
+			}
+		}
+
+		.stat-description {
+			flex: 0 0 70%;
+			margin-left: -10%;
+			border: 5px solid $grey-light;
+			padding: 4% 4% 4% 12%;
+			position: relative;
+			z-index: 0;
+			font-size: .9em;
+			line-height: 1.2em;
+		}
+
+		&.blue, &.solutions {
+			.stat-number {
+				background: $blue;
+				color: $navy;
+			}
+
+			.stat-description {
+				border-color: $blue;
+			}
+		}
+
+		&.navy {
+			.stat-number {
+				background: $navy;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $navy;
+			}
+		}
+
+		&.vermillion {
+			.stat-number {
+				background: $vermillion;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $vermillion;
+			}
+		}
+
+		&.green {
+			.stat-number {
+				background: $green;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $green;
+			}
+		}
+
+		&.fulvous {
+			.stat-number {
+				background: $fulvous;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $fulvous;
+			}
+		}
+
+		&.state-az {
+			.stat-number {
+				background: $color-az;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $color-az;
+			}
+		}
+
+		&.state-co {
+			.stat-number {
+				background: $color-co;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $color-co;
+			}
+		}
+
+		&.state-id {
+			.stat-number {
+				background: $color-id;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $color-id;
+			}
+		}
+
+		&.state-or {
+			.stat-number {
+				background: $color-or;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $color-or;
+			}
+		}
+
+		&.state-wa {
+			.stat-number {
+				background: $color-wa;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $color-wa;
+			}
+		}
+
+		&.state-wy {
+			.stat-number {
+				background: $color-wy;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $color-wy;
+			}
+		}
+	}
+}
+
