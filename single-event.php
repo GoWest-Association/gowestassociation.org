@@ -281,6 +281,7 @@ the_page_articles();
 the_link_boxes();
 
 // output the registration button if there's a registration link.
+/*
 if ( has_cmb_value( 'event_registration' ) ) {
 
 	// the event registration bar	
@@ -304,7 +305,7 @@ if ( has_cmb_value( 'event_registration' ) ) {
 	print '</div>';
 
 }
-
+*/
 the_footer_buttons();
 
 get_footer();
