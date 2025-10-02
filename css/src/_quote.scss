@@ -52,9 +52,14 @@
 
     .quote-photo {
         flex: 1 1 100%;
+        text-align: center;
 
         @include respond-to( $bp-m ) {
             flex-basis: 30%;
+        }
+
+        img {
+            max-width: 300px;
         }
     }
 }
