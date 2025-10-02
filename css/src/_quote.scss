@@ -46,7 +46,10 @@
         }
 
         .attribution {
-
+            strong {
+                @include font-title;
+                font-size: 1.4em;
+            }
         }
     }
 
