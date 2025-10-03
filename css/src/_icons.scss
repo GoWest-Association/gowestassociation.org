@@ -101,6 +101,18 @@
 			background: $fulvous;
 		}
 
+		&.sky .hexagon {
+			background: $sky;
+		}
+
+		&.grey-light .hexagon {
+			background: $grey-light;
+		}
+
+		&.grey-dark .hexagon {
+			background: $grey-dark;
+		}
+
 		&.state-az .hexagon {
 			background: $color-az;
 		}

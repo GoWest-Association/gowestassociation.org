@@ -233,6 +233,9 @@
                         "navy": "Navy",
                         "vermillion": "Vermillion",
                         "fulvous": "Fulvous",
+                        "sky": "Sky",
+                        "grey-light": "Grey (Light)",
+                        "grey-dark": "Grey (Dark)",
                         "state-az": "State (Arizona)",
                         "state-co": "State (Colorado)",
                         "state-id": "State (Idaho)",
@@ -248,10 +251,10 @@
                     "ui": 0,
                     "ajax": 0,
                     "placeholder": "",
-                    "allow_custom": 0,
-                    "search_placeholder": "",
                     "create_options": 0,
                     "save_options": 0,
+                    "allow_custom": 0,
+                    "search_placeholder": "",
                     "parent_repeater": "field_67d99e959f086"
                 },
                 {
@@ -356,5 +359,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1759522649
+    "modified": 1759529310
 }

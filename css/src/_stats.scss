@@ -132,6 +132,39 @@
 			}
 		}
 
+		&.sky {
+			.stat-number {
+				background: $sky;
+				color: $navy;
+			}
+
+			.stat-description {
+				border-color: $sky;
+			}
+		}
+
+		&.grey-light {
+			.stat-number {
+				background: $grey-light;
+				color: $grey-dark;
+			}
+
+			.stat-description {
+				border-color: $grey-light;
+			}
+		}
+
+		&.sgrey-dark{
+			.stat-number {
+				background: $grey-dark;
+				color: white;
+			}
+
+			.stat-description {
+				border-color: $grey-dark;
+			}
+		}
+
 		&.green {
 			.stat-number {
 				background: $green;

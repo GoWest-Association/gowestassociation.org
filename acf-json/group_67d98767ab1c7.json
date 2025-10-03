@@ -1906,6 +1906,8 @@
                                         "vermillion": "Vermillion",
                                         "fulvous": "Fulvous",
                                         "sky": "Sky",
+                                        "grey-light": "Grey (Light)",
+                                        "grey-dark": "Grey (Dark)",
                                         "state-az": "State (Arizona)",
                                         "state-co": "State (Colorado)",
                                         "state-id": "State (Idaho)",
@@ -2336,6 +2338,9 @@
                                         "navy": "Navy",
                                         "vermillion": "Vermillion",
                                         "fulvous": "Fulvous",
+                                        "sky": "Sky",
+                                        "grey-light": "Grey (Light)",
+                                        "grey-dark": "Grey (Dark)",
                                         "state-az": "State (Arizona)",
                                         "state-co": "State (Colorado)",
                                         "state-id": "State (Idaho)",
@@ -2439,5 +2444,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1759527028
+    "modified": 1759529283
 }
