@@ -232,6 +232,10 @@
 		background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 	}
 
+	&.bg-grey {
+		background: $grey-light;
+	}
+
 	@include respond-to( $bp-xl ) {
 		padding-top: 40px;
 		padding-bottom: 60px;

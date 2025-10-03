@@ -1,4 +1,8 @@
-<header>
+<?php
+
+$brand = get_sub_field( 'brand_color' );
+
+?><header>
 
 	<div class="logo left">
 		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php the_sub_field( 'logo' ) ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
@@ -10,8 +14,14 @@
 			<?php if ( is_foundation() ) { ?>
 			<a href="/donate" class="btn fulvous">Donate</a>
 			<a href="/friends-of-the-foundation/" class="btn navy">Become a Friend</a>
-			<?php } else { 
-				account_buttons();
+			<?php } else {
+				if ( have_rows( 'account_buttons' ) ) :
+					while ( have_rows( 'account_buttons' ) ) : the_row();
+						print '<a href="' . get_sub_field( 'button_link' ) . '" class="btn ' . get_sub_field( 'button_color' ) . '">' . get_sub_field( 'button_text' ) . '</a> ';
+					endwhile;
+				else :
+					account_buttons();
+				endif;
 			} ?>
 		</div>
 
@@ -37,11 +47,12 @@
         'menu_class' => 'menu', // Optional: add a CSS class to the ul element
     ) );
     print '<div class="aux-buttons">';
-    if ( have_rows( 'buttons' ) ) :
-        while ( have_rows( 'buttons' ) ) : the_row( 'buttons' );
-            $link = get_sub_field( 'link' );
-            $color = get_sub_field( 'color' );
-            print '<a href="' . $link['url'] . '" class="' . $color . '"><span>' . $link['title'] . '</span></a>';
+    if ( have_rows( 'action_buttons' ) ) :
+        while ( have_rows( 'action_buttons' ) ) : the_row();
+			$text = get_sub_field( 'button_text' );
+            $link = get_sub_field( 'button_link' );
+            $color = get_sub_field( 'button_color' );
+            print '<a href="' . $link . '" class="' . $color . '"><span>' . $text . '</span></a>';
         endwhile;
     endif;
     print '</div>';

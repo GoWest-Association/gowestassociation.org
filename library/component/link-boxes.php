@@ -1,8 +1,10 @@
 <?php
 
+$background = get_sub_field( 'background' );
+
 // if it's an array
 if ( have_rows( 'box' ) ) { ?>
-	<div class="link-boxes-container">
+	<div class="link-boxes-container <?php print $background ?>">
 		<div class="link-boxes">
 		<?php while ( have_rows( 'box' ) ) : the_row();
 			$background = get_sub_field( 'background' );

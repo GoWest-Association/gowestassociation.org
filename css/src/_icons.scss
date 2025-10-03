@@ -2,13 +2,24 @@
 
 .icons {
 	@include padding;
-	background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+	background: white;
 	display: flex;
 	flex-wrap: wrap;
 	margin: 0;
 
-	&.hexagons {
+	&.bg-grey {
+		background: $grey-light;
+	}
+
+	&.bg-gw {
 		background: white url(../img/bg-gwlogo.png) right center / cover fixed no-repeat;
+	}
+
+	&.bg-waves {
+		background: $grey-light url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
+	}
+
+	&.hexagons {
 		padding-bottom: 100px;
 		display: block;
 

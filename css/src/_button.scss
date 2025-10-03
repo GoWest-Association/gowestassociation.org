@@ -48,6 +48,11 @@
 		background-color: $blue;
 	}
 
+	&.sky {
+		background-color: $sky;
+		color: $navy;
+	}
+
 	&.orange {
 		background-color: $orange;
 	}
@@ -63,6 +68,11 @@
 	&.grey-light {
 		background-color: $grey-light;
 		color: $grey-dark;	
+	}
+
+	&.grey-dark {
+		background-color: $grey-dark;
+		color: white;	
 	}
 }
 

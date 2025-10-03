@@ -14,20 +14,24 @@ function the_image_boxes() {
 
 		// if it's an array, we'll assume it's got content
 		?>
+    <div class="image-boxes-container">
 		<div class="image-boxes">
 			<?php
 			foreach ( $links as $link ) {
 				if ( !empty( $link['link'] ) && !empty( $link['image'] ) && !empty( $link['title'] ) ) { 
                     $title = str_replace( '|', '<br>', $link['title'] );
 					?>
-			<div data-href="<?php print $link['link']; ?>" class="image-box <?php print $link['color'] ?>" style="background-image: url(<?php print $link['image']; ?>);">
-                <a href="<?php print $link['link']; ?>"><?php print $title; ?></a>
-            </div>
+			<a href="<?php print $link['link']; ?>" 
+                class="image-box <?php print $link['color'] ?>" 
+                style="background-image: url(<?php print $link['image']; ?>);">
+                <span><?php print $title; ?></span>
+            </a>
 					<?php
 				} 
 			}
 			?>
 		</div>
+    </div>
 		<?php
 		}
 	}

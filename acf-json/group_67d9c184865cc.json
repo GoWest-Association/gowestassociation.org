@@ -3,6 +3,39 @@
     "title": "Component: Link Boxes",
     "fields": [
         {
+            "key": "field_68e02ff4cabb3",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "bg-gw": "GoWest Logo",
+                "bg-waves": "Green Waves",
+                "bg-grey": "Grey",
+                "bg-white": "White"
+            },
+            "default_value": "bg-white",
+            "return_format": "value",
+            "multiple": 0,
+            "allow_custom": 0,
+            "placeholder": "",
+            "search_placeholder": "",
+            "allow_null": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ajax": 0,
+            "create_options": 0,
+            "save_options": 0
+        },
+        {
             "key": "field_67d9c184261ef",
             "label": "Box",
             "name": "box",
@@ -164,5 +197,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1742324649
+    "modified": 1759522984
 }
