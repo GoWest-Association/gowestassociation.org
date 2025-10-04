@@ -1,11 +1,12 @@
 <?php
 
+$logo_link = get_sub_field( 'logo_link' );
 $brand = get_sub_field( 'brand_color' );
 
 ?><header>
 
 	<div class="logo left">
-		<a href="/" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php the_sub_field( 'logo' ) ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
+		<a href="<?php print ( !empty( $logo_link ) ? $logo_link : '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php the_sub_field( 'logo' ) ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
 	</div>
 
 	<div class="account-tools">
