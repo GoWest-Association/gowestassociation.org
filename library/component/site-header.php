@@ -3,7 +3,9 @@
 $logo_link = get_sub_field( 'logo_link' );
 $brand = get_sub_field( 'brand_color' );
 
-?><header>
+?>
+<!--- header --->
+<header>
 
 	<div class="logo left">
 		<a href="<?php print ( !empty( $logo_link ) ? $logo_link : '/' ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><img src="<?php the_sub_field( 'logo' ) ?>" alt="<?php bloginfo( 'name' ); ?>"></a>
@@ -59,3 +61,4 @@ $brand = get_sub_field( 'brand_color' );
     print '</div>';
 	?>
 </nav>
+<!--- /header --->
