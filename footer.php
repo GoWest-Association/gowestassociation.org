@@ -19,7 +19,7 @@ if ( function_exists( 'gowest_association_lightbox' ) ) {
 	
 	</section>
 	
-	<?php if ( !isset( $_REQUEST['notemplate'] ) ) { ?>
+	<?php if ( !isset( $_REQUEST['notemplate'] ) && !has_footer_component() ) { ?>
 	<!--- footer --->
 	<footer class="footer">
 		<div class="footer-inner">

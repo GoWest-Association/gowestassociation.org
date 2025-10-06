@@ -7,14 +7,14 @@
 	transition: height 300ms ease-in-out;
 	background: #eee;
 	z-index: 0;
-	border-top: 10px solid $grey-light;
+	// border-top: 10px solid $grey-light;
 	border-bottom: 5px solid $grey-light;
-	height: 500px;
+	height: 490px;
 
 	body.page-template-page-components & {
 		border-top: 0;
 		border-bottom: 0;
-		height: 484px;
+		height: 474px;
 	}
 
 	.slide {

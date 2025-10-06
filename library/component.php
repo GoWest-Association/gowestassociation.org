@@ -59,3 +59,15 @@ function has_header_component() {
     return $result;
 }
 
+
+// loop through the components and check if we have a site header component
+function has_footer_component() {
+    $result = false;
+    if( have_rows('components') ) :
+        while ( have_rows('components') ) : the_row();
+            if ( get_row_layout() === 'site-footer' ) $result = true;
+        endwhile;
+    endif;
+    return $result;
+}
+
