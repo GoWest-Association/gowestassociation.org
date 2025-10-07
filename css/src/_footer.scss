@@ -6,6 +6,10 @@ footer {
 	background: $navy url(../img/bg-waves-green.png) center center / cover fixed no-repeat;
 	color: white;
 	line-height: 1.5em;
+
+	&.navy {
+		background: $navy;
+	}
 	
 	.phone {
 		@include font-bold;

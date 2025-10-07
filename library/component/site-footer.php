@@ -1,11 +1,12 @@
 <?php
 
+$theme = get_sub_field( 'theme' );
 $links_menu = get_sub_field( 'nav-menu' );
 $content = get_sub_field( 'content' );
 
 ?>
     <!--- footer --->
-	<footer class="footer">
+	<footer class="footer <?php print $theme; ?>">
 		<div class="footer-inner">
 		
 			<p class="phone">
