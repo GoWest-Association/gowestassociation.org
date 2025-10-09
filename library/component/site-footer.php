@@ -20,7 +20,7 @@ $content = get_sub_field( 'content' );
 				<div class="column address">
 					<?php print get_snippet( 'footer-address-two' ); ?>
 					<div class="social">
-						<?php print get_snippet( 'footer-social' ) ?>
+						<?php print get_snippet( 'footer-social', false ) ?>
 					</div>
 				</div>
 				<div class="column menu">

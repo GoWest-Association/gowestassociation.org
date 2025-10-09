@@ -41,11 +41,12 @@ footer {
 
 			.social {
 				padding: 10px 0;
-				max-width: 350px;
-				margin-right: -2%;
+				display: flex;
+				max-width: 400px;
 
-				img {
-					max-width: 23%;
+				a {
+					display: inline;
+					flex: 1;
 					margin-right: 2%;
 				}
 			}
