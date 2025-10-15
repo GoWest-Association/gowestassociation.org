@@ -168,6 +168,28 @@
                     "prepend": "",
                     "append": "",
                     "parent_repeater": "field_67d9c184261ef"
+                },
+                {
+                    "key": "field_68efc685023f8",
+                    "label": "Class",
+                    "name": "class",
+                    "aria-label": "",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "maxlength": "",
+                    "allow_in_bindings": 0,
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "parent_repeater": "field_67d9c184261ef"
                 }
             ]
         }
@@ -197,5 +219,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1759522984
+    "modified": 1760544404
 }

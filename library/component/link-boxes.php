@@ -10,9 +10,10 @@ if ( have_rows( 'box' ) ) { ?>
 			$background = get_sub_field( 'background' );
 			$text = get_sub_field( 'text' );
 			$link = get_sub_field( 'link' );
+			$class = get_sub_field( 'class' );
 			if ( !empty( $background ) && !empty( $text ) && !empty( $link ) ) : ?>
             <div class="link-box" style="background-image: url(<?php print $background; ?>);">
-                <a href="<?php print $link; ?>"><?php print $text; ?></a>
+                <a href="<?php print $link; ?>" class="<?php print $class ?>"><?php print $text; ?></a>
             </div><?php
 			endif;
 		endwhile; ?>
