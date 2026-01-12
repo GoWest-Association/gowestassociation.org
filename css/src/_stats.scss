@@ -45,7 +45,7 @@
 }
 
 
-.stats-container {
+.stats-container.new {
 	@include padding;
 	
 	@include respond-to( $bp-m ) {

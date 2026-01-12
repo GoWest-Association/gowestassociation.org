@@ -2,7 +2,7 @@
 
 if ( have_rows( 'point' ) ) :
     ?>
-<div class="stats-container">
+<div class="stats-container new">
     <?php 
     while ( have_rows( 'point' ) ) : the_row();
         ?>
