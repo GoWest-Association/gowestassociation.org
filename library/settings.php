@@ -58,6 +58,21 @@ function is_foundation() {
 }
 
 
+function is_association() {
+
+    $response = false;
+
+    // if we're on the foundation site
+    $site = ( isset( $_SERVER['HTTP_HOST'] ) ? $_SERVER['HTTP_HOST'] : '' );
+    if ( stristr( $site, 'association' ) ) {
+        $response = true;
+    }
+
+    // otherwise, return false
+    return $response;
+}
+
+
 function is_solutions() {
     global $is_solutions;
 
