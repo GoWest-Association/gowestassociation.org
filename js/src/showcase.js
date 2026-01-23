@@ -69,26 +69,29 @@ jQuery(document).ready(function($){
 
 
 			// on click handler
-			showcase.find( '.slide.has-link' ).on( 'click', function(){
+			showcase.find( '.slide.has-link' ).on( 'click', function(e){
+				e.stopPropagation();
+				var slide = $(this);
+				if ( !$(e.target).hasClass('btn') ) {
+					var href = slide.data('href');
 
-				var href = $(this).data('href');
+					if ( href.length > 0 ) {
 
-				if ( href.length > 0 ) {
+						if ( $(window).width() < 768 ) {
 
-					if ( $(window).width() < 768 ) {
-
-						window.open( href, '_blank' );
-			
-					} else {
-
-						if ( !$(this).hasClass( 'lightbox-video' ) ) {
-
-							location.href = href;
-
-						}
-						
-					}
+							window.open( href, '_blank' );
 				
+						} else {
+
+							if ( !slide.hasClass( 'lightbox-video' ) ) {
+
+								location.href = href;
+
+							}
+							
+						}
+					
+					}
 				}
 			});
 
