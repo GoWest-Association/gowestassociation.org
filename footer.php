@@ -79,7 +79,6 @@ if ( function_exists( 'gowest_association_lightbox' ) ) {
 }
 ?>
 
-
 </div><!-- #container -->
 
 <script type="text/javascript">
