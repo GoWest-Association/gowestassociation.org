@@ -3,6 +3,7 @@
 $title = get_sub_field( 'title' );
 $widths = get_sub_field( 'widths' );
 $columns = get_sub_field( 'columns' );
+$title_style = get_sub_field( 'title_style' );
 
 if ( have_rows( 'row' ) ) :
     ?>
@@ -11,7 +12,7 @@ if ( have_rows( 'row' ) ) :
     <?php
     if ( !empty( $title ) ) {
         ?>
-            <tr>
+            <tr class="<?php print $title_style ?>">
                 <th colspan="<?php print $columns ?>"><?php print $title; ?></th>
             </tr>
         <?php
@@ -24,8 +25,9 @@ if ( have_rows( 'row' ) ) :
     endforeach;
 
     while ( have_rows( 'row' ) ) : the_row();
+        $style = get_sub_field( 'style' );
         ?>
-            <tr>
+            <tr class="<?php print $style; ?>">
                 <td class="label"<?php print $widths['one'] ?>><?php the_sub_field( 'label' ); ?></td>
                 <td<?php print $widths['two'] ?>><?php the_sub_field( 'two' ); ?></td>
                 <?php if ( $columns >= 3 ) : ?><td<?php print $widths['three'] ?>><?php the_sub_field( 'three' ); ?></td><?php endif; ?>
