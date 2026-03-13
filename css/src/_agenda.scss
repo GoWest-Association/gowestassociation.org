@@ -217,10 +217,12 @@
 		}
 
 		@include respond-to( $bp-l ) {
+			flex-wrap: nowrap;
+
 			&.agenda-heading {
 				display: flex;
 			}
-			
+
 			.time {
 				flex-basis: 30%;
 			}
