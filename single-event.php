@@ -246,9 +246,10 @@ the_testimonials();
 					foreach ( $people as $person ) {
 						$person_info = get_post( $person );
 						$person_thumbnail = get_the_post_thumbnail_url( $person_info );
+						$person_org = get_post_meta( $person, '_p_person_organization', 1 );
 						$people_content .= '<div class="person">' . 
 							( !empty( $person_thumbnail ) ? '<div class="person-thumbnail"><a href="' . get_the_permalink( $person_info ) . ( isset( $_REQUEST['notemplate'] ) ? '?notemplate' : '' ) . '"><img src="' . get_the_post_thumbnail_url( $person_info ) . '" class="person-thumbnail" /></a></div>' : '' ) .
-							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . ( isset( $_REQUEST['notemplate'] ) ? '?notemplate' : '' ) . '">' . $person_info->post_title . '</a></strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . '</div>' .
+							'<div class="person-info"><strong><a href="' . get_the_permalink( $person_info ) . ( isset( $_REQUEST['notemplate'] ) ? '?notemplate' : '' ) . '">' . $person_info->post_title . '</a></strong><br>' . get_post_meta( $person, '_p_person_title', 1 ) . ( !empty( $person_org ) ? '<br>' . $person_org : '' ) . '</div>' .
 						'</div>';
 					}
 					print '<hr><h4>Speakers</h4><div class="event-people">' . $people_content . '</div>';

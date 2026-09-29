@@ -645,9 +645,10 @@ function show_month_events( $month, $year, $category = 'all' ) {
 	// set up the events base url
 	$event_base_url = "/events/";
 
+	/*
 	// get the cache
 	$month_cache = get_month_cache( $month, $year, $category );
-
+	
 	// if we have cached the month code
 	if ( $month_cache && !isset( $_REQUEST['fresh'] ) ) {
 		
@@ -655,7 +656,7 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		print $month_cache;
 
 	} else {
-	
+	*/
 		// get the cache filename
 		$event_cache_file = get_month_cache_filename( $month, $year, $category );
 
@@ -797,15 +798,16 @@ function show_month_events( $month, $year, $category = 'all' ) {
 		// add an empty div to populate event list into (for use on mobile).
 		$calendar .= '<div class="calendar-event-list"><div class="calendar-event-list-title"><h4>Upcoming Events</h4></div><a class="clear-filter">Show All</a>' . $events_list . '</div></div>';
 		
+		
 		// create the cache file, erring if we can't
-		if ( !file_put_contents( $event_cache_file, $calendar ) ) {
-			print 'Error writing cache file.';
-		}
+		// if ( !file_put_contents( $event_cache_file, $calendar ) ) {
+		//	print 'Error writing cache file.';
+		//}
 
 		/* all done, return result */
 		print $calendar;
 
-	}
+	//}
 
 }
 

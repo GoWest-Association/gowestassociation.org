@@ -87,9 +87,101 @@
 		width: 100%;
 
 		tr {
+			&.navy {
+				td.label, td, th {
+					background: $navy;
+					color: white;
+				}
+			}
+
+			&.navy-light {
+				td.label, td, th {
+					background: $navy-light;
+					color: white;
+				}
+			}
+
+			&.navy-lighter {
+				td.label, td, th {
+					background: $navy-lighter;
+					color: white;
+				}
+			}
+
+			&.navy-lightest {
+				td.label, td, th {
+					background: $navy-lightest;
+					color: white;
+				}
+			}
+
+			&.orange {
+				td.label, td, th {
+					background: $orange;
+					color: white;
+				}
+			}
+
+			&.blue {
+				td.label, td, th {
+					background: $blue;
+					color: white;
+				}
+			}
+
+			&.sky {
+				td.label, td, th {
+					background: $sky;
+					color: $navy;
+				}
+			}
+
+			&.vermillion {
+				td.label, td, th {
+					background: $vermillion;
+					color: white;
+				}
+			}
+
+			&.vermillion-light {
+				td.label, td, th {
+					background: $vermillion-light;
+					color: white;
+				}
+			}
+
+			&.vermillion-lighter {
+				td.label, td, th {
+					background: $vermillion-lighter;
+					color: white;
+				}
+			}
+
+			&.fulvous {
+				td.label, td, th {
+					background: $fulvous;
+					color: white;
+				}
+			}
+
+			&.grey {
+				td.label, td, th {
+					background: $grey;
+					color: #111;
+				}
+			}
+
+			&.grey-dark {
+				td.label, td, th {
+					background: $grey-dark;
+					color: white;
+				}
+			}
+
 			td {
 				vertical-align: top;
 				padding: 10px 12px;
+
 			}
 		}
 	}
